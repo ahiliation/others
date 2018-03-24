@@ -1,0 +1,129 @@
+
+-- O(N) shows how the size of the data effects the algorithm's performance.
+In what way is size of data proportional to algorithm's performance 
+In other way it shows how N changes with every new element in the array -- 
+
+-- i think so ( a for loop can be an algorithm , a while loop can be an algorithm ) -- 
+
+-- Order of growth characterizes the shape of the growth curve, not its slope. 
+That is, order of growth is one level removed from notions of efficiency. 
+More on this later. Growth can be in terms of speed or space, but unless 
+people say space, they almost always mean speed. --
+
+
+-- Common Orders of Growth --
+
+O(1) is the no-growth curve. An O(1) algorithm's performance is conceptually 
+independent of the size of the data set on which it operates. Array element 
+access is O(1), if you ignore implementation details like virtual memory and 
+page faults. Ignoring the data set entirely and returning undef is also O(1), 
+though this is rarely useful.
+
+O(N) says that the algorithm's performance is directly proportional to 
+the size of the data set being processed. Scanning an array or linked 
+list takes O(N) time. Probing an array is still O(N), even if statistically
+you only have to scan half the array to find a value. Because computer 
+scientists are only interested in the shape of the growth curve at this 
+level, when you see O(2N) or O(10 + 5N), someone is blending implementation 
+details into the conceptual ones.
+
+Depending on the algorithm used, searching a hash is O(N) in the worst 
+case. Insertion is also O(N) in the worst case, but considerably more 
+efficient in the general case.
+
+O(N+M) is just a way of saying that two data sets are involved, and 
+that their combined size determines performance.
+
+O(N2) says that the algorithm's performance is proportional to the 
+square of the data set size. This happens when the algorithm processes 
+each element of a set, and that processing requires another pass through
+the set. The infamous Bubble Sort is O(N2).
+
+O(N*M) indicates that two data sets are involved, and the processing of
+each element of one involves processing the second set. If the two set 
+sizes are roughly equivalent,some people get sloppy and say O(N2) instead.
+While technically incorrect, O(N2) still conveys useful information.
+
+
+O(N3) and beyond are what you would expect. Lots of inner loops.
+
+O(2N) means you have an algorithm with exponential time (or space, 
+if someone says space) behavior. In the 2 case, time or space double
+for each new element in data set. There's also O(10N), etc. 
+
+O(log N) and O(N log N) might seem a bit scary, but they're really not.
+These generally mean that the algorithm deals with a data set that is 
+iteratively partitioned, like a balanced binary tree. (Unbalanced binary
+trees are O(N2) to build, and O(N) to probe.) Generally, but not always, 
+log N implies log2N, which means, roughly, the number of times you can 
+partition a set in half, then partition the halves, and so on, while still
+having non-empty sets. Think powers of 2, but worked backwards.
+
+2^10 = 1024
+
+log21024 = 10
+The key thing to note is that log2N grows slowly. Doubling N has a 
+relatively small effect. Logarithmic curves flatten out nicely.It 
+takes O(log N) time to probe a balanced binary tree, but building 
+the tree is more expensive. If you're going to be probing a data 
+set a lot, it pays to take the hit on construction to get fast 
+probe time.
+
+Quite often, when an algorithm's growth rate is characterized by 
+some mix of orders, the dominant order is shown, and the rest are 
+dropped. O(N2) might really mean O(N2 + N).
+
+Scalability and Efficiency
+
+An O(1) algorithm scales better than an O(log N) algorithm,
+which scales better than an O(N) algorithm,
+which scales better than an O(N log N) algorithm,
+which scales better than an O(N2) algorithm,
+which scales better than an O(2N) algorithm.
+
+This pops right out when you look at a graph of their growth curves.
+
+But scalability isn't efficiency. A well-coded, O(N2) algorithm can 
+outperform a sloppily-coded O(N log N) algorithm, but only for a while. 
+At some point their performance curves will cross. Hopefully, this 
+happens before your code goes into production with a customer who is 
+using a lot more data than you tested with.
+
+
+Once you have a characterization of your algorithm, which might involve 
+a mixture of the orders shown above, you're in a position to start 
+plugging in numbers to predict how the algorithm will scale in your 
+environment, on your hardware, with your data. Keep in mind that algorithms
+might have a characteristic, constant startup overhead, and a per-step
+overhead. So you need to move from
+
+      O(N log N)
+to
+      k1 + k2(N log N)
+
+and then determine values for the constants by taking some samples an doing 
+some math. This is left as an exercise for the motivated reader.
+
+Common Pitfalls
+
+By far, the most common pitfall when dealing with algorithmic complexity is 
+the naive belief (or blind hope) that the algorithm that was used successfully
+on a small project is going to scale to deal with 10x or 100x the data.
+
+The inverse of this problem is not leaving "good enough" alone. In a given
+situation, an O(N2) algorithm will often work just fine. Giving into the 
+temptation to switch to a more complex O(N log N) algorithm can needlessly 
+complicate your code. And there's an opportunity cost: the time you spent 
+switching to a "better" algorithm might better have been applied elsewhere.
+
+A more subtle pitfall is when you've hung on to incomplete knowledge, 
+inadvertently limiting your available choices. If you ask for a show 
+of hands for who thinks Quicksort (which is O(N log N) is the fastest 
+sort, you'll see a lot of arms go up. Refer these people to Knuth's Art
+of Computer Programming, volume 3: Sorting and Searching, where they'll 
+find that Radix sort takes O(N) time (but requires O(N) space, and places
+constraints on keys). Spending some time with a good Algorithms book can 
+expand your options.
+
+
+

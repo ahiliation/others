@@ -1,0 +1,41 @@
+$which glxgears
+/usr/bin/glxgears
+$rm /usr/bin/glxgears 
+rm: remove write-protected regular file ‘/usr/bin/glxgears’? y
+rm: cannot remove ‘/usr/bin/glxgears’: Permission denied
+$sudo rm /usr/bin/glxgears 
+[sudo] password for jeffrin: 
+$ps aux | grep glxgears
+jeffrin   2469  4.4  0.6 157656 20888 pts/0    Sl+  22:43   0:07 glxgears
+jeffrin   2515  0.0  0.0  12656  1560 pts/1    S+   22:46   0:00 grep glxgears
+$sudo cat /proc/246
+2466/ 2467/ 2469/ 
+$sudo cat /proc/2469/exe > /usr/bin/glxgears
+bash: /usr/bin/glxgears: Permission denied
+$sudo cat /proc/2469/exe > /usr/bin/glxgears
+bash: /usr/bin/glxgears: Permission denied
+$su
+Password: 
+root>cat /proc/2469/exe > /usr/bin/glxgears
+root>exit
+$/usr/bin/glx
+glxdemo   glxheads  glxinfo   
+$ls -l /usr/bin/glxgears 
+-rw-r--r-- 1 root root 23088 May 13 22:47 /usr/bin/glxgears
+$ls -l /usr/bin/gl
+glib-compile-resources  glib-genmarshal         glib-mkenums            glxdemo                 glxheads
+glib-compile-schemas    glib-gettextize         glilypond               glxgears                glxinfo
+$ls -l /usr/bin/glxdemo 
+-rwxr-xr-x 1 root root 10376 Jul  8  2014 /usr/bin/glxdemo
+$ls -l /usr/bin/glxgears 
+-rw-r--r-- 1 root root 23088 May 13 22:47 /usr/bin/glxgears
+$sudo chmod +x /usr/bin/glxgears 
+$ls -l /usr/bin/glxgears 
+-rwxr-xr-x 1 root root 23088 May 13 22:47 /usr/bin/glxgears
+$/usr/bin/glxgears 
+Running synchronized to the vertical refresh.  The framerate should be
+approximately the same as the monitor refresh rate.
+379 frames in 5.0 seconds = 75.789 FPS
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":0"
+      after 1627 requests (1627 known processed) with 0 events remaining.
+$

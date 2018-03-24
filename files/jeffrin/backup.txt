@@ -1,0 +1,36 @@
+using google drive to backup for beautifulwork.org
+--------------------------------------------------
+
+A good alternative might be drive which is written in go and has quite a lot features.
+
+To install follow these instructions:
+
+Install needed packages
+
+sudo apt-get install golang git mercurial
+Create a path for go packages in your home directory
+
+mkdir $HOME/go $HOME/go/bin
+Add these paths to the appropriate environment variables by editing the file .profile in your home directory. So add these lines at the and of that file:
+
+if [ -d "$HOME/go" ] ; then
+    export GOPATH="$HOME/go"
+    fi
+
+if [ -d "$HOME/go/bin" ] ; then
+    PATH="$HOME/go/bin:$PATH"
+    fi
+    Log off and log on to let the changes take effect.
+
+Download and install drive from latest source
+
+go get -u github.com/odeke-em/drive/cmd/drive
+Read https://github.com/odeke-em/drive/#usage
+
+Basic usage:
+
+drive init <folder> initializes <folder> for syncing with your Google Drive.
+If yo do drive pull in your initialized folder, it will download all changes from Google Drive. At the first time maybe you have to do this more times to download everything.
+drive push uploads local changes.
+drive pull <fileOrPath> or drive push <fileOrPath> does the corresponding action only for <fileOrPath>.
+There are many more options to use, so read the manual.

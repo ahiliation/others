@@ -1,0 +1,158 @@
+PATH=/usr/local/bin:/usr/bin:/bin
+MAILDIR=$HOME/Mail      
+#DEFAULT=$MAILDIR/INBOX
+#LOGFILE=$MAILDIR/from
+
+:0:
+* ^.*debian-user@lists.debian.org
+debian-user
+
+:0:
+* ^.*linux-kernel@vger.kernel.org
+linux-kernel
+
+:0:
+* ^.*netdev@vger.kernel.org
+linux-netdev
+
+:0:
+* ^.*@bugs.debian.org
+debian-bugs
+
+:0:
+* ^.*savannah-register-public@gnu.org
+savannah-register
+
+:0:
+* ^.*savannah-hackers-public@gnu.org
+savannah-hackers
+
+
+:0:
+* ^.*linux-usb@vger.kernel.org
+linux-usb
+
+:0:
+* ^.*linux-ext4@vger.kernel.org
+linux-ext4
+
+:0:
+* ^.*linux-fsdevel@vger.kernel.org
+linux-fsdevel
+
+:0:
+* ^.*debian-kernel@lists.debian.org
+debian-kernel
+
+:0:
+* ^.*cairo@cairographics.org
+cairo-graphics
+
+:0:
+* ^.*php-general@lists.php.net
+php-general
+
+:0:
+* ^.*beginners@perl.org
+beginners-perl
+
+:0:
+* ^.*linux-ide@vger.kernel.org
+linux-ide
+
+:0:
+* ^.*gnu-prog-discuss@gnu.org
+gnu-prog-discuss
+
+:0:
+* ^.*alsa-devel@vger.kernel.org
+alsa-devel
+
+:0:
+* ^.*gnome-infrastructure@gnome.org
+gnome-infrastructure
+
+:0:
+* ^.*debian-announce@lists.debian.org
+debian-announce
+
+:0:
+* ^.*int-area@ietf.org
+internet-area
+
+:0:
+* ^.*linux-security-module@vger.kernel.org
+linux-security-module
+
+:0:
+* ^.*bug-inetutils@gnu.org
+bug-inetutils
+
+:0:
+* ^.*debian-boot@lists.debian.org
+debian-boot
+
+:0:
+* ^.*debian-devel@lists.debian.org
+debian-devel
+
+:0:
+* ^.*debian-mentors@lists.debian.org
+debian-mentors
+
+:0:
+* ^.*libreplanet-discuss@libreplanet.org
+libreplanet-discuss
+
+
+:0:
+* ^.*bug-dap@gnu.org
+bug-dap
+
+:0:
+* ^.*dev@ant.apache.org
+dev-ant
+
+:0:
+* ^.*autotest-kernel@redhat.com
+autotest-kernel
+
+:0:
+* ^.*desktop-testing-list@gnome.org
+desktop-testing
+
+:0:
+* ^.*debian-jobs@lists.debian.org
+debian-jobs
+
+:0:
+* ^.*guix-devel@gnu.org
+guix-devel
+
+:0:
+* ^.*user@ant.apache.org
+user-ant
+
+:0:
+* ^.*log4php-dev@logging.apache.org
+log4php-dev
+
+:0:
+* ^.*core-mentorship@python.org
+core-mentorship
+
+
+
+
+
+
+
+
+
+
+
+
+:0
+* ^Subject:.*Flame
+/dev/null
+

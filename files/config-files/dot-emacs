@@ -1,0 +1,7 @@
+(setq-default fill-column 57)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-to-list 'load-path "~/.emacs.d/")
+;; (require 'color-theme-tomorrow)
+(require 'rippedcasts-theme)
+;; (require 'tomorrow-night-paradise-theme)
+ 

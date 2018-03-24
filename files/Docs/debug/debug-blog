@@ -1,0 +1,18 @@
+1. use debugger to get control out of a while loop.
+done by setting value to a variable using gdb
+
+2. call a GNU C Library function from gdb
+done by calling [ strlen("hello") ] and it gave output 5 related
+which is correct.
+
+/* trying to know the working of a binary tree using gdb debug */
+
+1.try to select a variable and try to "watch" it all through the program 
+(if possible try to select a variable that is active all through the program )
+2. again try selecting another variable and "watch" it all through the program )
+
+/* dairy */
+Tue Sep 24 22:59:14 IST 2013 : debugged btree-c.c using root(variable) as watchpoint
+insert function was examined, but not fully done. 
+
+

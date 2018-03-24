@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html
+xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US"><head
+profile="http://gmpg.org/xfn/11"><meta
+http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title> xargs: How To Control and Use Command Line Arguments</title><link
+rel="stylesheet" href="http://s0.cyberciti.org/assets/faq/mini_layout_v03.css" type="text/css" media="screen, projection" /> <!--[if lte IE 8]><link
+rel="stylesheet" href="http://s0.cyberciti.org/assets/faq/mini_ie_v03.css" type="text/css" media="screen, projection" /><![endif]--><link
+rel="canonical" href="http://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/" /><link
+rel="alternate" type="application/rss+xml" title="Frequently Asked Questions About Linux / UNIX RSS Feed" href="http://www.cyberciti.biz/faq/feed/" /><link
+rel="pingback" href="http://control.cyberciti.biz/faq/xmlrpc.php" /><link
+rel="EditURI" type="application/rsd+xml" title="RSD" href="http://control.cyberciti.biz/faq/xmlrpc.php?rsd" /><link
+rel="alternate" type="application/rss+xml" title="Frequently Asked Questions About Linux / UNIX &raquo; xargs: How To Control and Use Command Line Arguments Comments Feed" href="http://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/feed/" /><meta
+name="description" content="Explains how to use UNIX / Linux / BSD xargs command with plenty of examples. You will learn about controlling and using command line arguments for other UNIX / Linux commands. " /><meta
+name="keywords" content="xargs command, command line args, mv command, command line arguments, initial arguments, default argument, echo command, blank spaces, files directory, newlines" /><link
+rel="shortcut icon" href="http://s0.cyberciti.org/static/legacy/i/favicon.ico"><meta
+name="robots" content="noarchive" /> <script type='text/javascript'>/*<![CDATA[*/(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();/*]]>*/</script> <script type='text/javascript'>googletag.defineSlot('/1010897/IDGT_OSSBLOG_300x250', [300, 250], 'div-gpt-ad-1338629990428-0').addService(googletag.pubads());
+googletag.defineSlot('/1010897/IDGT_OSSBLOG_300x250_Below_Fold', [300, 250], 'div-gpt-ad-1338629990428-1').addService(googletag.pubads());
+googletag.defineSlot('/1010897/IDGT_OSSBLOG_300x250_Below_Fold_Two', [300, 250], 'div-gpt-ad-1338629990428-2').addService(googletag.pubads());
+googletag.defineSlot('/1010897/IDGT_OSSBLOG_728x90', [728, 90], 'div-gpt-ad-1338629990428-4').addService(googletag.pubads());
+googletag.defineSlot('/1010897/IDGT_OSSBLOG_300x600', [300, 600], 'div-gpt-ad-1340123982871-0').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.pubads().enableSingleRequest();
+googletag.pubads().collapseEmptyDivs();
+googletag.enableServices();</script> <!--
+	generated 175 seconds ago
+	generated in 0.234 seconds
+	served from batcache in 0.003 seconds
+	expires in 725 seconds
+-->
+</head><body
+class="custom"><div
+id="container"><div
+id="page"><ul
+class="menu"><li
+class="tab tab-home"><a
+href="http://www.cyberciti.biz/faq">FAQ Home</a></li><li><a
+href="http://www.cyberciti.biz/tips/about-us" title="About us">About</a></li><li><a
+href="http://www.cyberciti.biz/" title="Blog">Blog</a></li><li><a
+href="http://nixcraft.com/" title="Linux / UNIX Tech Support Forum">Forum</a></li><li><a
+href="http://www.cyberciti.biz/low.html?utm_source=graphicsversion&amp;utm_campaign=faq&amp;utm_medium=link" title="See site in low graphics bandwidth friendly mode">Low graphics</a></li><li><a
+href="http://bash.cyberciti.biz/" title="Linux/UNIX Shell scripts">Shell Scripts</a></li><li
+class="rss"><a
+href="http://www.cyberciti.biz/faq/feed/" title="Frequently Asked Questions About Linux / UNIX RSS Feed">Subscribe</a></li></ul><div
+id="header"><div
+id="leaderboard"><div
+id="lbtop"><div
+id='div-gpt-ad-1338629990428-4'><script type='text/javascript'>googletag.display('div-gpt-ad-1338629990428-4');</script></div></div></div><div
+id="crumbslogo"><a
+href="/faq/">Linux FAQ / Howtos</a></div></div><div
+id="content_box"><div
+id="content" class="hfeed"><div
+class="post-3309 post type-post status-publish format-standard hentry category-bash-shell category-centos category-debian-ubuntu category-file-system category-freebsd category-ksh-shell category-openbsd category-redhat-and-friends category-solaris-unix category-ubuntu-linux category-unix tag-blank-lines tag-blank-spaces tag-command-line-args tag-command-line-arguments tag-default-argument tag-echo-command tag-file-names tag-files-directory tag-initial-arguments tag-mv-command tag-newlines tag-pipes tag-shell tag-xargs tag-xargs-command post_box top" id="post-3309"><div
+class="headline_area"><h1 class="entry-title">xargs: How To Control and Use Command Line Arguments</h1><p
+class="headline_meta">by <span
+class="author vcard"><a
+href="http://www.cyberciti.biz/tips/about-us" rel="author" class="url fn">Vivek Gite</a></span> on <abbr
+class="published" title="2009-02-17">February 17, 2009</abbr> &middot; <span><a
+href="http://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/#comments" rel="nofollow">41 comments</a></span>&middot; last updated at <span><abbr
+class="updated" title="2010-09-02">September 2, 2010</abbr><span></p></div><div
+class="format_text entry-content"><div
+style='float:right;margin-top:0px;margin-left:5px;'><a
+href='http://www.cyberciti.biz/faq/category/bash-shell/' title='See all Bash/Shell scripting related FAQ'><img
+src='http://files.cyberciti.biz/cbzcache/3rdparty/terminal.png' border='0' /></a></div><p><span
+class="drop_cap">I</span> am trying to use xargs command using shell pipes and not able to understand how to control and use command line arguments. For example I'd like to find out all *.c file located in 100s of sub-directories and move them to another directory called ~/old.src. How do I use command line args with xargs to achieve the same?<br
+/> <span
+id="more-3309"></span><br
+/> xargs command is designed to construct argument lists and invoke other utility.   xargs reads items from the standard input or pipes, delimited by blanks or newlines, and executes the command one or more times with any initial-arguments followed by items read from standard input.  Blank lines on the standard input are ignored.</p><h2>xargs is more <span
+style='color: rgb(102, 102, 204);'>safer and easy</span> to use</h2><p>xargs functionality can be achived using the backquote feature of shell. But, it offers more options. It can deal with blanks or special characters in file names easily. It is often used with find, grep and other commands.</p><h2>xargs examples</h2><p>For example following example will print 1 2 3 4 using xargs (echo command is default)<br
+/> <code>$ echo 1 2 3 4 | xargs echo</code><br
+/> OR<br
+/> <code>$ echo 1 2 3 4 | xargs </code><br
+/> You can force xargs to use  at  most  max-args arguments per command line. For example following will use first two argument per command:<br
+/> <code>$ echo 1 2 3 4 | xargs  -n 2</code><br
+/> Find all .bak  files  in or below the current directory and delete them.<br
+/> <code>$ find . -name "*.bak" -type f -print | xargs /bin/rm -f</code></p><h2><span
+style='color: rgb(153, 51, 153);'>{} as the argument list marker</span></h2><p>{} is the default argument list marker. You need to use {} this with various command which take more than two arguments at a time. For example mv command need to know the file name. The following will find all .bak files in or below the current directory and move them to ~/.old.files directory:<br
+/> <code>$ find . -name "*.bak" -print0 | xargs -0 -I {} mv {} ~/old.files</code><br
+/> You can rename {} to something else. In the following example {} is renamed as file. This is more readable as compare to previous example:<br
+/> <code>$ find . -name "*.bak" -print0 | xargs -0 -I file mv file ~/old.files</code><br
+/> Where,</p><ol><li><strong>-0</strong> If there are blank spaces or characters (including newlines) many commands will not work. This option take cares of file names with blank space.</li><li><strong>-I </strong>Replace occurrences of replace-str in the initial-arguments with names read from standard input.  Also, unquoted blanks do not terminate input items; instead the separator is the newline character.</li></ol><h3>Dealing <span
+style='color: rgb(0, 153, 0);'>file names with blank spaces and newline</span></h3><p>The following will work incorrectly if there are any filenames containing newlines or spaces (it will find out all .mp3 file located in current directory and play them using mplayer):<br
+/> <code>$ find . -iname "*.mp3" -print | xargs mplayer </code><br
+/> To get rid of this problem use -0 option:<br
+/> <code>$ find . -iname "*.mp3" -print0 | xargs -0 -I mp3file mplayer mp3file </code><br
+/> To find out all *.c file located in 100s of subdirectories and move them to another directory called ~/old.src, use:<br
+/> <code>$ find /path/to/dir -iname "*.c" -print0 | xargs -0 -I file mv file ~/old.src</code></p><h2>Avoiding <span
+style='color: rgb(255, 0, 0);'>errors and resource hungry problems</span> with xargs and find combo</h2><p>To copy all media files to another location called /bakup/iscsi, you can use cp as follows:<br
+/> <code>$ cp -r -v -p /share/media/mp3/ /backup/iscsi/mp3</code><br
+/> However, cp command may fail if an error occurs such as if the number of files is too large for the cp command to handle. xargs in combination with find can handle such operation nicely. xargs is more resource efficient and will not halt with an error:</p><pre class="bash">$ <span style="color: #c20cb9; font-weight: bold;">find</span> /share/media/mp3/ -<span style="color: #7a0874; font-weight: bold;">type</span> f -name <span style="color: #ff0000;">&quot;*.mp3&quot;</span> -print0 | <span style="color: #c20cb9; font-weight: bold;">xargs</span> <span style="color: #000000;">-0</span> -r -I <span style="color: #c20cb9; font-weight: bold;">file</span> <span style="color: #c20cb9; font-weight: bold;">cp</span> -v -p <span style="color: #c20cb9; font-weight: bold;">file</span> --target-<span style="color: #007800;">directory=</span>/bakup/iscsi/mp3</pre><p>Please note that all of the above commands are tested with GNU/xargs version. BSD and UNIX xargs command may not have options such as -r. Please refer to your local xargs man page for further info:<br
+/> <code>man xargs</code></p><ul
+class="share"><li
+class="tweeter"><a
+href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/" data-via="nixcraft">Tweet</a></li><li
+class="googleplus"><g:plusone size="medium" href="http://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/"></g:plusone></script></li><li
+class="facebook"><iframe
+src="//www.facebook.com/plugins/like.php?href=http://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe></li><li
+class="stubleupon"><su:badge layout="2" location="http://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/"></su:badge></li></ul> <br/><br/><h4>Featured Articles:</h4><ul><li><a
+href="http://www.cyberciti.biz/tips/top-linux-monitoring-tools.html">20 Linux System Monitoring Tools Every SysAdmin Should Know</a></li><li><a
+href="http://www.cyberciti.biz/tips/linux-security.html">20 Linux Server Hardening Security Tips</a></li><li><a
+href="/tips/linux-iptables-examples.html">Linux: 20 Iptables Examples For New SysAdmins</a> <img
+style="verticalp-align: text-top; padding-left: 1px;" src="http://s0.cyberciti.org/static/legacy/i/new_post.png" alt="" border="0"></li><li><a
+href="http://www.cyberciti.biz/tips/my-10-unix-command-line-mistakes.html">My 10 UNIX Command Line Mistakes</a></li><li><a
+href="/tips/php-security-best-practices-tutorial.html">25 PHP Security Best Practices For Sys Admins</a></li><li><a
+href="http://www.cyberciti.biz/tips/linux-laptop.html">The Novice Guide To Buying A Linux Laptop</a></li><li><a
+href="http://www.cyberciti.biz/tips/download-email-client-for-linux-mac-osx-windows.html">Top 5 Email Client For Linux, Mac OS X, and Windows Users</a></li><li><a
+href="http://www.cyberciti.biz/tips/linux-unix-bsd-openssh-server-best-practices.html">Top 20 OpenSSH Server Best Security Practices </a></li><li><a
+href="http://www.cyberciti.biz/tips/open-source-project-management-software.html">Top 10 Open Source Web-Based Project Management Software</a></li></ul></div></div><div
+id="comments"><div
+id="comments_intro" class="comments_intro"><p><span
+class="bracket">{</span> <span>41</span> comments&#8230; read them below or <a
+href="#respond" rel="nofollow">add one</a> <span
+class="bracket">}</span></p></div><dl
+id="comment_list"><dt
+class="comment even thread-even depth-1" id="comment-40340"> <span
+class="avatar"></span> <span
+class="comment_author">Juan</span> <span
+class="comment_time"><a
+href="#comment-40340" title="Permalink to this comment" rel="nofollow">February 17, 2009 at 7:40 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-40340"><p>You can also do the following:</p><p><code>find /share/media/mp3/ -type f -name '*.mp3' -print -exec cp -v -p {} --target-directory=/bakup/iscsi/mp3 ";"</code></p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-40350"> <span
+class="avatar"></span> <span
+class="comment_author">sathiya</span> <span
+class="comment_time"><a
+href="#comment-40350" title="Permalink to this comment" rel="nofollow">February 18, 2009 at 11:04 am</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-40350"><p>nice reference to get to know about xargs.</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-40352"> <span
+class="avatar"></span> <span
+class="comment_author">dennytech</span> <span
+class="comment_time"><a
+href="#comment-40352" title="Permalink to this comment" rel="nofollow">February 18, 2009 at 1:11 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-40352"><p>Pretty good.  I&#8217;m a newbie and struggle but I got most of this.  Thanks.  My screen displayed zero as lower case o so the comment beginning &#8220;Where,&#8221; threw me for a minute.  I searched the page for -(lower case o) and it wasn&#8217;t found, however,  I did find -(numeral zero).  Did &#8220;-print0&#8243; refer to the blanks/newline problem or is it something else?</p></div></dd><dt
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-40353"> <span
+class="avatar"></span> <span
+class="comment_author">Vivek Gite</span> <span
+class="comment_time"><a
+href="#comment-40353" title="Permalink to this comment" rel="nofollow">February 18, 2009 at 2:50 pm</a></span></dt><dd
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-40353"><p>It is zero (0) and note small o letter.</p><p>The -print0 option prints ( displays ) the full file name on the screen, followed by a null character  (instead  of  the  newline  character  that -print  uses).   This allows file names that contain newlines or other types of white space to be correctly interpreted  by  programs  that process the find output.  This option corresponds to the -0 option of xargs.</p><p>HTH</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-40360"> <span
+class="avatar"></span> <span
+class="comment_author">yoander</span> <span
+class="comment_time"><a
+href="#comment-40360" title="Permalink to this comment" rel="nofollow">February 18, 2009 at 9:37 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-40360"><p>Juan:<br
+/> It&#8217;s true, you can get the same results using find -exec option but using xargs is more efficient</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-40369"> <span
+class="avatar"></span> <span
+class="comment_author">anil</span> <span
+class="comment_time"><a
+href="#comment-40369" title="Permalink to this comment" rel="nofollow">February 19, 2009 at 3:10 am</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-40369"><p>Dear<br
+/> i am trying to find and  delete some files but it gives error</p><p> ~]# find . -name &#8220;abc*&#8221; xargs /bin/rm -f<br
+/> find: paths must precede expression<br
+/> Usage: find [path...] [expression]</p><p>~]ls abc abc1.c xargs /bin/rm abc<br
+/> ls: xargs: No such file or directory<br
+/> abc  abc  abc1.c  /bin/rm</p><p>Can you suggest where i am going wrong.</p><p>Thanks<br
+/> anil</p></div></dd><dt
+class="comment byuser comment-author-administrator bypostauthor even thread-even depth-1" id="comment-40376"> <span
+class="avatar"></span> <span
+class="comment_author">Vivek Gite</span> <span
+class="comment_time"><a
+href="#comment-40376" title="Permalink to this comment" rel="nofollow">February 19, 2009 at 6:46 am</a></span></dt><dd
+class="comment byuser comment-author-administrator bypostauthor even thread-even depth-1"><div
+class="format_text" id="comment-body-40376"><p>Try<br
+/> <code>find . -name "abc*" -print0| xargs /bin/rm -f</code></p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-40452"> <span
+class="avatar"></span> <span
+class="comment_author">Mel</span> <span
+class="comment_time"><a
+href="#comment-40452" title="Permalink to this comment" rel="nofollow">February 24, 2009 at 4:38 am</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-40452"><p>Note that &#8211;target-directory is a GNU extension to cp(1).</p><p>Also, at least on FreeBSD:<br
+/> <code><br
+/> find . -type f -exec grep -l '/bin/bash' {} +<br
+/> </code><br
+/> is <em>exactly</em> the same as:<br
+/> <code><br
+/> find . -type f -print0 |xargs -0 grep -l '/bin/bash'<br
+/> </code></p><p>The subtle difference being a terminating <q>+</q>, rather then a <q>\;</q>.</p><p>Last but not least, cp without shell globs doesn&#8217;t have a limit to the <q>number of files it can handle</q>. The problem comes when the shell converts the globs on the command line to actual arguments.</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-40891"> <span
+class="avatar"></span> <span
+class="comment_author">commbot</span> <span
+class="comment_time"><a
+href="#comment-40891" title="Permalink to this comment" rel="nofollow">March 24, 2009 at 11:42 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-40891"><p>Thanks for your very useful and informative blog. I learn a lot from reading your tips and its has been a great deal of help for me on numerous occasions.</p><p>Using find xargs to change the UID or GID of files and directories fails if there is a space in the folder name. I tried two versions of the same command to accomplish this, with differing results. This is on FreeBSD 7.1</p><p><code>find -X / -group oldGID -print0 | xargs chgrp newGID</code><br
+/> will work on filenames but not directories</p><p><code>find / -group oldGID -print0 | xargs -0 chgrp newGID</code><br
+/> works for both</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-40893"> <span
+class="avatar"></span> <span
+class="comment_author">commbot</span> <span
+class="comment_time"><a
+href="#comment-40893" title="Permalink to this comment" rel="nofollow">March 24, 2009 at 11:49 pm</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-40893"><p>a mistake, first command should be:<br
+/> <code>find -X / -group oldGID -print | xargs chgrp newGID</code></p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-47281"> <span
+class="avatar"></span> <span
+class="comment_author">Asrafi</span> <span
+class="comment_time"><a
+href="#comment-47281" title="Permalink to this comment" rel="nofollow">May 11, 2010 at 9:14 am</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-47281"><p>Dear Friends<br
+/> I am facing a peculiar problem while trying to run a code with xargs. It runs successfully on cygwin, but can&#8217;t work on ubuntu. I&#8217;ve checked the xargs versions on both the platform, they are same. Can&#8217;t understand the problem really.</p><p>xargs -r -a input.txt -L1 code.exe &gt; output.txt</p><p>This command simply take the inputs from input file on a line by line basis and after executing with the exe file writes the output in the output file.<br
+/> in ubuntu it gives error<br
+/> &#8220;xargs: tcas.exe: no such file or directory&#8221; .</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-47390"> <span
+class="avatar"></span> <span
+class="comment_author">hileon</span> <span
+class="comment_time"><a
+href="#comment-47390" title="Permalink to this comment" rel="nofollow">May 19, 2010 at 4:49 am</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-47390"><p>it seems this line :<br
+/> $ find . -name &#8220;*.bak&#8221; -print0 | xargs -0 -I mv {} ~/old.files<br
+/> should be:<br
+/> $ find . -name &#8220;*.bak&#8221; -print0 | xargs -0 -I{} mv {} ~/old.files</p><p>nice post, very helpful to me.</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-48394"> <span
+class="avatar"></span> <span
+class="comment_author">max</span> <span
+class="comment_time"><a
+href="#comment-48394" title="Permalink to this comment" rel="nofollow">July 18, 2010 at 6:29 am</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-48394"><p>how do I pipe the john the ripper to hydra using xargs?<br
+/> I tried but it doesn&#8217;t seem to work.</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-48493"> <span
+class="avatar"></span> <span
+class="comment_author">Ole Tange</span> <span
+class="comment_time"><a
+href="#comment-48493" title="Permalink to this comment" rel="nofollow">July 24, 2010 at 12:44 pm</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-48493"><p>If you know the file names do not contain \n and you have GNU Parallel <a
+href="http://www.gnu.org/software/parallel/" rel="nofollow">http://www.gnu.org/software/parallel/</a> installed, then you can do:</p><p>find /share/media/mp3/ -type f -name &#8216;*.mp3&#8242; -print  | parallel -X cp -v -p {} /bakup/iscsi/mp3</p><p>It is somewhat shorter and will not spawn a cp for each copy. GNU Parallel also uses \n as its default separator which is helpful if you are using tools like head or tail.</p><p>Watch the intro video to GNU Parallel at <a
+href="http://www.youtube.com/watch?v=OpaiGYxkSuQ" rel="nofollow">http://www.youtube.com/watch?v=OpaiGYxkSuQ</a></p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-48548"> <span
+class="avatar"></span> <span
+class="comment_author">Nigel</span> <span
+class="comment_time"><a
+href="#comment-48548" title="Permalink to this comment" rel="nofollow">July 29, 2010 at 11:53 am</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-48548"><p>I have a bunch of script that cp files/dir from 1 place to another. The problem is that destination already has the same file albeit an older ones. I want cp to to replace them all without asking for user input. I try this on my fedora machine -<br
+/> cp -rf /my/source/* /my/dest/ | xargs echo &#8220;yes&#8221;<br
+/> cp still ends up needing me to enter &#8220;y&#8221; for this line -<br
+/> cp: overwrite /my/dest/file1 ?</p><p>Is there some way to automate this copy/replace, without any user input?</p><p>thanks,</p></div></dd><dt
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-48550"> <span
+class="avatar"></span> <span
+class="comment_author">Vivek Gite</span> <span
+class="comment_time"><a
+href="#comment-48550" title="Permalink to this comment" rel="nofollow">July 29, 2010 at 12:49 pm</a></span></dt><dd
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-48550"><pre>\cp -rf /my/source/* /my/dest/</pre><p>OR</p><pre>/bin/cp -rf /my/source/* /my/dest/</pre><p>More <a
+href="http://bash.cyberciti.biz/guide/Create_and_use_aliases" rel="nofollow">info here</a></p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-48565"> <span
+class="avatar"></span> <span
+class="comment_author">Nigel</span> <span
+class="comment_time"><a
+href="#comment-48565" title="Permalink to this comment" rel="nofollow">July 30, 2010 at 1:45 am</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-48565"><p>Thanks Vivek.</p><p>I should have been more clear. I need to run the scripts as root. And root&#8217;s bashrc alias cp to cp -i. Any calls to cp/rm/mv becomes interactive.  I know that removing the alias will make cp work as usual. But its a shared machine, and i dont want to modify anything on it.</p><p> I need a scriptable way to echo yes to get around this. Any idea?</p></div></dd><dt
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-48566"> <span
+class="avatar"></span> <span
+class="comment_author">Vivek Gite</span> <span
+class="comment_time"><a
+href="#comment-48566" title="Permalink to this comment" rel="nofollow">July 30, 2010 at 2:47 am</a></span></dt><dd
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-48566"><p>FYI, when you use \cp or /bin/cp syntax you do not make any changes to root aliases or anything else. So they are safe to call from your script. But if you must, than use:</p><pre>
+yes | cp -rf /my/source/* /my/dest/
+</pre></div></dd><dt
+class="comment even thread-even depth-1" id="comment-48568"> <span
+class="avatar"></span> <span
+class="comment_author">Nigel</span> <span
+class="comment_time"><a
+href="#comment-48568" title="Permalink to this comment" rel="nofollow">July 30, 2010 at 3:57 am</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-48568"><p>Thanks Vivek, this was just what i was looking for.</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-49119"> <span
+class="avatar"></span> <span
+class="comment_author">Philippe Petrinko</span> <span
+class="comment_time"><a
+href="#comment-49119" title="Permalink to this comment" rel="nofollow">August 31, 2010 at 10:26 am</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-49119"><p>@Vivek,<br
+/> There is 1 typo in &#8220;argument list marker&#8221; first example:<br
+/> Just after the -I  parameter, there should be &#8220;{}&#8221;<br
+/> (unless this, the command fails)</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-49144"> <span
+class="avatar"></span> <span
+class="comment_author">felipe1982</span> <span
+class="comment_time"><a
+href="#comment-49144" title="Permalink to this comment" rel="nofollow">September 1, 2010 at 1:36 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-49144"><p>I&#8217;m trying to copy thousands of files to my Flash Drive using<br
+/> `find /source-dir/ -type f -print0 | xargs -n 1000 cp -t /media/USB`<br
+/> But this doesn&#8217;t stop at 1000 files. It continues. How can I force a maximum number of files, and quit when finished?<br
+/> &#8211;felipe</p></div></dd><dt
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-49145"> <span
+class="avatar"></span> <span
+class="comment_author">Vivek Gite</span> <span
+class="comment_time"><a
+href="#comment-49145" title="Permalink to this comment" rel="nofollow">September 1, 2010 at 1:57 pm</a></span></dt><dd
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-49145"><p>No it will not work. If you pass 1000 arguments at a time then it will only work. You may need to use the for loop with counter using bash or any other scripting language :</p><pre>#!/bin/bash
+c=0
+for f in /source-dir/*
+do
+  [ $c -eq 1000 ] &#038;&#038; break
+   /bin/cp -f "$f" /media/USB
+  (( c++ ))
+done
+</pre><p>HTH</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-49147"> <span
+class="avatar"></span> <span
+class="comment_author">Philippe Petrinko</span> <span
+class="comment_time"><a
+href="#comment-49147" title="Permalink to this comment" rel="nofollow">September 1, 2010 at 2:24 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-49147"><p>Nice idea, Vivek.</p><p>Let me try this one-liner:</p><pre>
+find /sourcedir -type f -print|head -n1000|while read; do echo -e -n "$REPLY\000"; done|xargs -0 -I {} cp "{}" /dest_dir
+</pre><p>Limit is given by the head parameter,<br
+/> but you need to rebuild a zero terminated list of arguments in order to allow xargs to use -0<br
+/> (Zero terminated strings)</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-49150"> <span
+class="avatar"></span> <span
+class="comment_author">Ole Tange</span> <span
+class="comment_time"><a
+href="#comment-49150" title="Permalink to this comment" rel="nofollow">September 1, 2010 at 2:57 pm</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-49150"><p>If you have GNU Parallel <a
+href="http://www.gnu.org/software/parallel/" rel="nofollow">http://www.gnu.org/software/parallel/</a> installed you can do this:</p><p> find /source-dir -type f | head -n 1000 | parallel cp {} /media/USB</p><p>It will work even if you have spaces and quotes in your filenames.</p><p>Watch the intro video for GNU Parallel to learn more:<br
+/> <a
+href="http://www.youtube.com/watch?v=OpaiGYxkSuQ" rel="nofollow">http://www.youtube.com/watch?v=OpaiGYxkSuQ</a></p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-49151"> <span
+class="avatar"></span> <span
+class="comment_author">Ole Tange</span> <span
+class="comment_time"><a
+href="#comment-49151" title="Permalink to this comment" rel="nofollow">September 1, 2010 at 3:00 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-49151"><p>Give full path to cp:</p><p> /bin/cp -rf /my/source/* /my/dest/</p></div></dd><dt
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-49155"> <span
+class="avatar"></span> <span
+class="comment_author">Vivek Gite</span> <span
+class="comment_time"><a
+href="#comment-49155" title="Permalink to this comment" rel="nofollow">September 1, 2010 at 5:31 pm</a></span></dt><dd
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-49155"><p>Philippe,</p><p>Done!</p><p>Also, I&#8217;m working on &#8220;preview button&#8221; mod. This will sort out this kind of issues. It is one of the most requested feature here. So by this weekend it should be up and running.</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-49157"> <span
+class="avatar"></span> <span
+class="comment_author">Philippe Petrinko</span> <span
+class="comment_time"><a
+href="#comment-49157" title="Permalink to this comment" rel="nofollow">September 1, 2010 at 7:01 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-49157"><p>@Vivek<br
+/> :-O You &#8216;ve got problems with Wordpress too.  ;-)</p><p>The backslash is well positionned,<br
+/> but there is only one zero after it, there should be three zeroes !<br
+/> [again feel free to delete this post]</p></div></dd><dt
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-49172"> <span
+class="avatar"></span> <span
+class="comment_author">Vivek Gite</span> <span
+class="comment_time"><a
+href="#comment-49172" title="Permalink to this comment" rel="nofollow">September 2, 2010 at 11:03 am</a></span></dt><dd
+class="comment byuser comment-author-administrator bypostauthor odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-49172"><p>Dam, wordpress always try to filter too much from comments to avoid html / js based attacks. BTW, I liked your idea.</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-49177"> <span
+class="avatar"></span> <span
+class="comment_author">Philippe Petrinko</span> <span
+class="comment_time"><a
+href="#comment-49177" title="Permalink to this comment" rel="nofollow">September 2, 2010 at 12:13 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-49177"><p>@ felipe1982</p><p>I am sure you care for the resquest you posted,<br
+/> By the way, would you give us some feedback,<br
+/> for instance, did you try the code I suggested ?</p><p>I have tested it all right, so it should work for you.<br
+/> Let us know.</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-49178"> <span
+class="avatar"></span> <span
+class="comment_author">Philippe Petrinko</span> <span
+class="comment_time"><a
+href="#comment-49178" title="Permalink to this comment" rel="nofollow">September 2, 2010 at 12:16 pm</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-49178"><p>@ Vivek</p><p>Still, you chapter &#8221; {} as the argument list marker &#8221;<br
+/> still misses &#8220;{}&#8221; after the -I selector<br
+/> into the first code example.</p><p>Would you at last modify your code ? ;-)</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-51287"> <span
+class="avatar"></span> <span
+class="comment_author">ryan</span> <span
+class="comment_time"><a
+href="#comment-51287" title="Permalink to this comment" rel="nofollow">December 3, 2010 at 9:13 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-51287"><p>Uses available procs on a machine:<br
+/> find / -type f -print0 | xargs -r0 -P$(nproc) -n10 md5sum  # Process files in parallel over available processors</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-62688"> <span
+class="avatar"></span> <span
+class="comment_author">avatar_007</span> <span
+class="comment_time"><a
+href="#comment-62688" title="Permalink to this comment" rel="nofollow">September 22, 2011 at 5:25 pm</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-62688"><p>xargs some how still dose not work for me<br
+/> I do the following instead.<br
+/> cat file_list.txt | awk &#8216;{print &#8220;cp &#8220;$0&#8243; copyfiles_dir/&#8221;}&#8217; | sh</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-62962"> <span
+class="avatar"></span> <span
+class="comment_author">Gabriel Glusgold</span> <span
+class="comment_time"><a
+href="#comment-62962" title="Permalink to this comment" rel="nofollow">September 29, 2011 at 2:09 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-62962"><p>How could I use xargs for removing several lines containing something?, example:</p><p>file1: contains<br
+/> line1: eeee<br
+/> line2: aaaa</p><p>file2: contains<br
+/> line1: aaaa<br
+/> line2: sssss<br
+/> line3: nnnnn</p><p>then, The final objetive is make a command line using xarg like this:</p><p>grep -il &#8220;aaaa&#8221; file* | xarg grep -v &#8220;aaaa&#8221; _____here i dont know how is the followwing, I need something that eliminates &#8220;aaaa&#8221; from each file that find the &#8220;aaaa&#8221; line.</p><p>thanks in advance</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-62977"> <span
+class="avatar"></span> <span
+class="comment_author">Philippe Petrinko</span> <span
+class="comment_time"><a
+href="#comment-62977" title="Permalink to this comment" rel="nofollow">September 29, 2011 at 9:01 pm</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-62977"><p>Hi Gabriel.</p><p>Actually, there are many ways to achieve this task.</p><p>1) Let&#8217;s start by the simpliest one:</p><p>sed -i &#8220;/aaa/d&#8221; file*</p><p>Ok, this does  not use [xargs]</p><p>2) Using [xargs]</p><p>grep -il ccc file*|xargs -I{} sed -i &#8220;/ccc/d&#8221; {}</p><p>Let us know some feedback.</p><p>&#8211; Philippe</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-67822"> <span
+class="avatar"></span> <span
+class="comment_author">Piyush</span> <span
+class="comment_time"><a
+href="#comment-67822" title="Permalink to this comment" rel="nofollow">February 7, 2012 at 1:57 pm</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-67822"><p>Hi all,<br
+/> I wish to copy all files with extension jpg to a particular directory. To this effect, the command below will suffice<br
+/> ls -tr | grep *.jpg| xargs -n1 -i cp {} ${tobe_copied_path1}/</p><p>Next, I wish to rename all &#8216;:&#8217; in the file names to &#8216;.&#8217; Will it be possible to do it using the same command line? I was trying something along the lines<br
+/> ls -tr | grep *.jpg | xargs -n1 -i cp {} ${tobe_copied_path1}/`echo \{\} | sed &#8216;s/:/./g&#8217;`<br
+/> but could not get through.<br
+/> Any pointers on this one?<br
+/> Thanks in advance.</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-67850"> <span
+class="avatar"></span> <span
+class="comment_author">Philippe Petrinko</span> <span
+class="comment_time"><a
+href="#comment-67850" title="Permalink to this comment" rel="nofollow">February 8, 2012 at 9:30 am</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-67850"><p>Hi Piyush,</p><p>First, use [find] to select files, not [ls]. Behave, try to follow Vivek&#8217;s advice! ;-)</p><p>Second, try to use bash shell variable pattern substitution<br
+/> syntax is ${parameter/pattern/string}.</p><p>You&#8217;ll find what you need by reading the fantastic manual: type :</p><p>man bash</p><p>And look for pattern substitution. This will do the trick.<br
+/> &#8211; Philippe</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-67853"> <span
+class="avatar"></span> <span
+class="comment_author">Philippe Petrinko</span> <span
+class="comment_time"><a
+href="#comment-67853" title="Permalink to this comment" rel="nofollow">February 8, 2012 at 11:45 am</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-67853"><p>Hi again, Piyush.</p><p>At this very moment, I did not find a trick with xargs to rename on the fly.<br
+/> So, my solution is actually this one-liner command.<br
+/> Assuming that source directory is named &#8220;from&#8221;, and destination is named &#8220;to&#8221;, you can tailor to your needs following compound command line:</p><p>fromdir=from; todir=to; find ${fromdir} -type f -iname &#8220;*.jpg&#8221; -print|while read; do f=${REPLY//:/.}; f=$(basename ${f}); cp $REPLY ${todir}/$f; done</p><p>Please let us know you feedback which would most certainly be instructive.</p><p>May be Vivek could find a solution using [xargs]?</p><p>&#8211; Philippe</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-67856"> <span
+class="avatar"></span> <span
+class="comment_author">Philippe Petrinko</span> <span
+class="comment_time"><a
+href="#comment-67856" title="Permalink to this comment" rel="nofollow">February 8, 2012 at 12:59 pm</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-67856"><p>At last, I got this working:<br
+/> Trick is to build a command line with [echo] that is passed to bash through a pipe.<br
+/> Again, you just have to change [f] and [t] variables with source and destination directories. That&#8217;s all folks!</p><p>export f=from; export t=to; find ${f} -type f -iname &#8220;*.jpg&#8221; -print0|xargs &#8211;null -n 1 -I{} echo &#8216;f1={}; f2=$(basename ${f1}); f2=${f2//:/.}; echo cp &#8220;${f1}&#8221; $t/&#8221;${f2}&#8221;&#8216;|bash</p><p>Hope this helps.</p><p>Know a better way anyone?</p><p>(I used to do a similar trick some time ago, but do not remember yet&#8230; I think that was with some system call &#8211; almost similar)</p><p>&#8211; Philippe</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-67950"> <span
+class="avatar"></span> <span
+class="comment_author">Dinesh</span> <span
+class="comment_time"><a
+href="#comment-67950" title="Permalink to this comment" rel="nofollow">February 13, 2012 at 11:33 am</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-67950"><p>It&#8217;s really nice &#8230; Thank you</p></div></dd><dt
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-69149"> <span
+class="avatar"></span> <span
+class="comment_author">Biswojit Kar</span> <span
+class="comment_time"><a
+href="#comment-69149" title="Permalink to this comment" rel="nofollow">May 2, 2012 at 4:06 am</a></span></dt><dd
+class="comment odd alt thread-odd thread-alt depth-1"><div
+class="format_text" id="comment-body-69149"><p>Hi,<br
+/> How could I use  mv command  with xarg to rename all  files with .txt extension to .tmp extension in all  directories and subdirectories  within current directory($HOME, .)??</p><p>Currently I can do the same using rename command as follows:<br
+/> find . -name &#8220;*.txt&#8221; -print | xargs rename &#8216;s/.txt/.tmp/&#8217;<br
+/> But I want to use mv instead of rename command  to do the same. Please reply.<br
+/> Thanks in advance!</p></div></dd><dt
+class="comment even thread-even depth-1" id="comment-69341"> <span
+class="avatar"></span> <span
+class="comment_author">tralev</span> <span
+class="comment_time"><a
+href="#comment-69341" title="Permalink to this comment" rel="nofollow">May 12, 2012 at 7:39 am</a></span></dt><dd
+class="comment even thread-even depth-1"><div
+class="format_text" id="comment-body-69341"><p>Nice hint. Thanks.</p></div></dd></dl><div
+id="respond"><div
+id="respond_intro"><p>Leave a Comment</p></div><form
+action="http://control.cyberciti.biz/faq/wp-comments-post.php" method="post" id="commentform"><p><input
+class="text_input" type="text" name="author" id="author" value="" tabindex="1" aria-required="true" /><label
+for="author">Name <span
+class="required" title="Required">*</span></label></p><p><input
+class="text_input" type="text" name="email" id="email" value="" tabindex="2" aria-required="true" /><label
+for="email">E-mail <span
+class="required" title="Required">*</span></label></p><p><input
+class="text_input" type="text" name="url" id="url" value="" tabindex="3" /><label
+for="url">Website</label></p><p
+class="comment_box"><textarea name="comment" id="comment" tabindex="4" cols="40" rows="8"></textarea></p> <span
+class="allowed"><span> <em>You can use these <acronym
+title="HyperText Markup Language">HTML</acronym> tags and attributes for your code and commands:</em> &lt;strong&gt; &lt;em&gt; &lt;ol&gt; &lt;li&gt; &lt;u&gt; &lt;ul&gt; &lt;blockquote&gt; &lt;pre&gt; &lt;a href=&quot;&quot; title=&quot;&quot;&gt; </span></span><p
+style="clear: both;" class="subscribe-to-comments"> <input
+type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" /> <label
+for="subscribe">Notify me of followup comments via e-mail</label></p><div
+id="bsbm_form"><label
+for="bsbm_question">Security Question:</label><div
+class="question">What is 3 + 4 ?</div><div
+class="answer"> <input
+type="text" tabindex="5" name="mathvalue2" value="" /><div
+style="display:none">Please leave these two fields as-is: <input
+type="text" name="mathvalue0" value="3" /> <input
+type="text" name="mathvalue1" value="4" /></div></div><div
+class="notice">Solve the simple math so we know that you are a human and not a bot.</div></div><p
+class="remove_bottom_margin"> <input
+name="submit" class="form_submit" type="submit" id="submit" tabindex="5" value="Submit" /> <input
+type='hidden' name='comment_post_ID' value='3309' id='comment_post_ID' /> <input
+type='hidden' name='comment_parent' id='comment_parent' value='0' /></p><p
+style="display: none;"><input
+type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="48c0ff539d" /></p><br/><br/><center></center><br/><small><p
+class="my_tagged_as">Tagged as: <a
+href="http://www.cyberciti.biz/faq/tag/blank-lines/" rel="tag">blank lines</a>, <a
+href="http://www.cyberciti.biz/faq/tag/blank-spaces/" rel="tag">blank spaces</a>, <a
+href="http://www.cyberciti.biz/faq/tag/command-line-args/" rel="tag">command line args</a>, <a
+href="http://www.cyberciti.biz/faq/tag/command-line-arguments/" rel="tag">command line arguments</a>, <a
+href="http://www.cyberciti.biz/faq/tag/default-argument/" rel="tag">default argument</a>, <a
+href="http://www.cyberciti.biz/faq/tag/echo-command/" rel="tag">echo command</a>, <a
+href="http://www.cyberciti.biz/faq/tag/file-names/" rel="tag">file names</a>, <a
+href="http://www.cyberciti.biz/faq/tag/files-directory/" rel="tag">files directory</a>, <a
+href="http://www.cyberciti.biz/faq/tag/initial-arguments/" rel="tag">initial arguments</a>, <a
+href="http://www.cyberciti.biz/faq/tag/mv-command/" rel="tag">mv command</a>, <a
+href="http://www.cyberciti.biz/faq/tag/newlines/" rel="tag">newlines</a>, <a
+href="http://www.cyberciti.biz/faq/tag/pipes/" rel="tag">pipes</a>, <a
+href="http://www.cyberciti.biz/faq/tag/shell/" rel="tag">shell</a>, <a
+href="http://www.cyberciti.biz/faq/tag/xargs/" rel="tag">xargs</a>, <a
+href="http://www.cyberciti.biz/faq/tag/xargs-command/" rel="tag">xargs command</a></p></small></form></div></div><div
+class="prev_next post_nav"><p
+class="previous">Previous Faq: <a
+href="http://www.cyberciti.biz/faq/freebsd-network-link-aggregation-trunking/" rel="prev">FreeBSD: NIC Bonding / Link Aggregation / Trunking  / Link Failover Tutorial</a></p><p>Next Faq: <a
+href="http://www.cyberciti.biz/faq/linux-execute-cron-job-after-system-reboot/" rel="next">Linux Execute Cron Job After System Reboot</a></p></div></div><div
+id="sidebars"><div
+id="sidebar_1" class="sidebar"><ul
+class="sidebar_list"><li
+class="widget widget_text" id="text-384338352"><div
+class="textwidget"><center><div
+style="color: #DDDDDD; font-size: 13px;"> Follow us @ <a
+target="_blank" title="Connect with nixCraft on Youtube to see all our Linux video tutorials" href="http://www.youtube.com/user/nixcraftcom" rel="nofollow">Youtube </a> &nbsp; | &nbsp; <a
+target="_blank" href="https://twitter.com/#!/nixcraft" title="Follow nixCraft on Twitter!">Twitter</a> &nbsp; | &nbsp; <a
+title="Connect with nixCraft on Google Plus!!" target="_blank" href="https://plus.google.com/104257421720370350735">Google +</a></div> <br/><div
+id='div-gpt-ad-1338629990428-0' style='width:300px; height:250px;'> <script type='text/javascript'>googletag.display('div-gpt-ad-1338629990428-0');</script> </div></center></div></li><li
+class="widget widget_text" id="text-384338358"><div
+class="textwidget"><div
+id='div-gpt-ad-1340123982871-0' style='width:300px; height:600px;'> <script type='text/javascript'>googletag.display('div-gpt-ad-1340123982871-0');</script> </div></div></li><li
+class="widget thesis_widget_search" id="thesis-search-widget-2"><form
+method="get" class="search_form" action="http://www.cyberciti.biz/faq/"><p> <input
+class="text_input" type="text" value="To search, type and hit enter" name="s" id="s" onfocus="if (this.value == 'To search, type and hit enter') {this.value = '';}" onblur="if (this.value == '') {this.value = 'To search, type and hit enter';}" /> <input
+type="hidden" id="searchsubmit" value="Search" /></p></form></li><li
+class="widget widget_text" id="text-384338354"><div
+class="textwidget"><div
+id='div-gpt-ad-1338629990428-1' style='width:300px; height:250px;'> <script type='text/javascript'>googletag.display('div-gpt-ad-1338629990428-1');</script> </div></div></li><li
+class="widget widget_text" id="text-384338356"><div
+class="textwidget"><div
+id='div-gpt-ad-1338629990428-2' style='width:300px; height:250px;'> <script type='text/javascript'>googletag.display('div-gpt-ad-1338629990428-2');</script> </div></div></li><li
+class="widget widget_text" id="text-384338357"><div
+class="textwidget"><iframe
+src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fnixcraft&amp;width=292&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:258px;" allowTransparency="true"></iframe></div></li><li
+class="widget widget_related_faq" id="widget_related_faq"><h3>Related FAQs</h3><ul><li><a
+href="http://www.cyberciti.biz/faq/deleting-file-in-many-subdirectories-linux-unix-command/" rel="bookmark" title="Permanent Link: Linux / UNIX: Deleting Files In Many Subdirectories">Linux / UNIX: Deleting Files In Many Subdirectories</a></li><li><a
+href="http://www.cyberciti.biz/faq/howto-recursively-search-all-files-for-words/" rel="bookmark" title="Permanent Link: Linux / UNIX  Recursively Search All Files For A String">Linux / UNIX  Recursively Search All Files For A String</a></li><li><a
+href="http://www.cyberciti.biz/faq/argument-list-too-long-error-solution/" rel="bookmark" title="Permanent Link: How To Find and Overcome Shell Command Line Length Limitations">How To Find and Overcome Shell Command Line Length Limitations</a></li><li><a
+href="http://www.cyberciti.biz/faq/linux-unix-bsd-apple-osx-bash-get-last-argument/" rel="bookmark" title="Permanent Link: Bash: Get The Last Argument Passed to a Shell Script">Bash: Get The Last Argument Passed to a Shell Script</a></li><li><a
+href="http://www.cyberciti.biz/faq/delete-directory-command-in-terminal/" rel="bookmark" title="Permanent Link: Ubuntu Linux: Delete directory command in Terminal">Ubuntu Linux: Delete directory command in Terminal</a></li></ul></li><div
+id="adsrightlargerect"></div></ul></div></div></div><div
+id="footer"><div
+class="idglogo"> <img
+src="http://s0.cyberciti.org/static/legacy/i/idg-logo-new.gif" alt="" border="0" /></div><div
+class="copynotice"> &copy;2006-2012 nixCraft. All rights reserved. Cannot be reproduced without written permission. <br
+/> <a
+href="/tips/privacy">Privacy Policy</a> | <a
+href="/tips/disclaimer">Terms of Service</a> | <a
+href="/tips/contact-us">Questions or Comments</a> | <a
+href="/faq/faqsitemaps/">Sitemap</a></div>	</div>
+</div>
+</div>
+<!--[if lte IE 8]>
+<div id="ie_clear"></div>
+<![endif]-->
+<script src="http://www.cyberciti.biz/mint/?js" type="text/javascript"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-108650-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+  (function() {
+    var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true;
+    li.src = 'https://platform.stumbleupon.com/1/widgets.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
+  })();
+</script>
+</body>
+</html>

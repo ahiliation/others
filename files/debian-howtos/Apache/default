@@ -1,0 +1,71 @@
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+DocumentRoot /var/www
+ServerName default
+  ServerAdmin admin@default
+  ServerAlias default
+  DocumentRoot /srv/www/default/public_html
+  ErrorLog /srv/www/default/logs/error.log
+  CustomLog /srv/www/default/logs/access.log combined
+
+  MonoServerPath default "/usr/bin/mod-mono-server2"
+  MonoDebug default true
+  MonoSetEnv default MONO_IOMAP=all
+  MonoApplications default "/:/srv/www/default/public_html"
+  <Location "/">
+    Allow from all
+    Order allow,deny
+    MonoSetServerAlias default
+    SetHandler mono
+    SetOutputFilter DEFLATE
+    SetEnvIfNoCase Request_URI "\.(?:gif|jpe?g|png)$" no-gzip dont-vary
+  </Location>
+  <IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
+  </IfModule>
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+	<Directory /var/www/>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+	<Directory "/usr/lib/cgi-bin">
+		AllowOverride None
+		Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+		Order allow,deny
+		Allow from all
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    Alias /doc/ "/usr/share/doc/"
+    <Directory "/usr/share/doc/">
+        Options Indexes MultiViews FollowSymLinks
+        AllowOverride None
+        Order deny,allow
+        Deny from all
+        Allow from 127.0.0.0/255.0.0.0 ::1/128
+    </Directory>
+
+
+</VirtualHost>
+
+# <Files ~ "\.(pl|cgi)$">
+#           SetHandler perl-script
+#           PerlResponseHandler ModPerl::Registry
+#           Options +ExecCGI
+#           PerlSendHeader On
+# </Files>
+

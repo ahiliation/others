@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=1200">
+<meta name="generator" content="MediaWiki 1.19.3" />
+<meta name="keywords" content="Vim Tips Wiki,vim,Browsing programs with tags,VimTip92,VimTip95,VimTip64,VimTip79,VimTip404,VimTip558,VimTip568,VimTip711,VimTip804,VimTip840" />
+<meta name="description" content="Tip 94 Printable Monobook Previous Next created2001 complexitybasic authorYegappan Lakshmanan..." />
+<link rel="canonical" href="http://vim.wikia.com/wiki/Browsing_programs_with_tags" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/Browsing_programs_with_tags?action=edit" />
+<link rel="edit" title="Edit" href="/wiki/Browsing_programs_with_tags?action=edit" />
+<link rel="apple-touch-icon" href="http://images.wikia.com/vim/images/b/bc/Wiki.png" />
+<link rel="shortcut icon" href="http://images3.wikia.nocookie.net/__cb61932/vim/images/6/64/Favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Vim Tips Wiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://vim.wikia.com/api.php?action=rsd" />
+<link rel="copyright" href="http://community.wikia.com/wiki/Wikia:Licensing" />
+<link rel="alternate" type="application/atom+xml" title="Vim Tips Wiki Atom feed" href="/wiki/Special:RecentChanges?feed=atom" />
+<title>Browsing programs with tags - Vim Tips Wiki</title>
+
+<!-- SASS-generated CSS file -->
+<link rel="stylesheet" href="http://slot1.images2.wikia.nocookie.net/__am/61930/sass/background-align%3Dcenter%26background-fixed%3D0%26background-image%3D%26background-tiled%3Dfalse%26color-body%3D%2523003816%26color-buttons%3D%252325883d%26color-header%3D%2523002c11%26color-links%3D%25232b54b5%26color-page%3D%2523ffffff%26page-opacity%3D100%26widthType%3D3%26wordmark-font%3Dcpmono/skins/oasis/css/oasis.scss">
+
+<!-- CSS injected by extensions -->
+<link rel="stylesheet" href="http://vim.wikia.com/__load/-/debug%3Dfalse%26lang%3Den%26only%3Dstyles%26skin%3Doasis/ext.wikihiero" /><link rel="stylesheet" href="http://vim.wikia.com/__load/-/debug%3Dfalse%26lang%3Den%26only%3Dstyles%26skin%3Doasis/site" /><style>			/* Add a pretty logo to Facebook links */
+			.mw-fblink {
+				background: url(http://static.ak.fbcdn.net/images/icons/favicon.gif) top left no-repeat !important;
+				padding-left: 17px !important;
+			}</style><style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: vim:resourceloader:filter:minify-css:7:c88e2bcd56513749bec09a7e29cb3ffa */</style>
+
+
+<script>
+var Wikia={},
+wgJqueryUrl=["http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"],
+wikiaPageType="article",
+wikiaPageIsHub=false,
+cscoreCat="Lifestyle",
+wgEnableKruxTargeting=true,
+wgKruxCategoryId="HixyqEjH",
+wgJSMessagesCB="61930.0.59260",
+JSSnippetsStack=[],
+wikiaTrackingSpool=[],
+_gaq=[],
+_wtq=[],
+adslots2=[],
+wgLoadAdsInHead=false,
+wgAdsShowableOnPage=true,
+wgShowAds=true,
+wgDisableOldAdDriver=true,
+adDriverLastDARTCallNoAds=[],
+cityShort="tech",
+wgAfterContentAndJS=[],
+wgWikiFactoryTagIds=[125],
+wgWikiFactoryTagNames=["technology"],
+wgCdnRootUrl="http://slot1.images.wikia.nocookie.net",
+wgDBname="vim",
+wgCityId="2827",
+wgMedusaSlot="slot1",
+wgContentLanguage="en",
+wgUserName=null,
+wgArticleId=1931,
+wgCategories=["VimTip","Navigation","Todo"],
+wgPageName="Browsing_programs_with_tags",
+skin="oasis";
+</script>
+<script type="text/javascript" src="http://slot1.images.wikia.nocookie.net/__cb61930/common/extensions/wikia/AnalyticsEngine/js/analytics_prod.js"></script>
+
+<!-- Used for page load time tracking -->
+<script>var wgNow = new Date();</script>
+
+
+<!-- Spool any early event-tracking calls -->
+<script>
+window.WikiaTracker=window.WikiaTracker||{trackEvent:function(eventName,params,method){wikiaTrackingSpool.push([eventName,params,method]);}};</script>
+<!-- Wikia Beacon Tracking -->
+<noscript><img src="http://a.wikia-beacon.com/__track/view?c=2827&amp;lc=en&amp;lid=75&amp;x=vim&amp;y=c1&amp;u=0&amp;ip=184.173.115.237&amp;a=1931&amp;s=oasis&amp;n=0&amp;nojs=1" width="1" height="1" border="0" alt="" /></noscript>
+<script>
+(function() {
+	var result = RegExp("wikia_beacon_id=([A-Za-z0-9_-]{10})").exec(document.cookie);
+	if(result) {
+		window.beacon_id = result[1];
+	} else {
+		// something went terribly wrong
+	}
+
+	var utma = RegExp("__utma=([0-9\.]+)").exec(document.cookie);
+	var utmb = RegExp("__utmb=([0-9\.]+)").exec(document.cookie);
+
+	var trackUrl = "http://a.wikia-beacon.com/__track/view?c=2827&amp;lc=en&amp;lid=75&amp;x=vim&amp;y=c1&amp;u=0&amp;ip=184.173.115.237&amp;a=1931&amp;s=oasis&amp;n=0" + ((typeof document.referrer != "undefined") ? "&amp;r=" + escape(document.referrer) : "") + "&amp;cb=" + (new Date).valueOf() + (window.beacon_id ? "&amp;beacon=" + window.beacon_id : "") + (utma && utma[1] ? "&amp;utma=" + utma[1] : "") + (utmb && utmb[1] ? "&amp;utmb=" + utmb[1] : "");
+	document.write('<'+'script type="text/javascript" src="' + trackUrl + '"><'+'/script>');
+})();
+</script><script>window.mw || ( window.mw = { loader: { state: function() {} } } );</script><script src="http://vim.wikia.com/__load/-/debug%3Dfalse%26lang%3Den%26only%3Dscripts%26skin%3Doasis/wikia.ext.abtesting"></script><script type="text/javascript" src="http://slot1.images2.wikia.nocookie.net/__am/61930/group/-/oasis_blocking"></script>
+<!-- Make IE recognize HTML5 tags. -->
+<!--[if IE]>
+	<script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark menu meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script>
+<![endif]-->
+
+
+
+	<meta property="fb:app_id" content="112328095453510" prefix="fb: http://www.facebook.com/2008/fbml" />
+	<meta property="og:type" content="article" />
+	<meta property="og:site_name" content="Vim Tips Wiki" />
+	<meta property="og:title" content="Browsing programs with tags" />
+	<meta property="og:image" content="http://images3.wikia.nocookie.net/__cb20110108235206/vim/images/8/89/Wiki-wordmark.png" />
+	<meta property="og:description" content="Tip 94 Printable Monobook Previous Next created2001 complexitybasic authorYegappan Lakshmanan..." />
+	<meta property="og:url" content="http://vim.wikia.com/wiki/Browsing_programs_with_tags" />
+
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Browsing_programs_with_tags  TOC_hide wikia-grid wikinav2 skin-oasis oasis-oasis oasis-split-skin">
+
+
+<!-- Begin comScore Tag -->
+<script type="text/javascript">
+var _comscore = _comscore || [];
+_comscore.push({ c1: "2", c2: "6177433",
+	options: {
+		url_append: "comscorekw=wikiacsid_lifestyle"
+	}
+});
+
+(function() {
+	var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+	s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+	el.parentNode.insertBefore(s, el);
+})();
+</script>
+<noscript>
+<img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6177433&amp;c3=&amp;c4=&amp;c5=&amp;c6=&amp;c7=http%3A%2F%2Fvim.wikia.com%2Fwiki%2FBrowsing_programs_with_tags%3Fcomscorekw%3Dwikiacsid_lifestyle&amp;c15=&amp;cv=2.0&amp;cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+<!-- Start for QuantServe, page_view -->
+<script type="text/javascript">
+  var _qevents = _qevents || [];
+
+  (function() {
+   var elem = document.createElement('script');
+
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem, scpt);  
+  })();
+</script>
+<script type="text/javascript">
+var quantcastLabels = "";
+if (window.cityShort) {
+	quantcastLabels += cityShort;
+	if (window.wgDartCustomKeyValues) {
+		var keyValues = wgDartCustomKeyValues.split(';');
+		for (var i=0; i<keyValues.length; i++) {
+			var keyValue = keyValues[i].split('=');
+			if (keyValue.length >= 2) {
+				quantcastLabels += ',' + cityShort + '.' + keyValue[1];
+			}
+		}
+	}
+}
+_qevents.push( { qacct:"p-8bG6eLqkH6Avk", labels:quantcastLabels } );
+</script>
+<noscript>
+<div style="display: none;"><img src="//pixel.quantserve.com/pixel/p-8bG6eLqkH6Avk.gif" height="1" width="1" alt="Quantcast"/></div>
+</noscript>
+<!-- Unsupported language for AnalyticsProviderIVW --><h1>Wikia</h1>
+<div class="skiplinkcontainer">
+<a class="skiplink" rel="nofollow" href="#WikiaArticle">Skip to Content</a>
+<a class="skiplink wikinav" rel="nofollow" href="#WikiHeader">Skip to Wiki Navigation</a>
+<a class="skiplink sitenav" rel="nofollow" href="#GlobalNavigation">Skip to Site Navigation</a>
+</div>
+
+<div id="ad-skin" class="wikia-ad noprint"></div>
+<header id="WikiaHeader" class="WikiaHeader">
+	<div class="wikia-header-mask">
+		<div class="page-width-container">
+						<nav>
+								<h1>Wikia Navigation</h1>
+								<ul>
+					<li class="WikiaLogo">
+						<a href="http://www.wikia.com/Wikia" rel="nofollow"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite logo" height="23" width="91" alt="Wikia"></a>
+					</li>
+					<li class="start-a-wiki">
+						<a href="http://www.wikia.com/Special:CreateNewWiki" class="wikia-button">Start a wiki</a>
+					</li>
+					<li>
+						<ul id="GlobalNavigation" class="GlobalNavigation" data-hash="e86c6d265da88145017e52f242dcf985">
+																																			<li class="topNav Video_Games video-games-vertical-color" data-index="1">
+											<a href="http://www.wikia.com/Video_Games">Video Games<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" height="0" width="0"></a>
+											<ul class="subnav"></ul>
+										</li>
+																												<li class="topNav Entertainment entertainment-vertical-color" data-index="26">
+											<a href="http://www.wikia.com/Entertainment">Entertainment<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" height="0" width="0"></a>
+											<ul class="subnav"></ul>
+										</li>
+																												<li class="topNav Lifestyle lifestyle-vertical-color" data-index="51">
+											<a href="http://www.wikia.com/Lifestyle">Lifestyle<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" height="0" width="0"></a>
+											<ul class="subnav"></ul>
+										</li>
+																					</ul>
+					</li>
+									</ul>
+			</nav>
+			<ul id="AccountNavigation" class="AccountNavigation">
+
+	
+	
+	<li>
+		<a data-id="login" href="/wiki/Special:UserLogin?returnto=Browsing_programs_with_tags&amp;type=login" rel="nofollow" class="ajaxLogin" accesskey="o">Log in<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" width="0" height="0" /></a>		<div id="UserLoginDropdown" class="UserLoginDropdown subnav">
+
+<form action="/wiki/Special:UserLogin" method="post" class="WikiaForm">
+	<fieldset>
+		
+					<div class="input-group error general-errors">
+				<div class="error-msg"></div>
+			</div>
+		
+									
+									<input type="hidden" name="loginToken" value="">
+
+											
+									<input type="hidden" name="returnto" value="">
+
+											
+									<input type="hidden" name="returntoquery" value="">
+
+											
+									<div class="input-group required">
+													<label>Username</label>
+						
+														<input type="text" name="username">
+							
+						
+											</div>
+											
+									<div class="input-group required">
+													<label>Password</label>
+						
+														<input type="password" name="password">
+							
+						
+											</div>
+											
+									<div class="input-group">
+						
+														<a href="#" class="forgot-password">Forgot your password?</a>							
+						
+											</div>
+											
+									<div class="input-group">
+													<label></label>
+						
+														<input type="checkbox" name="keeploggedin" value="1">Stay logged in							
+													</label>
+						
+											</div>
+										</fieldset>
+
+	<div class="submits">
+													<input type="submit" value="Log in">
+						</div>
+</form>	<div class="sso-login">
+		<div class="sso-login-divider">
+			<span>Or</span>
+		</div>
+
+		<a href="#" class="wikia-button wikia-button-facebook sso-login-facebook"  data-id="facebook" rel="tooltip" title="Click the button to log in with Facebook"><img alt="" class="sprite facebook" height="14" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="15" /> Connect</a>
+	</div></div>
+	</li>
+	<li>
+		<a data-id="register" href="/wiki/Special:UserLogin?returnto=Browsing_programs_with_tags&amp;type=signup" rel="nofollow" class="ajaxRegister">Sign up</a>	</li>
+
+	
+</ul>
+						<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="banner-corner-left" width="0" height="0">
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="banner-corner-right" width="0" height="0">
+		</div>
+	</div>
+</header>
+
+
+<div class="WikiaTopAds WikiaTopButtonLeft" id="WikiaTopAds"><div class="WikiaTopAdsInner"><!-- BEGIN SLOTNAME: TOP_LEADERBOARD -->
+<div id="TOP_LEADERBOARD" class="wikia-ad noprint default-height"><script>window.adslots2.push(["TOP_LEADERBOARD",null,"AdEngine2"]);</script></div><!-- END SLOTNAME: TOP_LEADERBOARD -->
+<!-- BEGIN SLOTNAME: TOP_BUTTON -->
+<div id="TOP_BUTTON" class="wikia-ad noprint default-height"><script>window.adslots2.push(["TOP_BUTTON",null,"AdEngine2"]);</script></div><!-- END SLOTNAME: TOP_BUTTON -->
+</div></div>
+
+<section id="WikiaPage" class="WikiaPage V2 WikiaGrid">
+	<div id="WikiaPageBackground" class="WikiaPageBackground"></div>
+	<div class="WikiaPageContentWrapper">
+		
+		
+		<header id="WikiHeader" class="WikiHeader">
+	<h1 class="wordmark medium graphic font-cpmono">
+	<a accesskey="z" href="/wiki/Vim_Tips_Wiki">
+					<img src="http://images3.wikia.nocookie.net/__cb5/vim/images/8/89/Wiki-wordmark.png" alt="Vim Tips Wiki"  width="125" height="60" >
+			</a>
+</h1>
+    <nav class="WikiNav">
+    	        <h1>Vim Tips Wiki Navigation</h1>
+        		<ul class="nav">
+																				<li class="nav-item marked">
+						<a href="#">On the Wiki</a>
+
+													<ul class="subnav-2 accent firstChild">
+																										<li class="subnav-2-item">
+										<a class="subnav-2a" href="/wiki/Special:WikiActivity" data-canonical="wikiactivity">Wiki Activity</a>
+
+																			</li>
+																										<li class="subnav-2-item">
+										<a class="subnav-2a" href="/wiki/Special:Random" data-canonical="random">Random page</a>
+
+																			</li>
+																										<li class="subnav-2-item">
+										<a class="subnav-2a" href="/wiki/Special:Videos" data-canonical="videos">Videos</a>
+
+																			</li>
+																										<li class="subnav-2-item">
+										<a class="subnav-2a" href="/wiki/Special:NewFiles" data-canonical="newfiles">Photos</a>
+
+																			</li>
+																										<li class="subnav-2-item">
+										<a class="subnav-2a" href="/wiki/Special:Chat" data-canonical="chat">Chat</a>
+
+																			</li>
+																							</ul>
+											</li>
+																												<li class="nav-item">
+						<a href="/wiki/Vim_Tips_Wiki:Community_Portal">Community portal</a>
+
+											</li>
+																				<li class="nav-item">
+						<a href="/wiki/Vim_Tips_Wiki:Todo">To do</a>
+
+											</li>
+										</ul>
+
+<div class="navbackground">
+	<div></div>
+	<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron">
+</div>    </nav>
+    <div class="buttons">
+		<nav class="wikia-menu-button contribute secondary combined" >
+	<img alt="" class="sprite contribute" height="16" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="22" /> Contribute
+	<span class="drop">
+		<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron">
+	</span>
+	<ul class="WikiaMenuElement">
+		<li>
+			<a href="/wiki/Browsing_programs_with_tags?action=edit"  data-id="edit"  >Edit this Page</a>
+		</li>
+		<li>
+			<a href="/wiki/Special:WikiaVideoAdd"  data-id="wikiavideoadd"  >Add a Video</a>
+		</li>
+		<li>
+			<a href="/wiki/Special:Upload"  data-id="upload"  >Add a Photo</a>
+		</li>
+		<li>
+			<a href="/wiki/Special:CreatePage"  data-id="createpage"   class="createpage" class="createpage">Add a Page</a>
+		</li>
+		<li>
+			<a href="/wiki/Special:WikiActivity"  accesskey="g" data-id="wikiactivity"  >Wiki Activity</a>
+		</li>
+	</ul>
+</nav>
+		<a href="#" class="wikia-button share-button secondary"  data-id="shareButton"> Share<span class="share-dot"></span><span class="share-pixel"></span></a>
+    </div>
+
+    <div class="hiddenLinks">
+		<a href="/wiki/Special:Watchlist" title="Special:Watchlist" accesskey="l">Watchlist</a>		<a href="/wiki/Special:Random" title="Special:Random" accesskey="x">Random page</a>		<a href="/wiki/Special:RecentChanges" title="Special:RecentChanges" accesskey="r">Recent changes</a>    </div>
+</header>
+
+
+		
+		
+		
+		
+		<article id="WikiaMainContent" class="WikiaMainContent grid-4">
+			<header id="WikiaPageHeader" class="WikiaPageHeader">
+    <h1>Browsing programs with tags</h1>
+
+	<nav class="wikia-menu-button" >
+	<a accesskey="e" href="/wiki/Browsing_programs_with_tags?action=edit" data-id="edit" id="ca-edit">
+		<img alt="" class="sprite edit-pencil" height="16" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="22" /> Edit	</a>
+
+	<span class="drop">
+		<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron">
+	</span>
+	<ul class="WikiaMenuElement">
+		<li>
+			<a href="/wiki/Browsing_programs_with_tags?action=history"  accesskey="h" data-id="history"   id="ca-history">History</a>
+		</li>
+	</ul>
+</nav>
+<a accesskey="t" href="/wiki/Talk:Browsing_programs_with_tags" class="wikia-button comments secondary talk" rel="nofollow" data-id="comment"> Talk<span class="commentsbubble">0</span></a>
+        <div class="tally">
+			<em>1,595</em><span>pages on<br /> this wiki</span>        </div>
+		</header>
+
+
+			
+			<div id="WikiaArticle" class="WikiaArticle">
+								
+				<div class="home-top-right-ads">
+								</div>
+
+				
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div><b><a  class="text" href="http://vim.wikia.com/wiki/Browsing_programs_with_tags">Tip 94</a></b> <a  class="text" href="http://vim.wikia.com/wiki/Browsing_programs_with_tags?printable=yes">Printable</a> <a  class="text" href="http://vim.wikia.com/wiki/Browsing_programs_with_tags?useskin=monobook">Monobook</a> <a href="/wiki/VimTip92" title="VimTip92" class="mw-redirect"><small>Previous</small></a> <a href="/wiki/VimTip95" title="VimTip95" class="mw-redirect"><small>Next</small></a>
+<p><b>created</b>&#160;2001&#32;&#183; <b>complexity</b>&#160;basic&#32;&#183; <b>author</b>&#160;Yegappan Lakshmanan&#32;&#183; <b>version</b>&#160;6.0
+</p>
+<hr />
+</div>
+<p>When editing programs, there is often a need to jump to another location, for example, to see how a function is defined. To help, Vim uses a tags file that lists each word you are likely to want, and their locations (file path and line number). Each wanted word is known as a "tag", for example, each function name or global variable may be a tag.
+</p><p>The tags file has to be created by a utility, and has to be updated after significant editing has occurred. This tip provides an overview of creating and using tags files (for the details, see <a rel="nofollow" class="external text exitstitial" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=tagsrch.txt">&#58;help&#160;tagsrch.txt</a>).
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a rel="nofollow" href="#Using_tags"><span class="tocnumber">1</span> <span class="toctext">Using tags</span></a></li>
+<li class="toclevel-1 tocsection-2"><a rel="nofollow" href="#Tools_to_create_a_tags_file"><span class="tocnumber">2</span> <span class="toctext">Tools to create a tags file</span></a></li>
+<li class="toclevel-1 tocsection-3"><a rel="nofollow" href="#Extending_Exuberant_Ctags"><span class="tocnumber">3</span> <span class="toctext">Extending Exuberant Ctags</span></a></li>
+<li class="toclevel-1 tocsection-4"><a rel="nofollow" href="#Creating_a_tags_file_using_ctags"><span class="tocnumber">4</span> <span class="toctext">Creating a tags file using ctags</span></a></li>
+<li class="toclevel-1 tocsection-5"><a rel="nofollow" href="#Configuring_Vim"><span class="tocnumber">5</span> <span class="toctext">Configuring Vim</span></a></li>
+<li class="toclevel-1 tocsection-6"><a rel="nofollow" href="#Plugins"><span class="tocnumber">6</span> <span class="toctext">Plugins</span></a></li>
+<li class="toclevel-1 tocsection-7"><a rel="nofollow" href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-8"><a rel="nofollow" href="#Comments"><span class="tocnumber">8</span> <span class="toctext">Comments</span></a></li>
+</ul>
+</td></tr></table>
+<h2><span class="mw-headline" id="Using_tags">Using tags</span><span class="editsection"><a href="/wiki/Browsing_programs_with_tags?action=edit&amp;section=1" title="Edit Using tags section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<p><b>Jumping to a tag</b>
+</p>
+<ul><li>You can use the 'tag' ex command. For example, the command ':tag &lt;tagname&gt;' will jump to the tag named &lt;tagname&gt;.
+</li><li>You can position the cursor over a tag name and then press Ctrl-].
+</li><li>You can visually select a text and then press Ctrl-] to jump to the tag matching the selected text.
+</li><li>You can click on the tag name using the left mouse button, while pressing the &lt;Ctrl&gt; key.
+</li><li>You can press the g key and then click on the tag name using the left mouse button.
+</li><li>You can use the 'stag' ex command, to open the tag in a new window. For example, the command ':stag func1' will open the func1 definition in a new window.
+</li><li>You can position the cursor over a tag name and then press Ctrl-W ]. This will open the tag location in a new window.
+</li></ul>
+<p>Help:&#160;:tag, Ctrl-], v_CTRL_], &lt;C-LeftMouse&gt;, g&lt;LeftMouse&gt;,&#160;:stag, Ctrl-W_]
+</p><p><b>How do I jump to a particular tag match, if there are multiple matching tags?</b>
+</p>
+<ul><li>You can use the 'tselect' ex command to list all the tag matches. For example, the command ':tselect func1' will list all the locations where func1 is defined. You can then enter the number of a tag match to jump to that location.
+</li><li>You can position the cursor over the tag name and press g] to get a list of matching tags.
+</li><li>You can visually select a text and press g] to get a list of matching tags.
+</li><li>You can use the 'stselect' ex command. This will open the selected tag from the tag list in a new window.
+</li><li>You can position the cursor over the tag name and press Ctrl-W g] to do a&#160;:stselect.
+</li></ul>
+<p>Help: tag-matchlist,&#160;:tselect, g], v_g],&#160;:stselect, Ctrl-W_g]
+</p><p><b>Returning after a tag jump</b>
+</p>
+<ul><li>You can use the 'pop' ex command.
+</li><li>You can press Ctrl-t.
+</li><li>You can click the right mouse button, while pressing the &lt;Ctrl&gt; key.
+</li><li>You can press the g key and then click the right mouse button.
+</li></ul>
+<p>Help:&#160;:pop, Ctrl-T, &lt;C-RightMouse&gt;, g&lt;RightMouse&gt;
+</p><p><b>How do I jump again to a previously jumped tag location?</b>
+</p>
+<ul><li>You can use the 'tag' ex command to jump to a previously jumped tag location, which is stored in the tag stack.
+</li></ul>
+<p>Help: tag
+</p><p><b>How do I list the contents of the tag stack?</b>
+</p>
+<ul><li>Vim remembers the location from which you jumped to a tag in the tag stack. You can list the current tag stack using the 'tags' ex command.
+</li></ul>
+<p>Help:&#160;:tags, tagstack
+</p><p><b>I want to jump to a tag, if there is only one matching tag, otherwise a list of matching tags should be displayed. How do I do this?</b>
+</p><p>There are several ways to make Vim to jump to a tag directly, if there is only one tag match, otherwise present a list of tag matches.
+</p>
+<ul><li>You can use the 'tjump' ex command. For example, the command ':tjump func1' will jump to the definition func1, if it is defined only once. If func1 is defined multiple times, a list of matching tags will be presented.
+</li><li>You can position the cursor over the tag and press g Ctrl-].
+</li><li>You can visually select a text and press g Ctrl-] to jump or list the matching tags.
+</li><li>You can use the 'stjump' ex command. This will open the matching or selected tag from the tag list in a new window.
+</li><li>You can press Ctrl-W g Ctrl-] to do a&#160;:stjump.
+</li></ul>
+<p>Help:&#160;:tjump, g_Ctrl-], v_g_CTRL-],&#160;:stjump, Ctrl-W_g_Ctrl-]
+</p><p><b>How do browse through a list of multiple tag matches?</b>
+</p><p>If there are multiple tag matches, you can browse through all of them using several of the Vim ex commands.
+</p>
+<ul><li>To go to the first tag in the list, use the 'tfirst' or 'trewind' ex command.
+</li><li>To go to the last tag in the list, use the 'tlast' ex command.
+</li><li>To go to the next matching tag in the list, use the 'tnext' ex command.
+</li><li>To go to the previous matching tag in the list, use the 'tprevious' or 'tNext' ex command.
+</li></ul>
+<p>Help:&#160;:tfirst,&#160;:trewind,&#160;:tlast,&#160;:tnext,&#160;:tprevious,&#160;:tNext
+</p><p><b>How do I preview a tag?</b>
+</p><p>You can use the preview window to preview a tag, without leaving the original window. There are several ways to preview a tag:
+</p>
+<ul><li>You can use the 'ptag' ex command to open a tag in the preview window.
+</li><li>You can position the cursor on a tag name and press Ctrl-W } to open the tag in the preview window.
+</li><li>You can use the 'ptselect' ex command to do the equivalent of the 'tselect' ex command in the preview window.
+</li><li>You can use the 'ptjump' ex command to do the equivalent of the 'tjump' ex command in the preview window.
+</li><li>You can position the cursor on the tag and press Ctrl-W g} to do a&#160;:ptjump on the tag.
+</li></ul>
+<p>Help:&#160;:preview-window,&#160;:ptag, Ctrl-W_},&#160;:ptselect,&#160;:ptjump, Ctrl-W_g}
+</p><p><b>How do I browse through the tag list in a preview window?</b>
+</p><p>If there are multiple tag matches, you can browse through all of them in the preview window using several of the Vim ex commands.
+</p>
+<ul><li>To go to the first tag in the list, use the 'ptfirst' or 'ptrewind' ex command.
+</li><li>To go to the last tag in the list, use the 'ptlast' ex command.
+</li><li>To go to the next matching tag in the list, use the 'ptnext' ex command.
+</li><li>To go to the previous matching tag in the list, use the 'ptprevious' or 'ptNext' ex command.
+</li></ul>
+<p>Help:&#160;:ptfirst,&#160;:ptrewind,&#160;:ptlast,&#160;:ptnext,&#160;:ptprevious,&#160;:ptNext
+</p><p><b>How do I start Vim to start editing a file at a given tag match?</b>
+</p><p>While starting Vim, you can use the command line option '-t' to supply a tag name. Vim will directly jump to the supplied tag location.
+</p><p>Help: -t
+</p><p><b>How do I list all the tags matching a search pattern?</b>
+</p><p>There are several ways to go through a list of all tags matching a pattern.
+</p>
+<ul><li>You can list all the tags matching a particular regular expression pattern by prepending the tag name with the '/' search character. For example,
+</li></ul>
+<pre>
+:tag /&lt;pattern&gt;
+:stag /&lt;pattern&gt;
+:ptag /&lt;pattern&gt;
+:tselect /&lt;pattern&gt;
+:tjump /&lt;pattern&gt;
+:ptselect /&lt;pattern&gt;
+:ptjump /&lt;pattern&gt;
+</pre>
+<ul><li>If you have the 'wildmenu' option set, then you can press the &lt;Tab&gt; key to display a list of all the matching tags in the status bar. You can use the arrow keys to move between the tags and then use the Enter key to select a tag.
+</li><li>If you don't have the 'wildmenu' option set, you can still use the &lt;Tab&gt; key to browse through the list of matching tags.
+</li></ul>
+<p>Help: tag-regexp, wildmenu
+</p><p><b>What options are available to control how Vim handles the tags file?</b>
+</p><p>You can use the following options to control the handling of tags file by Vim:
+</p>
+<ul><li>'tagrelative' - Controls how the file names in the tags file are treated. When on, the filenames are relative to the directory where the tags file is present.
+</li><li>'taglength' - Controls the number of significant characters used for recognizing a tag.
+</li><li>'tagbsearch' - Controls the method used to search the tags file for a tag. If this option is on, binary search is used to search the tags file. Otherwise, linear search is used.
+</li><li>'tagstack' - Controls how the tag stack is used.
+</li></ul>
+<p>Help: 'tagrelative', 'taglength', 'tagbsearch', 'tagstack'
+</p><p><b>Is it possible to highlight all the tags in the current file?</b>
+</p><p>Yes. Read the Vim online help on "tag-highlight".
+</p><p><b>Is there a workaround to make the Ctrl-] key not to be treated as the telnet escape character?</b>
+</p><p>The default escape characters for telnet in Unix systems is Ctrl-]. While using Vim in a telnet session, if you use Ctrl-] to jump to a tag, you will get the telnet prompt. There are two ways to avoid this problem:
+</p>
+<ul><li>Map the telnet escape character to some other character using the "-e &lt;escape character&gt;" telnet command line option
+</li><li>Disable the telnet escape character using the "-E" telnet command line option.
+</li></ul>
+<p>Help: telnet-CTRL-]
+</p>
+<h2><span class="mw-headline" id="Tools_to_create_a_tags_file">Tools to create a tags file</span><span class="editsection"><a href="/wiki/Browsing_programs_with_tags?action=edit&amp;section=2" title="Edit Tools to create a tags file section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<p>Often Exuberant Ctags (or other ctags program) is used to create the required tags file. However, many other custom scripts or tools are used for the occasions when ctags is not suitable.
+</p><p>Exuberant Ctags may already be present on your system (in a directory of your PATH). The <a rel="nofollow" class="external text exitstitial" href="http://ctags.sourceforge.net/">current version</a> should be used (version 5.8, dated 9 July 2009, as at July 2009; version 5.7 also works well).
+</p><p>Exuberant Ctags has built-in support for 34 different programming languages, and can be extended to support others. Some alternatives are listed below, but <i>it is better to use Exuberant Ctags</i> unless you know that your circumstances require something else. <a rel="nofollow" class="external text exitstitial" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=ctags">&#58;help&#160;ctags</a>
+</p>
+<ul><li>IDL: <a rel="nofollow" class="external text exitstitial" href="http://idlwave.org/download/idltags">idltags</a>
+</li><li>Java: <a rel="nofollow" class="external text exitstitial" href="http://www.fleiner.com/jtags/">jtags</a>
+</li><li>Perl: <a rel="nofollow" class="external text exitstitial" href="http://www.eleves.ens.fr:8080/home/nthiery/Tags/">ptags</a>
+</li><li>Python: utility <code>Tools/scripts/ptags.py</code> under your Python distribution.
+</li><li>Verilog: <a rel="nofollow" class="external text exitstitial" href="http://www.probo.com/vtags.htm">vtags</a> or <a rel="nofollow" class="external text exitstitial" href="http://www.cs.albany.edu/~mosh/Perl/veri-tags">veri-tags</a>
+</li><li>C, C++, LaTeX, maple, vim, yacc, assembly: <a rel="nofollow" class="external text exitstitial" href="http://www.drchip.org/astronaut/src/index.html#HDRTAG">Hdrtag</a>
+</li><li>LaTeX, BibTeX: <a rel="nofollow" class="external text exitstitial" href="http://www.unb.ca/fredericton/science/chem/ajit/vim.htm">modified Exuberant Ctags</a>
+</li><li>Perl or shell script: <code>pltags.pl</code> or <code>shtags.pl</code> provided with Vim (directory $VIMRUNTIME/tools)
+</li><li>Erlang: <a rel="nofollow" class="external text exitstitial" href="http://www.reddit.com/r/vim/comments/cve43/how_to_generate_tags_file_for_use_in_erlang/">This page</a> contains a Vim command to generate Erlang tags.
+</li></ul>
+<h2><span class="mw-headline" id="Extending_Exuberant_Ctags">Extending Exuberant Ctags</span><span class="editsection"><a href="/wiki/Browsing_programs_with_tags?action=edit&amp;section=3" title="Edit Extending Exuberant Ctags section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<p>Following is an example of defining a language for Exuberant Ctags. IDL (Interactive Data Language) procedures and functions are supported by putting the following in your <code>.ctags</code> file:
+</p>
+<pre>
+--langdef=IDL
+--langmap=IDL:.pro
+--regex-IDL=/^pro[ \t]+([a-zA-Z0-9_:]+)/\1/p,procedure/i
+--regex-IDL=/^function[ \t]+([a-zA-Z0-9_:]+)/\1/f,function/i
+</pre>
+<p>Other examples, including for LaTeX, are in the <a rel="nofollow" class="external text exitstitial" href="http://vim-taglist.sourceforge.net/extend.html">documentation</a> for the <a rel="nofollow" class="external text exitstitial" href="http://www.vim.org/scripts/script.php?script_id=273">taglist</a> plugin.
+</p>
+<h2><span class="mw-headline" id="Creating_a_tags_file_using_ctags">Creating a tags file using ctags</span><span class="editsection"><a href="/wiki/Browsing_programs_with_tags?action=edit&amp;section=4" title="Edit Creating a tags file using ctags section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<p><i>You may need the current version of Exuberant Ctags for these commands.</i>
+</p><p>Generate a tags file for all C files in the current directory:
+</p>
+<pre>$ ctags *.c
+</pre>
+<p>Same, processing the current directory and all subdirectories:
+</p>
+<pre>$ ctags -R .
+</pre>
+<p>Generate a tags file for all files listed in file <code>flist</code>:
+</p>
+<pre>$ ctags -L flist
+</pre>
+<h2><span class="mw-headline" id="Configuring_Vim">Configuring Vim</span><span class="editsection"><a href="/wiki/Browsing_programs_with_tags?action=edit&amp;section=5" title="Edit Configuring Vim section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<p>Vim needs to be told where to look for your tags files, using the '<code>tags</code>' option. <a rel="nofollow" class="external text exitstitial" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=%27tags%27">&#58;help&#160;'tags'</a> <a rel="nofollow" class="external text exitstitial" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=tags-option">&#58;help&#160;tags-option</a>
+</p>
+<pre>:set tags=/my/dir/tags
+</pre>
+<p>The '<code>tags</code>' option can specify more than one tags file:
+</p>
+<pre>:set tags=/my/dir1/tags,/my/dir2/tags
+</pre>
+<p>In a large project, it is common to have a tags file in each directory (with each tags file handling the files in its directory). To assist, there is a special case: If a file specified in '<code>tags</code>' starts with "./", the '.' is replaced with the path of the current file.
+</p><p>With this setting, the tags file is in the directory of the current file (no matter what the current directory is). You can define which tag file is searched first: In the current directory ("<code>tags,./tags</code>"), or in the directory of the current file ("<code>./tags,tags</code>"). You might also consider <a href="/wiki/VimTip64" title="VimTip64" class="mw-redirect">setting your working directory to the current file</a>.
+</p><p>With the following setting, Vim will search for the file named 'tags', starting with the directory of the current file and then going to the parent directory and then recursively to the directory one level above, till it either locates the 'tags' file or reaches the root directory. <a rel="nofollow" class="external text exitstitial" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=tags-option">&#58;help&#160;tags-option</a> <a rel="nofollow" class="external text exitstitial" href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=file-searching">&#58;help&#160;file-searching</a>
+</p>
+<pre>:set tags=./tags;
+</pre>
+<h2><span class="mw-headline" id="Plugins">Plugins</span><span class="editsection"><a href="/wiki/Browsing_programs_with_tags?action=edit&amp;section=6" title="Edit Plugins section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<ul><li><a rel="nofollow" class="external text exitstitial" href="http://www.vim.org/scripts/script.php?script_id=273">taglist</a> source code browser plugin; uses ctags to display a list of tags for the current file in a menu
+</li><li><a rel="nofollow" class="external text exitstitial" href="http://www.vim.org/scripts/script.php?script_id=3465">Tagbar</a> similar to taglist but displays tags sorted by their scope like classes etc.
+</li><li><a rel="nofollow" class="external text exitstitial" href="http://www.vim.org/scripts/script.php?script_id=2068">yate</a> makes search in tags more convenient. It holds query and search result in one buffer for faster jump to desired tag.
+</li><li><a rel="nofollow" class="external text exitstitial" href="http://peterodding.com/code/vim/easytags/">easytags.vim</a> (<a rel="nofollow" class="external text exitstitial" href="http://www.vim.org/scripts/script.php?script_id=3114">script#3114</a>) automatically creates a global tags file and keeps it up-to-date as you edit files in Vim. The tags are also used to perform dynamic syntax highlighting of user-defined functions and types.
+</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="editsection"><a href="/wiki/Browsing_programs_with_tags?action=edit&amp;section=7" title="Edit See also section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<ul><li><a href="/wiki/VimTip79" title="VimTip79" class="mw-redirect">79 Use grep to get a clickable list of function names</a>
+</li><li><a href="/wiki/VimTip404" title="VimTip404" class="mw-redirect">404 Tags for Mixed Assembly and C</a>
+</li><li><a href="/wiki/VimTip558" title="VimTip558" class="mw-redirect">558 Using TagList for ANT build files</a>
+</li><li><a href="/wiki/VimTip568" title="VimTip568" class="mw-redirect">568 Use temporary tags file when browsing new source</a>
+</li><li><a href="/wiki/VimTip711" title="VimTip711" class="mw-redirect">711 Tags generation for current file</a>
+</li><li><a href="/wiki/VimTip804" title="VimTip804" class="mw-redirect">804 Single tags file for a source tree</a>
+</li><li><a href="/wiki/VimTip840" title="VimTip840" class="mw-redirect">840 Show tags in a separate preview window</a>
+</li><li><a href="/wiki/VimTip858" title="VimTip858" class="mw-redirect">858 Setting tags when working with multiple source branches</a>
+</li><li><a href="/wiki/VimTip1299" title="VimTip1299" class="mw-redirect">1299 Autocmd to update ctags file</a>
+</li><li><a href="/wiki/VimTip1608" title="VimTip1608" class="mw-redirect">1608 C++ code completion</a>
+</li><li><a rel="nofollow" class="external text exitstitial" href="http://stackoverflow.com/questions/680291/global-go-to-definition-in-vim-for-ruby">including tags from external libraries or Ruby "gems"</a>
+</li></ul>
+<h2><span class="mw-headline" id="Comments">Comments</span><span class="editsection"><a href="/wiki/Browsing_programs_with_tags?action=edit&amp;section=8" title="Edit Comments section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<p><span style="color:#000; background-color:#f0f0f0;"><i><b>&#160;TO DO&#160;</b></i></span><br />
+</p>
+<ul><li> too wordy, let's make it more concise
+</li><li> add&#160;:help links
+</li></ul>
+<hr />
+<p>There is an <a rel="nofollow" class="external text exitstitial" href="http://cscope.sourceforge.net/cscope_vim_tutorial.html">excellent tutorial</a> on using cscope with Vim, from installing to becoming an expert.
+</p>
+<hr />
+<p>TagMenu has been moved to <a rel="nofollow" class="external free exitstitial" href="http://members.rogers.com/jayglanville/tagsmenu/">http://members.rogers.com/jayglanville/tagsmenu/</a>
+</p>
+<hr />
+<p>For C++, use ctags with "--extra=+q" to qualify member function/variable with its class type.
+</p>
+<hr />
+<p>Vim is nice to use with cscope and ctags. For this purpose, put this in your vimrc (follow strings):
+</p>
+<pre>
+map [I&#160;:cs find c &lt;C-r&gt;&lt;C-w&gt;&lt;CR&gt;
+set csto=1
+</pre>
+<p>Before editing:
+</p>
+<pre>
+ctags -R
+cscope -R -b
+</pre>
+<hr />
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 280/1000000
+Post-expand include size: 2350/2097152 bytes
+Template argument size: 275/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key vim:pcache:idhash:1931-0!*!0!!en!*!* and timestamp 20130111144302 -->
+	<nav class="RelatedPagesModule noprint">
+		<h2>Read more</h2>
+		<ul>
+					<li>
+								<div class="articleSnippet"><p>Tip 1618 Printable Monobook Previous Next createdFebruary 24, 2009 complexitybasic authorRunnig...</p></div>
+								<a href="/wiki/Auto_tags_by_project.vim" class="more">Auto tags by project.vim</a>
+			</li>
+					<li>
+								<div class="articleSnippet"><p>Please review this tip: This tip was imported from vim.org and needs general review. You might...</p></div>
+								<a href="/wiki/Find_and_edit_any_file_in_a_directory_using_tag-like_pattern_matching" class="more">Find and edit any file in a directory using tag-like pattern matching</a>
+			</li>
+					<li>
+								<div class="articleSnippet"><p>Tip 1376 Printable Monobook Previous Next created2006 complexityadvanced authorIngo Karkat...</p></div>
+								<a href="/wiki/Syntax_folding_of_Vim_scripts" class="more">Syntax folding of Vim scripts</a>
+			</li>
+				</ul>
+	</nav>
+<noscript><link rel="stylesheet" href="http://slot1.images.wikia.nocookie.net/__cb61930/common/extensions/wikia/ImageLazyLoad/css/ImageLazyLoadNoScript.css" /></noscript><noscript><link rel="stylesheet" href="http://slot1.images.wikia.nocookie.net/__cb61930/common/extensions/wikia/TOCimprovements/TOCNoScript.css" /></noscript></div><div class="printfooter">
+Retrieved from "<a href="http://vim.wikia.com/wiki/Browsing_programs_with_tags?oldid=35316">http://vim.wikia.com/wiki/Browsing_programs_with_tags?oldid=35316</a>"</div>
+
+			</div>
+
+			<nav id="WikiaArticleCategories" class="WikiaArticleCategories">
+	<h1>Related Categories</h1>
+	<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories" rel="nofollow">Categories</a>: <ul><li><a href="/wiki/Category:VimTip" title="Category:VimTip">VimTip</a></li><li><a href="/wiki/Category:Navigation" title="Category:Navigation">Navigation</a></li><li><a href="/wiki/Category:Todo" title="Category:Todo">Todo</a></li></ul></div> <div id="csAddCategorySwitch" class="noprint" style="background:#DDD;position:relative;float:left;border: 1px solid #BBB;-moz-border-radius:3px;-webkit-border-radius:3px;padding:0 5px;line-height: 16px;"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite-small add" /><a href="#" onfocus="this.blur();" style="color:#000;font-size:0.85em;text-decoration:none;display:inline-block;" rel="nofollow">Add category</a></div></div></nav>
+			
+			
+			<div id="WikiaArticleBottomAd" class="noprint">
+				<!-- BEGIN SLOTNAME: PREFOOTER_LEFT_BOXAD -->
+<div id="PREFOOTER_LEFT_BOXAD" class="wikia-ad noprint default-height"><script>window.adslots2.push(["PREFOOTER_LEFT_BOXAD",null,"AdEngine2"]);</script></div><!-- END SLOTNAME: PREFOOTER_LEFT_BOXAD -->
+				<!-- BEGIN SLOTNAME: PREFOOTER_RIGHT_BOXAD -->
+<div id="PREFOOTER_RIGHT_BOXAD" class="wikia-ad noprint default-height"><script>window.adslots2.push(["PREFOOTER_RIGHT_BOXAD",null,"AdEngine2"]);</script></div><!-- END SLOTNAME: PREFOOTER_RIGHT_BOXAD -->
+			</div>
+
+		</article><!-- WikiaMainContent -->
+
+					<div id="WikiaRail" class="WikiaRail grid-2">
+
+	
+<form id="WikiaSearch" class="WikiaSearch" action="index.php?title=Special:Search" method="get">
+	<input type="text" name="search" placeholder="Search this wiki" autocomplete="off" accesskey="f" value="">
+	<input type="hidden" name="fulltext" value="Search">
+	<input type="submit">
+	<button class="wikia-button"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite search" height="17" width="21"></button>
+</form>
+<!-- BEGIN SLOTNAME: TOP_RIGHT_BOXAD -->
+<div id="TOP_RIGHT_BOXAD" class="wikia-ad noprint default-height"><script>window.adslots2.push(["TOP_RIGHT_BOXAD",null,"AdEngine2"]);</script></div><div class="SelfServeUrl">Advertisement | <a href="http://mediakit.wikia.com/wiki/Media_Kit_Wiki">Your ad here</a></div>
+<!-- END SLOTNAME: TOP_RIGHT_BOXAD -->
+<!-- BEGIN SLOTNAME: TOP_RIGHT_BUTTON -->
+<div id="TOP_RIGHT_BUTTON" class="wikia-ad noprint default-height"><script>window.adslots2.push(["TOP_RIGHT_BUTTON",null,"AdEngine2"]);</script></div><!-- END SLOTNAME: TOP_RIGHT_BUTTON -->
+<section class="LatestPhotosModule module" id="LatestPhotosModule">
+	<h1 class="tight">Latest Photos</h1>
+	<a href="/wiki/Special:Upload" title="Add a photo to this wiki" class="wikia-button upphotoslogin" rel="tooltip"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" height="0" width="0" class="sprite photo" /> Add a Photo</a>	<div class="tally counter">
+		<em>96</em><span class="fixedwidth">photos on this wiki</span>	</div>
+
+			<a href="#" class="previous"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="latest-images-left" height="0" width="0"></a>
+		<a href="#" class="next"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="latest-images-right" height="0" width="0"></a>
+	<div class="carousel-container">
+		<div>
+			<ul class="carousel">
+			<li class="thumbs"><a class="image" data-ref="File:Screen Shot 2012-12-21 at 2.27.34 PM.png" href="/wiki/File:Screen_Shot_2012-12-21_at_2.27.34_PM.png">
+						<img class="thumbimage" height="82" width="82" src="http://images3.wikia.nocookie.net/__cb61924/vim/images/thumb/6/68/Screen_Shot_2012-12-21_at_2.27.34_PM.png/82px-574%2C2127%2C0%2C1552-Screen_Shot_2012-12-21_at_2.27.34_PM.png" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Emallove" title="User:Emallove">Emallove</a><br/>
+			<time class="timeago" datetime="2012-12-21T19:30:23Z">2012-12-21T19:30:23Z</time><br/>
+
+						Posted in			<a href="/wiki/Script:2256" title="Script:2256" class="wikia-gallery-item-posted">Script:2256</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:2011 me.jpg" href="/wiki/File:2011_me.jpg">
+						<img class="thumbimage" height="82" width="82" src="http://images3.wikia.nocookie.net/__cb61924/vim/images/thumb/d/d9/2011_me.jpg/82px-0%2C265%2C0%2C265-2011_me.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Todu08" title="User:Todu08">Todu08</a><br/>
+			<time class="timeago" datetime="2012-11-10T21:29:53Z">2012-11-10T21:29:53Z</time><br/>
+
+					</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Printsc5.jpg" href="/wiki/File:Printsc5.jpg">
+						<img class="thumbimage" height="82" width="82" src="http://images3.wikia.nocookie.net/__cb61924/vim/images/thumb/b/b2/Printsc5.jpg/82px-105%2C981%2C0%2C875-Printsc5.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Luochen1990" title="User:Luochen1990">Luochen1990</a><br/>
+			<time class="timeago" datetime="2012-10-27T17:33:37Z">2012-10-27T17:33:37Z</time><br/>
+
+						Posted in			<a href="/wiki/Script:4176" title="Script:4176" class="wikia-gallery-item-posted">Script:4176</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Yate tag search.jpg" href="/wiki/File:Yate_tag_search.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images2.wikia.nocookie.net/__cb61924/vim/images/thumb/0/02/Yate_tag_search.jpg/100px-0%2C484%2C0%2C484-Yate_tag_search.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Vimdicitve" title="User:Vimdicitve">Vimdicitve</a><br/>
+			<time class="timeago" datetime="2012-10-04T17:44:11Z">2012-10-04T17:44:11Z</time><br/>
+
+						Posted in			<a href="/wiki/Script:2068" title="Script:2068" class="wikia-gallery-item-posted">Script:2068</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Ttyp0-mixed.png" href="/wiki/File:Ttyp0-mixed.png">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images4.wikia.nocookie.net/__cb61924/vim/images/thumb/e/e5/Ttyp0-mixed.png/82px-176%2C433%2C0%2C256-Ttyp0-mixed.png" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:UweW" title="User:UweW">UweW</a><br/>
+			<time class="timeago" datetime="2012-10-02T19:56:36Z">2012-10-02T19:56:36Z</time><br/>
+
+						Posted in			<a href="/wiki/The_perfect_programming_font" title="The perfect programming font" class="wikia-gallery-item-posted">The perfect programming font</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Pic.jpg" href="/wiki/File:Pic.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images4.wikia.nocookie.net/__cb61924/vim/images/thumb/8/8c/Pic.jpg/100px-0%2C856%2C0%2C856-Pic.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Marcin_Szamotulski" title="User:Marcin Szamotulski">Marcin Szamotulski</a><br/>
+			<time class="timeago" datetime="2012-09-24T09:07:32Z">2012-09-24T09:07:32Z</time><br/>
+
+						Posted in			<a href="/wiki/User:Marcin_Szamotulski" title="User:Marcin Szamotulski" class="wikia-gallery-item-posted">User:Marcin Szamotulski</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Screengrab.png" href="/wiki/File:Screengrab.png">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images4.wikia.nocookie.net/__cb61924/vim/images/thumb/c/c1/Screengrab.png/82px-316%2C1367%2C0%2C1050-Screengrab.png" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Makemachine" title="User:Makemachine">Makemachine</a><br/>
+			<time class="timeago" datetime="2012-09-14T02:39:46Z">2012-09-14T02:39:46Z</time><br/>
+
+					</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Narrowing.gif" href="/wiki/File:Narrowing.gif">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images1.wikia.nocookie.net/__cb61924/vim/images/thumb/c/c8/Narrowing.gif/82px-73%2C230%2C0%2C156-Narrowing.gif" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Ryanking" title="User:Ryanking">Ryanking</a><br/>
+			<time class="timeago" datetime="2012-09-12T15:03:05Z">2012-09-12T15:03:05Z</time><br/>
+
+					</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Rking-vim.jpg" href="/wiki/File:Rking-vim.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images2.wikia.nocookie.net/__cb61924/vim/images/thumb/c/c5/Rking-vim.jpg/100px-129%2C1154%2C0%2C1024-Rking-vim.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Ryanking" title="User:Ryanking">Ryanking</a><br/>
+			<time class="timeago" datetime="2012-09-12T13:24:10Z">2012-09-12T13:24:10Z</time><br/>
+
+					</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Haidang001.jpg" href="/wiki/File:Haidang001.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images3.wikia.nocookie.net/__cb61924/vim/images/thumb/7/7a/Haidang001.jpg/100px-2%2C158%2C0%2C155-Haidang001.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Haidang001" title="User:Haidang001">Haidang001</a><br/>
+			<time class="timeago" datetime="2012-09-06T14:05:02Z">2012-09-06T14:05:02Z</time><br/>
+
+					</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Printsc4.jpg" href="/wiki/File:Printsc4.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images3.wikia.nocookie.net/__cb61924/vim/images/thumb/c/c3/Printsc4.jpg/100px-206%2C937%2C0%2C730-Printsc4.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Luochen1990" title="User:Luochen1990">Luochen1990</a><br/>
+			<time class="timeago" datetime="2012-08-22T17:42:16Z">2012-08-22T17:42:16Z</time><br/>
+
+						Posted in			<a href="/wiki/Script:4176" title="Script:4176" class="wikia-gallery-item-posted">Script:4176</a>				</span>
+		</li>
+				<li class="see-all">
+			<a href="/wiki/Special:NewFiles" title="Special:NewFiles">See all photos</a>		</li>
+				</ul>
+		</div>
+	</div>
+	<a href="/wiki/Special:NewFiles" title="Special:NewFiles" class="more">See all photos ></a>
+
+</section>
+<!-- BEGIN SLOTNAME: MIDDLE_RIGHT_BOXAD -->
+<!-- Null Ad from AdEngine::getPlaceHolderIframe--><!-- Null Ad. Reason: Slot is disabled, slotname=MIDDLE_RIGHT_BOXAD --><!-- END SLOTNAME: MIDDLE_RIGHT_BOXAD -->
+<section class="WikiaActivityModule module" id="WikiaRecentActivity">
+	<h1 class="activity-heading">Recent Wiki Activity</h1>
+	<ul>
+		<li>
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit" height="20" width="20">
+			<em><a href="/wiki/Installing_on_Solaris">Installing on Solaris</a></em>
+			<div class="edited-by">edited by <a href="/wiki/Special:Contributions/65.49.2.27">A Wikia contributor</a> 1 day ago</div>
+		</li>
+		<li>
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit" height="20" width="20">
+			<em><a href="/wiki/Using_tab_pages">Using tab pages</a></em>
+			<div class="edited-by">edited by <a href="/wiki/Special:Contributions/67.183.148.220">A Wikia contributor</a> 1 day ago</div>
+		</li>
+		<li>
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit" height="20" width="20">
+			<em><a href="/wiki/Cleanup_your_HTML">Cleanup your HTML</a></em>
+			<div class="edited-by">edited by <a href="/wiki/Special:Contributions/130.120.82.98">A Wikia contributor</a> 2 days ago</div>
+		</li>
+		<li>
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit" height="20" width="20">
+			<em><a href="/wiki/Have_VCSCommand_work_with_an_existing_TortoiseSVN_checkout">Have VCSCommand work with an existing TortoiseSVN checkout</a></em>
+			<div class="edited-by">edited by <a href="/wiki/Special:Contributions/50.195.67.222">A Wikia contributor</a> 2 days ago</div>
+		</li>
+	</ul>
+
+			<a href="/wiki/Special:WikiActivity" title="Special:WikiActivity" class="more">See more ></a>	</section>
+<section class="ChatModule module ChatModuleUninitialized"></section><!-- BEGIN SLOTNAME: LEFT_SKYSCRAPER_2 -->
+<div id="LEFT_SKYSCRAPER_2" class="wikia-ad noprint default-height"><script>window.adslots2.push(["LEFT_SKYSCRAPER_2",null,"AdEngine2"]);</script></div><!-- END SLOTNAME: LEFT_SKYSCRAPER_2 -->
+	<div id="WikiaAdInContentPlaceHolder"></div>
+
+</div>
+		
+		<footer id="WikiaFooter" class="WikiaFooter notoolbar">
+	<!-- BEGIN SLOTNAME: LEFT_SKYSCRAPER_3 -->
+<div id="LEFT_SKYSCRAPER_3" class="wikia-ad noprint default-height"><script>window.adslots2.push(["LEFT_SKYSCRAPER_3",null,"AdEngine2"]);</script></div><!-- END SLOTNAME: LEFT_SKYSCRAPER_3 -->
+
+	<div class="FooterAd"></div>
+		<section>
+	<div class="header-container">
+		<h1>Around Wikia's network</h1>
+		<a id="WikiaRandomWiki" href="http://community.wikia.com/wiki/Special:RandomWiki/2827" class="wikia-button">Random Wiki</a>
+	</div>
+	<script type='text/javascript'>
+	wgAfterContentAndJS.push(function() {		
+		window.OpenXSPC = {};
+		window.OpenXSPC[ 'fillElem_SPOTLIGHT_FOOTER' ] = function() {
+			var output = window.OA_output || [];
+			( 14 in output ) && $( '#SPOTLIGHT_FOOTER_1' ).html( output[ 14 ] );
+			( 15 in output ) && $( '#SPOTLIGHT_FOOTER_2' ).html( output[ 15 ] );
+			( 16 in output ) && $( '#SPOTLIGHT_FOOTER_3' ).html( output[ 16 ] );
+		};
+	});
+</script>	<ul id="SPOTLIGHT_FOOTER" class="LazyLoadAd SPOTLIGHT_FOOTER">
+				<li class="WikiaSpotlight item-1" id="SPOTLIGHT_FOOTER_1">
+					</li>
+				<li class="WikiaSpotlight item-2" id="SPOTLIGHT_FOOTER_2">
+					</li>
+				<li class="WikiaSpotlight item-3" id="SPOTLIGHT_FOOTER_3">
+					</li>
+			</ul>
+</section>
+</footer>
+				<footer class="CorporateFooter">
+	<nav>
+		<h1>Wikia Inc Navigation</h1>
+		<div class="WikiaHubBranding HubBrandingBlackBackground">
+			<div class="wordmark">
+				<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite logo9">
+			</div>
+						    <div class="hub"><a class="hub9" href="http://www.wikia.com/Lifestyle">[ Lifestyle ]</a></div>
+					</div>
+		<ul>
+			<li>
+							<a href="http://www.wikia.com/About"><span>About</span></a>
+						</li>
+				<li>
+							<a href="http://www.community.wikia.com"><span>Community Central</span></a>
+						</li>
+				<li>
+							<a href="http://www.wikia.com/Careers">Careers</a>
+						</li>
+				<li>
+							<a href="http://www.wikia.com/Advertising">Advertise</a>
+						</li>
+				<li>
+							<a href="http://api.wikia.com/"><span>API</span></a>
+						</li>
+				<li>
+							<a href="/wiki/Special:Contact">Contact Wikia</a>
+						</li>
+				<li>
+							<a href="http://www.wikia.com/Terms_of_Use">Terms of Use</a>
+						</li>
+				<li>
+							<a href="http://www.wikia.com/Privacy_Policy">Privacy Policy</a>
+						</li>
+				<li>
+			Content is available under <a href="http://community.wikia.com/wiki/Wikia:Licensing" title="w:Wikia:Licensing">CC-BY-SA</a>.			</li>
+			</ul>
+	</nav>
+</footer>
+	</div>
+</section><!--WikiaPage-->
+
+			<div id="WikiaBarWrapper" class="WikiaBarWrapper hidden">
+					<div class="wikia-bar-seasons">
+				<div class="wikia-bar wikia-bar-anon">
+			<a href="#" class="arrow" data-tooltip="Collapse" data-tooltipshow="Show"></a>
+			<div class="ad">
+		<div id="WIKIA_BAR_BOXAD_1" class="noprint" style="width: 300px; position: relative;"></div>
+</div>
+<div
+	class="message"
+	data-messagetooltip="Click here for more information!"
+	data-wikiabarcontent="[{&quot;text&quot;:&quot;Enter for a chance to win an iPad mini!&quot;,&quot;href&quot;:&quot;http:\/\/www.opinionshere.com\/SurveyEntry.aspx?e=f20c268b-2c21-473e-8844-ff10b4627f0e&amp;fsa=1&quot;},{&quot;text&quot;:&quot;Enter for a chance to win an iPad mini!&quot;,&quot;href&quot;:&quot;http:\/\/www.opinionshere.com\/SurveyEntry.aspx?e=f20c268b-2c21-473e-8844-ff10b4627f0e&amp;fsa=1&quot;},{&quot;text&quot;:&quot;Enter for a chance to win an iPad mini!&quot;,&quot;href&quot;:&quot;http:\/\/www.opinionshere.com\/SurveyEntry.aspx?e=f20c268b-2c21-473e-8844-ff10b4627f0e&amp;fsa=1&quot;},{&quot;text&quot;:&quot;Enter for a chance to win an iPad mini!&quot;,&quot;href&quot;:&quot;http:\/\/www.opinionshere.com\/SurveyEntry.aspx?e=f20c268b-2c21-473e-8844-ff10b4627f0e&amp;fsa=1&quot;},{&quot;text&quot;:&quot;Enter for a chance to win an iPad mini!&quot;,&quot;href&quot;:&quot;http:\/\/www.opinionshere.com\/SurveyEntry.aspx?e=f20c268b-2c21-473e-8844-ff10b4627f0e&amp;fsa=1&quot;}]"
+></div>
+	<a class="wikiabar-button" href="http://www.wikia.com/Lifestyle" data-index="0">
+		<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="icon cup" />
+		<span>Lifestyle</span>
+	</a>
+	<a class="wikiabar-button" href="http://www.wikia.com/Entertainment" data-index="1">
+		<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="icon cup" />
+		<span>Entertainment</span>
+	</a>
+	<a class="wikiabar-button" href="http://www.wikia.com/Video_Games" data-index="2">
+		<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="icon cup" />
+		<span>Video Games</span>
+	</a>
+		</div>
+					</div>
+			</div>
+	<div class="WikiaBarCollapseWrapper">
+		<a href="#" class="wikia-bar-collapse" data-tooltip="Collapse"></a>
+	</div>
+
+<!-- BEGIN SLOTNAME: INVISIBLE_1 -->
+<div id="INVISIBLE_1" class="wikia-ad noprint default-height"><script>window.adslots2.push(["INVISIBLE_1",null,"AdEngine2"]);</script></div><!-- END SLOTNAME: INVISIBLE_1 -->
+<!-- BEGIN SLOTNAME: INVISIBLE_2 -->
+<div id="INVISIBLE_2" class="wikia-ad noprint default-height"><script>window.adslots2.push(["INVISIBLE_2",null,"AdEngine2"]);</script></div><!-- END SLOTNAME: INVISIBLE_2 -->
+
+	<!--[if lt IE 8]>
+		<script src="http://slot1.images.wikia.nocookie.net/__cb61930/common/resources/wikia/libraries/json2/json2.js"></script>
+	<![endif]-->
+
+	<!--[if lt IE 9]>
+		<script src="http://slot1.images.wikia.nocookie.net/__cb61930/common/resources/wikia/libraries/html5/html5.min.js"></script>
+	<![endif]-->
+
+	<!-- Combined JS files and head scripts -->
+	
+<!-- Liftium options -->
+<script>LiftiumOptions = {"pubid":999,"baseUrl":"\/__varnish_liftium\/","kv_wgDBname":"vim","kv_article_id":1931,"kv_wpage":"Browsing_programs_with_tags","kv_Hub":"Technology","kv_skin":"oasis","kv_user_lang":"en","kv_cont_lang":"en","kv_isMainPage":false,"kv_page_type":"article","geoUrl":"http:\/\/geoiplookup.wikia.com\/","kv_domain":"vim.wikia.com","hasMoreCalls":true,"isCalledAfterOnload":true,"maxLoadDelay":6000};
+</script>
+<script src="http://vim.wikia.com/__load/-/debug%3Dfalse%26lang%3Den%26only%3Dscripts%26skin%3Doasis/startup"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Browsing_programs_with_tags","wgTitle":"Browsing programs with tags","wgCurRevisionId":35316,"wgArticleId":1931,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["VimTip","Navigation","Todo"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"Browsing_programs_with_tags","wgRestrictionEdit":[],"wgRestrictionMove":[],"wgSearchNamespaces":[0,14],"wgEnableAdsInContent":1,"wgEnableOpenXSPC":true,"wgAdDriverCookieLifetime":1,"wgHighValueCountries":{"AU":3,"DE":3,"CA":3,"FI":3,"FR":3,"GB":3,"HU":3,"NL":3,"NO":3,"SE":3,"UK":6,"US":3},"wgAdDriverUseExpiryStorage":true,"wgEnableOutboundScreenExt":true,"wgTimeAgoi18n":{"year":"a year ago","years":"%d years ago","month":"a month ago","months":"%d months ago","day":"a day ago","days":"%d days ago","hour":"an hour ago","hours":"%d hours ago","minute":"a minute ago","minutes":"%d minutes ago","seconds":"a minute ago","year-from-now":"\x26lt;timeago-year-from-now\x26gt;","years-from-now":"\x26lt;timeago-year-from-now\x26gt;","month-from-now":"a month from now","months-from-now":"%d months from now","day-from-now":"a day from now","days-from-now":"%d days from now","hour-from-now":"an hour from now","hours-from-now":"%d hours from now","minute-from-now":"a minute from now","minutes-from-now":"%d minutes from now","second-from-now":"a minute from now","seconds-from-now":"a minute from now"},"sassParams":{"background-align":"center","background-fixed":false,"background-image":"","background-tiled":"false","color-body":"#003816","color-buttons":"#25883d","color-header":"#002c11","color-links":"#2b54b5","color-page":"#ffffff","page-opacity":"100","widthType":3,"wordmark-font":"cpmono"},"wgAssetsManagerQuery":"/__am/%4$d/%1$s/%3$s/%2$s","wgCdnRootUrl":"http://slot1.images.wikia.nocookie.net","wgCatId":12,"wgParentCatId":0,"wgBlankImgUrl":"data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D","wgMainpage":"Vim Tips Wiki","wgIsContentNamespace":true,"wgStyleVersion":"61930","themename":"oasis","wgExtensionsPath":"http://slot1.images.wikia.nocookie.net/__cb61930/common/extensions","wgResourceBasePath":"http://slot1.images.wikia.nocookie.net/__cb61930/common","wgSitename":"Vim Tips Wiki","wgMWrevId":false,"wgRevisionId":35316,"wgCookieDomain":".wikia.com","wgCookiePath":"/","wgEnableWikiaPhotoGalleryExt":true,"wgOasisGrid":true,"wgEnableUserLoginExt":true,"wgEnableLightboxExt":true,"wgShowAdModalInterstitialTimes":3,"wgEnableWikiaFollowedPages":true,"wgFollowedPagesPagerLimit":15,"wgFollowedPagesPagerLimitAjax":600,"wgWikiaChatModuleContent":"","wgWikiaChatWindowFeatures":"width=600,height=600,menubar=no,status=no,location=no,toolbar=no,scrollbars=no,resizable=yes","wgEnableWikiaBarExt":true,"wgEnableWikiaBarAds":true,"wgWikiaBarMainLanguages":["en","de","es","fr"],"WikiaEnableNewCreatepage":true,"ContentNamespacesText":[""],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","fbAppId":"112328095453510","fbScript":"http://connect.facebook.net/en_US/all.js","fbUseMarkup":true,"fbLogo":true,"fbLogoutURL":"/wiki/Special:UserLogout?returnto=Browsing_programs_with_tags","fbReturnToTitle":"Browsing_programs_with_tags","fbScriptLangCode":"en_US"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":1,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":1,"justify":0,"math":0,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"oasis","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":1,"watchcreations":1,"watchdefault":1,"watchdeletion":1,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"htmlemails":1,"watchlistdigest":1,"enablerichtext":1,"founderemails-joins-2827":0,"founderemails-edits-2827":0,"founderemails-views-digest-2827":0,"founderemails-complete-digest-2827":0,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":true,"searchNs15":false,"searchNs110":false,"searchNs111":false,"searchNs112":false,"searchNs113":false,"searchNs1100":false,"searchNs1200":false,"searchNs1201":false,"searchNs1202":false,"userlandingpage":1});;},{},{});mw.loader.implement("user.tokens",function($){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{}
+,{});
+
+/* cache key: vim:resourceloader:filter:minify-js:7:d91c69200042d9489bc04970fa5d048a */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","mediawiki.user","mediawiki.page.ready","mediawiki.legacy.mwsuggest"]);
+}</script><script type="text/javascript">
+	var wsl_assets = {"oasis_shared_js":["http:\/\/slot1.images.wikia.nocookie.net\/__am\/61930\/groups\/-\/oasis_shared_core_js,adengine2_js,oasis_shared_js,oasis_anon_js"],"oasis_nojquery_shared_js":["http:\/\/slot1.images1.wikia.nocookie.net\/__am\/61930\/group\/-\/oasis_nojquery_shared_js_anon"],"references":["\/wikia.php?controller=JSMessages&method=getMessages&format=html&packages=ImagePlaceholder%2CVideoEmbedTool&uselang=en&cb=61930.0.59260"]};if ( window.Wikia.AbTest && ( window.wgLoadAdDriverOnLiftiumInit || Wikia.AbTest.inTreatmentGroup( "AD_LOAD_TIMING", "AS_WRAPPERS_ARE_RENDERED" ) ) ) {
+	toload = wsl_assets.oasis_nojquery_shared_js.concat(wsl_assets.references);
+} else {
+	toload = wsl_assets.oasis_shared_js.concat(wsl_assets.references);
+}	(function(){ wsl.loadScript(toload); })();
+</script>
+<!-- No iframe placeholders called for AdEngine::getDelayedIframeLoadingCode -->
+
+<script type="text/javascript">/*<![CDATA[*/ Wikia.LazyQueue.makeQueue(wgAfterContentAndJS, function(fn) {fn();}); wgAfterContentAndJS.start(); /*]]>*/</script>
+
+
+<script src="http://vim.wikia.com/__load/-/debug%3Dfalse%26lang%3Den%26only%3Dscripts%26skin%3Doasis/site"></script>
+<script>if (JSSnippetsStack.length) $.getScript('http://slot1.images2.wikia.nocookie.net/__am/61930/one/minify%3D1/extensions/wikia/JSSnippets/js/JSSnippets.js');</script><!-- Facebook integration -->
+<div id="fb-root"></div>
+</body>
+
+<!-- Served by ap-s49 in 0.177 secs. -->
+<!-- Ad slots to be called within AdModule on this page: TOP_LEADERBOARD, TOP_RIGHT_BOXAD, TEST_TOP_RIGHT_BOXAD, MIDDLE_RIGHT_BOXAD, INVISIBLE_1, INVISIBLE_2, LEFT_SKYSCRAPER_2, LEFT_SKYSCRAPER_3, PREFOOTER_LEFT_BOXAD, PREFOOTER_RIGHT_BOXAD, TOP_RIGHT_BUTTON, TOP_BUTTON, TOP_BUTTON_WIDE -->
+
+</html>

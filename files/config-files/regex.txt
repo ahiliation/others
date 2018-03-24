@@ -1,0 +1,3 @@
+#for deleting all messages except personal using Mutt
+!(~t ahiliation@gmail\.com |~c ahiliation@gmail\.com )
+

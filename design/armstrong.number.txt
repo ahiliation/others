@@ -1,0 +1,15 @@
+/* This algorithm comes with ABSOLUTELY NO WARRANTY to the extent permitted by applicable law */
+
+What is an Armstrong number ?
+
+A number is called Armstrong number if the sum of the cube
+of each digit of that number is equals to the number itself.
+
+Example:
+153  = 1 + 5^3 + 3^3  So, 153 is Armstrong Number.
+142 != 1 + 4^3 + 2^3  So, 142 is Not an Armstrong Number.
+
+Problem Statement: 
+
+Design an algorithm to find a given number N is Armstrong number or not.
+

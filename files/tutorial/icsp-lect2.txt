@@ -1,0 +1,37 @@
+
+-- To write programs we need: some representation of fundamental data
+   + a way to give instructions to computer to manipulate that data. --
+
+
+-- primitive data = numbers + strings + boolean --
+
+-- expression = operand + operator --
+
+-- interpreter evaluates and prints --
+
+-- inside a script there is no print unless we make it explicit --
+
+-- type discipline --
+
+-- when you work on a program you need to know about the type 
+   discipline (type of the value) to pass arguments --
+
+-- operator precedence --
+
+-- statements = legal commands that python can interpret --
+
+-- comments = words to reader of the code to understand what
+   is going inside that code --
+
+-- straight line program = a program where we execute a 
+   sequence of instructions one by one --
+
+-- branching programs = a program that can change the order of
+   instructions based on some test and that test is usually a
+   value of a variable --
+
+-- iteration - loops --
+
+-- iteration = executing multiple statements based on a test --
+
+

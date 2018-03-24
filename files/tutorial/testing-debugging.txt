@@ -1,0 +1,43 @@
+-- Testing and Debugging --
+
+- Validation is a process designed to uncover problems and
+  increase confidence about what our programs does we think 
+  it intented to do. -
+
+ 
+- Testing and Reasoning -
+
+- Debugging is a process of ascertaining why the program is
+  not working. -
+
+- Unit testing = validate each piece of the program independently. -
+- Integration testing = validate if the overall program works  -
+
+- Test Suite = small enough so that we can test it in a reasonable
+  amount of time and large enough so that we can have some confidence -
+
+- Debugging is a process of engineering -
+
+- Goal of debugging is  not to eliminate 1 bug , but to have a bug-free
+  program -
+
+- Two best debugging tools are print statement and  reading -
+
+- knowing to debug the code is the single most important skill to 
+  debuggging. -
+
+- be systematic in debugging -
+
+- debugging is simply a search process -
+
+- scientific method of debugging = study available data + Test results + 
+  program text(As you study the program text keep in mind that you do not 
+  understand it, cause if you really did you may not have the bug) + Form
+  a hypothesis with all the data + design and run a repeatable experiment -
+
+- a valid scientific experiment should have the potential to refute 
+  hypothesis - 
+
+- design an experiment = find the simplest input that will provoke the bug
+  + find the part of the program that is probably at fault(use binary 
+  search method) - 

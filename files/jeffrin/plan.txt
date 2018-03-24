@@ -1,0 +1,1179 @@
+Path : (Tuning) ( Computing with Mathematical Background )  and other plan or plans
+------
+Algorithm of things which are :
+1. Simple. (First Level related)
+2. Fundamental.
+3. Library
+4. Function
+5. GNU Tool Chain
+6. Operating Systems.
+7. Computer Networks.
+
+may be core area is : Interfacing relating to  all of the seven above
+
+
+try to write a classical book on tuning.
+try to write a book about the art of fixing things in computing.
+
+
+
+An algorithm becomes a function when used in an application.
+
+try to read about database concepts and typical related things
+try to contribute to libmysql library
+
+no need to contribute to mysql library for now.( san advice related )
+
+
+try to know everything about  Algorithms/Function ( GNU C library algorithms . example : sqrt() function)   
+and fundamentals of other necessary fields.
+ 
+
+keep one book on geometry (david .... i got it ))
+keep one book on applied physics ( i got it)
+keep one book on chemistry (General book)
+keep one book on mathematics ( General Book )
+
+
+focus on GNU C library Algorithms/Functions .
+tuning of/with  algorithms for an optimal configuration 
+try to use Gcov.
+(try to use a command named "script" for the above
+focus on scripts for kernel related. ex: linux-3.10.0/scripts ( scripting with Bash )
+
+
+
+My contributions to the world will be as :
+
+a scientific  sharing knowledge through beautifulwork.
+---------------------------------------------------
+
+try to maintain a print version of beautifulwork
+try to document to beautifulwork about Algorithm :
+1. analysis of GNU C library.
+2. Testing of GNU C library.
+3. Improvement to GNU C Library.
+
+
+a typical beautifulwork page.
+from top down :
+
+1. learning model ( any one of the learning models i have documented )
+2. comment(analysis) from algorithms(science)  about function/API discussed.
+3. Gcov test report
+4. comment about the improvement of the algorithm.
+
+
+
+a hacker through savannah beautifulwork.
+---------------------------------------
+
+try to write code for geometric functions.
+try to form a library using those functions.
+try to write an application using that library.
+
+
+
+if there is a lot of code reading  to be done, i will do it only if i feel that people may use it.
+i like to port some GNU software that work in commandline interface to a web interface(as a web application). 
+
+
+programming blog:
+
+1. you feel  tired of programming because you are
+trying to program in a framework. you usually have
+problem working in a particular time frameworks.
+i usually like to play with things than work.
+
+2. try to solve same problem in different programming
+languages.
+
+3. try to solve every function in different programming languages.
+
+
+4. you may get new ideas maybe when you excercise or play with a function.
+play means like coding a user defined functions in different languages.
+
+5. try to rewrite the same program again and again so may be
+your brain may get comfortable  with the patterns.
+
+6.be slow and easy.
+
+
+notes :
+
+1. read code and write useful scripts for functions.
+you can take a function in trueprint program and write
+a relevent script for that function. a script that supports
+the function in code in a way .Also create a directory called
+"scripts" inside parent directory.
+
+2 . you find it easy to work on already created things.
+like hacking on already existing programs.
+
+3. my creativity lies in music a lot.
+
+4. my typical scientific thing lies in problem solving(fixing)
+skills and maintanence development(writing scripts and system
+administration).
+
+
+5. i like to be a visual artist.
+i like to focus on drawing cartoons for beautifulwork.org posts
+using GIMP.
+
+I like to be a "DEBUG METHOD DEVELOPER"
+
+get source code of quicksort in different languages.(C,JavaScript,Perl,Python,C++,Java...)
+try to debug all the code with debuggers.gdb , may be firebug .. chrome...related...
+may be try to integrate or otherwise if possible run the code into different
+environments and conditions and debug to see if there is any bug.fix the bug
+or give the idea to fix it to the developer if possible.
+
+also try to learn about linux kernel debugging.
+
+take source code from lots of free software(may be debian) and do
+extensive debugging.lot of debugging is studied through testing
+(i mean atleast testing the debugger features using a program)
+note : Testing programs using debugger and debug techniques
+make it a test driven development. a development of debug methods.
+(DEBUG METHODS DEVELOPER)
+
+collect pdfs and documents about debugging in other format and 
+try to compile whatever necessary and make a series of books like stuff.
+prepare a document with the documents you have used for debugging stuff.
+
+try to document and develop methods for unlocking knowledge.
+engineering methods and algorithms for unlocking knowledge.
+METHODS Developer.
+METHODS Algorithm Developer.
+Algorithms For Methods Usage.
+Package Developer.
+
+Fix/Debug Method Developer.
+types of fixes.
+a)Code Styling Fixes
+b)Style Fixes. (CSS)
+c)Build/Compile Fixes.
+d)
+
+
+----0--be patient and  try to fix small and easy fixes--0-------
+1. unable to change gnome background.
+
+a process that creates necessity may drive invention.
+reading and learning scripts from free software projects
+and get ideas and port the usable parts to GNU (dap+trueprint+gleem)
+
+creating user interface to create posts in wordpress related to 
+the learning models  in beautifulwork.
+
+asking help to people to contribute to beautifulwork.
+
+---
+note down the things you have done in typical free software related
+so that you can repeat or hack in a way.
+---
+
+1. source code build.
+2. debug using gdb to know internals.
+3. General debugging.
+4. show commandline session and title it as knowledge representation.
+5. file bugreport to free software projects.
+6. answer questions on free software mailing lists.
+5. install free software operating systems.
+6. advocate for free software.
+7. create debian(.deb) and also GNU packages.
+8. system/network/security administration
+9. drawing images using gimp.
+10. trying to create icons using inkscape.
+11. shell programming.
+12. web application programming.
+13. learning editors like emacs and vim.
+14. computer assembling and maintainence.
+15. learning from reading mail from mailing lists.
+16. contributing to Linux kernel.
+
+
+---------------
+beautifulwork cycle.
+---------------
+
+1. GNU/Linux commands screenshot. (knowledge representation)
+2. Learning Model V.
+3. Using gdb to find internals of a GNU/Linux command.
+4. Embed videos of GNU/Linux command tutorial and related 
+knowledge representation
+5. Hacking Web Applications related to Perception Model.
+6. Graphic Images about a GNU/Linux command.
+7. debug method development. (try to fix bugs from debian BTSand GNU BTS related)
+8. Learn, download code, debug , test about algorithms given in the book
+Encycclopedia of Algorithms.
+9. Linux kernel Testing using "autotest software". and do knowledge representation. 
+
+
+in www.beautifulwork.org may be it should categorize whatever
+that has been done in it to it's proper scientific subject.
+for example command "ls" to operating systems ...
+
+[ forming and realizing the team ]
+may be write down the softwares and people that are related
+to www.beautifulwork.org  and may be watch them, talk to 
+them note down their websites and mailing lists and may be also
+try to hack the code of the software that beautifulwork.org depends.
+search even simple things in google so that you can get the result fast
+
+
+create posts in beautifulwork.org to explain terminologes like
+wrapper,hook,.....
+
+TEAM. [ it is good to get and also contribute to the team ]
+-----
+Project Name : BeautifulWork Project.
+Purpose [ Debian Research ] : Debug Method Development (Theory Development )    
+          Learning Process.
+try to work with the API of all team members like google and youtube related)
+the team members listed below may be listed as different projects  related
+
+1. Mailing Lists.
+2. Google Search 
+3. Wordpress Project.
+4. Debian Project.
+5. Linux Kernel.
+6. GNU Project.
+7. Wordpress Plugins.
+8. Youtube.
+
+beautifulwork.org color combinations -- green + white + grey 
+
+play + learning
+
+----following may not be accurate----
+learning model 1 = put the output of "whatis < command >"  in post title.
+connect beautifulwork.org contents words with existing GNU, Linux and other relevent doc.
+try to find reasons why the developed learning models are good (assuming it is good)
+try to tell the skills that are developed when working with a typical learning model. 
+
+----trueangle.org----
+try to connect to other wordpress databases other than beautifulwork.org related.
+try to connect to wordpress blogs that are about free software and also may be ad free blogs related
+
+----people-involved----related----
+inorder for getting people involved...
+try to document what ever that has been done in beautifulwork properly
+try to document how to contribute to beautifulwork  in a detailed step
+by step manner.try to document what are the things that needs to be
+fixed.
+
+---learning-model-V---
+try to publish posts in this model.
+post title can be the proc parameter or api parameter name related.
+try to include a commandline session of the command that is related
+to the proc parameter and the commandline session of the command that
+is related to a typical API.
+
+---may be change "UNIX" in the learning models to "GNU/Linux or UNIX"--
+a command may be a function of GNU libc or normal bash commands.
+try to work with the book "THE LINUX PROGRAMMING INTERFACE"
+
+
+--new learning model . LM X---
+1. commandline session.
+2. Video Tutorial ( also give the link of  youtube channel from which the video has been taken , if it is so)
+
+[ it may be good to know the area of my limits and the area where iam unlimited ]
+
+----different angles of beautifulwork----
+( document and  organize the entire hack(playful cleverness) session for knowledge building )
+1. education with GNU ( play and learn ) - freedom to use the program for any purpose.
+2. free software research to know "how things work"  - freedom to study the source code 
+to know how things work.
+
+--team-culture-related---
+anybody can do any work.
+a person can work in multiple roles among different projects at the same time.
+maintainers approval is required for the official release of a patch.
+
+---a-patch---
+1. content development patch.
+2. software development patch.
+
+---Role---
+may be initially a person has to take the role of a subscriber.
+a person becomes a contributor after his contribution is accepted mainstream.
+
+---different-sub-projects-under-beautifulwork-project--- 
+1. learning model 1-10 ( considered as 10 different projects )
+2. document of debug sessions ( for debug method development )
+3. search development
+4. development of data visualization and statistics.
+every learning model project will have a  administrator.
+every learning model can have a team of contributors.
+
+--core-work---
+the core work of beautifulwork is debug method development.
+the final outcome of the beautifulwork project is a book on DM
+DMD = Debug Methods.
+
+----do-not-do----
+do not try to develop any learning algorithms.
+
+---learning model in this document means learning styles.---
+
+---try to build knowledge,experiance and methods for debugging.---
+
+---repeat the same function or command with different input (this will help in building experience )---
+
+---function---
+learn about "functions" in mathematics (video tutorial may be easy) and try to make meaningful relations
+between mathematic function and GNU commands.also try to make GNU command
+or function or algorithms  with the help of laws or theorems in the area
+of "functions" in mathematics by "mapping"  between the meaningful relations.
+
+
+---reason for writing another version of a program can be for the beauty of detailing---
+ 
+---try to stay with wordpress in BeautifulWork Project: Be collaborative---
+
+---try to stay in partnership with other projects---
+
+---in debug method development try to connect topic of "functions" in mathematics to GNU/Linux commands---
+
+---another learning model is to display a single image that explains something ---
+
+---document design principle related . for example " what kind of font should be used where and why ? " ---
+try to make things uniform throughout the site and give detailed documentation of what of what is used
+in the site.
+
+--- learning model 10 ---
+1. EXPLANATORY IMAGE
+2. SOURCE RELATED ( SOURCE OF IMAGE )
+3. RELATED FROM RESEARCH PAPER (LINK)
+
+--- in connecting ("stitched to") option there is a parent-child  tree like structure  based on necessity ---
+suppose topic A have a content which is necessary for topic B . A becomes a parent of B
+
+--- common sections to all learning models is (1. source related 2. related from research paper 3. stitched to
+---
+
+---may be modify the wordpress database design and may it suitable for your programming ---
+
+---Test Your programs in a way before moving to live repository---
+
+---write an algorithm to beautifulwork which works as a "balancing act" for it.
+( first try to set a boundary(may be changing) for the work of beautifulwork and try to
+make the work happen within the give limits ) 
+
+--- try to contribute to beautifulwork by solving problems in maths for class (4-12) ---
+
+--- if you stick to the old language even if a new language for the same purpose with new feature has come,
+then you may be able to hack the old language and understand programming languages in depth since you
+are moving deeper in a language.but a small module with the new language can be done so that both  work
+together. but let the old language be the main language ---
+
+--- try to learn php related library API ---
+--- you typically become rich in a language when you are rich in it's API related knowledge ---
+
+--- fix PHP and your main language and learn and work with it for 10 years ---
+(1. if you keep switching languages you may not able to learn really about programming practices 2. you may
+not have a typical(clear well defined failure) to learn from. 3.You can learn certain things only from failures  )
+
+--- if possible always plan a failure in your success plan ---
+
+--- try to write the balancing algorithm ( the balancing act ) for learning in beautifulwork ---
+
+--- try to do testing math functions for perl and python and javascript ---
+
+--- try to hack core wordpress with the help of code available in the web ---
+
+--- try to get patches from mainstream wordpress and apply to beautifulwork version of wordpress related ---
+
+--- may be try to work with fonts and kerning related free software projects ---
+
+--- if you want to go more core in a way... may be  go core in wordpress internals ---
+
+--- may be giving supportive link for a post is useful . it may form a collection ---
+
+--- may be try to write the balancing act related algorithm  and may be try to connect it with every plugin ---
+--- may be a whole lot of code should emerge from the balancing algorithm --- 
+
+
+--- you may be  a style user,developer and administrator ---
+
+--- change the learning style contents from UNIX command to GNU Command ---
+
+--- make the headings in a all learning styles to normal size(not h1 h2 ..) ---
+
+--- stay with beautifulwork project for atleast 10 years ---
+
+--- it not about doing coding work in the project . make the project with meaningful content 
+and may be show things and commands which has a relation to operating system and computer networks ---
+
+--- may be make programs and design weaker than the existing one ---
+
+--- may be make the algorithms tuned for a particular problem ---
+
+--- may it is possible to write 1000 sorting algorithms tuned for 1000 different problems ---
+
+<<<<<<< HEAD
+--- doing manual things in software may help in getting idea to automate it  ---
+=======
+--- BUGS ---
+
+1. BUG can occur during software compilation.
+2. BUG can occur during porting software.
+3. BUG can occur during software installation.
+4. BUG can occur during software configuration.
+
+
+--- Marketing Related ---
+1. try to get reviews online .may be paid reviews.
+2. try to get suggestions online.
+3. try to contact people and ask about what they like to see in the website.
+4. try to contact people and see the features that they like to get added.
+5. try to contact different type of people. people from different industry for suggestions.
+6. try to contact the online GNU, Linux and other communities for suggestions.
+
+--- Jobs Related ---
+
+considering suggestion from people and from your own ideas
+try to allot jobs to other people for a small fee.
+
+--- BW Project calrity ---
+
+try to learn software testing using python.
+after that write tests for libeautifulwork.
+try to write infinite algorithms for libeautifulwork
+try to test for time issue of a program using gprof.
+try to do python unit testing for correctness of programs.
+try to do profiling using gprof.(may be GNU C programs)
+try to port  algorithms to  linux kernel 
+try to port  algorithms to userspace programs
+
+--- normal travel is in the breadth and sometimes you go depth 
+    but if you stay in depth for a long time your pressure may 
+    increase, so come back to breadth travel again(do come back well before you explode). ---
+
+-- Learn Linux Kernel Debugging ---
+
+--- if you find a library that is doing an advanced job in an area than 
+the one your are creating then try to use that library(use the API if possible) in the development of your library ---
+
+--- You should put one single imperfection in every thing you like to perfect ---
+
+
+--- You keep writing algorithms, and your mind will guide you to find out 
+which algorithm is faster and how to fix algorithms to improve speed.
+use "time" command normally. ---
+
+
+--- Always try to master  fundamentals ---
+
+--- Once you master the fundamentals of one topic you can switch on to
+   another topic ---
+
+---  may be connecting fundamentals of multiple topics can lead to research ---
+
+--- Topics You can work on( may be you can use these topics as categories for  beautifulwork.org posts ) ---
+1. Debian.
+2. GNU.
+3. Linux Kernel.
+4. Operating System.
+5. Computer Network.
+6. Algorithm and Data Structure.
+7. Debugging.
+
+--- may be you can switch between topics in a random manner ---
+
+--- the method of an algorithm which is written by someone else
+    for the same problem may not be as you expect it while reading
+    their code ---
+
+
+--- I work for free software(and education), people can use me as a resource 
+    for their work ---
+
+
+
+--- when you learn algorithms may be you can try to learn where those algorithms
+    are used in real life  ---
+
+--- You can contribute to a project by learning about the project and make
+    the necessary notes if possible and make a design ( way to ) solve the
+    problem ---
+
+--- learning by examples is a method used in beautifulwork project ---
+
+--- people may contribute to beautifulwork project by contributing examples to the project ---
+
+
+--- topics involved related to basic scientific research may be 
+1. Number Theory 
+2. Human Learning and  Education [www.beautifulwork.org] 
+3. Algorithm - O notation.  ---
+
+
+--- basic research may be defined as that undertaken primarily to acquire
+    new knowledge of the underlying foundations of phenomena without regard
+    for a particular application. ---
+
+--- benefits of basic research 
+1. new knowledge - it is the primary product of basic research.
+2. social benefits - the social benefits of educating high quality scientists, technologists
+                     and engineers.
+3. basic discovery may lead to applications ---
+
+--- we may not know what we are going to discover ---
+
+--- try to find the design specification of a Graphics Card by using
+    reverse engineering, which is a High Priority Free Software
+    project. Your output will be related to the design spec of
+    the Graphics Card ---
+
+--- It may not be necessary to have a complete understanding of a thing
+    to make it work. --- 
+
+--- "reverse engineering of algorithms"  may be a topic you can look into ---
+
+--- when you work on  something and if you find it small and not worth working,
+    keep working and try to search and find out the importance of that thing ---
+
+--- may be try to bring the output of your work to be easily accessible and understood  ---
+
+--- if you rework and research on basic things, you may be doing a research 
+    on a topic you may not know and also an outcome you are not sure about, 
+    but the outcome may be connecting all the sections you work on  ---
+
+--- when you work on real life problems section of bw project and if you
+    feel that you have not completed a program and you feel that you are 
+    drawn towards that program and do not know when to stop typically, 
+    then you should try to complete the design of the program using coding 
+    and documentation which will be like writing the initial version of the software. ---
+
+--- may be add math and physics as sub groups for your basic research.
+    always concentrate on basic and simple stuff ---
+
+--- however simple an algorithm looks, it may better to say "i know it"
+    only if you really implement it in code and make it work. ---
+
+--- may be add a link called "papers" to beautifulwork.org for adding papers you make using 
+    libreoffice-writer ---
+
+--- may be try to learn algorithm and data structure using javascript ---
+
+--- may be try to do the documentation for BW.org and add software to contribute to beautifulwork ---
+
+--- may be fill the contents for the links "copy" and "contribute"  ---
+
+--- may be rework on the "about" page ---
+
+--- application software ---
+{
+
+
+1.try to remove password hashing from public database.
+2. program to make user view posts at their font.
+3.program to concatenate posts to form a big document.
+3.1 option to add posts in between.
+4. spell check program for posts
+5. option to sort posts on different basis.
+6. options to add and remove posts from users private account.
+7. content rework.
+8. program to search within posts
+9. if upstream author is there then details about that post should be there on every post.
+
+}
+
+
+--- may be in future try to do API development for your library project  ---
+
+--- may be try to write home management software as a wordpress plugin ---
+
+--- may be consider wordpress as a kernel a plugins are applications ---
+
+--- may be try to do one original algorithm in your library project ---
+
+--- project euler and other mathematics  ---
+
+--- in the HOWTO link of beautifulwork.org you may give instructions to download
+    database and learn to set it up locally  in debian and may be other GNU/Linux
+    systems  and use it locally , may be scripts should be developed to download
+    and upload content and also update database if possible ---
+
+
+--- may be try to write a wordpress plugin on how to learn. for exmaple:
+    How to learn new things [ start learning in breath and then go to depth ]
+    start learning simple things [ You can identify these things if you categorize simple things  ]
+    When to relearn things [ You can relearn things next year in the same day and also contribute ]
+    define levels in learning ---
+
+--- focus on style fixing  and  debug method development ---
+
+--- may be focus on artistic things like ....
+
+    1. Fixing Fonts. 
+    2. Fixing Animation. JavaScript
+    3. Fixing Color. GIMP
+    4. Fixing Graphics. GIMP
+    5. Fixing Images. GIMP
+    6.
+                      ---
+
+
+--- now it is 5 years of beautifulwork project.
+    now may be the learning models can be modified ...
+    may be concentrate on using  and collab with API's (google API, Wordpress
+    API and Youtube API )  for the next 6 months (may be part of openlearn plugin) 
+    or may be do algorithm development work for next 6 months ---
+
+
+--- may be afterwards if possible write GIMP Plugins with  C Python Scheme ---
+
+--- may be for media lab , topics are CSS, GIMP, Blender, Scratch ---
+
+--- Learning "Processing" and "GIMP"  can be treated as basic research on basics ---
+
+
+--- B openlearn .
+
+      try to write code for Book Suggestions.
+      may be try to write code using GitHub API.
+      try to write code to accept feedback by the user about learning.
+      try to write code to  give suggestions based on feedback.
+      your database is your knowledge base related.
+      may be try to connect the posts in the base and find common things.
+      may be write code to counsel the learner.
+
+      ---
+
+
+--- may be try to do specialization in coursera related in "Fundamentals of Computing"
+
+    reasons : 1. certificate of proof and reputation 2. collaboration with coursera people
+    	      3. learning more python 4. learn fundamentals 5. gaining more programming experience
+	      6. capstone project. ---
+
+
+--- Commandments
+
+    0. Learn and Hack free software (Work With BW and Trueangle Projects)
+
+    1. Take one feature from different projects and try to add it to BeautifulWork Project
+       (Do not entirely follow a Project)
+
+    2. Find common thing in all your work and try to connect them.
+       ( Knowledge and Learning are common things in BeautifulWork Project )
+
+    3.  Try to build new knowledge by connecting existing knowledge base.
+
+    4. Try to write algorithm to connect existing knowledge packets
+
+    5. Try to write algorithm to create new meaningful knowledge
+
+           #0 define a knowledge packet
+	   #1 define a target knowledge packet
+	   #3 search for similar packets in the database ( local or in network )
+	   #4 order them to make a meaningful new packet or a packet sequence.
+           #5 visualize the new packet, so that people may get new ideas
+
+---
+
+Note : --- While working on projects like building gcc , chromium and other stuuf and
+       	   other projects , try to see to take a value from that and add to beautifulwork ---
+
+--- may be consider each post of beautifulwork project as data and try to make
+    algorithm work for all the posts. --- 
+
+--- may be collect different types of data from all over the world and also
+    may be in different formats.
+
+    1. sysstat package has sadf command to make json file out of data file
+       created by sar command. ---
+
+--- even if there is nothing new in developing a software the logic may
+    always have something new. It may be like that you are building
+    several houses and should not get bored after building the first
+    house because you can build a house using different way of logic. ---
+
+
+--- May be one feature of beautifulwork is that people can document their
+    command line sessions(like free software code) and share with others
+    so that everyone can learn together.there should be analysis about
+    the type of commands a person is using and about it's frequency
+    and other things if possible. ---
+
+--- may be a feature of beautifulwork is that it works like project hosting
+    sites like github.com and savannah.gnu.org.
+    the key idea related is to share a improve the learning process.
+    commandline screenshot = a knowledge packet
+    * project hosted will be a commandline screenshot.
+    * commandline screenshot may have revisions.
+    * commandline screenshot may be stitched in a sequence to have a special meaning
+    * try to make data visualization of the packets.
+
+    ---
+    
+--- may be you can use python for data analysis and other commandline application 
+    if needed in BW Project ---
+--- may be you can use html and css for user interface and experiance ---
+--- PHP for features of web application  ---
+--- Javascript for data visualization ---
+
+--- may be put some things in the download part of BW project
+    * make a release for the /lib section and put a tarball.
+    * make a release for the /data section - may be as utilities for BW project.
+    * make a debian package for /code section - kind of code examples debian package ---
+
+
+--- may be try to make a debian package of every directory in your github repository ---
+
+--- may be try to make software for  visualization of the programs in "code" section of beautifulwork repository. ---
+--- may be try to make software tool for  data analysis from "data" section  for  www.beautifulwork.org ---
+--- may be try to make software library out of the "lib" section of beautifulwork repository ---
+
+--- maybe you can use www.asciinema.org to make terminal videos and embed in www.beautifulwork.org ---
+
+--- may be take topics from debian user mailing lists and apply the core commands like ( cat, ls , ps ...)
+    to that topic and make a meaningful post ---
+
+--- may be try to write an algorithm that helps balancing a learning process.
+    (in the algorithm below implement one thing in every main step and try to make it work)
+
+    0: find out the things that has to be learned.
+
+    1: mark the topics that has to be learned.
+       0: create a table in wordpress database and mark the things to be learned
+       1: create a target of things to be learned for
+       	  understanding Debian GNU and Linux
+	  writing an application to analyze data
+	  writing multiple sorting algorithms
+	  writing a library about bit twiddling hacks.
+
+       2: the database will have multiple tables
+       	  one for getting feedback from the learner
+	  one for storing the processed(manipulated data) feedback for future use.
+       	  
+
+    2: create a  structure from topics to their inner details
+       0: may be use php and mysql to access the database.
+       1: may be use php to store the data from the database to a new
+       	  custom data structure for manipulations. (http://www.php.net/manual/en/book.spl.php)
+
+    3: create relations between the topics.
+       
+
+    4: create properties for the relations.
+
+    5: create conditions among properties.
+
+    6: create a logical sequence for a step by step learning process using the conditions. ---
+
+--- may be try to freeze addition of plugins and typical other things and try to make a release ---
+
+--- may be learn and program related to  data structures and sorting algorithms  using multiple languages
+   (may be Assembly, C, C++, Java, Clojure, Scheme, Erlang, Go, Haskell, Javascript, PHP, Python, R)  --- 
+
+--- may be in one way do not think that a language will get outdated and there is no use learning it.
+    may be even if a new language comes you will be able to read code and fix bugs of the old language
+    which may have a large codebase of working applications. ---
+ 
+--- may be you can try to connect lisp and php using sockets ---
+--- may be lisp can do some artificial intelligence stuff for B project ---
+
+--- Tools  and purpose in B Project 
+    HTML and CSS for Webpages and Web Styling
+    JavaScript for Interactivity in Web pages ( for filling forms )
+    PHP for scripting ( general wordpress hacking and writing wordpress plugins(learning management)) ---
+
+--- The core language to focus is C.
+    It not compulsory to learn lisp or a dozen of languages to be a true hacker.
+    A person can become a true hacker by just learning C.
+    Focus on C and try to go in depth with C. ---
+
+--- The center of B Project is (Debian,Learning).
+    The workflow of the project has multiple starting points and multiple ending points.
+    The flow have to meet the center(which is the system(Debian+Learning)) and then produces output 
+    Here every input will have an output
+    Every Input should have a connection with Debian
+    Every Input should have a connection with Learning ---
+
+--- Design FAQ.
+    How to  write a large application ?
+    Write code using Types, Operators and Expressions.
+    Write code using Control flow.
+    Write code using Functions.
+    Write code using data structures.
+    Write code using Input and Output and so on ...
+    May be try to use many of the features a programming language has to offer.
+    Suppose you are planning to write a software of 1000 lines...
+    Consider writing 100 lines of code for 10 features of the language.
+    Consider finding ideas and information related to a feature of the language
+    and the project you are working upon to increase new lines of code. ---
+
+--- try to solve problems in typical cookbooks . learn by reading the code in that ---
+--- may be try to categorize problems . so you may get an idea of the kind of problems you can solve ---
+--- may be try to write debug code (the code added to a computer program so that it can be debugged easily )---
+--- may be writing debug code is part of [debug method development] ---
+--- may be learning htdp and scheme is to learn computer science through a level of abstraction
+    may be knowledge of scheme can be used for prototyping. Practical implementation can be done
+    with PHP or Python in a simple way. ---
+
+
+--- may be breadth is more important for you than a typical depth.
+    may be document and connect things that you learned while going
+    in breadth ---
+
+--- may be write a book about "how to build knowledge in computing using free software".
+
+--- Urban ladder related calculation for church.
+31998 * 15
+479970
+479970/100
+4799.7
+4799.7/12
+399.97499999999997
+
+so product price is 31998 and monthly installment that should be given to church is 400 rupees for 12 months ---
+
+--- may be you can write a book like "data source handbook" with your book named "knowledge source handbook"
+    which helps to build related knowledge to GNU/Linux commands and typical related stuff. may be you can
+    name a command and then show a related HOWTO from tldp.org .may be you can build a list of commands and the
+    links for it's related knowledge ---
+
+--- may be you can use the contents of "knowledge source handbook" and write a book on the
+    fundamentals of computing. ---
+
+--- may be your work is in the internet world. you may not talk directly with the students
+    or teach them in real class or person , but you can help them through internet.
+    your real work may happen in the internet ---
+
+--- may be again you should start contributing to mailing lists like debian-user and others ---
+
+--- may be in doing simple things and finding the design of the thing behind.. you may
+    learn related to the first section of each chapter from books you learn
+    The above idea may be termed as "Learning Model 1" ---
+
+--- TRY TO DO THE BOOK WORK AND TYPICAL OTHER WORKS(IF EXISTS)
+    ALONG WITH THE ADDITION OF POSTS TO THE WEB ---
+
+
+--- may be i should try to do typical data science course at coursera.
+    knowledge in data science may help you debug new things ---
+
+--- data science and knowledge discovery is connected.
+    you may need the knowledge of data science for B WORK Project.
+    https://www.kaggle.com/ may help in data science ---
+
+--- work flow design for a free software project for a typical hacker =
+    1. divide the project into different modules.
+    2. stop working on a module after a period of time (may be 2 weeks)
+    3. now switch to a new module and do as in step 2
+    4. after working with all the modules, then consider a overall rewrite. ---
+
+
+--- while doing "data" related project using python you should
+    at times switch to B WORK Project so as to get confidence and a
+    feeling of completeness.B project has crossed 5 years.
+    B WORK Project is like your "suvishesha vela" ---
+
+--- In the  dollect project ... may be you should consider data as .pdf files
+    and maybe analyzing the content of .pdf (opening pdf as text) files for
+    some unique things in pdf files a do visualization related ---
+--- in the dollect project, people may use it if the command line is thrilling ---
+
+--- may be in dollect project scaling of lines of code may be done with focusing on fundamentals
+    like fundamentals of oop,functional programming, ...data may be embedded in the code. ---
+
+--- may be try to make github repositories base on HOWTOS from http://tldp.org/HOWTO/HOWTO-INDEX/categories.html
+    may be add configuration files to repositories ---
+
+--- may be write and integrate a twitter app, google app, facebook app, github app into B WORK Project
+    using the necessary API's ---
+
+--- may be you can do debug method development using data visualization of linux kernel
+    may be you can use C(bittwiddling)  and Python and D3 for this
+    may be you have to create an algorithm to convert the kernel data dump to a format
+    that D3 can accept for visualization ---
+
+--- may be you can concentrate on "processes" from "understading the linux kernel 3e"
+    for kernel data dump to produce visualization. ---
+
+--- may be B project should write a wordpress plugin (algorithm related) by which the users can connect
+    their posts and find something beautiful. ---
+
+--- may be if you come to know about a new technology through a talk and if you feel
+    belittled that you do not know it, then you may try to learn that and put only that
+    knowledge that fits(may be a small simple basic part of that)  into your framework.
+    but you may not try to go through some on else's typical full  path, because someone
+    has already done that. may you should think about you past and try to continue
+    the good things that you have done in the past.  may be you should  use data
+    structures and visualizing  the data to debug things. may be you have learnt different
+    things in past and is a generalist(typical allrounder). may be you also was
+    interested in visual things.---
+
+--- may be you can do multiple roles(may be focus on basics).
+   (User Interface  Developer)
+   (Algorithm Developer)
+   (DATA Developer)
+   (Debug Method Developer)
+   (OS Developer) ---
+   
+
+--- may be you should define the allowed number of characters in a line
+    of a wordpress post of b project. may be you put sample files in the
+    b project site so that the commands in the posts can have sample files
+    to operate. ---
+
+--- maybe do learning by doing and you get  design of project by that
+    and document the design of the project and may be also the future
+    idea for the project . so a typical project starts with hacking(practicals)
+    and your job completes in theory paper.
+    But may be you should not do research paper beacuse it is better for
+    you not to go in depth. for you breadth is important and also connecting
+    things together things in the breadth ---
+
+--- may be your beautifulwork wordpress post title be of an abstract kind.
+    may be not the name of a typical command but the purpose of the command ---
+
+--- different projects may use different methodologies . may be it is
+    not correct to apply same methodologies to all projects. even
+    in a single project each stage may require different methodologies ---
+    
+--- may be when you connect things in breadth you may get idea(wisdom).
+    may be you can document those ideas in  B Project along with other
+    things like "developer's guide"(if you create). ---
+
+
+--- try to do documentation for b project using readthedocs.org
+    try to make 1. user's guide 2. administrators guide 3. Developers guide.
+    user's guide : how to make use of the content to improve your knowledge
+    	   	   how to extend and improve the contents of a post.
+
+    administrator's guide: how to install a typical version locally.
+			     how to alter the configuration files to change functionality.
+                             how to configure database to make a downloadable version.
+			   how to make configuration files for apache
+
+    developer's guide: how to develop and free learning environment.
+                       
+
+
+--- may be develop the free learning environment mainly not as a plugin, but may
+    be using wordpress api's. may be extensions can be written as  wordpress plugins  ---
+
+--- may be you have a call for "learning". may be help others to learn things. ---
+
+--- may be learn to (start) :
+    	1. Hack free software.
+	2. Draw pictures of art.
+	3. Create designs using GIMP
+	4. Build things using Autotools.
+	5. Program using python
+	6. do administration using GNU/Linux
+	7. style using CSS
+	8. Web Design using HTML
+	9. Document and share using Wordpress ---
+
+--- may be the documentation part of b project should explain how to use "shell sessions"(b project posts related)
+    to learn new things and concepts in computing or other general learning. ---
+
+--- may be a simple shell session can give ideas to a big thing or related big concepts or
+    ideas to check source code to know internals or find ideas to debug large programs ---
+
+--- may be BASH shell may be used to find the command equivalent for Linux programming API ---
+
+--- may be bash shell commands can be see as an abstraction for linux programming API ---
+
+--- may be it is possible to learn linux internals from bash shell commands ---
+
+--- may be it is possible to understand linux design using the design of bash shell commands ---
+
+--- may be slogan like for b project is "LEARN UNDERSTAND SHARE EVOLVE" ---
+
+--- may be one of the b project output should help people learn bash ---
+
+--- may be wordpress plugins should be written to help learn bash commands  in a simple and beautiful way ---
+
+--- may be in b project try to learn and write posts with a mind set of "what is the need for that command ?" ---
+
+--- may be learning support software should be written in a generic way outside wordpress and then
+    later port it as a wordpress plugin or plugins ---
+
+--- may be one of your work in beautifulwork project is to test programming languages(for example JavaScript) ---
+
+--- now suppose you have taken a code from a github project to your wordpress theme for wordpress and bootstrap
+    integration for pagination , then you may contribute some code back to that github project with your enhancement
+    on that piece of code ---
+
+--- may be focus on beautifulwork using http://www.gnu.org/software/coreutils/manual/html_node/index.html ---
+
+--- may be if you start learning a page and feel like kind of tired, then start reading from the end of the page ---
+			
+--- may you can jump from wordpress theme development to someting else and not necessary to do some application programming
+    and then to system programming. ---
+
+--- may be you can stick with wordpress theme development for a period of time by porting basic(html + css) free themes to
+    wordpress themes. ---
+
+--- may be you should do
+                       1. things which are easy                  
+		       2. things which many can do                        
+		       3. things which may not bring you a lot of money       
+		       4. things which may become outdated soon
+		       ---
+
+--- may be you should have a section in your resume called "command mastery"
+    there are things like mastering a language,mastering an a field in systems
+    administration etc. ---
+
+--- Wed May 10 18:45:48 IST 2017
+    (teach people how to use software(for example : GNU commands))
+    beautifulwork.org(beginner + necessary)) : learning process
+                                  debug method developer
+			
+    /truework(intermediate + possible) : use (using debian GNU and Linux kernel) research. (may be write user guides in text files)
+                                  teach how to use commands to improve user experience.
+		                  teach how to use programming languages.
+		                  teach how to use(on commandline) a compiler.
+
+    /openendwork(advanced + impossible) : write my type research paper about single commands ---
+
+
+--- after learning process if you find a new way to use a command then that may be
+    considered as an openend discovery ---
+
+--- "use research" means use research means finding different ways to use a command
+     and related things. ---
+
+--- "programming also  can be done in "use research" provided you start it or do it on 
+     your own project. --- 
+
+
+--- may be do gimp work by doing image about a free software command by taking commands
+    from B WORK blog. ---
+
+--- may be repeat the same kind of work and you can add creativity to it and learn related
+    things and improve knowledge and experience. ---
+
+--- may be you should do 1 single task  a 1000 times ---
+
+--- ethics.
+	Your work is majorly system administration
+	You also need programming skills needed for system administration.
+        You may not be able to learn about computer science the way programmers do.
+	You may be able to learn computer science by reading books like "computer science distilled".
+        When you apply software engineering principles to system administration,then you become an engineer.    
+    	Do not try to learn everything in system administration. 
+	You may do system administration projects in github by putting configuration file or others.
+        You may do desktop administration as a basic stuff.
+        Desktop administration may help you to work or understand about servers.
+	Using debuggers helps you find the internals of a program.
+	Output of your work maybe - 1.(knowledge sharing and knowledge discovery)
+	       	       	    	    2.(fixing bugs in the system and also developing(theory) methods to debug ) --- 
+				    
+
+--- may be you should learn about one concept from one book/person/video and then another
+    concept from another book/person/video  and connect them together using a software
+    project(may be try to complete using the concepts(in programming or systems administration).  ---
+
+--- may be a beginners basic implemention of a concept in code using a little project 
+    is the knowledge about  that concept you should acquire. ---
+
+--- may be you should know only the beginner basics about a concept to do debugging. ---
+
+--- may be you should look in a code about 1. the place where user input is accepted.
+    	       	      	      	     	   2. what are the functions invovled.(look for function blocks)
+					   3. if any function is called from a library.
+					   4. may be write "code notes" to understand the logic flow.
+					      write down selected code snippets into another file so that
+					      you can see the important blocks and connect them to find a
+					      logic.(you have written code notes for memtester)
+
+                                           5. search google for help if necessary. ---
+
+
+--- may be you should write comments in code and help write a patch for debug support . ---
+--- may be you should do code reading of python code ---
+--- may be you should create separate patches related to each day's  work of code reading
+    and learning how the code works and writing comments about that code and also hacking
+    the code for testing and understanding internals ---
+--- may be you should mark points in the code as a link to related knowledge packet(patch in this context) ---
+					   
+--- may be new graphic designs comes with new context ---
+--- may be you need a mentor  for graphic design ---
+
+--- may be there is something called software trekking , which is like travelling
+    the path  of knowledge. one step may lead to another step. may be  you can draw
+    the path you travel. may be you can write a wordpress plugin for  software
+    trekking. may be you can draw a graph to visualize your knowledge travel.
+    may for a basic stuff you may plot a graph taking category of post and time of
+    post from wordpress database ---
+
+
+---  try to work with the API of all team members like google and youtube related)
+ the team members listed below may be listed as different projects  related ---
+
+--- may be try to learn javascript by learning a javascript library (paper.js) ---
+
+--- may be python knowledge can help in understanding about programming, oop concepts, data, data structures. ---
+
+--- may be GNU C knowledge can help in understanding about operating systems and computer networks ---
+
+--- may be PHP  knowledge can help in understanding about database and  Web ---
+
+--- may be when you read a document you may skip  parts you do not understand and move forward if
+    possible and then may come back to document after doing hacking and have understood contexts or
+    may come back when  doubts arise while doing hacking ---
+
+--- may be first do, learning by doing(paper.js) and then try to learn other things of javascript
+    from a book ---
+
+--- may when you plan to do things start by doing one small meaningful thing in that area ---  
+ 
+---- may be it can be "learning method developer"--->"knowledge building"--->"debug method developer"
+    may be to become a learning method developer you should try to learn things .
+    may be for knowledge building you should document and share what you have learned.
+    may be to become a debug method developer you should try debugging things.
+    there is debugging in learning and learning in debugging. may be learning comes first. ---
+    
+
+--- may be you should work on your already published posts(knowledge packets) and improve in
+    a typical way. may be start from the first post you have published ---
+
+
+--- may be two things you want in your typical work is beauty and you want to become a master ---
+
+--- may be write different parts of dollect in different languages like rust. go, python etc ---
+
+
+--- may be write dollect typically and completely in python ---
+
+--- may be learn two programming languages : (one to support the existing work and other to learn new things and to do new things )
+           php -- in a way old but you continue to give service to users through wordpress.
+           python -- in a way new and updated. concepts related from other languages are supported.                       "do not try to port the existing work into new language you are learning.
+	   maintaining old stuf may be easy and may be stable .
+	   it may give you strength to learn new things." so the philosophy
+           may be "two things at a time" as far as learning programming languages are concerned. ---
+    
+--- may be try to write a program using  each and every typical feature in python ---
+
+--- may be you should put automated download feature in dollect project.
+    may be you should give command line as well as web user interface for dollect ---
+
+
+--- may be a few things done by dollect itself can make it a successful program.
+    so do not drop a project because it has only a few options ---
+
+--- may be you should concentrate on bug filing in debian . you can do testing
+    and applying patches. may be you should do different kinds of testing and
+    do not do programming unless for system administration purposes. ---
+
+
+--- connection :
+               may be connect bugs in debian to beautifulwork knowledge building(bkb).
+	       may be connect titles in stackoverflow.com to bkb (make posts title same as stackoverflow
+	       question related)
+	       may be connect manual page title related to command screenshot related --- 
+
+--- may be you know methods to learn and build knowledge ---
+

@@ -1,0 +1,1781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The Linux /proc Filesystem as a Programmers&#039; Tool | Linux Journal</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="http://www.linuxjournal.com/article/8381" />
+<meta name="keywords" content="Software" />
+<meta name="description" content="One of the best investments in time that a person with a keen interest in operating systems can make is to explore them from multiple angles. Operating system installation and configuration can go a long way toward solidifying the concepts that one reads about in system administration and networking texts." />
+<link rel="shortcut icon" href="/files/linuxjournal.com/ufiles/linuxjournal_favicon.png" type="image/x-icon" />
+  <link type="text/css" rel="stylesheet" media="all" href="/files/linuxjournal.com/ufiles/css/css_a1523ff4d1aa72cade04884a9369939c.css" />
+<link type="text/css" rel="stylesheet" media="print" href="/files/linuxjournal.com/ufiles/css/css_c0a722e91ba7b5051753942abbc53cfb.css" />
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" media="all" href="/sites/linuxjournal.com/themes/zen/zen/ie.css?6" />
+<![endif]-->
+  <script type="text/javascript" src="/files/linuxjournal.com/ufiles/js/js_d247fc148b857a492df6a912020821de.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "user_relationships_ui": { "loadingimage": "/sites/linuxjournal.com/modules/user_relationships/user_relationships_ui/images/loadingAnimation.gif", "savingimage": "/sites/linuxjournal.com/modules/user_relationships/user_relationships_ui/images/savingimage.gif", "position": { "position": "absolute", "left": "0", "top": "0" } }, "quicktabs": { "qt_1": { "tabs": [ 0, 0, 0 ] } } });
+//--><!]]>
+</script>
+<!-- PUT THIS TAG IN THE head SECTION -->
+<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js">
+</script>
+<script type="text/javascript">
+  GS_googleAddAdSenseService("ca-pub-3600556074671070");
+  GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+  GA_googleAddSlot("ca-pub-3600556074671070", "Half_Banner336x90");
+  GA_googleAddSlot("ca-pub-3600556074671070", "Large_Rectangle336x280");
+  GA_googleAddSlot("ca-pub-3600556074671070", "Leaderboard728x90");
+GA_googleAddSlot("ca-pub-3600556074671070", "Desktop_LargeRectangle");
+GA_googleAddSlot("ca-pub-3600556074671070", "Desktop_Leaderboard");
+GA_googleAddSlot("ca-pub-3600556074671070", "Embedded_LargeRectangle");
+GA_googleAddSlot("ca-pub-3600556074671070", "Embedded_Leaderboard");
+GA_googleAddSlot("ca-pub-3600556074671070", "Mobile_LargeRectangle");
+GA_googleAddSlot("ca-pub-3600556074671070", "Mobile_Leaderboard");
+GA_googleAddSlot("ca-pub-3600556074671070", "Security_LargeRectangle");
+GA_googleAddSlot("ca-pub-3600556074671070", "Security_Leaderboard");
+GA_googleAddSlot("ca-pub-3600556074671070", "SysAdmin_LargeRectangle");
+GA_googleAddSlot("ca-pub-3600556074671070", "SysAdmin_Leaderboard");
+GA_googleAddSlot("ca-pub-3600556074671070", "Virtualization_LargeRectangle");
+GA_googleAddSlot("ca-pub-3600556074671070", "Virtualization_Leaderboard");
+GA_googleAddSlot("ca-pub-3600556074671070", "HPC_LargeRectangle");
+GA_googleAddSlot("ca-pub-3600556074671070", "HPC_Leaderboard");
+GA_googleAddSlot("ca-pub-3600556074671070", "WebDevelopment_LargeRectangle");
+GA_googleAddSlot("ca-pub-3600556074671070", "WebDevelopment_Leaderboard");
+GA_googleAddSlot("ca-pub-3600556074671070", "large_rectangle_test");
+GA_googleAddSlot("ca-pub-3600556074671070", "article_footer");
+GA_googleAddSlot("ca-pub-3600556074671070", "sidebar_bottom_lr");
+GA_googleAddSlot("ca-pub-3600556074671070", "small_footer_square");
+GA_googleAddSlot("ca-pub-3600556074671070", "small_footer_square_middle");
+GA_googleAddSlot("ca-pub-3600556074671070", "small_footer_square_right");
+GA_googleAddSlot("ca-pub-3600556074671070", "subscriptions");
+
+</script>
+<script type="text/javascript">
+  GA_googleFetchAds();
+</script>
+<!-- END OF TAG FOR head SECTION -->
+
+ <!-- <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script> -->
+ <!--<script type="text/javascript">_uacct = "UA-1117794-1"; urchinTracker();</script> -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1117794-1");
+pageTracker._setDomainName(".linuxjournal.com");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!-- Start Quantcast tag -->
+<script type="text/javascript"
+src="http://edge.quantserve.com/quant.js"></script>
+<script
+type="text/javascript">_qacct="p-a3K3N6enFe9wA";quantserve();</script>
+<object>
+<noscript>
+<a href="http://www.quantcast.com/p-a3K3N6enFe9wA"
+target="_blank"><img
+src="http://pixel.quantserve.com/pixel/p-a3K3N6enFe9wA.gif"
+style="display: none;" border="0" height="1" width="1"
+alt="Quantcast"/></a>
+</noscript>
+</object>
+<!-- End Quantcast tag -->
+
+</head>
+<body class="not-front not-logged-in node-type-xmlnode one-sidebar sidebar-right page-node-8381 section-node">
+
+
+  <div id="page"><div id="page-inner">
+<div id="header-top">
+<!--<div id="login">
+<form action="/?q=user&amp;destination=node%2F8381"  method="post" id="user-login">
+Username/Email:&nbsp;<input type="text" maxlength="60" name="name" id="edit-name" size="15" value="" class="form-text required" />
+Password:&nbsp;<input type="password" maxlength="" name="pass" id="edit-pass" size="15" class="form-text required" />
+<input type="submit" name="op" value="Login" class="form-submit" />
+
+
+<input type="hidden" name="form_id" id="edit-user-login" value="user_login" />
+
+</form>
+</div>
+<div id="login-links">
+<a href="/user/register">Register</a> | <a href="/user/password">Forgot your password?</a>
+
+
+
+</div>
+<div id="connect">
+<a href="http://www.twitter.com/linuxjournal" title="Follow us on Twitter"><img alt="Twitter" src="/files/linuxjournal.com/images/twittericon.jpg" /></a><a href="http://www.facebook.com/linuxjournal" title="Become a Fan on Facebook"><img alt="Facebook" src="/files/linuxjournal.com/images/fbicon.jpg" /></a><a href="http://www.flickr.com/groups/linuxjournal/pool/" title="Contribute to Our Flickr Pool"><img alt="Flickr" src="/files/linuxjournal.com/images/flickricon.jpg" /></a><a href="/rss_feeds" title="Subscribe to Our Feeds"><img alt="RSS" src="/files/linuxjournal.com/images/rssicon.jpg" /></a>
+</div>-->
+       <div id="skip-to-nav"><a href="#navigation">Skip to Navigation</a></div>
+    <div id="subscribe-button"><a href="http://www.linuxjournal.com/subscribe">Click to subscribe</a></div>
+<div id="login-button"><a href="/user">Login</a></div>
+
+</div> <!-- /#header-top -->
+
+
+
+
+
+
+    <a name="top" id="navigation-top"></a>
+
+
+    <div id="header"><div id="header-inner" class="clear-block">
+
+              <div id="logo-title">
+
+                      <div id="logo"><a href="/" title="Home" rel="home"><img src="/files/linuxjournal.com/ufiles/logo-lj.jpg" alt="Linux Journal" id="logo-image" /></a></div>
+          
+          
+          
+	<div id="leaderboard-adblock" class="adblock leaderboard-adblock">
+       <div id="block-block-90" class="block block-block region-odd odd region-count-1 count-11"><div class="block-inner">
+
+  
+  <div class="content">
+    <!--paging_filter--><!-- PUT THIS TAG IN DESIRED LOCATION OF SLOT Leaderboard728x90
+     -->
+<script type="text/javascript">
+  GA_googleFillSlot("Leaderboard728x90");
+</script>
+<!-- END OF TAG FOR SLOT Leaderboard728x90
+     -->
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+	</div>
+
+        </div> <!-- /#logo-title -->
+      
+
+
+      
+    </div></div> <!-- /#header-inner, /#header -->
+
+    <div id="main"><div id="main-inner" class="clear-block with-navbar">
+
+      <div id="content"><div id="content-inner">
+
+        
+        
+                  <div id="content-header">
+            <div class="breadcrumb"><a href="/">Home</a> › </div>                          <h1 class="title">The Linux /proc Filesystem as a Programmers&#039; Tool</h1>
+                                                          </div> <!-- /#content-header -->
+        
+        <div id="content-area">
+          <div id="node-8381" class="node node-type-xmlnode"><div class="node-inner">
+
+
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+      <div class="meta">
+              <div class="submitted">
+		Jun 17, 2005		&nbsp;By&nbsp;<a href="/user/801515" title="View user profile.">Joshua Birnbaum</a>	</div>
+      
+              <div class="terms terms-inline">&nbsp;in<ul class="links inline"><li class="taxonomy_term_17 first last"><a href="/taxonomy/term/17" rel="tag" title="">Software</a></li>
+</ul></div>
+      
+  	 </div>
+    <!-- how'd this get in here?</div> -->
+  
+  
+    	<div class="abstract">
+	Manipulating all manners of runtime state information by using file-level system calls and commands.	</div>
+    
+
+
+
+  <div class="content">
+
+    <div class="article" lang="en"><div class="simplesect" lang="en"><div class="titlepage"><a name="N0xa50890.0xb44ac0"></a></div><p>
+One of the best investments in time that a person with a keen interest
+in operating systems can make is to explore them from multiple
+angles. Operating system installation and configuration can go a long way toward
+solidifying the concepts that one reads about in system administration
+and networking texts. Electronic references in the form of system manual 
+(man) pages and the Linux info(1) facility are available for instant
+consultation. 
+<a href="http://groups.google.com">groups.google.com</a>, with its archive of 20-plus years of
+Usenet postings, can provide expert guidance on issues ranging from DNS
+configuration to memory interleaving. However, I feel another approach
+is singularly unique when it comes to exploring operating systems--programming 
+them.
+</p><p>
+My entry into systems programming was guided by my desire to understand
+further the operating systems I was working with daily as a contract
+UNIX and, later, Linux system administrator. The result of this was 
+<a href="http://www.noorg.org/ifchk">ifchk</a>, a packet sniffer
+detector I wrote in C and released in June of 2003. ifchk initially was 
+written under IRIX and then ported to Linux, mostly under the 2.4 kernel.
+The current ifchk revision, beta 4, recently was released and beta 5 is 
+on the way.
+</p><p>
+My work on ifchk has allowed me to examine programmatically several areas
+of operating system functionality. Examples include the Linux netlink(7)
+and rtnetlink(7) facilities, device control--that is, network
+interfaces--via ioctl(2), signals and proc, the process filesystem.
+Proc and its ability to display a wide array of data concerning the
+runtime state of a system are the focus of our discussion here.
+</p></div><div class="simplesect" lang="en"><div class="titlepage"><a name="N0xa50890.0xb44d28"></a>What Is /proc?</div><p>
+Before we begin to talk about the proc filesystem as a programming
+facility, we need need to establish what it actually is. The proc
+filesystem is a pseudo-filesystem rooted at /proc that contains
+user-accessible objects that pertain to the runtime state of the kernel
+and, by extension, the executing processes that run on top of it.
+"Pseudo" is used because the proc filesystem exists only as a reflection 
+of the in-memory kernel data structures it displays. This is why most 
+files and directories within /proc are 0 bytes in size.  
+</p><p>
+Broadly speaking, a directory listing of /proc reveals two main file groups.
+Each numerically named directory within /proc corresponds to the process ID
+(PID) of a process currently executing on the system. The following line of
+<span class="bold"><b>ls</b></span> output illustrates this:
+</p><pre class="programlisting">
+
+dr-xr-xr-x    3 noorg    noorg           0 Apr 16 23:24 19636
+
+</pre><p>
+Directory 19636 corresponds to PID 19636, a current bash shell session.
+These per-process directories contain both subdirectories and regular files
+that further elaborate on the runtime attributes of a given process.
+The proc(5) manual page discusses these process attributes at length.
+</p><p>
+The second file group within /proc is the non-numerically named directories
+and regular files that describe some aspect of kernel operation. As an example,
+the file /proc/version contains revision information relevant to the running
+kernel image.
+</p><p>
+Proc files are either read-only or read-write. The /proc/version file above
+is an example of a read-only file. Its contents are viewable by way of
+cat(1), and they remain static while the system is powered up and accessible to users.
+Read-write files, however, allow for both the display and modification of the
+runtime state of the kernel. /proc/sys/net/ipv4/ip_forwarding is one such file.
+Using cat(1) on this file reveals if the system is forwarding IP datagrams
+between network interfaces--the file contains a 1--or not--the file contains a 0.
+In echo(1)ing 1 or 0 to this file, that is, writing to the file, we can enable
+or disable the kernels ability to forward packets without having to build and
+boot a new kernel image. This works for many other proc files with read-write
+permissions.
+</p><p>
+Readers are invited to explore the /proc directory of an available system and
+consult the proc(5) manual page to solidify their understanding of the
+above discussion.
+</p></div><div class="simplesect" lang="en"><div class="titlepage"><a name="N0xa50890.0xb45098"></a>Programming with /proc</div><p>
+With the above foundation in place, we now turn our attention to using
+the contents of /proc to examine programmatically an aspect of
+the running kernel. A word of note: although the sample file ifmetric.txt 
+discussed below contains all of the code we are referencing, additional
+understanding can be gleaned by downloading and building ifchk and by
+walking through its code, via gdb(1).  
+</p><p>
+One area of ifchk functionality deals with the display of counters
+that describe transmitted and received packets across all network
+interfaces attached to the system. ifchk does this by parsing and
+processing /proc/net/dev.  Although the file contains all manner of
+statistics concerning network interfaces, we are interested mainly in
+the extraction of packet count data.  
+</p><p>
+ifMetric() is the function that implements all of the above
+functionality. It can be found in the file, ifmetric.txt, that is
+excerpted below. ifMetric() also can be found within the 
+ifchk distribution in ~/ifchk-0.95b4/linux.c.  
+</p><p>
+The ifMetric() function is defined as follows:
+</p><pre class="programlisting">
+
+int ifMetric( struct ifList *list );
+
+</pre><p>
+*list is a pointer to the head of a linked list of structs of type ifList.
+Each node describes characteristics of an interface present on the system.
+ifList is defined in ~/ifchk-0.95b4/linux.h as such:
+</p><pre class="programlisting">
+
+struct ifList
+{
+    int flags;			/* Interface flags.                          */
+    char data[DATASZ];		/* Interface name/unit number, e.g., "eth0". */
+    struct ifList *next;	/* Pointer to next struct ifList.            */
+ };
+
+</pre><p>
+In getting started, our first inclination might be to open the
+/proc/net/dev file and begin searching for the relevant packet count
+data. There is, however, some file reconnaissance work to be done in
+between these two steps. Program failure due to maliciously crafted
+input is a staple of security advisories these days. We cannot make
+any assumptions about external program input, regardless of its source.
+As we will see, there is another security-related reason why we
+sequence the above file access operations as we do.  With all of the
+above in mind, let's get to work.  
+</p><pre class="programlisting">
+
+540  int ifMetric( struct ifList *list )
+541  {
+542      struct stat fileAttrs;                 /* /proc/net/dev file
+attributes. */
+543      struct stat linkAttrs;                 /* /proc/net/dev link
+attributes. */
+544      char *filePath = NULL;                 /* Path to /proc/net/dev
+file. */
+545      FILE *file = NULL;                     /* File pointer for
+fopen(). */
+546      int status = 0;                        /* /proc/net/dev file
+close() status. */
+547      char buf[1024] = "";                   /* Character buffer. */
+548      struct ifList *cur = NULL;             /* Current node in
+linked list. */
+549      int conv = 0;                          /* sscanf() string match
+count. */
+550      long long rxPackets = 0;               /* Received packet
+count. */
+551      long long txPackets = 0;               /* Transmitted packet
+count. */
+552      char *delim = NULL;                    /* Ptr to matched
+character in string. */
+553      unsigned int ifIndex = 0;              /* Interface index. */
+554      mode_t mode = 0;                       /* /proc/net/dev file
+permissions. */
+
+558      cur = list;
+
+559      if( cur -&gt; data == NULL )
+560      {
+561          fprintf( stderr, "ifchk: ERROR: interface list is empty\n"
+);
+562          return (-1);
+563       }
+
+564      filePath = "/proc/net/dev";
+
+565      if( ( lstat( filePath, &amp;linkAttrs ) ) != 0 )
+566      {
+567          perror( "lstat" );
+568          return (-1);
+569       }
+
+570      if( S_ISLNK( linkAttrs.st_mode ) )
+571      {
+572          fprintf( stderr, "ifchk: ERROR: /proc/net/dev is a symbolic
+link\n" );
+573          return (-1);
+574       }
+
+</pre><p>
+Before we open /proc/net/dev, we must be sure that the file is not actually a symbolic
+link (symlink). If passed a symlink, which our proc file shouldn't be, fopen(3) would 
+follow that link to what it points to. Our subsequent fstat(2) call, using the file
+descriptor returned by fopen(3), would return data on the wrong file.
+To protect against this, we lstat(2) /proc/net/dev and then check if it
+is a symlink, by using the S_ISLNK POSIX macro. If S_ISLNK finds a
+symlink, we print an error message with fprintf(3) and return -1, signifying failure. 
+Otherwise, we continue on.
+</p><pre class="programlisting">
+
+578      if( ( file = fopen( "/proc/net/dev", "r" ) ) == NULL )
+579      {
+580          perror( "fopen" );
+581          return (-1);
+582       }
+
+</pre><p>
+Presuming that S_ISLNK didn't find a symlink, we next open the /proc/net/dev file by
+calling fopen(3). If our call succeeds, fopen(3) returns a FILE pointer for use with
+future operations on /proc/net/dev. If our call fails, we call perror(3) and return
+-1, signifying failure. Notice that we check the return value of the fopen(3) call. 
+Checking function return values is critical, to say the least.
+</p><pre class="programlisting">
+
+586      if( ( fstat( fileno( file ), &amp;fileAttrs ) ) != 0 )
+587      {
+588          perror( "fstat" );
+589          return (-1);
+590       }
+
+</pre><p>
+One of the first things I think about when writing code is how it might fail.
+Additionally, I also think about how I can minimize the impact of failure by
+failing gracefully through programming defensively. Doing this is crucial, I
+feel, especially in light of the heightened state of concern regarding system
+security and the potential impact of security compromises.
+</p><p>
+Given this, we must continue to probe /proc/net/dev, via fstat(2), to see if the
+file exhibits what constitutes plausible attributes for a read-only proc file.
+These attributes include its file type outside of being a symlink, size in bytes
+and disk blocks, user and group ownership status and permissions. 
+The following attribute criteria is based on what I have seen for /proc/net/dev on
+the bulk of Linux systems I have worked on.
+</p><pre class="programlisting">
+
+file type:        regular
+size in bytes:    0
+size in blocks:   0
+file ownership:   root:root
+file permissions: 0444 (-r--r--r--)
+
+</pre><p>
+From the perspective of a default ifchk build, our /proc/net/dev file must
+conform to the above attribute criteria. However, a simple modification
+to the ifchk code, if required, can accommodate site policies and so on 
+that differ from the above.  
+</p><p>
+If successful, fstat(2) fills in fileAttrs with /proc/net/dev attributes.
+In the event of failure, we relay a descriptive error message to the
+user via a call to perror(3). We then return -1, signifying failure.
+Examining fileAttrs in gdb(1), we see that fstat(2) has the following
+to say about /proc/net/dev (some struct members were removed from GDB 
+output, as they did not add to the discussion): 
+</p><pre class="programlisting">
+
+(gdb) print fileAttrs 
+$1 = {..., st_mode = 33060,
+           st_uid = 0,
+           st_gid = 0,
+           st_size = 0,
+           st_blocks = 0, ...}
+
+</pre><p>
+In the discussion above, I alluded to an additional security-related
+reason behind the sequencing of our /proc/net/dev access procedures.
+To recap, our handling of /proc/net/dev--outside of lstat(2) and our
+not wanting to follow symlinks--currently consists of calling fopen(3)
+followed by fstat(2). We just as easily could have achieved the same
+result via a call to stat(2), not fstat(2), and then fopen(3), as
+stat(2) returns the same file attribute data as fstat(2) does. So, why
+use the former sequence--fopen(3), fstat(2)--instead of the latter one--stat(2), fopen(3)? 
+Because we wish to avoid a race condition.  The stat(2), fopen(3)
+sequence creates the possibility that the file
+we referenced during the stat(2) call could have been substituted with
+another one with possibly different attributes or even different contents 
+once we got to the fopen(3) call. In this situation,
+we'd think we were calling fopen(3) on the same file we just called
+stat(2) on but, alas, not. The danger of this, I think, is obvious.
+</p><pre class="programlisting">
+
+591      if( ( ( linkAttrs.st_ino ) != ( fileAttrs.st_ino ) ) ||
+592          ( ( linkAttrs.st_dev ) != ( fileAttrs.st_dev ) ) )
+593      {
+594          fprintf( stderr, "ifchk: ERROR: /proc/net/dev file
+attribute inconsistency\n" );
+595          return (-1);
+596       }
+
+</pre><p>
+As an added measure in checking that we are working with the proc file we think we
+are, we compare the inode numbers, st_ino, and resident filesystem,
+st_dev, that both lstat(2) and fstat(2) reported in their /proc/net/dev attribute checks.
+If all is well, the value of linkAttrs.st_ino should equal fileAttrs.st_ino and the
+value of linkAttrs.st_dev should equal the the value of fileAttrs.st_dev. 
+If we're okay here, we continue on. If not, we report an attribute consistency error via
+fprintf(3) and return -1, signifying failure.
+</p><pre class="programlisting">
+
+600      if( ! ( S_ISREG( fileAttrs.st_mode ) ) )
+601      {
+602          fprintf( stderr, "ifchk: ERROR: /proc/net/dev is not a
+regular file\n" );
+603          return (-1);
+604       }
+
+</pre><p>
+S_ISREG is a POSIX macro that checks to see if its argument is a regular file and not,
+say, a directory. If it is, we continue on. If not, we print an error message via
+fprintf(3), and return -1, signifying failure. At this point, you might be asking why 
+we need the lstat(2)/S_ISLNK symlink test above if we're testing for file type here. 
+Referring back to the symlink test above should
+help to answer that question.
+</p><pre class="programlisting">
+
+608      if( ( ( fileAttrs.st_size ) || ( fileAttrs.st_blocks ) ) != 0 )
+609      {
+610          fprintf( stderr, "ifchk: ERROR: /proc/net/dev file size is
+greater than 0\n" );
+611          return (-1);
+612       }
+
+</pre><p>
+Is /proc/net/dev 0 bytes in length and does it occupy 0 disk blocks? If we see zero
+for both byte count and disk blocks, we continue on.
+If not, we print an error message via fprintf(3) and return -1, signifying failure.
+Notice that only one of the two file tests has to fail for the program to fail.
+</p><pre class="programlisting">
+
+616      if( ( ( fileAttrs.st_uid ) || ( fileAttrs.st_gid ) ) != 0 )
+617      {
+618          fprintf( stderr, "ifchk: ERROR: /proc/net/dev is not owned
+by UID 0, GID 0\n" );
+619          return (-1);
+620       }
+
+</pre><p>
+Is /proc/net/dev owned by user root and group root? Here again, only one of the two
+tests has to fail for the program to fail and return -1, signifying failure.
+</p><pre class="programlisting">
+
+624      if( ( mode = fileAttrs.st_mode &amp; ALLPERMS ) != MODEMASK )
+625      {
+626          fprintf( stderr, "ifchk: ERROR: /proc/net/dev permissions
+are not mode 0444\n" );
+627          return (-1);
+628       }
+
+</pre><p>
+Is /proc/net/dev mode 0444--read-only user, group and other?
+ALLPERMS, defined in the /usr/include/sys/stat.h system header file, is a mask that
+defines all file permissions, or mode 07777.
+MODEMASK, defined within ~/ifchk-0.95b4/linux.h, is a mask that defines user, group
+and other read permissions, or mode 0444.
+</p><p>
+By bitwise ANDing fileAttrs.st_mode with ALLPERMS and then comparing that result to
+MODEMASK, we can see if /proc/net/dev is mode 0444. If it is, we continue execution.
+If not, we print an error message via fprintf(3) and return -1, signifying failure.
+This concludes our /proc/net/dev file attribute tests. However, before ifchk can work
+with the file, we must examine its internal contents.
+</p><p>
+Testing the internal content structure or format of /proc/net/dev required that I
+define a criteria under which ifchk would accept or reject the proc file.
+As Linux has progressed, the number of fields--bytes, packets, errs--in
+/proc/net/dev have changed. All of the /proc/net/dev files I have seen share an 
+identical content structure to the file below; output to far right was truncated, 
+due to space limitations:
+</p><pre class="programlisting">
+
+Inter-|   Receive                                                |  Transmit ...
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes      ...
+    lo:   34230     586    0    0    0     0          0         0    34230   ...
+  eth0:22476180  208548    0    0    0     0          0         0 52718375   ...
+
+</pre><p>
+Two lines of headers are followed by lines of per-interface statistics.
+Older versions of the file do not contain the compressed field.  In the
+name of simplicity, I decided that /proc/net/dev files that did not
+contain this field would be rejected by ifchk.  With that foundation in
+place, we now begin the process of examining /proc/net/dev internally.
+</p><pre class="programlisting">
+
+632      if( ! fgets(buf, sizeof( buf ), file) )
+633      {
+634          perror( "fgets" );
+635          return (-1);
+636       }
+
+637      if( ! fgets(buf, sizeof( buf ), file) )
+638      {
+639          perror( "fgets" );
+640          return (-1);
+641       }
+
+645      if( ( strstr( buf, "compressed" ) ) == NULL )
+646      {
+647          fprintf( stderr, "ifchk: ERROR: /proc/net/dev header format
+is not supported\n" );
+648          return (-1);
+649       }
+
+</pre><p>
+We make two identical fgets(3) calls in a row to read the first and
+second line of headers from /proc/net/dev. Each fgets(3) call results
+in an overwrite of what previously was in buf. As a result, buf now
+contains the second header line.  We then check to see if the second
+line of headers contains the compressed field.  
+</p><p>
+If compressed is located in buf, our strstr(3) call succeeds and we
+have what looks like a usable /proc/net/dev file.  If compressed
+cannot be located in buf, we print an error message via fprintf(3)
+and return -1, signifying failure.  With this, all of our testing,
+which began by looking at file attributes, is done.  
+</p><p>
+The remainder of our counter output code takes the form of a while loop that handles
+the processing and output of data for each interface. It iterates as 
+many times as there are interfaces on the system.
+</p><pre class="programlisting">
+
+653      printf( "***   Network Interface Metrics   ***\n" );
+654      printf( "Name    Index   RX-OK           TX-OK\n" );
+
+659      while( fgets( buf, sizeof( buf ), file ) )
+660      {
+664          if( ( strstr( buf, cur -&gt; data ) ) != NULL )
+665          {
+666              delim = strchr( buf, ':' );
+
+670              if( *( delim + 1 ) == ' ' )
+671              {
+672                  conv = sscanf( buf,
+673                  "%*s %*Lu %Lu %*lu %*lu %*lu %*lu %*lu %*lu %*Lu
+%Lu %*lu %*lu %*lu %*lu %*lu %*lu",
+674                  &amp;rxPackets, &amp;txPackets );
+675               }
+
+676              else
+677              {
+678                  conv = sscanf( buf,
+679                  "%*s %Lu %*lu %*lu %*lu %*lu %*lu %*lu %*Lu %Lu
+%*lu %*lu %*lu %*lu %*lu %*lu",
+680                  &amp;rxPackets, &amp;txPackets );
+681               }
+682           }
+
+</pre><p>
+We call fgets(3) to read the next line of the /proc/net/dev file into buf. We then
+call strstr(3) to check that the interface name in <tt>cur -&gt;
+data</tt>, ifmetric.txt:558:, matches the interface name in the /proc/net/dev line we just read in.
+Interface statistics lines in /proc/net/dev begin with an interface name, followed by
+a colon followed by a count of bytes received on that interface. In some cases, there
+is whitespace between the colon and the received bytes count, for
+example, eth0: 6571407, and in other cases, not, eth0:12795779).
+</p><p>
+In order to maintain uniform column output in either of these cases, we use pointer
+arithmetic to test for the existence of this white space. If whitespace does exist,
+we enter the if() statement on line 670, whose sscanf(3) format specifiers deal with
+it. If there is no whitespace, we enter the else block on line 676. These format
+specifiers deal with the lack of whitespace.
+</p><p>
+In either case, the counters for both received and transmitted packets are copied by
+sscanf(3) from /proc/net/dev to the variables rxPackets and txPackets for later
+output.
+</p><pre class="programlisting">
+
+683          else
+684          {
+685              fprintf( stderr, "ifchk: ERROR: current metrics do not
+describe current interface %s\n",
+686
+cur -&gt; data );
+687              return (-1);
+688           }
+
+</pre><p>
+If we compare the interface name in <tt>cur -&gt; data</tt>
+to the name in /proc/net/dev and find a mismatch, we print an error
+message via fprintf(3) and return -1, signifying failure.  
+</p><pre class="programlisting">
+
+692          if( conv != 2 )
+693          {
+694              fprintf( stderr, "ifchk: ERROR: /proc/net/dev parse
+error\n" );
+695              return (-1);
+696           }
+
+</pre><p>
+If successful, our above sscanf(3) call returns the number of matched items. As a result,
+the variable conv should equal 2 for rxPackets and txPackets. If not, we print an error
+message via fprintf(3) and return -1, signifying failure.
+</p><pre class="programlisting">
+
+697          if( ( ifIndex = if_nametoindex( cur -&gt; data ) ) == 0 )
+698          {
+699              perror( "if_nametoindex" );
+700              return (-1);
+701           }
+
+</pre><p>
+Next, we call if_nametoindex(), passing it the interface name in
+<tt>cur -&gt; data</tt> and, if successful, store the
+integer interface index in ifIndex. If the call fails, we handle it as
+usual. An interface index is a positive integer that the kernel assigns
+to each interface present on the system.  
+</p><pre class="programlisting">
+
+702          printf( "%-7s %-7d %-13Lu   %-13Lu\n", cur -&gt; data,
+ifIndex, rxPackets, txPackets );
+703
+704          conv = 0;
+
+705          if( cur -&gt; next != NULL )
+706          {
+707              cur = cur -&gt; next;
+708           }
+709       }
+
+</pre><p>
+Having built a line of counter output for the current interface, we print it. We then
+return to the beginning of the while loop and continue or, having reached our loop
+termination condition, exit the loop.
+</p><pre class="programlisting">
+
+713      if( ( status = fclose( file ) != 0 ) )
+714      {
+715          perror( "fclose" );
+716          return (-1);
+717       }
+
+721      if( ( writeLog( LOGINFO, pw -&gt; pw_name, NULLSTATE ) ) != 0 )
+722      {
+723          fprintf( stderr, "ifchk: ERROR: could not pass logging
+message to syslogd\n" );
+724          return (-1);
+725       }
+
+726      return (0);
+727  }
+
+</pre><p>
+Having exited the while loop, we call fclose(3), which corresponds to our fopen(3) call
+on line 578. We then call our logging function to log that an interface counter dump
+was performed.
+</p><p>
+With all processing done, ifchk produces the following packet count output on a system
+with two interfaces:
+</p><pre class="programlisting">
+
+***   Network Interface Metrics   ***
+Name    Index   RX-OK           TX-OK
+lo      1       104             104          
+eth0    3       1280903         1162571&lt;--.
+^       ^       ^                         |
+|       |       |[from /proc/net/dev]-----'
+|       |
+|       |[from if_nametoindex()]
+|
+|[from cur -&gt; data]
+
+</pre></div></div><div class="links"><div class="item-list"><ul class="pager"><li class="pager-current first">1</li>
+<li class="pager-item"><a href="/article/8381?page=0,1" title="Go to page 2" class="active">2</a></li>
+<li class="pager-next"><a href="/article/8381?page=0,1" title="Go to next page" class="active">next ›</a></li>
+<li class="pager-last last"><a href="/article/8381?page=0,1" title="Go to last page" class="active">last »</a></li>
+</ul></div></div>
+  </div>
+      <div class="user-signature clear-block">
+______________________
+	<p>
+        <!--paging_filter-->	</p>
+      </div>
+   
+
+
+  <ul class="links inline"><li class="flag-anon first"><a href="/u?destination=node%2F8381">Login to save this as favorite</a></li>
+<li class="service-links-delicious"><a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.linuxjournal.com%2Farticle%2F8381&amp;title=The+Linux+%2Fproc+Filesystem+as+a+Programmers%27+Tool" title="Bookmark this post on del.icio.us." id="service-links-delicious-1" class="service-links-delicious" rel="nofollow"><img src="/sites/linuxjournal.com/modules/service_links/images/delicious.png" alt="del.icio.us" title="" width="16" height="16" /></a></li>
+<li class="service-links-digg"><a href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fwww.linuxjournal.com%2Farticle%2F8381&amp;title=The+Linux+%2Fproc+Filesystem+as+a+Programmers%27+Tool" title="Digg this post on digg.com" id="service-links-digg-1" class="service-links-digg" rel="nofollow"><img src="/sites/linuxjournal.com/modules/service_links/images/digg.png" alt="Digg" title="" width="16" height="16" /></a></li>
+<li class="service-links-facebook"><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.linuxjournal.com%2Farticle%2F8381&amp;t=The+Linux+%2Fproc+Filesystem+as+a+Programmers%27+Tool" title="Share on Facebook." id="service-links-facebook-1" class="service-links-facebook" rel="nofollow"><img src="/sites/linuxjournal.com/modules/service_links/images/facebook.png" alt="Facebook" title="" width="16" height="16" /></a></li>
+<li class="service-links-reddit"><a href="http://reddit.com/submit?url=http%3A%2F%2Fwww.linuxjournal.com%2Farticle%2F8381&amp;title=The+Linux+%2Fproc+Filesystem+as+a+Programmers%27+Tool" title="Submit this post on reddit.com." id="service-links-reddit-1" class="service-links-reddit" rel="nofollow"><img src="/sites/linuxjournal.com/modules/service_links/images/reddit.png" alt="Reddit" title="" width="16" height="16" /></a></li>
+<li class="service-links-slashdot"><a href="http://slashdot.org/bookmark.pl?url=http%3A%2F%2Fwww.linuxjournal.com%2Farticle%2F8381&amp;title=The+Linux+%2Fproc+Filesystem+as+a+Programmers%27+Tool" title="Bookmark this post on SlashDot" id="service-links-slashdot-1" class="service-links-slashdot" rel="nofollow"><img src="/sites/linuxjournal.com/modules/service_links/images/slashdot.png" alt="SlashDot" title="" width="16" height="16" /></a></li>
+<li class="service-links-stumbleupon"><a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.linuxjournal.com%2Farticle%2F8381&amp;title=The+Linux+%2Fproc+Filesystem+as+a+Programmers%27+Tool" title="Thumb this up at StumbleUpon" id="service-links-stumbleupon-1" class="service-links-stumbleupon" rel="nofollow"><img src="/sites/linuxjournal.com/modules/service_links/images/stumbleit.png" alt="StumbleUpon" title="" width="16" height="16" /></a></li>
+<li class="tweet_Twitter last"><a href="http://twitter.com/home?status=+The+Linux+/proc+Filesystem+as+a+Programmers%27+Tool%3A+http%3A/%2Fwww.linuxjournal.com/article/8381" class="tweet" rel="nofollow" target="_blank"><img src="/sites/linuxjournal.com/modules/tweet/twitter.png" alt="Post to Twitter" title="Post to Twitter" width="16" height="16" /></a></li>
+</ul>
+ <!-- <div class="contentad">
+
+  </div>
+  -->
+
+<div id="article_footer"><!-- article_footer -->
+<script type='text/javascript'>
+GA_googleFillSlot("article_footer");
+</script>  
+</div> <!-- /#article_footer -->
+
+
+
+
+</div></div> <!-- /node-inner, /node -->
+
+
+  <div id="comments">
+          <h2 id="comments-title">Comments</h2>
+        <form action="/article/8381"  accept-charset="UTF-8" method="post" id="comment-controls">
+<div><div class="box"><div class="box-inner">
+
+      <h2 class="title">Comment viewing options</h2>
+  
+  <div class="content">
+    <div class="container-inline"><input type="hidden" name="form_build_id" id="form-2ab47045e0949f6b2d14b3467ded865d" value="form-2ab47045e0949f6b2d14b3467ded865d"  />
+<input type="hidden" name="form_id" id="edit-comment-controls" value="comment_controls"  />
+<div class="form-item" id="edit-mode-wrapper">
+ <select name="mode" class="form-select" id="edit-mode" ><option value="1">Flat list - collapsed</option><option value="2">Flat list - expanded</option><option value="3">Threaded list - collapsed</option><option value="4" selected="selected">Threaded list - expanded</option></select>
+</div>
+<div class="form-item" id="edit-order-wrapper">
+ <select name="order" class="form-select" id="edit-order" ><option value="1" selected="selected">Date - newest first</option><option value="2">Date - oldest first</option></select>
+</div>
+<div class="form-item" id="edit-comments-per-page-wrapper">
+ <select name="comments_per_page" class="form-select" id="edit-comments-per-page" ><option value="10">10 comments per page</option><option value="30">30 comments per page</option><option value="50" selected="selected">50 comments per page</option><option value="70">70 comments per page</option><option value="90">90 comments per page</option><option value="150">150 comments per page</option><option value="200">200 comments per page</option><option value="250">250 comments per page</option><option value="300">300 comments per page</option></select>
+</div>
+<input type="submit" name="op" id="edit-submit" value="Save settings"  class="form-submit" />
+</div><div class="description">Select your preferred way to display the comments and click "Save settings" to activate your changes.</div>  </div>
+
+</div></div> <!-- /box-inner, /box -->
+
+</div></form>
+<a id="comment-193917"></a>
+<div class="comment comment-published odd first comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-193917" class="active">Only user space /proc file system description</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Anton&#039;s picture" title="Anton&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by Anton (not verified) on Mon, 11/06/2006 - 12:02.  </div>
+
+  <div class="content">
+    <p>I've found this article because I work with some GPL published kernel code of MIPS-based device. What I'm trying to do is to interact with /proc file system to hack the hardaware. Since the application is not GPL-ed, only the kernel, I can only play with the kernel source code. But everything on the article is from user space point of view. Anyway, great introduction to /proc. Thanks</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<a id="comment-124358"></a>
+<div class="comment comment-published even comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-124358" class="active">sscanf vs. hash tables</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Lincoln&#039;s picture" title="Lincoln&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by Lincoln (not verified) on Sat, 08/20/2005 - 15:06.  </div>
+
+  <div class="content">
+    <p>I've just started to do more detailed programming with Linux and have also seen proc files processed with GHashTables.  This seems like it would work very with for stuff that lists off stuff in the "Desc: value" format.  Later you can just do lookups on the hash table.  I realize that that would be using a glib.h stuff, and is somewhat tied to gnome, but for now, lets not debate that part, and I'm working on gnome projects.  I just like to know if this is considered a valid way of processing the proc files.  Thanks.</p>
+<p>Lincoln</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<a id="comment-85010"></a>
+<div class="comment comment-published odd comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-85010" class="active">Damn, parsing proc files is j</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Walter Stryder&#039;s picture" title="Walter Stryder&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by Walter Stryder (not verified) on Wed, 06/29/2005 - 04:53.  </div>
+
+  <div class="content">
+    <p>Damn, parsing proc files is just so much easier with Perl, and can be used to produce real nice output.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<div class="indented"><a id="comment-92312"></a>
+<div class="comment comment-published even comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-92312" class="active">Re: Damn, parsing proc files is j</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Josh Birnbaum&#039;s picture" title="Josh Birnbaum&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://www.noorg.org" rel="nofollow">Josh Birnbaum</a> (not verified) on Sun, 07/03/2005 - 14:56.  </div>
+
+  <div class="content">
+    <p>&gt; Damn, parsing proc files is just so much easier with Perl,</p>
+<p>Originally, ifchk was a perl(1) wrapper around netstat(8) and ifconfig(8) (minus about 60% of it's current functionality).<br />
+I decided to rewrite and extend the program in C for several reasons. One was runtime performance.</p>
+<p>Also, if I had written the Linux proc routines in perl(1), that would have required a glue layer to bind the C code to it. I don't want this added overhead, runtime or otherwise.</p>
+<p>Also, consider systems that, as a matter of policy, do not/must not have a perl(1) interpreter installed. A firewall is a good example of this.<br />
+In my opinion, these systems should be loaded with the bare minimum to allow them to do their job. In this case, filtering packets, doing NAT, etc.<br />
+What I'm getting at here is that the addition of programmatic tools, outside of a command interpreter, on such systems, is potentially dangerous. Such additions should be justified.</p>
+<p>The proc routines that I provide in the article can be learnt by anyone willing to invest the time to do so. Additionally, an integral aim of the piece was to also provide some background on secure file access proceedures.</p>
+<p>&gt; and can be used to produce real nice output.</p>
+<p>netstat(8), with its sscanf(3) calls, is also capable of formatted output.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<div class="indented"><a id="comment-127641"></a>
+<div class="comment comment-published odd comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-127641" class="active">perl c fussion</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Anonymous&#039;s picture" title="Anonymous&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by Anonymous (not verified) on Thu, 12/29/2005 - 13:40.  </div>
+
+  <div class="content">
+    <p>man perlxstut</p>
+<p>Time the result and see how bad it realy is. Because it's quite acceptable.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+</div></div><a id="comment-70682"></a>
+<div class="comment comment-published even comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-70682" class="active">this article...</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="nikhil bharava&#039;s picture" title="nikhil bharava&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://www.geocities.com/nikhil_bhargav" rel="nofollow">nikhil bharava</a> (not verified) on Mon, 06/20/2005 - 05:04.  </div>
+
+  <div class="content">
+    <p>It is clear, concise and very informative article. I enjoyed reading it alot. May be in coming times, there would be an indepth article on internals of certain working utilities in Linux like top.</p>
+<p>nikhil</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<a id="comment-70407"></a>
+<div class="comment comment-published odd comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-70407" class="active">adapting to /proc/net/dev is easy</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="dean gaudet&#039;s picture" title="dean gaudet&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by dean gaudet (not verified) on Sun, 06/19/2005 - 23:16.  </div>
+
+  <div class="content">
+    <p>long before i learned about "sar -n DEV 5 0" i wrote a perl script which handles /proc/net/dev ... and adapting to differing numbers of fields was trivial.</p>
+<p><a href="http://arctic.org/~dean/scripts/bandwidth" rel="nofollow">http://arctic.org/~dean/scripts/bandwidth</a></p>
+<p>it's also unclear to me why it matters if /proc/net/dev is a symlink... you're opening it read-only.</p>
+<p>-dean</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<div class="indented"><a id="comment-77256"></a>
+<div class="comment comment-published even comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-77256" class="active">Re: adapting to /proc/net/dev is easy</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Josh Birnbaum&#039;s picture" title="Josh Birnbaum&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://www.noorg.org" rel="nofollow">Josh Birnbaum</a> (not verified) on Fri, 06/24/2005 - 14:37.  </div>
+
+  <div class="content">
+    <p>&gt; <a href="http://arctic.org/~dean/scripts/bandwidth" title="http://arctic.org/~dean/scripts/bandwidth">http://arctic.org/~dean/scripts/bandwidth</a></p>
+<p>Thanks for the URL. I'll check it out.</p>
+<p>&gt; it's also unclear to me why it matters if /proc/net/dev is a symlink... you're opening it read-only.</p>
+<p>It has been my experience that /proc/net/dev has always been a zero byte file system object of type "file" (as opposed to a link/directory/fifo, etc).</p>
+<p>The file access sequence I discuss in the article (lstat(2) -&gt; fopen(3) -&gt; fstat(2)) revolves around secure file access. What do I mean by that?<br />
+Well, consider this scenario. We first call stat(2) on the file, checking that it's zero bytes in size, chowned root:root, etc. If it passes these attribute tests, the file conforms to our expectations of a legit procfs object. We then call fopen(3) on the file and access its contents. But... there's a problem here. What if the file we stat(2)ed is _not_ the same file we then call fopen(3) on? That is, what if the file was replaced with a different file between the 2 calls? What I'm describing here is a possible file based race condition.</p>
+<p>My point is that you *cannot* assume anything when dealing with external input.<br />
+In writing these routines, I was doing things like attempting file open operations on jpg images of Ferraris, MS Word docs, PDF files, gzipped tar archives, etc. I wanted to see how ifchk would deal with, what is, in the context of a legitimate /proc/net/dev file, garbage.</p>
+<p>I hope this answers your question.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<a id="comment-71259"></a>
+<div class="comment comment-published odd comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-71259" class="active">I&#039;m curious what flavor of Li</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="mikebo&#039;s picture" title="mikebo&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by mikebo (not verified) on Mon, 06/20/2005 - 12:54.  </div>
+
+  <div class="content">
+    <p>I'm curious what flavor of Linux the author targeted. My make failed spectacularly under Fedora Core 3.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<div class="indented"><a id="comment-71260"></a>
+<div class="comment comment-published even comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-71260" class="active">Re: I&#039;m curious what flavor of Li</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Josh Birnbaum&#039;s picture" title="Josh Birnbaum&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://www.noorg.org" rel="nofollow">Josh Birnbaum</a> (not verified) on Mon, 06/20/2005 - 13:18.  </div>
+
+  <div class="content">
+    <p>&gt; I'm curious what flavor of Linux the author targeted.</p>
+<p>I did the ifchk Linux port mostly under the 2.4 kernel, from 2.4.22 onwards. I'm now running 2.4.31.<br />
+I'm currently trying to get access to a 2.6 system, to test on.</p>
+<p>&gt;  My make failed spectacularly under Fedora Core 3.</p>
+<p>Does the make output look like what's at the URL below:</p>
+<p><a href="http://www.noorg.org/ifchk/news/05032005b.html" title="http://www.noorg.org/ifchk/news/05032005b.html">http://www.noorg.org/ifchk/news/05032005b.html</a></p>
+<p>Drop me a line at <a href="mailto:engineer@noorg.org">engineer@noorg.org</a> and we'll work on this.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+</div></div><a id="comment-69525"></a>
+<div class="comment comment-published odd comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-69525" class="active">the nice /proc file system</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Ioan Gartner&#039;s picture" title="Ioan Gartner&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://www.gartners.net" rel="nofollow">Ioan Gartner</a> (not verified) on Sun, 06/19/2005 - 10:51.  </div>
+
+  <div class="content">
+    <p>-   I think /proc is a great idea and somehow in line with UNIX overall philosophy (all is a "file").<br />
+-         I regret sometimes that the layout and the values of the/proc file system change from one OS version to the other, but maybe evolution requires that, so that's ok with me.<br />
+-    The real pity is not as much that its layout changes, but the fact that its documentation <a>is often difficult to find and very poor. </a><br />
+-    In that respect I think this article is a great idea, that is the reason I am here reading and commenting. Let's get out of "computer middle ages" of the 70es or 80es and recognize that after all an OS is just another application (I agree, a special one inn many respects, it has its own special objects to manipulate, has its own delicate "timing" conditions, it's sensitive HW interfaces etc....) but why so much "mistery" around it?</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<div class="indented"><a id="comment-69540"></a>
+<div class="comment comment-published even comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-69540" class="active">Re: the nice /proc file system</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Josh Birnbaum&#039;s picture" title="Josh Birnbaum&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://www.noorg.org" rel="nofollow">Josh Birnbaum</a> (not verified) on Sun, 06/19/2005 - 13:46.  </div>
+
+  <div class="content">
+    <p>&gt; I think /proc is a great idea and somehow in line with UNIX overall philosophy (all is a "file").</p>
+<p>This is one of the things that really stood out for me when I started working with Linux. I can now access in-kernel structures as if they were a text file. cat(1), less(1), fopen(3), fstat(2) on a proc file. No problem.</p>
+<p>&gt; I regret sometimes that the layout and the values of the/proc file system change from one OS version to the other, but maybe evolution requires that, so that's ok with me.</p>
+<p>I comment on this, from within the context of sscanf(3), below.</p>
+<p>&gt; The real pity is not as much that its layout changes, but the fact that its documentation is often difficult to find and very poor.</p>
+<p>This is where the Usenet archives shine. You can really piece alot together by sifting through the archives at groups.google.com. It's a _very_ powerful resource.</p>
+<p>&gt; In that respect I think this article is a great idea,..</p>
+<p>Thank you. I'm glad you enjoyed it. I certainly had alot of fun writing it.</p>
+<p>&gt; ...but why so much "mistery" around it?</p>
+<p>The more exploration one does, the more the mystery lessens. This is what I was getting at at the beginning of the article. Systems programming is like being able to view the internals of a running car engine, from all angles, in real time. That's enticing. And, like Usenet, powerful.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+</div><a id="comment-68501"></a>
+<div class="comment comment-published odd comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-68501" class="active">Windows has /proc, too</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="mangoo&#039;s picture" title="mangoo&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://wpkg.org" rel="nofollow">mangoo</a> (not verified) on Sat, 06/18/2005 - 09:02.  </div>
+
+  <div class="content">
+    <p>In Windows, there is a Windows Registry instead of /proc (more or less).</p>
+<p>For those more familiar with Linux - it is possible to view and edit the registry in a /proc-like mode.<br />
+All it takes is installing Cygwin on a Windows machine.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<div class="indented"><a id="comment-71719"></a>
+<div class="comment comment-published even comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-71719" class="active">Uh, no</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Anonymous&#039;s picture" title="Anonymous&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://the-edge-consulting.com" rel="nofollow">Anonymous</a> (not verified) on Mon, 06/20/2005 - 18:48.  </div>
+
+  <div class="content">
+    <p>The Windows Registry is NOTHING like /proc.  /proc gives you real time access to kernel parameters and the resources of running processes.  /proc exists entirely in memory.</p>
+<p>The Windows Registry, on the other hand, is a database of configuration paramaters.  It's NOT real time, it does not contain info on running processes, and it does not give access to Windows kernel runtime parameters.</p>
+<p>They are nothing alike.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+</div><a id="comment-67916"></a>
+<div class="comment comment-published odd comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-67916" class="active">&gt; Before we begin to talk abo</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Matt&#039;s picture" title="Matt&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by Matt (not verified) on Fri, 06/17/2005 - 19:44.  </div>
+
+  <div class="content">
+    <p>&gt; Before we begin to talk about the proc filesystem as a programming<br />
+&gt; facility, we need need to establish what it actually is.</p>
+<p>The proc filesystem should be used as a programming facility.  There are system calls for the same info.  The format of the items in /proc can change from one kernel version to the next.  Not all systems have /proc mounted.  Also, not at flavours of Unix support /proc.</p>
+<p>This article is a bad idea.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<div class="indented"><a id="comment-68516"></a>
+<div class="comment comment-published even comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-68516" class="active">Re: The Linux /proc Filesystem as a Programmers&#039; Tool</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Josh Birnbaum&#039;s picture" title="Josh Birnbaum&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://www.noorg.org" rel="nofollow">Josh Birnbaum</a> (not verified) on Sat, 06/18/2005 - 09:22.  </div>
+
+  <div class="content">
+    <p>&gt; The proc filesystem should be used as a programming facility.</p>
+<p>I agree.</p>
+<p>&gt; There are system calls for the same info.</p>
+<p>Parsing proc files in /proc is a common way of accessing<br />
+in-kernel structures (netstat(8) and ifconfig(8) do this).<br />
+Sifting through the comp.os.linux.development.{system,apps}<br />
+Usenet group archive illustrates this.</p>
+<p>&gt; The format of the items in /proc can change from one kernel<br />
+&gt; version to the next.</p>
+<p>The programmer has to take care when dealing with conversion<br />
+specification in sscanf(3) calls, etc. He/she has to understand<br />
+the format of the proc object that is to be scanned.</p>
+<p>&gt; Not all systems have /proc mounted.</p>
+<p>That's ok. This is where function return value checks are so important. The lstat(2) call in the article code (line 565)<br />
+returns error if it can't get to /proc/net/dev and we exit<br />
+gracefully.</p>
+<p>&gt; Also, not at flavours of Unix support /proc.</p>
+<p>I wrote this piece from the perspective of the Linux system.</p>
+<p>&gt; This article is a bad idea.</p>
+<p>Thanks for your feedback.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<div class="indented"><a id="comment-286351"></a>
+<div class="comment comment-published odd comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-286351" class="active">I just need a tool to mon the process</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="libbyliugang.cn&#039;s picture" title="libbyliugang.cn&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by libbyliugang.cn (not verified) on Thu, 09/20/2007 - 20:11.  </div>
+
+  <div class="content">
+    <p>I just need a tool to mon the process.<br />
+But the way to do this is different between WIN/UNIX/LINUX.</p>
+<p>In most unix,such as AIX,HP-UX(RX),SUN-Soloar,there are some syscall function to use. Win has the same thing.But in linux, I have found them for long time,but the result is I must parse the /proc file myself, and the format is defferent between defferent version of Linux-Kernel....</p>
+<p>These system api is very usefull and very importent,for a large system.</p>
+<p>May be we need a standerd of Linux proc filesystem, or a new project to do these.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+</div><a id="comment-68475"></a>
+<div class="comment comment-published even comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-68475" class="active">Not always a bad idea</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Michael Jastram&#039;s picture" title="Michael Jastram&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by <a href="http://jastram.de" rel="nofollow">Michael Jastram</a> (not verified) on Sat, 06/18/2005 - 08:26.  </div>
+
+  <div class="content">
+    <p><cite>&gt; This article is a bad idea.</cite></p>
+<p>You can't generalize that.  For instance, most firewall shell scripts use the /proc file system, which is perfectly legitimate.  The question is how far you want to push it, and the author is pushing it quite far.</p>
+<p>Ultimately, this goes back to the "right tool for the right job" philosophy.  And the /proc filesystem definitely has its place in the toolbox.</p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+<a id="comment-68228"></a>
+<div class="comment comment-published odd last comment-by-anon"><div class="comment-inner clear-block">
+
+      <h3 class="title">
+      <a href="/article/8381#comment-68228" class="active">a tool to program /proc/sys</a>          </h3>
+  
+  
+  <div class="picture">
+  <img src="/files/linuxjournal.com/images/personicon.jpg" alt="Anonymous&#039;s picture" title="Anonymous&#039;s picture"  /></div>
+
+  <div class="submitted">
+    Submitted by Anonymous (not verified) on Sat, 06/18/2005 - 00:46.  </div>
+
+  <div class="content">
+    <p>Here's a tool that lets you program and experiment with your /proc/sys run-time variables without having to deal with cat/echo time. It's ncurses based and, therefore, very fast.</p>
+<p><a href="http://freshmeat.net/projects/lkcp" title="http://freshmeat.net/projects/lkcp">http://freshmeat.net/projects/lkcp</a></p>
+      </div>
+
+  
+</div></div> <!-- /comment-inner, /comment -->
+</div>  </div>
+        </div> <!-- /#content-area -->
+
+        
+        
+      </div></div> <!-- /#content-inner, /#content -->
+
+              <div id="navbar"><div id="navbar-inner" class="clear-block region region-navbar">
+
+          <a name="navigation" id="navigation"></a>
+
+          
+                      <div id="primary">
+              <ul class="links"><li class="menu-1783 first"><a href="/video">Video</a></li>
+<li class="menu-1800"><a href="/news">News</a></li>
+<li class="menu-150"><a href="/blog">Blogs</a></li>
+<li class="menu-1802"><a href="/tag/reviews" title="">Reviews</a></li>
+<li class="menu-187"><a href="/tag/how-tos">HOWTOs</a></li>
+<li class="menu-1803"><a href="/participate" title="">Participate</a></li>
+<li class="menu-71"><a href="/tag/tech-tips" title="">Hep &amp; Tips</a></li>
+<li class="menu-181"><a href="/getlinux">How to Get Linux</a></li>
+<li class="menu-184 last"><a href="/gettinghelp">Getting Help</a></li>
+</ul> <div id="searchbox">
+ 
+<div id="cse-search-form" style="width: 100%;">Loading</div>
+<script src="//www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript"> 
+  google.load('search', '1', {language : 'en'});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl(
+      '000332554451520836487:ikifqzncxvw');
+
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    var options = new google.search.DrawOptions();
+    options.enableSearchboxOnly("http://linuxjournal.com/googlesearch","s");
+    customSearchControl.draw('cse-search-form', options);
+  }, true);
+</script>
+<link rel="stylesheet" href="//www.google.com/cse/style/look/default.css" type="text/css" />
+<style type="text/css">
+  input.gsc-input {
+    border-color: #EEEEEE;
+  }
+  input.gsc-search-button {
+    border-color: #666666;
+    background-color: #CECECE;
+  }
+</style>
+</div><!-- /#searchbox -->
+            </div> <!-- /#primary -->
+          
+          
+          
+        </div></div> <!-- /#navbar-inner, /#navbar -->
+      
+      
+              <div id="sidebar-right"><div id="sidebar-right-inner" class="region region-right">
+          <div id="block-block-44" class="block block-block region-odd even region-count-1 count-4"><div class="block-inner">
+
+  
+  <div class="content">
+    <!--paging_filter--><!-- PUT THIS TAG IN DESIRED LOCATION OF SLOT Large_Rectangle336x280
+     -->
+<script type="text/javascript">
+  GA_googleFillSlot("Large_Rectangle336x280");
+</script>
+<!-- END OF TAG FOR SLOT Large_Rectangle336x280
+     -->  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-block-97" class="block block-block region-even odd region-count-2 count-5"><div class="block-inner">
+
+  
+  <div class="content">
+    <!--paging_filter--><!-- subscriptions -->
+<script type='text/javascript'>
+GA_googleFillSlot("subscriptions");
+</script>
+<br />
+<a class="red" href="http://www.linuxjournal.com/subs/customer_service">Already a subscriber? Click here for subscriber services.</a>
+
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-menu-menu-channels" class="block block-menu region-odd even region-count-3 count-6"><div class="block-inner">
+
+      <h2 class="title">Trending Topics</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="/tag/cloud" title="">Cloud</a></li>
+<li class="leaf"><a href="/tag/desktop" title="">Desktop</a></li>
+<li class="leaf"><a href="/tag/embedded" title="">Embedded</a></li>
+<li class="leaf"><a href="/tag/hpc" title="">HPC</a></li>
+<li class="leaf"><a href="/tag/security" title="">Security</a></li>
+<li class="leaf"><a href="/tag/sysadmin" title="">SysAdmin</a></li>
+<li class="leaf"><a href="/tag/virtualization" title="">Virtualization</a></li>
+<li class="leaf last"><a href="/tag/web-development" title="">Web Development</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-block-101" class="block block-block region-even odd region-count-4 count-7"><div class="block-inner">
+
+  
+  <div class="content">
+    <!--paging_filter--><script type="text/javascript" id="jobthread_8959538">
+	(function(){
+		function jobthread_load(){
+			var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+			s.src = 'http://edge.jobthread.com/jobs.linuxjournal.com/feeds/jobroll/?num_jobs=5&num_featured_jobs=1&display_method=default&template_name=module&target_id=jobthread_8959538&version=2.0';
+			var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+		}
+
+		if (window.addEventListener) {
+			window.addEventListener('load', jobthread_load, false);
+		} else if (window.attachEvent) {
+			window.attachEvent('onload', jobthread_load);
+		}
+	})();
+</script>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-quicktabs-1" class="block block-quicktabs region-odd even region-count-5 count-8"><div class="block-inner">
+
+  
+  <div class="content">
+    <div id="quicktabs-1" class="quicktabs_wrapper quicktabs-style-zen"><ul class="quicktabs_tabs quicktabs-style-zen"><li class="qtab-0 active first"><a href="/article/8381?quicktabs_1=0#quicktabs-1" id="quicktabs-tab-1-0" class="qt_tab active">The Latest</a></li><li class="qtab-1"><a href="/article/8381?quicktabs_1=1#quicktabs-1" id="quicktabs-tab-1-1" class="qt_tab active">Popular</a></li><li class="qtab-2 last"><a href="/article/8381?quicktabs_1=2#quicktabs-1" id="quicktabs-tab-1-2" class="qt_tab active">Recent Comments</a></li></ul><div id="quicktabs_container_1" class="quicktabs_main quicktabs-style-zen"><div id="quicktabs_tabpage_1_0" class="quicktabs_tabpage"><div id="block-views-latest_stories-block_1" class="block block-views region-odd odd region-count-1 count-1"><div class="block-inner">
+
+  
+  <div class="content">
+    <div class="view view-latest-stories view-id-latest_stories view-display-id-block_1 view-dom-id-1">
+    
+  
+  
+      <div class="view-content">
+      <table class="views-table cols-6">
+    <thead>
+    <tr>
+              <th class="views-field views-field-title">
+                  </th>
+              <th class="views-field views-field-created">
+                  </th>
+          </tr>
+  </thead>
+  <tbody>
+          <tr class="odd views-row-first">
+                  <td class="views-field views-field-title">
+            <a href="/content/tarsnap-line-backups-truly-paranoid">Tarsnap: On-line Backups for the Truly Paranoid</a>          </td>
+                  <td class="views-field views-field-created">
+            Oct 16, 2012          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-title">
+            <a href="/content/linux-native-task-management-check">Linux-Native Task Management? Check.</a>          </td>
+                  <td class="views-field views-field-created">
+            Oct 10, 2012          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-title">
+            <a href="/content/book-review-artists-guide-gimp-2nd-edition">Book Review - Artist&#039;s Guide to GIMP, 2nd Edition</a>          </td>
+                  <td class="views-field views-field-created">
+            Oct 08, 2012          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-title">
+            <a href="/content/drupal-special-edition">Drupal Special Edition</a>          </td>
+                  <td class="views-field views-field-created">
+            Oct 03, 2012          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-title">
+            <a href="/content/ubuntus-new-dns-unknown-host">Ubuntu&#039;s New DNS: Unknown Host</a>          </td>
+                  <td class="views-field views-field-created">
+            Oct 03, 2012          </td>
+              </tr>
+          <tr class="even views-row-last">
+                  <td class="views-field views-field-title">
+            <a href="/content/october-2012-issue-linux-journal-kernel">October 2012 Issue of Linux Journal: The Kernel</a>          </td>
+                  <td class="views-field views-field-created">
+            Oct 01, 2012          </td>
+              </tr>
+      </tbody>
+</table>
+    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/latest">
+    more  </a>
+</div>
+  
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+</div><div id="quicktabs_tabpage_1_1" class="quicktabs_tabpage quicktabs-hide"><div id="block-views-popular-block_1" class="block block-views region-even even region-count-2 count-2"><div class="block-inner">
+
+  
+  <div class="content">
+    <div class="view view-popular view-id-popular view-display-id-block_1 view-dom-id-2">
+    
+  
+  
+      <div class="view-content">
+      <div class="item-list">
+    <ul>
+          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/content/tarsnap-line-backups-truly-paranoid">Tarsnap: On-line Backups for the Truly Paranoid</a></span>
+  </span>
+</li>
+          <li class="views-row views-row-2 views-row-even">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/article/9585">Validate an E-Mail Address with PHP, the Right Way</a></span>
+  </span>
+</li>
+          <li class="views-row views-row-3 views-row-odd">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/content/linux-native-task-management-check">Linux-Native Task Management? Check.</a></span>
+  </span>
+</li>
+          <li class="views-row views-row-4 views-row-even">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/forums/mac-prores-converter-transcode-xf105-mxf-prores-fcp-x-editing-flawlessly">Mac ProRes Converter - Transcode XF105 MXF to ProRes for FCP X editing flawlessly</a></span>
+  </span>
+</li>
+          <li class="views-row views-row-5 views-row-odd">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/content/trine-2-frozenbyte">Trine 2 from Frozenbyte</a></span>
+  </span>
+</li>
+          <li class="views-row views-row-6 views-row-even">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/content/why-hulu-plus-sucks-and-why-you-should-use-it-anyway">Why Hulu Plus Sucks, and Why You Should Use It Anyway</a></span>
+  </span>
+</li>
+          <li class="views-row views-row-7 views-row-odd">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/article/10940">Python for Android</a></span>
+  </span>
+</li>
+          <li class="views-row views-row-8 views-row-even">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/article/9001">Examining Load Average</a></span>
+  </span>
+</li>
+          <li class="views-row views-row-9 views-row-odd">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/content/introduction-gcc-compiler-intrinsics-vector-processing">An Introduction to GCC Compiler Intrinsics in Vector Processing</a></span>
+  </span>
+</li>
+          <li class="views-row views-row-10 views-row-even views-row-last">  
+  <span class="views-field-title">
+                <span class="field-content"><a href="/slideshow/readers-choice-2011">Readers&#039; Choice Awards 2011</a></span>
+  </span>
+</li>
+      </ul>
+</div>    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/popular/today">
+    more  </a>
+</div>
+  
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+</div><div id="quicktabs_tabpage_1_2" class="quicktabs_tabpage quicktabs-hide"><div id="block-comment-0" class="block block-comment region-odd odd region-count-3 count-3"><div class="block-inner">
+
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/ubuntus-new-dns-unknown-host#comment-373727">Speaking of DNS configuration...</a><br />2 hours 30 min ago</li>
+<li><a href="/content/non-linux-foss-autocad-alternatives#comment-373726">DraftSight</a><br />2 hours 56 min ago</li>
+<li><a href="/content/linux-native-task-management-check#comment-373725">Todos and Email</a><br />4 hours 59 min ago</li>
+<li><a href="/content/keepassx-keeping-your-passwords-safe#comment-373724">Hey bro, Thanks for this nice</a><br />11 hours 31 min ago</li>
+<li><a href="/content/osi-announces-it-will-open-organization-individual-members#comment-373723">Great Stuff</a><br />12 hours 7 min ago</li>
+<li><a href="/content/osi-announces-it-will-open-organization-individual-members#comment-373722">Great Post</a><br />12 hours 13 min ago</li>
+<li><a href="/forums/mac-prores-converter-transcode-xf105-mxf-prores-fcp-x-editing-flawlessly#comment-373721">Surface Video Converter-Play 1080p/720p Videos on Surface RT/Pro</a><br />19 hours 5 min ago</li>
+<li><a href="/content/linux-native-task-management-check#comment-373720">I&#039;m a Trello fellow, as well.</a><br />1 day 49 min ago</li>
+<li><a href="/content/osi-announces-it-will-open-organization-individual-members#comment-373718">If you are studying,</a><br />1 day 1 hour ago</li>
+<li class="last"><a href="/content/keepassx-keeping-your-passwords-safe#comment-373717">safe</a><br />1 day 4 hours ago</li>
+</ul></div>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+</div></div></div>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-block-67" class="block block-block region-even odd region-count-6 count-9"><div class="block-inner">
+
+  
+  <div class="content">
+    <!--paging_filter--><p><a href="/enewsletters"><img alt=" Linux Newsletter" src="/files/linuxjournal.com/images/NewsletterBanner_T3b.jpg" /></a></p>
+<p><a href="/new-issue"><img alt="New Issue" src="/files/linuxjournal.com/images/SubscriberButton-Oct2012.png" /></a></p>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-block-98" class="block block-block region-odd even region-count-7 count-10"><div class="block-inner">
+
+  
+  <div class="content">
+    <!--paging_filter--><!-- sidebar_bottom_lr -->
+<script type='text/javascript'>
+GA_googleFillSlot("sidebar_bottom_lr");
+</script>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+        </div></div> <!-- /#sidebar-right-inner, /#sidebar-right -->
+      
+    </div></div> <!-- /#main-inner, /#main -->
+
+          <div id="footer"><div id="footer-inner" class="region region-footer">
+
+        
+        <div id="block-block-62" class="block block-block region-odd even region-count-1 count-12"><div class="block-inner">
+
+  
+  <div class="content">
+    <!--paging_filter--><div id="subsform">  
+     
+        
+	<form  method="post" name="form" action= "https://www.pubservice.com/subnew2page.aspx?PC=LJ&amp;PK&amp;FC=" class="subform">
+        
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td valign="top">First Name</td>
+
+            <td valign="top" colspan="2">Last Name</td>
+          </tr>
+
+    
+          <tr>
+            <td valign="top"><input type="text" value="" name="FN" size= "18" maxlength="" class="form1" /></td>
+
+            <td valign="top" colspan="2"><input type="text" name="LN" value="" size= "18" class="form1" /></td>
+          </tr>
+          <tr>
+            <td valign="top" >Address 1</td>
+
+            <td valign="top" colspan="2">Address 2</td>
+
+
+          </tr>
+          <tr>
+            <td valign="top"><input type="text" value="" name="A1" size= "18" maxlength="" class="form1" /></td>
+
+            <td valign="top" colspan="2"><input type="text" value="" name="A2" size= "18" class="form1" /></td>
+
+  
+          </tr>
+          <tr>
+            <td valign="top">City</td>
+
+            <td valign="top">State</td>
+
+            <td valign="top">Zip</td>
+          </tr>
+
+    
+          <tr>
+            <td valign="top"><input type="text" value="" name="CT" size= "18" maxlength="" class="form1" /></td>
+
+            <td valign="top"><input type="text" value="" name="ST" size="2" class="form2" /></td>
+
+            <td valign="top"><input type="text" value="" name="ZP" size="5" maxlength="5" class="form3" /></td>
+          </tr>
+       <tr>
+            <td valign="top" colspan="3">Email</td>
+       </tr>
+       <tr>
+<td valign="top" colspan="3"><input type="text" value="" name="EM" size="40" class="form4" /></td>
+        </tr>
+        </table>
+        
+        <div align="center">
+         <input type="image" src="/files/linuxjournal.com/images/clickhere.jpg" />
+        </div>
+
+      </form>
+       <div class="subslinks">
+          <a href="https://www.pubservice.com/subnew2page.aspx?PC=LJ&amp;PK=MPUB911&amp;FC=CANADA&amp;SA=P">Canadian Residents</a> | <a href="https://www.pubservice.com/Subnew1.aspx?PC=LJ&amp;PK=MPUB911&amp;FC=UNITED%20STATES&amp;ref=1&amp;SA=P">Foreign Residents</a> | <a href="https://www.pubservice.com/subgift.aspx?PC=LJ">Gift Subscriptions</a> | <a href="http://www.linuxjournal.com/subs/customer_service">Customer Service</a> | <a href="/content/privacystatement">Privacy Policy</a>
+
+          </div>
+ 		</div> 
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-block-63" class="block block-block region-even odd region-count-2 count-13"><div class="block-inner">
+
+  
+  <div class="content">
+    <!--paging_filter--><div id="footer-left">
+<!-- small_footer_square -->
+<script type='text/javascript'>
+GA_googleFillSlot("small_footer_square");
+</script>
+ </div>
+<div id="footer-middle">
+<!-- small_footer_square_middle -->
+<script type='text/javascript'>
+GA_googleFillSlot("small_footer_square_middle");
+</script>
+ </div>
+<div id="footer-right">
+<!-- small_footer_square_right -->
+<script type='text/javascript'>
+GA_googleFillSlot("small_footer_square_right");
+</script>
+</div>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-menu-menu-subscriptions" class="block block-menu region-odd even region-count-3 count-14"><div class="block-inner">
+
+      <h2 class="title">Digital Edition</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="https://www.pubservice.com/subnew1.aspx?PC=LJ" title="Subscribe to Linux Journal">Subscribe/Renew</a></li>
+<li class="leaf"><a href="https://www.pubservice.com/subinfo.aspx?PC=LJ&amp;DO=P" title="Pay Your Subscription Bill">Pay My Bill</a></li>
+<li class="leaf"><a href="/subs/customer_service" title="">Customer Service</a></li>
+<li class="leaf"><a href="http://www.linuxjournal.com/digital" title="">Digital Downloads</a></li>
+<li class="leaf last"><a href="https://www.pubservice.com/subgift.aspx?PC=LJ" title="Give a Subscription to Linux Journal">Gift Subscriptions</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-menu-menu-linux-resources" class="block block-menu region-even odd region-count-4 count-15"><div class="block-inner">
+
+      <h2 class="title">Magazine Formats</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="/content/pdf" title="PC/Mac">PC/Mac</a></li>
+<li class="leaf"><a href="/content/android" title="Android App">Android</a></li>
+<li class="leaf"><a href="/content/ios" title="iPhone/iPad">iPhone/iPad</a></li>
+<li class="leaf"><a href="/content/epub" title="EPUB Format">EPUB</a></li>
+<li class="leaf last"><a href="/content/kindle" title="Kindle Format">Kindle</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-menu-menu-store" class="block block-menu region-odd even region-count-5 count-16"><div class="block-inner">
+
+      <h2 class="title">The Store</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="http://lj.mybigcommerce.com/categories/Buttons-%26-Stickers/" title="Buttons &amp; Stickers">Stickers</a></li>
+<li class="leaf"><a href="http://lj.mybigcommerce.com/categories/T%252dShirts-%26-Apparel/" title="T-shirts and Apparel">T-shirts</a></li>
+<li class="leaf"><a href="http://lj.mybigcommerce.com/categories/Posters/" title="Posters">Posters</a></li>
+<li class="leaf"><a href="http://lj.mybigcommerce.com/categories/Back-Issues-%252d-Digital-Downloads/" title="Buy Back Issues of Linux Journal">Back Issues</a></li>
+<li class="leaf last"><a href="http://linuxjournal.com/archive_cd" title="Archive CD">Archive CD</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-menu-menu-about" class="block block-menu region-even odd region-count-6 count-17"><div class="block-inner">
+
+      <h2 class="title">About Us</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="/advertising" title="Advertise in Linux Journal">Advertise</a></li>
+<li class="leaf"><a href="/author" title="Write for Us">Author Info</a></li>
+<li class="leaf"><a href="/contact" title="Write a Letter to the Editor">Write a Letter</a></li>
+<li class="leaf"><a href="/aboutus/FAQ" title="Frequently Asked Questions">FAQ</a></li>
+<li class="leaf last"><a href="/staff" title="Masthead">Masthead</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-menu-menu-the-site" class="block block-menu region-odd even region-count-7 count-18"><div class="block-inner">
+
+      <h2 class="title">The Site</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="/content/copyright" title="Copyright">Copyright</a></li>
+<li class="leaf"><a href="/rss_feeds" title="RSS Feeds">RSS Feeds</a></li>
+<li class="leaf"><a href="/content/privacy-statement" title="Privacy Statement">Privacy Policy</a></li>
+<li class="leaf"><a href="MAILTO:webmaster@linuxjournal.com" title="Report Problems">Report Problems</a></li>
+<li class="leaf last"><a href="/aboutus" title="Contact Us">Contact Us</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+<div id="block-block-70" class="block block-block region-even odd region-count-8 count-19"><div class="block-inner">
+
+  
+  <div class="content">
+    <!--paging_filter--><div id="copyright">Copyright © 1994 - 2011 <em>Linux Journal</em>. All rights reserved.</div>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+
+      </div></div> <!-- /#footer-inner, /#footer -->
+    
+  </div></div> <!-- /#page-inner, /#page -->
+
+  
+  <div id="user_relationships_popup_form" class="user_relationships_ui_popup_form"></div><script type="text/javascript" src="/files/linuxjournal.com/ufiles/js/js_17a9efd32b37fe88d68fef243f4ef437.js"></script>
+<script type="text/javascript" src="http://s3.amazonaws.com/new.cetrk.com/pages/scripts/0010/8219.js"> </script>
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName('script')[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0010/8219.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+
+</body>
+</html>

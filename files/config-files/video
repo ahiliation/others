@@ -1,0 +1,3 @@
+mencoder VTS_01_1.VOB  -o jeremiah.avi -sid 0 -oac mp3lame  -ovc xvid -xvidencopts pass=1   -vf harddup -ofps 29.97
+
+mencoder file.wmv -ovc copy -nosound -o /dev/null -endpos 100

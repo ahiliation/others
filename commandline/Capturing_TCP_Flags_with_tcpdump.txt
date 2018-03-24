@@ -1,0 +1,21 @@
+$sudo tcpdump 'tcp[13] & 16 != 0'
+[sudo] password for jeffrin: 
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+01:59:54.623431 IP debian.47234 > bam-3.nr-data.net.https: Flags [.], ack 2505712066, win 45760, options [nop,nop,TS val 3370986 ecr 326803908], length 0
+01:59:54.915008 IP bam-3.nr-data.net.https > debian.47234: Flags [.], ack 1, win 7792, options [nop,nop,TS val 326849200 ecr 3246490], length 0
+01:59:56.555422 IP debian.34860 > pluto.infoclub.in.http: Flags [.], ack 1742619906, win 238, options [nop,nop,TS val 3371469 ecr 325476085], length 0
+02:00:01.367443 IP debian.58070 > a23-207-130-233.deploy.static.akamaitechnologies.com.https: Flags [.], ack 2836566830, win 1327, options [nop,nop,TS val 3372672 ecr 4043767990], length 0
+02:00:01.415986 IP a23-207-130-233.deploy.static.akamaitechnologies.com.https > debian.58070: Flags [.], ack 1, win 1937, options [nop,nop,TS val 4043813046 ecr 3248775], length 0
+02:00:01.751536 IP debian.58016 > a23-207-130-233.deploy.static.akamaitechnologies.com.https: Flags [.], ack 2829741359, win 1444, options [nop,nop,TS val 3372768 ecr 4043768375], length 0
+02:00:01.751564 IP debian.58058 > a23-207-130-233.deploy.static.akamaitechnologies.com.https: Flags [.], ack 2826880146, win 1444, options [nop,nop,TS val 3372768 ecr 4043768377], length 0
+02:00:01.751567 IP debian.58010 > a23-207-130-233.deploy.static.akamaitechnologies.com.https: Flags [.], ack 2841762920, win 3133, options [nop,nop,TS val 3372768 ecr 4043768379], length 0
+02:00:01.801266 IP a23-207-130-233.deploy.static.akamaitechnologies.com.https > debian.58016: Flags [.], ack 1, win 1917, options [nop,nop,TS val 4043813431 ecr 3248851], length 0
+02:00:01.803212 IP a23-207-130-233.deploy.static.akamaitechnologies.com.https > debian.58058: Flags [.], ack 1, win 1859, options [nop,nop,TS val 4043813433 ecr 3248859], length 0
+02:00:01.803838 IP a23-207-130-233.deploy.static.akamaitechnologies.com.https > debian.58010: Flags [.], ack 1, win 1919, options [nop,nop,TS val 4043813434 ecr 3248861], length 0
+02:00:01.879525 IP debian.58062 > a23-207-130-233.deploy.static.akamaitechnologies.com.https: Flags [.], ack 2840323394, win 1444, options [nop,nop,TS val 3372800 ecr 4043768502], length 0
+02:00:01.879550 IP debian.57996 > a23-207-130-233.deploy.static.akamaitechnologies.com.https: Flags [.], ack 2833394157, win 1444, options [nop,nop,TS val 3372800 ecr 4043768504], length 0
+02:00:01.928898 IP a23-207-130-233.deploy.static.akamaitechnologies.com.https > debian.58062: Flags [.], ack 1, win 1235, options [nop,nop,TS val 4043813559 ecr 3248874], length 0
+02:00:01.931244 IP a23-207-130-233.deploy.static.akamaitechnologies.com.https > debian.57996: Flags [.], ack 1, win 1746, options [nop,nop,TS val 4043813561 ecr 3248903], length 0
+02:00:05.775745 IP a23-207-130-233.deploy.static.akamaitechnologies.com.https > debian.58070: Flags [P.], seq 1:32, ack 1, win 1937, options [nop,nop,TS val 4043817406 ecr 3248775], length 31
+

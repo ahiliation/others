@@ -1,0 +1,20 @@
+#set editor = "emacs -nw"
+set editor = "vim"
+set send_charset="us-ascii:utf-8"
+
+set imap_user = "ahiliation@gmail.com"
+set imap_pass = ""
+
+set smtp_url = "smtps://ahiliation@smtp.gmail.com:587/"
+set smtp_pass = ""
+set from = "ahiliation@gmail.com"
+set realname = "Jeffrin Jose"
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed="+[Gmail]/Drafts"
+
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+# message-hook !(~t ahiliation@gmail\.com |~c ahiliation@gmail\.com ) D

@@ -1,0 +1,26 @@
+\documentclass[12pt]{book}
+\usepackage{amsmath} 
+\usepackage{listings}
+\lstset{language=C}
+\begin{document}
+\huge Short Notes on pstree Command\\
+
+\fontsize{12}{12}
+\textsf{pstree shows running processes as a tree. when given without pid it take the default pid to be 1(init).}\\
+
+\fontsize{11}{11}
+\textsf{pstree [-a$\mid${-}{-}arguments] [-c$\mid${-}{-}compact] [-h$\mid${-}{-}highlight-all$\mid$-Hpid$\mid${-}{-}highlight-pid pid] [-l$\mid${-}{-}long][-n$\mid${-}{-}numeric-sort] [-p$\mid${-}{-}show-pids] [-u$\mid${-}{-}uid-changes] [-Z$\mid${-}{-}security-context] [-A$\mid${-}{-}ascii$\mid$-G$\mid${-}{-}vt100$\mid$-U$\mid${-}{-}uni‐code] [pid$\mid$user]}\\
+\\
+\fontsize{10}{10}
+\begin{lstlisting}
+static struct {
+    const char *empty_2;        
+    const char *branch_2;        
+    const char *vert_2;                
+    const char *last_2;                
+    const char *single_3;        
+    const char *first_3;        
+} sym_ascii = {
+"  ", "|-", "| ", "`-", "---", "-+-"}
+\end{lstlisting}
+\end{document}

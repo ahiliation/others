@@ -1,0 +1,12 @@
+poll pop.mail.yahoo.co.in
+proto pop3
+port 995
+user ahiliation@yahoo.co.in
+password <password>
+is jeffrin
+ssl
+sslproto tls1
+sslcertpath /usr/lib/ssl/certs
+sslfingerprint 'BD:D8:3C:3A:66:D2:4F:6A:9F:3D:59:BB:23:DE:80:33'
+sslcertck
+mda "/usr/bin/procmail -f %F -d %T";

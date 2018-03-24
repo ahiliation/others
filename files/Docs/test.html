@@ -1,0 +1,67 @@
+Trueprint is a printing program for postscript printers that
+is designed to be the only printing program you'll need.
+Originally written while I(Lezz Giles) was at AT&T, it was expanded and
+improved during my time at Motorola and Digital, and now it
+has been accepted as a GNU package. Interestingly, the
+original version was developed and enhanced independently by Mark Skeates at AT&T/Lucent and is now part of their
+exptools package. The GNU version has diverged so much that they no longer share any source. </p>
+<p>Trueprint has been ported to the Mac by Gene Tucciarone - I've lost
+track of Gene and I can't find a homepage for either him or the Mac
+version, but if you search using Google you'll find packages. </p>
+<hr width="100%">
+The best way to find out about trueprint's features is
+to download it and read the documentation. New features have been
+added as needed continuously for well over a decade, so there are
+options to control just about any aspect of the output:
+<ul>
+<li> It'll print single or double sided,</li>
+<li> It'll format a dozen languages appropriately with comments
+in italics and function names in bold, with function and file indices,</li>
+<li> It'll print one-, two- or four-up,</li>
+<li> It prints on as much of the page as possible, and uses a
+special file to understand the printable space on each page.</li>
+<li> It'll print differences between old and new versions of
+files,</li>
+<li> It can print out just selected pages,</li>
+<li> All headers and footers are customizable.</li>
+<li> It can leave space for holepunches down the side of the
+sheet or at the top of the sheet,</li>
+<li> You can select the font size and leading size</li>
+<li> And so on. There are almost fifty options in total.</li>
+</ul>
+And if trueprint doesn't do what you want it to, you can modify
+the source code to add your own features.
+<hr width="100%">Trueprint evolved using standard single-letter options
+up to version 4.1.2., the last non-GNU version.
+<p>GNU trueprint was an almost complete rewrite of trueprint. The
+major changes were the change to GNU-standard long options in addition to
+the short options, and the addition of GNU standard documentation.
+Unfortunately there was no practical way to keep all the original single-letter
+options with the same meanings, so the interface changed incompatibly from
+version 4 to the GNU version. </p>
+<p>Trueprint version 5.0 was the first GNU version, but it had several major
+problems. In particular you needed to have the correct libraries and
+header files in order to compile it, which meant that you either had to use
+a Linux system or you needed to copy a few key header and source files from
+a standard distribution. </p>
+<p>Trueprint version 5.1 was the second GNU version, but it also had more
+than its fair share of bugs, including an error in the printers file that
+could cause a coredump. </p>
+<p>Trueprint 5.2 was the next GNU version. It fixes all known bugs
+and can be compiled on just about any platform, including Microsoft platforms,
+with GCC.</p>
+<p>Trueprint 5.3 was when I started playing with autoconf and automake. The
+first couple of versions had problems; the latest should be OK. </p>
+<hr width="100%">
+<p>There are a few known problems with Trueprint. The most common
+problems are really problems with the languages that people expect trueprint
+to be able to format. In particular C is very problematical.
+Because C uses a preprocessor it is not always possible to properly parse
+a C source file, and so trueprint can easily become confused. <br>
+Similar problems apply to Perl - the simple parser built in to trueprint
+cannot properly manage all Perl programs either. If you feel like
+improving the way that trueprint manages these languages (or any other)
+all you need to do is write better versions of lang_c.c, lang_perl.c, or
+any other language files.
+
+

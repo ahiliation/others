@@ -1,0 +1,15 @@
+#set editor = "emacs -nw"
+set editor = "vim"
+set send_charset="us-ascii:utf-8"
+
+set smtp_url = "smtps://ahiliation@yahoo.co.in@in.smtp.mail.yahoo.com:465"
+set smtp_pass = ""
+set from = "ahiliation@yahoo.co.in"
+set realname = "Jeffrin Jose"
+
+set pop_host ="in.pop.mail.yahoo.com"
+set pop_user ="ahiliation@yahoo.co.in" 
+set pop_pass ="" 
+set folder = "pop.mail.yahoo.co.in:995"
+set spoolfile = "+INBOX"
+set postponed="+[Yahoo]/Drafts"

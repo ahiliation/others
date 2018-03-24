@@ -1,0 +1,843 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html>
+<head>
+<title>MySQL C API programming tutorial</title>
+<link rel="stylesheet" href="/cfg/format.css" type="text/css">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="keywords" content="C programming language, MySQL, tutorial, C API, database">
+<meta name="description" content="This is MySQL C API tutorial. This tutorial covers the
+basics of MySQL programming in C language. ">
+<meta name="language" content="en">
+<meta name="author" content="Jan Bodnar">
+<meta name="distribution" content="global">
+
+<script type="text/javascript" src="/lib/jquery.js"></script>
+<script type="text/javascript" src="/lib/common.js"></script>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5536206-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="wide_ad" class="ltow">
+<script type="text/javascript"><!--
+google_ad_client = "pub-9706709751191532";
+/* 160x600, August 2011 */
+google_ad_slot = "2484182563";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<div class="content">
+
+
+<a href="/" title="Home">Home</a>
+
+
+<h1>MySQL C API programming tutorial</h1>
+
+
+
+<p>
+This is a C programming tutorial for the MySQL database. It covers the basics 
+of MySQL programming with the C API. You may also consider to look at the
+<a href="/databases/mysqltutorial/">MySQL tutorial</a> on ZetCode.
+</p>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9706709751191532";
+/* LargeSquare */
+google_ad_slot = "5070696322";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<h2>About MySQL database</h2>
+
+
+<p>
+MySQL is a leading open source database management system. It is a multi 
+user, multithreaded database management system. MySQL is especially popular 
+on the web. It is one of the parts of the very popular <b>LAMP</b>
+platform. Linux, Apache, MySQL, PHP. MySQL is owned by a swedish
+company called MySQL AB. This company and Trolltech are prominent open
+source companies. MySQL database is available on most important OS
+platforms. It runs under BSD Unix, Linux, Windows or Mac.
+Wikipedia and YouTube use MySQL. These sites manage millions of queries
+each day. MySQL comes in two versions. MySQL server system and MySQL
+embedded system.
+</p>
+
+<h2>First example</h2>
+
+<p>
+Our first example will test one MySQL function call.
+</p>
+
+
+<pre class="code">
+#include &lt;my_global.h&gt;
+#include &lt;mysql.h&gt;
+
+int main(int argc, char **argv)
+{
+  printf("MySQL client version: %s\n", mysql_get_client_info());
+}
+</pre>
+
+<p>
+The <code>mysql_get_client_info()</code> shows the MySQL client version.
+</p>
+
+<pre class="code">
+gcc version.c -o version  `mysql_config --cflags --libs`
+</pre>
+
+<p>
+Here is how we compile the code example.
+</p>
+
+<pre class="code">
+ $ ./version
+ MySQL client version: 5.0.38
+</pre>
+
+<pre class="explanation">
+ #include &lt;my_global.h&gt;
+ #include &lt;mysql.h&gt;
+</pre>
+
+<p>
+We include necessary header files. <b>mysql.h</b> is the most important header 
+file for MySQL function calls. <b>my_global.h</b> includes some global declarations 
+a functions. Among other thing, it includes the standard input/output
+header file.
+</p>
+
+<pre class="explanation">
+ printf("MySQL client version: %s\n", mysql_get_client_info());
+</pre>
+
+<p>
+This code line outputs the version of the MySQL client. For this, we use the 
+<code>mysql_get_client_info()</code>
+function call.
+</p>
+
+
+<h2>Creating a database</h2>
+
+<p>
+The next code example will create a database.
+</p>
+
+<pre class="code">
+#include &lt;my_global.h&gt;
+#include &lt;mysql.h&gt;
+
+int main(int argc, char **argv)
+{
+
+  MYSQL *conn;
+
+  conn = mysql_init(NULL);
+
+  if (conn == NULL) {
+      printf("Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
+      exit(1);
+  }
+
+  if (mysql_real_connect(conn, "localhost", "zetcode", 
+          "passwd", NULL, 0, NULL, 0) == NULL) {
+      printf("Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
+      exit(1);
+  }
+
+  if (mysql_query(conn, "create database testdb")) {
+      printf("Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
+      exit(1);
+  }
+
+
+  mysql_close(conn);
+
+}
+</pre>
+
+<p>
+The code example connects to the MySQL database system and creates a 
+new database called testdb.
+</p>
+
+<pre class="code">
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| testdb             |
++--------------------+
+3 rows in set (0.00 sec)
+</pre>
+
+<p>
+This is the proof, that the database was created.
+</p>
+
+<p>We include error checking in this example. It is important to check
+for possible errors. Database programming is a field, where many things
+might go wrong. For clarity reasons, later examples will be without
+error checking. I suppose that it is clear for everyone, that it is
+every programmers responsibility to do error checking. </p>
+
+<p>
+The code example can be divided into these parts.
+</p>
+
+<ul>
+<li>Initiation of a connection handle structure</li>
+<li>Creation of a connection</li>
+<li>Execution of a query</li>
+<li>Closing of the connection</li>
+</ul>
+
+
+
+<pre class="explanation">
+ MYSQL *conn;
+</pre>
+
+<p>
+We declare a pointer to a MYSQL structure. This structure will 
+serve as a connection handler.
+</p>
+
+<pre class="explanation">
+ conn = mysql_init(NULL);
+</pre>
+
+<p>
+The <code>mysql_init()</code> function obtains a connection handler.
+</p>
+
+<pre class="explanation">
+ if (conn == NULL) {
+     printf("Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
+     exit(1);
+ }
+</pre>
+
+<p>
+We check the return value. If the <code>mysql_init()</code> function fails, we print 
+the error message and terminate the application.
+</p>
+
+<pre class="explanation"> 
+ if (mysql_real_connect(conn, "localhost", "zetcode", 
+         "passwd", NULL, 0, NULL, 0) == NULL) {
+     printf("Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
+     exit(1);
+ }
+</pre>
+
+<p>
+The <code>mysql_real_connect()</code> function establishes a connection 
+to the database. We provide connection handler, host name, user name and 
+password parameters to the function. The other four parameters are the 
+database name, port number, unix socket and finally the client flag.
+</p>
+
+<pre class="explanation">
+ if (mysql_query(conn, "create database testdb")) {
+     printf("Error %u: %s\n", mysql_errno(conn), mysql_error(conn));
+     exit(1);
+ }
+</pre>
+
+<p>
+The <code>mysql_query()</code> executes the SQL statement. In our case, 
+the statement creates a new database.
+</p>
+
+
+<pre class="explanation">
+ mysql_close(conn);
+</pre>
+
+<p>
+Finally, we close the database connection.
+</p>
+
+
+<h2>Creating and populating a table</h2>
+
+<p>
+The next code example will create a table and insert some data into it.
+</p>
+
+<pre class="code">
+#include &lt;my_global.h&gt;
+#include &lt;mysql.h&gt;
+
+int main(int argc, char **argv)
+{
+
+  MYSQL *conn;
+
+  conn = mysql_init(NULL);
+  mysql_real_connect(conn, "localhost", "zetcode", "passwd", "testdb", 0, NULL, 0);
+
+  mysql_query(conn, "CREATE TABLE writers(name VARCHAR(25))");
+
+  mysql_query(conn, "INSERT INTO writers VALUES('Leo Tolstoy')");
+  mysql_query(conn, "INSERT INTO writers VALUES('Jack London')");
+  mysql_query(conn, "INSERT INTO writers VALUES('Honore de Balzac')");
+  mysql_query(conn, "INSERT INTO writers VALUES('Lion Feuchtwanger')");
+  mysql_query(conn, "INSERT INTO writers VALUES('Emile Zola')");
+
+  mysql_close(conn);
+
+}
+</pre>
+
+<p>
+We don't use any new MySQL function call here. We use <code>mysql_query()</code> 
+function call to both create a table and insert data into it.
+</p>
+
+<pre class="explanation">
+ mysql_real_connect(conn, "localhost", "zetcode", "passwd", "testdb", 0, NULL, 0);
+</pre>
+
+<p>
+We connect to testdb database. The user name is zetcode and password is passwd.
+</p>
+
+<pre class="explanation">
+ mysql_query(conn, "CREATE TABLE writers(name VARCHAR(25))");
+</pre>
+
+<p>
+Here we create a table named writers. It has one varchar column.
+</p>
+
+<pre class="explanation">
+ mysql_query(conn, "INSERT INTO writers VALUES('Leo Tolstoy')");
+</pre>
+
+<p>
+We insert one writer name into the writers table.
+</p>
+
+<pre class="code">
+mysql&gt; show tables;
++------------------+
+| Tables_in_testdb |
++------------------+
+| writers          |
++------------------+
+1 row in set (0.00 sec)
+
+</pre>
+
+<p>
+We show tables in the database.
+</p>
+
+<pre class="code">
+mysql&gt; select * from writers;
++-------------------+
+| name              |
++-------------------+
+| Leo Tolstoy       |
+| Jack London       |
+| Honore de Balzac  |
+| Lion Feuchtwanger |
+| Emile Zola        |
++-------------------+
+5 rows in set (0.00 sec)
+</pre>
+
+<p>
+We select all data from the table.
+</p>
+
+
+<h2>Retrieving data from the database</h2>
+
+<p>
+In the next example, we will retrieva data from a table.
+</p>
+
+<p>
+Steps:
+</p>
+
+<ul>
+<li>Create a connection</li>
+<li>Execute query</li>
+<li>Get the result set</li>
+<li>Fetch all available rows</li>
+<li>Free the result set</li>
+</ul>
+
+
+<pre class="code">
+#include &lt;my_global.h&gt;
+#include &lt;mysql.h&gt;
+
+int main(int argc, char **argv)
+{
+
+  MYSQL *conn;
+  MYSQL_RES *result;
+  MYSQL_ROW row;
+  int num_fields;
+  int i;
+
+  conn = mysql_init(NULL);
+  mysql_real_connect(conn, "localhost", "zetcode", "passwd", "testdb", 0, NULL, 0);
+
+  mysql_query(conn, "SELECT * FROM writers");
+  result = mysql_store_result(conn);
+
+  num_fields = mysql_num_fields(result);
+
+  while ((row = mysql_fetch_row(result)))
+  {
+      for(i = 0; i &lt; num_fields; i++)
+      {
+          printf("%s ", row[i] ? row[i] : "NULL");
+      }
+      printf("\n");
+  }
+
+  mysql_free_result(result);
+  mysql_close(conn);
+
+}
+</pre>
+
+<p>
+The example prints all names from the writers table.
+</p>
+
+<pre class="code">
+$ ./select
+Leo Tolstoy
+Jack London
+Honore de Balzac
+Lion Feuchtwanger
+Emile Zola
+</pre>
+
+<pre class="explanation">
+ mysql_query(conn, "SELECT * FROM writers");
+</pre>
+
+<p>
+We execute the query, that will retrieve all names from the writers database.
+</p>
+
+<pre class="explanation">
+ result = mysql_store_result(conn);
+</pre>
+
+<p>
+We get the result set.
+</p>
+
+<pre class="explanation">
+ num_fields = mysql_num_fields(result);
+</pre>
+
+<p>
+We get the number of fields in the table.
+</p>
+
+<pre class="explanation">
+ while ((row = mysql_fetch_row(result)))
+ {
+     for(i = 0; i &lt; num_fields; i++)
+     {
+         printf("%s ", row[i] ? row[i] : "NULL");
+     }
+     printf("\n");
+ }
+</pre>
+
+<p>
+We fetch the rows and print them to the screen.
+</p>
+
+<pre class="explanation">
+ mysql_free_result(result);
+</pre>
+
+<p>
+We free the resources.
+</p>
+
+<h2>Column headers</h2>
+
+<p>
+In the next example, we will retrieve data and show the their 
+column names from the table.
+</p>
+
+<p>
+For this, we will create a new table friends.
+</p>
+
+<pre class="code">
+ mysql&gt; create table friends (id int not null primary key auto_increment,
+                               name varchar(20), age int);
+</pre>
+
+<pre class="code">
+ mysql&gt; insert into friends(name, age) values('Tom', 25);
+ mysql&gt; insert into friends(name, age) values('Elisabeth', 32);
+ mysql&gt; insert into friends(name, age) values('Jane', 22);
+ mysql&gt; insert into friends(name, age) values('Luke', 28);
+</pre>
+
+<p>
+We insert some data into the table.
+</p>
+
+<pre class="code">
+#include &lt;my_global.h&gt;
+#include &lt;mysql.h&gt;
+
+int main(int argc, char **argv)
+{
+
+  MYSQL *conn;
+  MYSQL_RES *result;
+  MYSQL_ROW row;
+  MYSQL_FIELD *field;
+
+  int num_fields;
+  int i;
+
+  conn = mysql_init(NULL);
+  mysql_real_connect(conn, "localhost", "zetcode", "passwd", "testdb", 0, NULL, 0);
+
+  mysql_query(conn, "SELECT * FROM friends");
+  result = mysql_store_result(conn);
+
+  num_fields = mysql_num_fields(result);
+
+  while ((row = mysql_fetch_row(result)))
+  {
+      for(i = 0; i &lt; num_fields; i++)
+      {
+          if (i == 0) {
+             while(field = mysql_fetch_field(result)) {
+                printf("%s ", field-&gt;name);
+             }
+          printf("\n");
+          }
+          printf("%s  ", row[i] ? row[i] : "NULL");
+      }
+  }
+  printf("\n");
+
+  mysql_free_result(result);
+  mysql_close(conn);
+}
+</pre>
+
+<p>
+The example is similar to the previous one. It just adds column header names to it.
+</p>
+
+<pre class="explanation">
+ while(field = mysql_fetch_field(result)) {
+     printf("%s ", field-&gt;name);
+ }
+</pre>
+
+<p>
+The <code>mysql_fetch_field()</code> call returns a MYSQL_FIELD structure. 
+We get the column header names from this structure.
+</p>
+
+<pre class="code">
+$ ./headers
+id name age
+1  Tom  25
+2  Elisabeth  32
+3  Jane  22
+4  Luke  28
+</pre>
+
+<p>
+And this is the output of our program.
+</p>
+
+<h2>Inserting images into MySQL database</h2>
+
+<p>
+Some people prefer to put their images into the database, some prefer 
+to keep them on the file system for their applications.
+Technical difficulties arise when we work with millions of images.
+Images are binary data. MySQL database has a special data type to store 
+binary data called <b>BLOB</b> (Binary Large Object).
+</p>
+
+<pre class="code">
+mysql&gt; describe images;
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
+| id    | int(11)    | NO   | PRI |         |       |
+| data  | mediumblob | YES  |     | NULL    |       |
++-------+------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+</pre>
+
+<p>
+This is the table, that we will use in our example. It can be created 
+by the following SQL statement.
+</p>
+
+<pre class="code">
+create table images(id int not null primary key, data mediumblob);
+</pre>
+
+
+<pre class="code">
+#include &lt;my_global.h&gt;
+#include &lt;mysql.h&gt;
+
+int main(int argc, char **argv)
+{
+  MYSQL *conn;
+
+  int len, size;
+  char data[1000*1024];
+  char chunk[2*1000*1024+1];
+  char query[1024*5000];
+
+  FILE *fp;
+
+  conn = mysql_init(NULL);
+  mysql_real_connect(conn, "localhost", "zetcode", "passwd", "testdb", 0, NULL, 0);
+
+  fp = fopen("image.png", "rb");
+  size = fread(data, 1, 1024*1000, fp);
+
+  mysql_real_escape_string(conn, chunk, data, size);
+
+  char *stat = "INSERT INTO images(id, data) VALUES('1', '%s')";
+  len = snprintf(query, sizeof(stat)+sizeof(chunk) , stat, chunk);
+
+  mysql_real_query(conn, query, len);
+
+  fclose(fp);
+  mysql_close(conn);
+}
+</pre>
+
+<p>
+In this example, we will insert one image into the images table. The 
+image can be max 1 MB.
+</p>
+
+<pre class="explanation"> fp = fopen("image.png", "rb");
+ size = fread(data, 1, 1024*1000, fp);
+</pre>
+
+<p>
+Here we open the image and read it into the data array.
+</p>
+
+<pre class="explanation"> mysql_real_escape_string(conn, chunk, data, size);
+</pre>
+
+<p>
+Binary data can obtain special characters, that might cause troubles 
+in the statements. We must escape
+them. The <code>mysql_real_escape_string()</code> puts the 
+encoded data into the chunk array.
+In theory, every character might be a special character. That's why 
+the chunk array two times as big as the data array.
+The function also adds a terminating null character.
+</p>
+
+<pre class="explanation"> 
+ char *stat = "INSERT INTO images(id, data) VALUES('1', '%s')";
+ len = snprintf(query, sizeof(stat)+sizeof(chunk) , stat, chunk);
+</pre>
+
+<p>
+These two code lines prepare the MySQL query.
+</p>
+
+<pre class="explanation">
+ mysql_real_query(conn, query, len);
+</pre>
+
+<p>
+Finally, we execute the query.
+</p>
+
+<h2>Selecting images from MySQL database</h2>
+
+<p>
+In the previous example, we have inserted an image into the database.
+In the following example, we will select the inserted image back from
+the database.
+</p>
+
+
+<pre class="code">
+#include &lt;my_global.h&gt;
+#include &lt;mysql.h&gt;
+
+int main(int argc, char **argv)
+{
+  MYSQL *conn;
+  MYSQL_RES *result;
+  MYSQL_ROW row;
+
+  unsigned long *lengths;
+  FILE *fp;
+
+  conn = mysql_init(NULL);
+  mysql_real_connect(conn, "localhost", "zetcode", "passwd", "testdb", 0, NULL, 0);
+
+  fp = fopen("image.png", "wb");
+
+  mysql_query(conn, "SELECT data FROM images WHERE id=1");
+  result = mysql_store_result(conn);
+
+  row = mysql_fetch_row(result);
+  lengths = mysql_fetch_lengths(result);
+
+  fwrite(row[0], lengths[0], 1, fp);
+  mysql_free_result(result);
+
+  fclose(fp);
+  mysql_close(conn);
+}
+</pre>
+
+<p>
+In this example, we will create an image file from the database.
+</p>
+
+<pre class="explanation"> fp = fopen("image.png", "wb");
+</pre>
+
+<p>
+We open a file for writing.
+</p>
+
+<pre class="explanation"> mysql_query(conn, "SELECT data FROM images WHERE id=1");
+</pre>
+
+<p>
+We select an image with id 1.
+</p>
+
+<pre class="explanation"> row = mysql_fetch_row(result);
+</pre>
+
+<p>
+The row contains raw data.
+</p>
+
+<pre class="explanation"> lengths = mysql_fetch_lengths(result);
+</pre>
+
+<p>
+We get the length of the image.
+</p>
+
+<pre class="explanation">
+ fwrite(row[0], lengths[0], 1, fp);
+</pre>
+
+<p>
+We create the image file using the <code>fwrite()</code> standard function call.
+</p>
+
+<hr class="btm">
+
+<p>
+This was MySQL C API tutorial. You may be also interested in 
+<a href="/databases/mysqlpythontutorial/">MySQL Python tutorial</a>,
+<a href="/databases/mysqlvisualbasictutorial/">MySQL Visual Basic tutorial</a>, 
+or <a href="/databases/mysqlphptutorial/">MySQL PHP tutorial</a> on ZetCode.
+</p>
+
+<div class="g-plusone"></div>
+
+<br>
+<div class="center"> 
+<script type="text/javascript"><!--
+google_ad_client = "pub-9706709751191532";
+/* horizontal */
+google_ad_slot = "1734478269";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script> 
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+</script> 
+</div> 
+<br>
+
+
+<div class="botNav, center">
+<span class="botNavItem"><a href="/">Home</a></span> ‡ <span class="botNavItem"><a href="#">Top of Page</a></span>
+</div>
+
+
+<div class="footer">
+<div class="signature">
+<a href="/">ZetCode</a> last modified December 2, 2007  <span class="copyright">&copy; 2007 - 2012 Jan Bodnar</span>
+</div>
+</div>
+
+</div> <!-- content -->
+
+</div> <!-- container -->
+
+</body>
+</html>

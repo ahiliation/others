@@ -1,0 +1,9 @@
+ 
+-- defensive programming --
+
+-- tuple = ordered sequence of elements (immutable) --
+
+-- selection in tuple --
+
+-- slicing in tuple --
+

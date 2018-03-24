@@ -1,0 +1,6 @@
+How to Reproduce the BUG
+
+1. Take a large VOB file, of about 4GB size.
+2. ffmpeg -i Large.VOB -acodec libmp3lame LargeNew.VOB
+3. It will start running and give a floating point exception.
+

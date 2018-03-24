@@ -1,0 +1,653 @@
+<html lang="en">
+<head>
+<title>GNU Autounit: Unit Testing Framework</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name=description content="GNU Autounit: Unit Testing Framework">
+<meta name=generator content="makeinfo 4.1">
+<link href="http://texinfo.org/" rel=generator-home>
+</head>
+<body>
+<h1>GNU Autounit: Unit Testing Framework</h1>
+<p><hr>
+Node:<a name="Top">Top</a>,
+Next:<a rel=next href="#Introduction">Introduction</a>,
+Previous:<a rel=previous href="#dir">(dir)</a>,
+Up:<a rel=up href="#dir">(dir)</a>
+<br>
+
+<p>This documentation is under heavy construction, it's incomplete,
+sometimes inaccurate, and might have some offensive spelling
+errors. Please bear with us.
+
+<ul>
+<li><a href="#Introduction">Introduction</a>:                 What, why, when and how. 
+<li><a href="#General%20API">General API</a>:                  Overview of the Autounit API for all languages. 
+<li><a href="#C-Unit">C-Unit</a>:                       Support for unit testing in C. 
+<li><a href="#Webliography">Webliography</a>:                 Links to related websites. 
+<li><a href="#Function%20Index">Function Index</a>:               A global index of functions. 
+<li><a href="#Concept%20Index">Concept Index</a>:                An index of concepts. 
+</ul>
+
+<p><hr>
+Node:<a name="Introduction">Introduction</a>,
+Next:<a rel=next href="#General%20API">General API</a>,
+Previous:<a rel=previous href="#Top">Top</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>Introduction</h2>
+
+<h3>What is a Unit Test?</h3>
+
+<p>A <dfn>unit test</dfn> is a small bit of code designed to exerise a small
+part of your program to confirm a desirable result.  The unit test will
+expect to be in an environment with some code to invoke, data to use and
+assertions that will record errors to be reported later, if any.
+
+<p>Unit testing is a part of the Extreme Programming "anti-methodology". 
+Extreme Programming<a rel=footnote href="#fn-1"><sup>1</sup></a> (from now on abbreviated as XP
+in this manual)
+moves away from the complicated methodologies by reducing the number of
+rules and processes that developers must adhere to to a core collection
+of rules (that can be broken.)
+
+<h3>Why should we use Unit Tests?</h3>
+
+<h4>Benefits to Developers</h4>
+
+<p>The software developers are the ones burdened with the responsibility of
+creating new functionality in programs.  It's often demanded that new
+functionality doesn't destroy old functionality.  Developers will label
+releases with keywords to inform users of a subjective opinion of the
+status of the software.  With unit test suites in place, the developers
+can place an objective label on the software they release.
+
+<p>Some of the benefits of unit testing include:
+
+<ol type=1 start=1>
+</p><li>Improve source code control.
+
+<p>A single developer may forget what the state of the source tree is in. 
+Multiple developers need methods to reduce the overhead of communication
+between each other to avoid misunderstandings and ommissions.  When all
+developers follow a protocol of unit testing, bad source code is never
+checked into the source repository.
+
+</p><li>Compilation and/or Parse Testing.
+
+<p>Unit tests provide a way to quickly determine if the source tree even
+compiles or is parsable by the interpreter.  If the unit tests fail to
+even compile or link, that's a warning to the developers that something
+is amiss.
+
+</p><li>Regression testing.
+
+<p>As software ages, features are added and bugs are fixed.  Unit tests
+provide a safety net for catching unwanted side-effects that sometimes
+occur during maintenace or addition of features.
+
+</p><li>"Example code" overhead eliminated.
+
+<p>New developers will appreciate having example code to read and learn
+from as they get familiar with a new source tree. Experienced developers
+usually resent having to write this code and sometimes let it lag behind
+the true functionality of the system.  Developers instead can stop
+writing "example programs" and instead just write tests- the end result
+is new developers have working examples that never mislead them because
+there's never "old code" in the tests.
+
+</p><li>Release qualification simplified.
+
+<p>When all tests pass, it's a simple matter of the developers deciding to
+make a new release when they believe they have enough new functionality.
+
+</ol>
+
+<h4>Benefits to Consumers</h4>
+
+<ol type=1 start=1>
+</p><li>Release evaluation simplified.
+
+<p>Users can run the tests to see if they pass. If users want to know more
+about how the software is designed, they can have someone read the tests
+to "audit" them to see if they are covering functionality of the
+software in a satisfactory way.
+
+</p><li>Bugs rarely come back.
+
+<p>When bugs are found, the origninal developers can add new unit tests to
+the software to confirm when the bugs are fixed, and leave those unit
+tests there to ensure that they do not return in later releases.
+
+</ol>
+
+<h3>How do you write a Unit Test?</h3>
+
+<p>Unit tests are easy to write once you understand that the object of the
+test is not to "test your program" but to test small parts of your
+program.  I tend to test "accessors" and "gettors" methods in my
+interactive scripts as I often cut and paste code (a bad habit), and
+forget to change some identifiers.  For this kind of test, I create the
+data structure I'm working with and then apply the function on it that I
+want to test.  Then I use the "accessor" function to retrieve the data
+that I put into the data structure, and craft an expression for
+<code>au_assert()</code> to record an error if there's a problem.
+
+<p>In psuedocode:
+
+<br><pre>TEST_GENERIC_GET_AND_SET
+        create test_data
+        test_data-&gt;setValue("some value")
+        au_assert("get and set",
+                  "getValue returns different value than expected",
+                  (test_data-&gt;getValue() equals "some value")
+                 )
+        release test_data
+END_TEST
+</pre>
+
+<p>Later we will move the "create test_data" and "release test_data" out of the
+test into setup and teardown functions, reducing code duplication.
+
+<h3>How do you organize your Unit Tests?</h3>
+
+<p>Running each unit test by hand would quickly become a big headache in
+any practical project.  Each test then can be aggregated into a test
+case, and each test case itself can be made part of a suite.  This suite
+then runs and reports on the tests for you.
+
+<h4>Hand Coded Suites</h4>
+
+<p>As of version 0.07, all suites are essentially hand-coded.
+
+<h4>Automatically Generated Suites</h4>
+
+<p>In the future, I want to create a suite-generator engine that will scan
+program sources and automatically generate suites to run the tests found
+in the sources.  This same program is not far off from making an
+"auditing" program that developers and end-users can use to evaluate how
+well the unit-test coverage is in a program.
+
+<h3>How do you run your Unit Tests?</h3>
+
+<p>There are two major project building systems that are freely available on the Internet
+
+<h4>Within GNU Automake Managed Sources</h4>
+
+<p>The invocation of <code>make check</code> should cause the software to compile
+and run the test suites for the software.
+
+<h4>Within Aegis Managed Sources</h4>
+
+<p>[to be determined.]
+
+<h3>How long should it take to run all my Unit Tests?</h3>
+
+<p>Unit tests for a package should not take more than a few seconds to run. 
+To fully understand why, you need to read the next section.
+
+<h3>When are Unit Tests run?</h3>
+
+<h4>As a Developer</h4>
+
+<p>Unit tests are run practically continuously.  A developer uses the tests
+to check to see if any changes they made broke any other part of the
+system.  In a project managment system like Aegis, you cannot go for
+long without running tests to ensure that your source base is on solid
+ground.
+
+<h4>As a Consumer</h4>
+
+<p>The consumer may want to download your program, compile it, and check to
+see if it does all the things you claim it does.  They do not want to
+wait a long time to evaluate the software.  Being able to see an OK
+result nearly instantly saves the consumer time.
+
+<p><hr>
+Node:<a name="General%20API">General API</a>,
+Next:<a rel=next href="#C-Unit">C-Unit</a>,
+Previous:<a rel=previous href="#Introduction">Introduction</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>General API</h2>
+
+<h3>Interaction with Source Building Tools</h3>
+
+<h4>GNU Automake</h4>
+
+<h4>Aegis</h4>
+
+<p>[to be determined.]
+
+<h3>Data Structures</h3>
+
+<h3>Function Calls and Macros</h3>
+
+<h4>Test Setup</h4>
+
+<h4>Assertions</h4>
+
+<p><hr>
+Node:<a name="C-Unit">C-Unit</a>,
+Next:<a rel=next href="#Webliography">Webliography</a>,
+Previous:<a rel=previous href="#General%20API">General API</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>C-Unit</h2>
+
+<h3>Header Files and Library</h3>
+
+<h4>Header Files</h4>
+
+<p>Software using C for unit testing should include
+<code>autounit/autounit.h</code>. This file will define prototypes and
+datastructures that will be used by your test suite.
+
+<h4>Library</h4>
+
+<p>Add the linker option <code>-lau-c-unit</code> for your test suite.
+
+<h4>Autoconf</h4>
+
+<p>Autounit comes with autoconf macros installed into
+$prefix/share/aclocal.  If your project uses autoconf to help set up
+builds you can put <code>AM_PATH_AUTOUNIT</code> macro in your configure.in run
+aclocal to grab the macros and rerun autoconf.  The macro will define
+<code>AUTOUNIT_CFLAGS</code> and <code>AUTOUNIT_LIBS</code> to be used in your
+Makefile.am or Makefile.in.
+
+<h3>Type Reference</h3>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>autounit_suite_t</b><i>
+</i></td>
+<td align="right">C-Unit Types</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+
+<p>This type holds summary information about a suite, pointers to setup
+and teardown functions and a list of <code>autounit_test_t</code> structures.
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>autounit_test_fp_t</b><i>
+</i></td>
+<td align="right">C-Unit Types</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+
+<p>A typedef pointer to a function that excutes a test.
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>autounit_test_t</b><i>
+</i></td>
+<td align="right">C-Unit Types</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+
+<p>This type holds information about a test and a pointer to code to be excecuted. 
+It is normally "contained" by a <code>autounit_suite_t</code>.
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>autounit_test_setup_fp_t</b><i>
+</i></td>
+<td align="right">C-Unit Types</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+
+<p>A pointer to a setup function called before each test.  This function usually
+creates datastructures for the test functions to play with.
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>autounit_test_teardown_fp_t</b><i>
+</i></td>
+<td align="right">C-Unit Types</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+
+<p>A pointer to a teardown function called after each test. This function usually
+frees datastructures created by the setup function.
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>autounit_stress_report_t</b><i>
+</i></td>
+<td align="right">C-Unit Types</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+
+<p>This struct holds configuration information for how often to print
+"(test round)...." status during a stress test.
+
+</td></tr>
+</table>
+
+<h3>Function and Macro Reference</h3>
+
+<p>The code examples from this reference are excerpts from
+<code>c-unit-suite.c</code>. In some cases, they were modified to reduce the
+amount of "context" needed to understand the example.  Developers
+seeking to understand better how to use C-Unit should read the source
+for <code>c-unit-suite.c</code> directly to see all the context.
+
+<p>
+<table width="100%">
+<tr>
+<td align="left"><b>au_assert</b><i> (test,err_msg,expression)
+</i></td>
+<td align="right">C-Unit Macros</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+<code>au_assert</code> evaluates <var>expression</var>, when expression is false,
+<var>err_msg</var> is appended to the status for <var>test</var>.  When expression
+is true, no changes are made to <var>test</var>.  One should be wary of
+side-effects when writing <var>expression</var>.
+
+<br><pre>au_assert(t,"string not what we expected",strcmp(str,"hello")==0);
+</pre>
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">autounit_suite_t * <b>au_new_suite</b><i> (GString *<var>name</var>, autounit_test_setup_fp_t <var>setup_fp</var>, autounit_test_teardown_fp_t <var>teardown_fp</var>)
+</i></td>
+<td align="right">C-Unit Functions</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+<code>au_new_suite</code> allocates a <code>autounit_suite_t</code> structure and
+initializes it with <var>name</var> and <var>setup_fp</var> and <var>teardown_fp</var>.
+
+<br><pre>autounit_suite_t *c_unit_test_suite = au_new_suite(g_string_new("Autounit C Unit Self Test"),
+        cus_setup_suite,cus_teardown_suite);
+</pre>
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">autounit_test_t * <b>au_new_test</b><i> (GString *<var>name</var>, autounit_test_fp_t <var>test_fp</var>)
+</i></td>
+<td align="right">C-Unit Functions</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+
+<p><code>au_new_test</code> allocates a <code>autounit_test_t</code> structure and
+initializes it with <var>name</var> and <var>test_fp</var>.
+
+<p>After tests are created, the developer should use <code>au_add_test</code> to
+install into a suite.  Unless the developer uses <code>au_test_ref</code> the
+test will be freed when removed from a suite or when the suite is deleted.
+
+<br><pre>autounit_test_t *tmp_test = au_new_test("test name", test_another_feature);
+</pre>
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">autounit_suite_t * <b>au_add_test</b><i> (autounit_suite_t *<var>tc</var>, autounit_test_t *test)
+</i></td>
+<td align="right">C-Unit Functions</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+
+<p>The pointer to the suite that was added to is returned and is the same
+as the suite given.
+
+<br><pre>au_add_test(c_unit_test_suite,tmp_test);
+</pre>
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">gint <b>au_run_suite</b><i> (autounit_suite_t *<var>tc</var>)
+</i></td>
+<td align="right">C-Unit Functions</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+<code>au_run_suite</code> iterates through it's list of tests calling the setup fuction before the test code and then the teardown function.
+
+<br><pre>result = au_run_suite(c_unit_test_suite);
+</pre>
+
+</td></tr>
+</table>
+
+<p>
+<table width="100%">
+<tr>
+<td align="left">gint <b>au_run_stress_suite</b><i> (autounit_suite_t *<var>tc</var>, gint <var>rounds</var>, gint <var>modulo</var>)
+</i></td>
+<td align="right">C-Unit Functions</td>
+</tr>
+</table>
+<table width="95%" align="center">
+<tr><td>
+<code>au_run_stress_suite</code> iterates through it's list of tests <var>rounds</var> times printing feedback every <var>modulo</var> rounds.
+
+<br><pre>result = au_run_stress_suite(c_unit_stresstest_suite,25,5);
+</pre>
+
+</td></tr>
+</table>
+
+<h3>Utilities</h3>
+
+<p>There are no utilities as of yet.
+
+<h3>Self-Testing Proof</h3>
+
+<p>I think running <code>c-unit-suite</code> is good enough, no need to duplicate
+all that stuff here. ;)
+
+<p><hr>
+Node:<a name="Webliography">Webliography</a>,
+Next:<a rel=next href="#Function%20Index">Function Index</a>,
+Previous:<a rel=previous href="#C-Unit">C-Unit</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>Webliography</h2>
+
+<ul>
+<li>The GNU Autounit Home Page &lt;<code>http://recursism.com/projects/autounit/</code>&gt;
+<li>Freshmeat Discussions about GNU Autounit &lt;<code>http://www.freshmeat.net/projects/autounit/</code>&gt;
+<li>Extreme Programming Wiki &lt;<code>http://c2.com/cgi/wiki?ExtremeProgramming</code>&gt;
+<li>Aegis Software Configuration Management System &lt;<code>http://www.canb.auug.org.au/~millerp/aegis/</code>&gt;
+<li>Test Suites and the Linux Kernel by Michael D. Crawford &lt;<code>http://linuxquality.sunsite.dk/articles/testsuites/</code>&gt;
+<li>Linux Test Project &lt;<code>http://oss.sgi.com/projects/ltp/</code>&gt;
+
+</ul>
+
+<p><hr>
+Node:<a name="Function%20Index">Function Index</a>,
+Next:<a rel=next href="#Concept%20Index">Concept Index</a>,
+Previous:<a rel=previous href="#Webliography">Webliography</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>Function Index</h2>
+
+<ul compact>
+<li><code>au_add_test</code>: <a href="#C-Unit">C-Unit</a>
+<li><code>au_assert</code>: <a href="#C-Unit">C-Unit</a>
+<li><code>au_new_suite</code>: <a href="#C-Unit">C-Unit</a>
+<li><code>au_new_test</code>: <a href="#C-Unit">C-Unit</a>
+<li><code>au_run_stress_suite</code>: <a href="#C-Unit">C-Unit</a>
+<li><code>au_run_suite</code>: <a href="#C-Unit">C-Unit</a>
+</ul>
+
+<p><hr>
+Node:<a name="Concept%20Index">Concept Index</a>,
+Previous:<a rel=previous href="#Function%20Index">Function Index</a>,
+Up:<a rel=up href="#Top">Top</a>
+<br>
+
+<h2>Concept Index</h2>
+
+<ul compact>
+<li>antimethodology: <a href="#Introduction">Introduction</a>
+<li>benefits, developer: <a href="#Introduction">Introduction</a>
+<li>compilation testing: <a href="#Introduction">Introduction</a>
+<li>developer benefits: <a href="#Introduction">Introduction</a>
+<li>example code: <a href="#Introduction">Introduction</a>
+<li>interpretation testing: <a href="#Introduction">Introduction</a>
+<li>parse testing: <a href="#Introduction">Introduction</a>
+<li>regression testing: <a href="#Introduction">Introduction</a>
+<li>release qualification: <a href="#Introduction">Introduction</a>
+<li>source code control, improve: <a href="#Introduction">Introduction</a>
+<li>testing, compilation: <a href="#Introduction">Introduction</a>
+<li>testing, interpretation: <a href="#Introduction">Introduction</a>
+<li>testing, parsing: <a href="#Introduction">Introduction</a>
+<li>testing, regression: <a href="#Introduction">Introduction</a>
+<li>unit tests: <a href="#Introduction">Introduction</a>
+<li>XP: <a href="#Introduction">Introduction</a>
+</ul>
+
+<h2>Short Contents</h2>
+<ul>
+<li><a href="#toc_Introduction">Introduction</a>
+<li><a href="#toc_General%20API">General API</a>
+<li><a href="#toc_C-Unit">C-Unit</a>
+<li><a href="#toc_Webliography">Webliography</a>
+<li><a href="#toc_Function%20Index">Function Index</a>
+<li><a href="#toc_Concept%20Index">Concept Index</a>
+</ul>
+
+
+
+<h2>Table of Contents</h2>
+<ul>
+<li><a name="toc_Introduction"></a>
+    <a href="#Introduction">Introduction</a>
+<ul>
+<li><a href="#Introduction">What is a Unit Test?</a>
+<li><a href="#Introduction">Why should we use Unit Tests?</a>
+<ul>
+<li><a href="#Introduction">Benefits to Developers</a>
+<li><a href="#Introduction">Benefits to Consumers</a>
+</ul>
+<li><a href="#Introduction">How do you write a Unit Test?</a>
+<li><a href="#Introduction">How do you organize your Unit Tests?</a>
+<ul>
+<li><a href="#Introduction">Hand Coded Suites</a>
+<li><a href="#Introduction">Automatically Generated Suites</a>
+</ul>
+<li><a href="#Introduction">How do you run your Unit Tests?</a>
+<ul>
+<li><a href="#Introduction">Within GNU Automake Managed Sources</a>
+<li><a href="#Introduction">Within Aegis Managed Sources</a>
+</ul>
+<li><a href="#Introduction">How long should it take to run all my Unit Tests?</a>
+<li><a href="#Introduction">When are Unit Tests run?</a>
+<ul>
+<li><a href="#Introduction">As a Developer</a>
+<li><a href="#Introduction">As a Consumer</a>
+</ul>
+</ul>
+<li><a name="toc_General%20API"></a>
+    <a href="#General%20API">General API</a>
+<ul>
+<li><a href="#General%20API">Interaction with Source Building Tools</a>
+<ul>
+<li><a href="#General%20API">GNU Automake</a>
+<li><a href="#General%20API">Aegis</a>
+</ul>
+<li><a href="#General%20API">Data Structures</a>
+<li><a href="#General%20API">Function Calls and Macros</a>
+<ul>
+<li><a href="#General%20API">Test Setup</a>
+<li><a href="#General%20API">Assertions</a>
+</ul>
+</ul>
+<li><a name="toc_C-Unit"></a>
+    <a href="#C-Unit">C-Unit</a>
+<ul>
+<li><a href="#C-Unit">Header Files and Library</a>
+<ul>
+<li><a href="#C-Unit">Header Files</a>
+<li><a href="#C-Unit">Library</a>
+<li><a href="#C-Unit">Autoconf</a>
+</ul>
+<li><a href="#C-Unit">Type Reference</a>
+<li><a href="#C-Unit">Function and Macro Reference</a>
+<li><a href="#C-Unit">Utilities</a>
+<li><a href="#C-Unit">Self-Testing Proof</a>
+</ul>
+<li><a name="toc_Webliography"></a>
+    <a href="#Webliography">Webliography</a>
+<li><a name="toc_Function%20Index"></a>
+    <a href="#Function%20Index">Function Index</a>
+<li><a name="toc_Concept%20Index"></a>
+    <a href="#Concept%20Index">Concept Index</a>
+</ul>
+
+<hr><h4>Footnotes</h4>
+<ol type="1">
+<li><a name="fn-1"></a>
+<p>A full exposition of Extreme Programming
+can be found at &lt;<code>http://www.extremeprogramming.org</code>&gt; and will not be
+discussed at huge length in this manual.</p>
+
+</ol><hr>
+
+</body></html>

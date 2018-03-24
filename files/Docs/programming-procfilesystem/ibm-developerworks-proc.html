@@ -1,0 +1,1810 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Access the Linux kernel using the /proc filesystem</title>
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))'/>
+<link rel="schema.DC" href="http://purl.org/DC/elements/1.0/"/>
+<link rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico"/>
+<meta name="Owner" content="developerWorks Content/Raleigh/IBM"/>
+<meta name="DC.Language" scheme="rfc1766" content="en"/>
+<meta name="IBM.Country" content="ZZ"/>
+<meta name="Security" content="Public"/>
+<meta name="IBM.SpecialPurpose" content="SP001"/>
+<meta name="IBM.PageAttributes" content="sid=1003,1004"/>
+<meta name="Source" content="v16 Template Generator"/>
+<meta name="Robots" content="index,follow"/>
+<meta name="Abstract" content="The /proc filesystem is a virtual filesystem that permits a novel approach for communication between the Linux kernel and user space. In the /proc filesystem, virtual files can be read from or written to as a means of communicating with entities in the kernel, but unlike regular files, the content of these virtual files is dynamically created. This article introduces you to the /proc virtual filesystem and demonstrates its use."/>
+<meta name="Description" content="The /proc filesystem is a virtual filesystem that permits a novel approach for communication between the Linux kernel and user space. In the /proc filesystem, virtual files can be read from or written to as a means of communicating with entities in the kernel, but unlike regular files, the content of these virtual files is dynamically created. This article introduces you to the /proc virtual filesystem and demonstrates its use."/>
+<meta name="Keywords" content="Linux,virtual,filesystem,file system,proc,c,c++,kernel, tttlca"/>
+<meta name="DC.Date" scheme="iso8601" content="2006-03-14"/>
+<meta name="DC.Type" scheme="IBM_ContentClassTaxonomy" content="CT316"/>
+<meta name="DC.Subject" scheme="IBM_SubjectTaxonomy" content="SWGC0"/>
+<meta scheme="IBM_WTMCategory" name="IBM.WTMCategory" content="SOFDCLNXZZ" />
+<meta name="DC.Rights" content="© Copyright IBM Corporation 2006"/>
+<meta name="IBM.Effective" scheme="W3CDTF" content="2006-03-14"/>
+<meta name="title" content="Access the Linux kernel using the /proc filesystem"/>
+
+<!-- HEADER_SCRIPTS_AND_CSS_INCLUDE -->
+<link href="//dw1.s81c.com/common/v16/css/all.css" media="all" rel="stylesheet" title="www" type="text/css"/>
+<link href="//dw1.s81c.com/common/v16/css/screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="//dw1.s81c.com/common/v16/css/screen-uas.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="//dw1.s81c.com/common/v16/css/zz/en/screen-fonts.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="//dw1.s81c.com/common/v16/css/handheld.css" media="handheld" rel="stylesheet" title="www" type="text/css"/>
+<link href="//dw1.s81c.com/common/v16/css/print.css" media="print" rel="stylesheet" title="www" type="text/css"/>
+<link href="//dw1.s81c.com/common/v16/css/overlay.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+
+<!-- dW-specific CSS -->
+<link href="//dw1.s81c.com/developerworks/css/dw-screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="//dw1.s81c.com/developerworks/css/dw-screen-comments-ratings-signin.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="//dw1.s81c.com/developerworks/js/jquery/cluetip98/jquery.cluetip.css" media="screen,projection" rel="stylesheet"  title="www" type="text/css" />
+<!-- xM Masthead/Footer -->
+<link href="//dw1.s81c.com/developerworks/css/dw-mf/dw-mf0311.css" rel="stylesheet" title="www" type="text/css"/>
+<script src="//dw1.s81c.com/common/js/ibmcommon.js" type="text/javascript">//</script>
+<script src="//dw1.s81c.com/common/js/dynamicnav.js" type="text/javascript">//</script>
+
+<!-- dW functional JS -->
+<script language="JavaScript" src="//dw1.s81c.com/developerworks/js/urltactic.js" type="text/javascript"></script>
+<!-- Rating_START -->
+<script language="JavaScript" src="//dw1.s81c.com/developerworks/js/artrating/showrating.js" type="text/javascript"></script>
+<style type="text/css">
+.metavalue {
+  display: none;
+}
+</style>
+<!-- Rating_END --><!-- RESERVED_HEADER_INCLUDE -->
+<script language="javascript" src="//dw1.s81c.com/developerworks/js/ajax1.js" type="text/javascript"></script>
+<script language="javascript" src="//dw1.s81c.com/developerworks/js/search_counter-maverick.js" type="text/javascript"></script>
+<script language="javascript" src="//dw1.s81c.com/developerworks/js/request_referer_capture-maverick.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+ <!--
+ setDefaultQuery('linuxart');
+ //-->
+</script>
+<script language="JavaScript" type="text/javascript">
+ <!--
+ function openNewWindow(url,tar,arg){window.open(url,tar,arg);}
+ //-->
+</script>
+<!-- Include file support -->
+<script language="JavaScript" type="text/javascript">
+(function($) {
+	jQuery.extend({
+		getInc: function(u,d){
+			if(u==null)return;
+			jQuery.ajax({
+	    		type: "GET",
+			url: u,
+			dataType: "text",
+	        	success: function(t) {
+				jQuery(d).html(t);
+				ibmCommon.initShowHide(jQuery(d).children()[0]);			
+			},
+			async: true
+			});
+		}
+	});
+})(jQuery);
+</script>
+</head>
+
+<body id="ibm-com">
+<div id="ibm-top" class="ibm-landing-page">
+
+<!-- MASTHEAD_BEGIN -->
+<!-- MASTHEAD_BEGIN -->
+<div class="ibm-access"><a href="#ibm-content">Skip to main content</a></div>
+<div id="ibm-masthead-dw">
+  
+    <!-- TOP ROW -->    
+    <div id="dw-masthead-top-row">
+		<ul id="ibm-unav-home-dw">
+			<li id="ibm-logo">
+				<a href="http://www.ibm.com/us/en/"><img src="//dw1.s81c.com/developerworks/i/mf/ibm-smlogo.gif" width="44" height="16" alt="IBM®" /></a>
+			</li>
+		</ul>
+        <ul id="ibm-mast-options-dw">
+		    <li id="dw-mast-top-0">
+				<a class="dw-mf-noscript" href="#" title="Sign in (or register) requires JavaScript">Sign in (or register)</a>
+			</li>
+		    <li id="dw-mast-top-1">
+				<a href="#SELECTLANG">English</a><img class="dw-preload" src="//dw1.s81c.com/developerworks/i/mf/arrow-down-active.gif" width="8" height="7" alt="" />
+			</li>
+		    <li id="dw-mast-top-2" class="dw-mf-hide">
+				<a href="#">[userid] <img src="/developerworks/mydeveloperworks/profiles/photo.do?userid=[uid]" alt="PHOTO" class="dw-mast-profimg" width="20" height="20"/></a>
+			</li>
+		</ul>
+	</div>
+    
+    <!-- TOP ROW SLIDER -->
+    <div id="ibm-my-menu-dw">    
+        <div class="ibm-ribbon-pane-dw">
+            <div class="ibm-ribbon-section-dw">
+                <!-- Sign-in -->
+				<div class="dw-mast-columns">                
+					<div class="dw-mast-col-1-1">
+					    <div class="dw-mast-close">
+							<ul>
+								<li><a href="#">Close [x]</a></li>
+							</ul>
+						</div>
+						<div id="dw-mast-sso">
+							<div id="dw-mast-sso-reg">
+								<p>If you don't have an IBM ID and password, <a href="#" onclick="(function () {window.location='/developerworks/dwwi/DWAuthRouter?m=reg&amp;lang=en&amp;d='+encodeURIComponent(location.href);})();">register here</a>.</p>
+							</div>
+							<div id="signin_error_mf" class="dw-mf-hide"></div>
+							<div id="dw-mast-sso-form">
+								<form id="sForm_mf" action="" method="post" name="sForm_name_mf" onsubmit="return false;">
+									<div id="dw-mast-sso-id" class="dw-mast-sso-id-en">
+										<label for="ibmid_mf">IBM ID:</label>
+										<input id="ibmid_mf" type="text" value="" name="ibmid_name_mf" maxlength="100" onkeypress="handleEP(event,this.form,'mf');"/>
+									</div>
+									<div id="dw-mast-sso-pw" class="dw-mast-sso-pw-en">
+										<label for="pw_mf">Password:</label>
+										<input id="pw_mf" type="password" value="" name="pw_name_mf" maxlength="100" onkeypress="handleEP(event,this.form,'mf');"/>
+									</div>
+									<div id="dw-mast-sso-target" class="dw-mast-sso-target-en">
+										<label for="AfterSignIn_mf">After sign in:</label>
+										<select id="AfterSignIn_mf" name="AfterSignIn_name_mf">
+											<option value="">Stay on the current page</option>
+											<option value="/developerworks/mydeveloperworks/profiles/html/myProfileView.do?lang=en">My developerWorks profile</option>
+											<option value="/developerworks/mydeveloperworks/homepage?lang=en">My developerWorks home</option>
+										</select>
+									</div>					
+									<div id="dw-mast-sso-terms">
+										<p class="dw-mf-perm-box">
+											<input id="perm_mf" type="checkbox" name="perm_name_mf"/><label for="perm_mf"> Keep me signed in.</label>
+										</p>
+										<p class="dw-mast-sso-terms-en">By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+									</div>
+									<div>
+										<input class="dw-mf-submit-btn" name="ibm_submit_name_mf" value="Submit" onclick="signin('mf');return false;" type="submit" />
+									</div>
+								</form>
+							</div>
+							<div id="dw-mast-sso-update">
+								<ul>
+									<li><a class="ibm-forward-link" href="/developerworks/dwwi/jsp/WSHelp.jsp?lang=en_US">Forgot your IBM ID?</a></li>
+								</ul>
+								<!--[if IE 9]><div class="dw-mf-update-ie9"><![endif]-->
+								<ul class="dw-mf-pwupdate">
+									<li><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=forgot&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(getAuthUrl())+'%3Fm%3Dloginpage%26lang%3Den_US%26d%3D'+encodeURIComponent(location.href);})();">Forgot your password?</a></li>
+									<li><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=chpw&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(location.href);})();">Change your password</a></li>
+								</ul>
+								<!--[if IE 9]></div><![endif]-->
+							</div>
+							<div id="dw-mast-sso-text">
+								<p>The first time you sign into developerWorks, a <strong>profile</strong> is created for you.  This profile includes the first name, last name, and display name you identified when you registered with developerWorks.  <strong>Select information in your developerWorks profile is displayed to the public, but you may edit the information at any time.</strong>  Your first name, last name (unless you choose to hide them), and display name will accompany the content that you post.</p>
+								<p class="dw-mf-secure">All information submitted is secure.</p>
+							</div>
+						</div>
+                    
+						<div id="dw-mast-dname" class="dw-mf-hide">
+							<p>The first time you sign in to developerWorks, a profile is created for you, so you need to choose a display name.  Your display name accompanies the content you post on developerworks.</p><p><strong>Please choose a display name between 3-31 characters</strong>.  Your display name must be unique in the developerWorks community and should not be your email address for privacy reasons.</p>
+							<div id="signin_dname_error_mf" class="dw-mf-hide"></div>
+							<div id="dw-mast-dname-form">
+								<form id="dForm_mf" action="" method="post" name="dForm_name_mf" onsubmit="return false;">
+									<div id="dw-mast-dname-mf">
+										<label for="dname_mf">Display name:</label>
+										<input id="dname_mf" name="dname_name_mf" maxlength="31" size="25" value="" type="text" onkeypress="handleEP(event,this.form,'mf');" />
+									</div>
+									<div id="dw-mast-dname-terms">
+										<p>By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+									</div>
+									<div>
+										<input class="dw-mf-submit-btn" name="dname_submit_name_mf" value="Submit" onclick="signin('mf');return false;" type="submit" />
+									</div>
+								</form>								
+							</div>
+							<div id="dw-mast-dname-secure">
+								<p class="dw-mf-secure">All information submitted is secure.</p>
+							</div>
+						</div>
+
+						<div id="dw-mast-auth" class="dw-mf-hide">
+							<div>
+								<h2>My developerWorks:</h2>
+								<ul>
+									<li><a id="dw-mast-top-0-0" href="/developerworks/mydeveloperworks/profiles/html/myProfileView.do?lang=en">My profile</a></li>
+									<li><a href="/developerworks/mydeveloperworks/homepage?lang=en">My home</a></li>
+									<li><a href="/developerworks/mydeveloperworks/groups/service/html/mycommunities?lang=en">My groups</a></li>
+								</ul>     
+							</div>
+							<div id="dw-mast-notify" class="dw-mf-hide">
+								<h2>My notifications:</h2>
+								<ul>
+									<li><a id="new_notify" href="/developerworks/mydeveloperworks/homepage?lang=en">{[num_notify] new notifications}([num_notify] new notification)</a></li>
+									<li><a id="new_invite" href="/developerworks/mydeveloperworks/profiles/html/wc.do?action=in&requireAuth=true&widgetId=friends&lang=[lang]">{[num_invite] network requests}([num_invite] network request)</a></li>  
+								</ul>
+							</div>
+							<div class="dw-mast-more">
+								<ul class="ibm-link-list">
+									<li><a class="dw-more-link" href="#" onclick="signOut(); return false;"><strong>Sign out</strong></a></li>
+								</ul>
+							</div>
+						</div>
+						
+					</div>					
+                   
+                </div>
+                <!-- Language selector --> 
+				<div class="dw-mast-columns">
+					<div class="dw-mast-col-2-1">
+						<h2>Select a language:</h2>
+						<ul>
+							<li><a id="dw-mast-top-1-0" href="http://www.ibm.com/developerworks/">English</a></li>
+							<li><a href="http://www.ibm.com/developerworks/cn/">中文</a></li>
+							<li><a href="http://www.ibm.com/developerworks/jp/">日本語</a></li>
+							<li><a href="http://www.ibm.com/developerworks/kr/">한국어</a></li>
+						</ul>
+					</div>
+					<div class="dw-mast-col-2-2">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/ru/">Русский</a></li>
+							<li><a href="http://www.ibm.com/developerworks/br/">Português (Brasil)</a></li>
+							<li><a href="http://www.ibm.com/developerworks/ssa/">Español</a></li>
+							<li><a href="http://www.ibm.com/developerworks/vn/">Việt</a></li>
+						</ul>
+					</div>
+					<div class="dw-mast-close">
+						<ul>
+							<li><a href="#">Close [x]</a></li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div id="ibm-universal-nav-dw">
+        <ul id="ibm-unav-links-dw">
+            <li id="ibm-unav-home-dwlogo">
+				<a href="http://www.ibm.com/developerWorks/"><img src="//dw1.s81c.com/developerworks/i/mf/dw-wordmark.gif" width="218" height="32" alt="developerWorks®" /></a>
+            </li>
+        </ul>
+        <ul id="ibm-menu-links-dw">
+            <li id="dw-mast-nav-0"><a href="http://www.ibm.com/developerworks/topics/">Technical topics</a></li>
+            <li id="dw-mast-nav-1"><a href="http://www.ibm.com/developerworks/downloads/">Evaluation software</a></li>
+            <li id="dw-mast-nav-2"><a href="http://www.ibm.com/developerworks/community/">Community</a></li>
+            <li id="dw-mast-nav-3"><a href="http://www.ibm.com/developerworks/events/">Events</a></li>
+        </ul>
+			<form id="ibm-search-form" action="//www.ibm.com/search/csass/search/" method="get" name="form1">
+				<input type="hidden" name="sn" value="dw" />
+				<input type="hidden" name="lang" value="en" />
+				<input type="hidden" name="cc" value="US" />
+				<input type="hidden" name="en" value="utf" />
+				<input type="hidden" name="hpp" value="20" />
+				<input type="hidden" name="dws" value="dw" />
+				<p>
+				<label for="q"><img alt="Search developerWorks" height="1" width="1" src="//dw1.s81c.com/i/c.gif" /></label>
+				<input type="text" value="Search developerWorks" name="q" maxlength="100" id="q"/>
+				<input type="submit" id="ibm-search" class="ibm-btn-search" name="Search" value="Search" />
+				</p>
+			</form>
+    </div>
+    
+    <!-- BOTTOM ROW SLIDER -->
+    <div id="ibm-common-menu-dw">
+        <div class="ibm-ribbon-pane-dw dw-ribbon-pane-en">
+            <div class="ibm-ribbon-section-dw">
+				<!-- Technical topics category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-3-1">
+						<h2>IBM products:</h2>
+						<ul>
+							<li><a id="dw-mast-nav-0-0" href="http://www.ibm.com/developerworks/aix/">AIX and UNIX</a></li>
+							<li><a href="http://www.ibm.com/developerworks/ibmi/">IBM i</a></li>
+							<li><a href="http://www.ibm.com/developerworks/data/">Information Management</a></li>
+							<li><a href="http://www.ibm.com/developerworks/lotus/">Lotus</a></li>
+							<li><a href="http://www.ibm.com/developerworks/rational/">Rational</a></li>
+							<li><a href="http://www.ibm.com/developerworks/tivoli/">Tivoli</a></li>  
+							<li><a href="http://www.ibm.com/developerworks/websphere/">WebSphere</a></li>     
+						</ul>     
+                    </div>
+					<div class="dw-mast-col-3-2">
+						<h2>Technologies:</h2>
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/java/">Java technology</a></li>
+							<li><a href="http://www.ibm.com/developerworks/linux/">Linux</a></li>
+							<li><a href="http://www.ibm.com/developerworks/opensource/">Open source</a></li>
+							<li><a href="http://www.ibm.com/developerworks/webservices/">SOA and web services</a></li>
+							<li><a href="http://www.ibm.com/developerworks/web/">Web development</a></li>  
+							<li><a href="http://www.ibm.com/developerworks/xml/">XML</a></li>     
+						</ul>
+                    </div>
+					<div class="dw-mast-col-3-3 dw-mast-col-3-3-en">
+						<h2>Solutions:</h2>
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/cloud/">Cloud computing</a></li>
+							<li><a href="http://www.ibm.com/developerworks/industry/">Industries</a></li>
+							<li><a href="http://www.ibm.com/developerworks/servicemanagement/">Integrated Service Management</a></li>
+						</ul>
+						<ul>
+							<li class="dw-mast-newgroup"><a href="http://www.ibm.com/developerworks/library/">Technical library</a></li>
+							<li><a href="http://www.ibm.com/developerworks/feeds/">Feeds and syndication</a></li>
+							<li><a href="https://www.ibm.com/developerworks/newsletter/">Newsletters</a></li>
+						</ul>        
+                    </div>
+                    <div class="dw-mast-more dw-mast-more-en">
+						<ul class="ibm-link-list">
+							<li><a class="dw-more-link" href="http://www.ibm.com/developerworks/topics/"><strong>More about Technical topics</strong></a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><a href="#">Close [x]</a></li>
+						</ul>
+                    </div>
+				</div>
+				<!-- Evaluation software category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-1-1">
+						<h2>Find software by:</h2>
+						<ul>
+							<li><a id="dw-mast-nav-1-0" href="http://www.ibm.com/developerworks/downloads/product.html">IBM product</a></li>
+							<li><a href="http://www.ibm.com/developerworks/downloads/evalmethod.html">Evaluation method (Download, online trial, product beta, cloud)</a></li>
+							<li><a href="http://www.ibm.com/developerworks/downloads/industry.html">Industry</a></li>
+						</ul>            
+                    </div>
+                    <div class="dw-mast-more">
+						<ul class="ibm-link-list">
+							<li><a class="dw-more-link" href="http://www.ibm.com/developerworks/downloads/"><strong>More about Evaluation software</strong></a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><a href="#">Close [x]</a></li>
+						</ul>
+                    </div>
+				</div>
+				<!-- Community category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-3-1">
+						<ul>
+							<li><a id="dw-mast-nav-2-0" href="https://www.ibm.com/developerworks/community/homepage/">My home</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/profiles/">Profiles</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/groups/">Groups</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/blogs/">Blogs</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/bookmarks/">Bookmarks</a></li>  
+						</ul>     
+                    </div>
+					<div class="dw-mast-col-3-2">
+						<ul>
+							<li><a href="https://www.ibm.com/developerworks/forums/">Forums</a></li>
+							<li><a href="https://www.ibm.com/developerworks/mydeveloperworks/wikis/">Wikis</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/files/">Files</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/activities/">Activities</a></li>
+							<li><a href="https://www.ibm.com/developerworks/community/podcasts/">Podcasts</a></li>     
+						</ul>
+                    </div>
+					<div class="dw-mast-col-3-3 dw-mast-col-3-3-en">
+						<ul>
+							<li><a href="http://www.ibm.com/developerworks/champion/">IBM Champion program</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-more dw-mast-more-en">
+						<ul class="ibm-link-list">
+							<li><a class="dw-more-link" href="http://www.ibm.com/developerworks/community/"><strong>More about Community</strong></a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><a href="#">Close [x]</a></li>
+						</ul>
+                    </div>
+				</div>
+				<!-- Events category -->
+                <div class="dw-mast-columns">
+					<div class="dw-mast-col-1-1">
+						<ul>
+							<li><a id="dw-mast-nav-3-0" href="http://www.ibm.com/developerworks/briefings/">Briefings</a></li>
+							<li><a href="http://www.ibm.com/developerworks/find/webcasts/">Webcasts</a></li>
+							<li><a href="http://www.ibm.com/developerworks/find/events/">Find events (briefings, webcasts, conferences...)</a></li>
+						</ul>            
+                    </div>
+                    <div class="dw-mast-more">
+						<ul class="ibm-link-list">
+							<li><a class="dw-more-link" href="http://www.ibm.com/developerworks/events/"><strong>More about Events</strong></a></li>
+						</ul>
+                    </div>
+                    <div class="dw-mast-close">
+						<ul>
+							<li><a href="#">Close [x]</a></li>
+						</ul>
+                    </div>
+				</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div id="fdiv" class="ibm-access"></div>
+<!-- MASTHEAD_END --><!-- MASTHEAD_END -->
+
+<div id="ibm-pcon">
+
+<!-- CONTENT_BEGIN -->
+<div id="ibm-content">
+
+<!-- Navigation_Trail_BEGIN -->
+<!-- &nbsp; -->
+      <div id="ibm-content-head"><ul id="ibm-navigation-trail"><li class="ibm-first"><a href="http://www.ibm.com/developerworks/">developerWorks</a></li><li><a href="http://www.ibm.com/developerworks/topics/">Technical topics</a></li><li><a href="http://www.ibm.com/developerworks/linux/">Linux</a></li><li><a href="http://www.ibm.com/developerworks/views/linux/library.jsp">Technical library</a></li></ul></div>
+<!-- Navigation_Trail_END -->
+
+<!-- dW_Summary Area_START -->
+<div id="dw-summary-article">
+
+<div class="dw-content-head">
+<h1>Access the Linux kernel using the /proc filesystem</h1><p><em>This virtual filesystem opens a window of communication between the kernel
+      and user space</em></p>
+</div>
+
+<div class="ibm-container-body ibm-two-column">
+
+<div class="ibm-column ibm-first">
+<div class="author"><a class="dwauthor" rel="#authortip1" href="#author1">M. Tim Jones</a>, Consultant Engineer, Emulex</div><div id="authortip1" class="dwauthor-onload-state ibm-no-print"><div class="position"><img src="http://www.ibm.com/developerworks/i/p-mjones.jpg" width="64" height="80" alt="M. Tim Jones"/></div>M. Tim Jones is an embedded software engineer and the author of <em>GNU/Linux Application Programming</em>, <em>AI Application Programming</em>, and 
+
+<em>BSD Sockets Programming from a Multilanguage Perspective</em>. 
+
+His engineering background ranges from the development of kernels for geosynchronous spacecraft to embedded systems architecture and networking protocols development. Tim is a senior principal engineer at Emulex Corp.<br />(An IBM developerWorks Contributing Author)</div>
+<p></p>
+<p><strong>Summary:</strong>&nbsp; The /proc filesystem is a virtual filesystem that permits a novel
+      approach for communication between the Linux&#174; kernel and user space. In the
+      /proc filesystem, virtual files can be read from or written to as a means of
+      communicating with entities in the kernel, but unlike regular files, the content of
+      these virtual files is dynamically created. This article introduces you to the /proc
+      virtual filesystem and demonstrates its use.</p>
+
+<div id="dw-tag-content" class="ibm-no-print"></div><div id="dw-moretags-access" class="ibm-access"></div>
+<p class="ibm-no-print"><div id="dw-tag-this" class="ibm-no-print"><a class="ibm-external-link" onclick="jQuery.launchTagThisWindow(); return false;" href="#">Tag this!</a></div><div id="interestShow" class="ibm-no-print"></div></p>
+</div>
+
+<div class="ibm-column ibm-second">
+<p class="leading"><strong>Date:</strong>&nbsp; 14 Mar 2006
+<br /><strong>Level: </strong>&nbsp;Introductory
+
+<br />
+
+<br /><strong>Comments:</strong> &nbsp; <span id="nCmts"><img alt="" src="//dw1.s81c.com/developerworks/i/circle-preloader.gif" height="12" width="50" /><img alt="" src="//dw1.s81c.com/i/c.gif" height="14" width="1" /></span>
+<!-- Rating_Area_Begin -->
+<div id="art-rating-summary"></div>
+<!-- Rating_Area_End -->
+</p>
+</div>
+
+</div>
+</div>
+<!-- dW_Summary_Area_END -->
+
+<!-- CONTENT_BODY -->
+<div id="ibm-content-body">
+
+<!-- MAIN_COLUMN_BEGIN -->
+<div id="ibm-content-main">
+
+<!-- Related_Searches_Area -->
+<!-- Related_Searches_Area_Begin -->
+<script type="text/javascript" language="javascript">
+	     capture_referrer();
+</script>
+
+<div id="dw-related-searches-article" style="display:none">
+<div class="ibm-container ibm-alternate-two">
+<div class="ibm-container-body">
+
+<!--  START : HTML FOR ARTICLE SEARCH -->
+  <div id="article_results" style="display:block"></div>
+<!--  END : HTML FOR ARTICLE SEARCH -->
+
+</div>
+</div>
+</div>
+<!-- Related_Searches_Area_End -->
+<!-- MAIN_COLUMN_CONTAINER_BEGIN -->
+<div class="ibm-container">
+
+<!-- MAIN_COLUMN_CONTENT_BEGIN -->
+<p>The /proc filesystem was originally developed to provide information on the
+        processes in a system. But given the filesystem's usefulness, many
+        elements of the kernel use it both to report information and to enable dynamic
+        runtime configuration.</p><p>The /proc filesystem contains directories (as a way of organizing information)
+        and virtual files. A virtual file can present information from the kernel to the
+        user and also serve as a means of sending information from the user to the kernel.
+        It's not actually required to do both, but this article show you how to
+        configure the filesystem for input and output.</p><p>A short article like this can't detail all the uses of /proc, but it
+        does demonstrate a couple of uses to give you an idea of how powerful /proc can
+        be. Listing 1 is an interactive tour of some of the /proc elements. It shows the
+        root level of the /proc filesystem. Note the series of numbered files on the left.
+        Each of these is a directory representing a process in the system. Because the
+        first process created in GNU/Linux is the <code>init</code> process,
+        it has a <code>process-id</code> of <em>1</em>. Next, performing an
+        <code>ls</code> on the directory shows a list of files. Each file
+        provides details on the particular process. For example, to see the command-line
+        entry for <code>init</code>, simply <code>cat</code>
+        the <code>cmdline</code> file.</p><p>Some of the other interesting files in /proc are
+        <code>cpuinfo</code>, which identifies the type of processor and its
+        speed; <code>pci</code>, which shows the devices found on the PCI
+        buses; and <code>modules</code>, which identifies the modules that
+        are currently loaded into the kernel.</p><br /><a name="N10087"><strong>Listing 1. Interactive tour of /proc</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+[root@plato]# <strong>ls /proc</strong>
+
+1     2040  2347  2874  474          fb           mdstat      sys
+
+104   2061  2356  2930  9            filesystems  meminfo     sysrq-trigger
+
+113   2073  2375  2933  acpi         fs           misc        sysvipc
+
+1375  21    2409  2934  buddyinfo    ide          modules     tty
+
+1395  2189  2445  2935  bus          interrupts   mounts      uptime
+
+1706  2201  2514  2938  cmdline      iomem        mtrr        version
+
+179   2211  2515  2947  cpuinfo      ioports      net         vmstat
+
+180   2223  2607  3     crypto       irq          partitions
+
+181   2278  2608  3004  devices      kallsyms     pci
+
+182   2291  2609  3008  diskstats    kcore        self
+
+2     2301  263   3056  dma          kmsg         slabinfo
+
+2015  2311  2805  394   driver       loadavg      stat
+
+2019  2337  2821  4     execdomains  locks        swaps
+
+[root@plato 1]# <strong>ls /proc/1</strong>
+
+auxv     cwd      exe  loginuid  mem     oom_adj    root  statm   task
+
+cmdline  environ  fd   maps      mounts  oom_score  stat  status  wchan
+
+[root@plato]# <strong>cat /proc/1/cmdline</strong>
+
+init [5]
+
+[root@plato]#
+
+</pre></td></tr></table><br /><p>Listing 2 illustrates reading from and then writing to a virtual file in /proc.
+        This example checks and then enables IP forwarding within the kernel's
+        TCP/IP stack.</p><br /><a name="N1009A"><strong>Listing 2. Reading from and writing to /proc (configuring the kernel)</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+[root@plato]# <strong>cat /proc/sys/net/ipv4/ip_forward</strong>
+
+0
+
+[root@plato]# <strong>echo "1" &gt; /proc/sys/net/ipv4/ip_forward</strong>
+
+[root@plato]# <strong>cat /proc/sys/net/ipv4/ip_forward</strong>
+
+1
+
+[root@plato]#
+
+</pre></td></tr></table><br /><p>Alternatively, you could use <code>sysctl</code> to configure these
+        kernel items. See the <a href="#resources">Resources</a> section for more
+        information on that.</p><p>By the way, the /proc filesystem isn't the only virtual filesystem in
+        GNU/Linux. One such system, <em>sysfs</em>, is similar to /proc but a bit more
+        organized (having learned lessons from /proc). However, /proc is entrenched and
+        therefore, even though sysfs has some advantages over it, /proc is here to stay.
+        There's also the <em>debugfs</em> filesystem, but it tends to be (as the
+        name implies) more of a debugging interface. An advantage to debugfs is that
+        it's extremely simple to export a single value to user space (in fact,
+        it's a single call).</p><p><a name="N100BA"><span class="atitle">Introducing kernel modules</span></a></p><p>Loadable Kernel Modules (LKM) are an easy way to demonstrate the /proc
+        filesystem, because they're a novel way to dynamically add or remove code
+        from the Linux kernel. LKMs are also a popular mechanism for device drivers and
+        filesystems in the Linux kernel.</p><p>If you've ever recompiled the Linux kernel, you probably found that in
+        the kernel configuration process, many device drivers and other kernel elements
+        are compiled as modules. If a driver is compiled directly into the kernel, its
+        code and static data occupy space even if they're not used. But if the
+        driver is compiled as a module, it requires memory only if memory is needed and
+        subsequently loaded, into the kernel. Interestingly, you won't notice a
+        performance hit for LKMs, so they're a powerful means of creating a lean
+        kernel that adapts to its environment based upon the available hardware and
+        attached devices.</p><p>Here's a simple LKM to help you understand how it differs from standard
+        (non-dynamically loadable) code that you'll find in the Linux kernel.
+        Listing 3 presents the simplest LKM. (You can download the sample code for this
+        article from the <a href="#downloads">Downloads</a> section, below.)</p><p>Listing 3 includes the necessary module header (which defines the module APIs,
+        types, and macros). It then defines the license for the module using
+        <code>MODULE_LICENSE</code>. Here, it specifies <em>GPL</em> to avoid
+        tainting the kernel.</p><p>Listing 3 then defines the module <code>init</code> and
+        <code>cleanup</code> functions. The
+        <code>my_module_init</code> function is called when the module is
+        loaded and the function can be used for initialization purposes. The
+        <code>my_module_cleanup</code> function is called when the module is
+        being unloaded and is used to free memory and generally remove traces of the
+        module. Note the use of <code>printk</code> here: this is the kernel
+        <code>printf</code> function. The
+        <code>KERN_INFO</code> symbol is a string that you can use to filter
+        information from entering the kernel ring buffer (much like
+        <code>syslog</code>).</p><p>Finally, Listing 3 declares the entry and exit functions using the
+        <code>module_init</code> and <code>module_exit</code>
+        macros. This allows you to name the module <code>init</code> and
+        <code>cleanup</code> functions the way you want but then tell the
+        kernel which functions are the maintenance functions.</p><br /><a name="N10109"><strong>Listing 3. A simple but functional LKM (simple-lkm.c)</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+#include &lt;linux/module.h&gt;
+
+
+
+/* Defines the license for this LKM */
+
+<strong>MODULE_LICENSE</strong>("GPL");
+
+
+
+/* Init function called on module entry */
+
+int my_module_init( void )
+
+{
+
+  printk(KERN_INFO "my_module_init called.  Module is now loaded.\n");
+
+
+
+  return 0;
+
+}
+
+
+
+/* Cleanup function called on module exit */
+
+void my_module_cleanup( void )
+
+{
+
+  printk(KERN_INFO "my_module_cleanup called.  Module is now unloaded.\n");
+
+
+
+  return;
+
+}
+
+
+
+/* Declare entry and exit functions */
+
+<strong>module_init</strong>( my_module_init );
+
+<strong>module_exit</strong>( my_module_cleanup );
+
+</pre></td></tr></table><br /><p>Listing 3 is a real LKM, albeit a simple one. Now, let's build it and
+        test it out on a 2.6 kernel. The 2.6 kernel introduces a new method for kernel
+        module building that I find simpler than the older methods. With the file
+        <code>simple-lkm.c</code>, create a makefile whose sole content is:</p><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+obj-m += simple-lkm.o
+
+</pre></td></tr></table><br /><p>To build the LKM, use the <code>make</code> command as shown in
+        Listing 4.</p><br /><a name="N1012A"><strong>Listing 4. Building an LKM</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+[root@plato]# <strong>make -C /usr/src/linux-`uname -r` SUBDIRS=$PWD modules</strong>
+
+make: Entering directory `/usr/src/linux-2.6.11'
+
+  CC [M]  /root/projects/misc/module2.6/simple/simple-lkm.o
+
+  Building modules, stage 2.
+
+  MODPOST
+
+  CC      /root/projects/misc/module2.6/simple/simple-lkm.mod.o
+
+  LD [M]  /root/projects/misc/module2.6/simple/simple-lkm.ko
+
+make: Leaving directory `/usr/src/linux-2.6.11'
+
+[root@plato]#
+
+</pre></td></tr></table><br /><p>The result is <code>simple-lkm.ko</code>. The new naming convention
+        helps to distinguish kernel objects (LKMs) from standard objects. You can now load
+        and unload the module and then view its output. To load the module, use the
+        <code>insmod</code> command; conversely, to unload the module, use
+        the <code>rmmod</code> command. <code>lsmod</code>
+        shows the currently loaded LKMs (see Listing 5).</p><br /><a name="N10147"><strong>Listing 5. Inserting, checking, and removing an LKM</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+[root@plato]# <strong>insmod simple-lkm.ko</strong>
+
+[root@plato]# <strong>lsmod</strong>
+
+Module                  Size  Used by
+
+simple_lkm              1536  0
+
+autofs4                26244  0
+
+video                  13956  0
+
+button                  5264  0
+
+battery                 7684  0
+
+ac                      3716  0
+
+yenta_socket           18952  3
+
+rsrc_nonstatic          9472  1 yenta_socket
+
+uhci_hcd               32144  0
+
+i2c_piix4               7824  0
+
+dm_mod                 56468  3
+
+[root@plato]# <strong>rmmod simple-lkm</strong>
+
+[root@plato]#
+
+</pre></td></tr></table><br /><p>Note that kernel output goes to the kernel ring buffer and not to
+        <code>stdout</code>, because <code>stdout</code> is
+        process specific. To inspect messages on the kernel ring buffer, you can use the
+        <code>dmesg</code> utility (or work through /proc itself with the
+        command <code>cat /proc/kmsg</code>). Listing 6 shows the output of
+        the last few messages from <code>dmesg</code>.</p><br /><a name="N1016E"><strong>Listing 6. Reviewing the kernel output from the LKM</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+[root@plato]# <strong>dmesg | tail -5</strong>
+
+cs: IO port probe 0xa00-0xaff: clean.
+
+eth0: Link is down
+
+eth0: Link is up, running at 100Mbit half-duplex
+
+my_module_init called.  Module is now loaded.
+
+my_module_cleanup called.  Module is now unloaded.
+
+[root@plato]#
+
+</pre></td></tr></table><br /><p>You can see the module's messages in the kernel output. Now
+        let's move beyond this simple example and look at some of the kernel APIs
+        that allow you to develop useful LKMs.</p><div class="ibm-alternate-rule"><hr/></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-pcon" class="ibm-anchor-up-link">Back to top</a></p><p><a name="N10178"><span class="atitle">Integrating into the /proc filesystem</span></a></p><p>The standard APIs that are available to kernel programmers are also available to
+        LKM programmers. It's even possible for an LKM to export new variables
+        and functions that the kernel can use. A complete treatment of the APIs is beyond
+        the scope of this article, so I simply present some of the elements that I use
+        later to demonstrate a more useful LKM. 
+      </p><p><a name="N1017F"><span class="smalltitle">Creating and removing a /proc entry</span></a></p><p>To create a virtual file in the /proc filesystem, use the
+        <code>create_proc_entry</code> function. This function accepts a
+        file name, a set of permissions, and a location in the /proc filesystem in which
+        the file is to reside. The return value of
+        <code>create_proc_entry</code> is a
+        <code>proc_dir_entry</code> pointer (or <em>NULL</em>, indicating an
+        error in <code>create</code>). You can then use the return pointer
+        to configure other aspects of the virtual file, such as the function to call when
+        a read is performed on the file. The prototype for
+        <code>create_proc_entry</code> and a portion of the
+        <code>proc_dir_entry</code> structure are shown in Listing 7.</p><br /><a name="N101A3"><strong>Listing 7. Elements for managing a /proc filesystem entry</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+struct proc_dir_entry *<strong>create_proc_entry</strong>( const char *name, mode_t mode,
+
+                                             struct proc_dir_entry *parent );
+
+
+
+struct <strong>proc_dir_entry</strong> {
+
+	const char *name;			// virtual file name
+
+	mode_t mode;				// mode permissions
+
+	uid_t uid;				// File's user id
+
+	gid_t gid;				// File's group id
+
+	struct inode_operations *proc_iops;	// Inode operations functions
+
+	struct file_operations *proc_fops;	// File operations functions
+
+	struct proc_dir_entry *parent;		// Parent directory
+
+	...
+
+	read_proc_t *read_proc;			// /proc read function
+
+	write_proc_t *write_proc;		// /proc write function
+
+	void *data;				// Pointer to private data
+
+	atomic_t count;				// use count
+
+	...
+
+};
+
+
+
+void <strong>remove_proc_entry</strong>( const char *name, struct proc_dir_entry *parent );
+
+</pre></td></tr></table><br /><p>Later you see how to use the <code>read_proc</code> and
+        <code>write_proc</code> commands to plug in functions for reading
+        and writing the virtual file. 
+      </p><p>To remove a file from /proc, use the <code>remove_proc_entry</code>
+        function. To use this function, provide the file name string as well as the
+        location of the file in the /proc filesystem (its parent). The function prototype
+        is also shown in Listing 7.</p><p>The parent argument can be NULL for the /proc root or a number of other values,
+        depending upon where you want the file to be placed. Table 1 lists some of the
+        other parent <code>proc_dir_entry</code>s that you can use, along
+        with their location in the filesystem.</p><br /><a name="table1"><strong>Table 1. Shortcut proc_dir_entry variables</strong></a><br /><table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="Table 1. Shortcut proc_dir_entry variables" width="100%"><tr><th>proc_dir_entry</th><th>Filesystem location</th></tr><tr><td><code>proc_root_fs</code></td><td><code>/proc</code></td></tr><tr><td><code>proc_net</code></td><td><code>/proc/net</code></td></tr><tr><td><code>proc_bus</code></td><td><code>/proc/bus</code></td></tr><tr><td><code>proc_root_driver</code></td><td><code>/proc/driver</code></td></tr></table><br /><p><a name="N101FD"><span class="smalltitle">The Write Callback function</span></a></p><p>You can write to a /proc entry (from the user to the kernel) by using a
+        <code>write_proc</code> function. This function has this prototype:</p><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+int mod_write( struct file *filp, const char __user *buff,
+
+               unsigned long len, void *data );
+
+</pre></td></tr></table><br /><p>The <code>filp</code> argument is essentially an open file
+        structure (we'll ignore this). The <code>buff</code>
+        argument is the string data being passed to you. The buffer address is actually a
+        user-space buffer, so you won't be able to read it directly. The
+        <code>len</code> argument defines how much data in
+        <code>buff</code> is being written. The
+        <code>data</code> argument is a pointer to the private data (see <a href="#listing7">Listing 7</a>). In the module, I declare a function of this
+        type to deal with the incoming data.</p><p>Linux provides a set of APIs to move data between user space and kernel space.
+        For the <code>write_proc</code> case, I use the
+        <code>copy_from_user</code> functions to manipulate the user-space
+        data.</p><p><a name="N1022F"><span class="smalltitle">The Read Callback function</span></a></p><p>You can read data from a /proc entry (from the kernel to the user) by using the
+        <code>read_proc</code> function. This function has the following
+        prototype:</p><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+int mod_read( char *page, char **start, off_t off,
+
+              int count, int *eof, void *data );
+
+</pre></td></tr></table><br /><p>The <code>page</code> argument is the location into which you write
+        the data intended for the user, where <code>count</code> defines the
+        maximum number of characters that can be written. Use the
+        <code>start</code> and <code>off</code> arguments when
+        returning more than a page of data (typically 4KB). When all the data have been
+        written, set the <code>eof</code> (end-of-file) argument. As with
+        <code>write</code>, <code>data</code> represents
+        private data. The <code>page</code> buffer provided here is in
+        kernel space. Therefore, you can write to it without having to invoke
+        <code>copy_to_user</code>.</p><p><a name="N10263"><span class="smalltitle">Other useful functions</span></a></p><p>You can also create directories within the /proc filesystem using
+        <code>proc_mkdir</code> as well as
+        <code>symlinks</code> with <code>proc_symlink</code>.
+        For simple /proc entries that require only a <code>read</code>
+        function, use <code>create_proc_read_entry</code>, which creates the
+        /proc entry and initializes the <code>read_proc</code> function in
+        one call. The prototypes for these functions are shown in Listing 8.
+        </p><br /><a name="N10284"><strong>Listing 8. Other useful /proc functions</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+/* Create a directory in the proc filesystem */
+
+struct proc_dir_entry <strong>*proc_mkdir</strong>( const char *name,
+
+                                     struct proc_dir_entry *parent );
+
+
+
+/* Create a symlink in the proc filesystem */
+
+struct proc_dir_entry *<strong>proc_symlink</strong>( const char *name,
+
+                                       struct proc_dir_entry *parent,
+
+                                       const char *dest );
+
+
+
+/* Create a proc_dir_entry with a read_proc_t in one call */
+
+struct proc_dir_entry *<strong>create_proc_read_entry</strong>( const char *name,
+
+                                                  mode_t mode,
+
+                                                  struct proc_dir_entry *base,
+
+                                                  read_proc_t *read_proc,
+
+                                                  void *data );
+
+
+
+/* Copy buffer to user-space from kernel-space */
+
+unsigned long <strong>copy_to_user</strong>( void __user *to,
+
+                              const void *from,
+
+                              unsigned long n );
+
+
+
+/* Copy buffer to kernel-space from user-space */
+
+unsigned long <strong>copy_from_user</strong>( void *to,
+
+                                const void __user *from,
+
+                                unsigned long n );
+
+
+
+/* Allocate a 'virtually' contiguous block of memory */
+
+void *<strong>vmalloc</strong>( unsigned long size );
+
+
+
+/* Free a vmalloc'd block of memory */
+
+void <strong>vfree</strong>( void *addr );
+
+
+
+/* Export a symbol to the kernel (make it visible to the kernel) */
+
+<strong>EXPORT_SYMBOL</strong>( symbol );
+
+
+
+/* Export all symbols in a file to the kernel (declare before module.h) */
+
+<strong>EXPORT_SYMTAB</strong></pre></td></tr></table><br /><div class="ibm-alternate-rule"><hr/></div><p class="ibm-ind-link ibm-back-to-top"><a href="#ibm-pcon" class="ibm-anchor-up-link">Back to top</a></p><p><a name="N102A3"><span class="atitle">Fortune cookies through the /proc
+        filesystem</span></a></p><p>Here's an LKM that supports both reading and writing. This simple
+        application provides a fortune cookie dispenser. After the module is loaded, the
+        user can load text fortunes into it using the <code>echo</code>
+        command and then read them back out individually using the
+        <code>cat</code> command.</p><p>Listing 9 presents the basic module functions and variables. The
+        <code>init</code> function
+        (<code>init_fortune_module</code>) allocates space for the cookie
+        pot with <code>vmalloc</code> and then clears it out with
+        <code>memset</code>. With the <code>cookie_pot</code>
+        allocated and empty, I create my <code>proc_dir_entry</code> next in
+        the /proc root called <em>fortune</em>. With <code>proc_entry</code>
+        successfully created, I initialize my local variables and the
+        <code>proc_entry</code> structure. I load my /proc
+        <code>read</code> and <code>write</code> functions
+        (shown in Listings 9 and 10) and identify the owner of the module. The
+        <code>cleanup</code> function simply removes the entry from the
+        /proc filesystem and then frees the memory that
+        <code>cookie_pot</code> occupies.</p><p>The <code>cookie_pot</code> is a page in length (4KB) and is
+        managed by two indexes. The first, <code>cookie_index</code>,
+        identifies where the next cookie will be written. The variable
+        <code>next_fortune</code> identifies where the next cookie will be
+        read for output. I simply wrap <code>next_fortune</code> to the
+        beginning when all fortunes have been read.</p><br /><a name="N102FC"><strong>Listing 9. Module init/cleanup and variables</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+#include &lt;linux/module.h&gt;
+
+#include &lt;linux/kernel.h&gt;
+
+#include &lt;linux/proc_fs.h&gt;
+
+#include &lt;linux/string.h&gt;
+
+#include &lt;linux/vmalloc.h&gt;
+
+#include &lt;asm/uaccess.h&gt;
+
+
+
+<strong>MODULE_LICENSE</strong>("GPL");
+
+<strong>MODULE_DESCRIPTION</strong>("Fortune Cookie Kernel Module");
+
+<strong>MODULE_AUTHOR</strong>("M. Tim Jones");
+
+
+
+#define MAX_COOKIE_LENGTH       PAGE_SIZE
+
+static struct proc_dir_entry *proc_entry;
+
+
+
+static char *cookie_pot;  // Space for fortune strings
+
+static int cookie_index;  // Index to write next fortune
+
+static int next_fortune;  // Index to read next fortune
+
+
+
+
+
+int init_fortune_module( void )
+
+{
+
+  int ret = 0;
+
+
+
+  cookie_pot = (char *)<strong>vmalloc</strong>( MAX_COOKIE_LENGTH );
+
+
+
+  if (!cookie_pot) {
+
+    ret = -ENOMEM;
+
+  } else {
+
+
+
+    memset( cookie_pot, 0, MAX_COOKIE_LENGTH );
+
+
+
+    proc_entry = <strong>create_proc_entry</strong>( "fortune", 0644, NULL );
+
+
+
+    if (proc_entry == NULL) {
+
+
+
+      ret = -ENOMEM;
+
+      <strong>vfree</strong>(cookie_pot);
+
+      printk(KERN_INFO "fortune: Couldn't create proc entry\n");
+
+
+
+    } else {
+
+
+
+      cookie_index = 0;
+
+      next_fortune = 0;
+
+
+
+      proc_entry-&gt;read_proc = fortune_read;
+
+      proc_entry-&gt;write_proc = fortune_write;
+
+      proc_entry-&gt;owner = THIS_MODULE;
+
+      printk(KERN_INFO "fortune: Module loaded.\n");
+
+
+
+    }
+
+
+
+  }
+
+
+
+  return ret;
+
+}
+
+
+
+
+
+void cleanup_fortune_module( void )
+
+{
+
+  <strong>remove_proc_entry</strong>("fortune", &amp;proc_root);
+
+  <strong>vfree</strong>(cookie_pot);
+
+  printk(KERN_INFO "fortune: Module unloaded.\n");
+
+}
+
+
+
+
+
+<strong>module_init</strong>( init_fortune_module );
+
+<strong>module_exit</strong>( cleanup_fortune_module );
+
+</pre></td></tr></table><br /><p>Writing a new cookie to the pot is a simple process (shown in Listing 10). With
+        the length of the cookie being written, I check to see that space is available for
+        it. If not, I return <code>-ENOSPC</code>, which is communicated to
+        the user process. Otherwise, the space exists, and I use
+        <code>copy_from_user</code> to copy the user buffer directly into
+        the <code>cookie_pot</code>. I then increment the
+        <code>cookie_index</code> (based upon the length of the user buffer)
+        and NULL terminate the string. Finally, I return the number of characters actually
+        written into the <code>cookie_pot</code> that is propagated to the
+        user process.</p><br /><a name="N10338"><strong>Listing 10. Function to write a fortune</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+ssize_t fortune_write( struct file *filp, const char __user *buff,
+
+                        unsigned long len, void *data )
+
+{
+
+  int space_available = (MAX_COOKIE_LENGTH-cookie_index)+1;
+
+
+
+  if (len &gt; space_available) {
+
+
+
+    printk(KERN_INFO "fortune: cookie pot is full!\n");
+
+    return -ENOSPC;
+
+
+
+  }
+
+
+
+  if (<strong>copy_from_user</strong>( &amp;cookie_pot[cookie_index], buff, len )) {
+
+    return -EFAULT;
+
+  }
+
+
+
+  cookie_index += len;
+
+  cookie_pot[cookie_index-1] = 0;
+
+
+
+  return len;
+
+}
+
+</pre></td></tr></table><br /><p>Reading a fortune is just as simple, as shown in Listing 11. Because the buffer
+        that I'll write to (<code>page</code>) is already in kernel
+        space, I can manipulate it directly and use <code>sprintf</code> to
+        write the next fortune. If the <code>next_fortune</code> index is
+        greater than the <code>cookie_index</code> (next position to write),
+        I wrap <code>next_fortune</code> back to zero, which is the index of
+        the first fortune. After the fortune is written to the user buffer, I increment
+        the <code>next_fortune</code> index by the length of the last
+        fortune written. This places me at the index of the next available fortune. The
+        length of the fortune is returned and propagated to the user.</p><br /><a name="N1035D"><strong>Listing 11. Function to read a fortune</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+int fortune_read( char *page, char **start, off_t off,
+
+                   int count, int *eof, void *data )
+
+{
+
+  int len;
+
+
+
+  if (off &gt; 0) {
+
+    *eof = 1;
+
+    return 0;
+
+  }
+
+
+
+  /* Wrap-around */
+
+  if (next_fortune &gt;= cookie_index) next_fortune = 0;
+
+
+
+  len = sprintf(page, "%s\n", &amp;cookie_pot[next_fortune]);
+
+
+
+  next_fortune += len;
+
+
+
+  return len;
+
+}
+
+</pre></td></tr></table><br /><p>You can see from this simple example that communicating with the kernel through
+        the /proc filesystem is a trivial effort. Now take a look at the fortune module in
+        action (Listing 12).</p><br /><a name="N10367"><strong>Listing 12. Demonstrating the fortune cookie LKM</strong></a><br /><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td class="code-outline"><pre class="displaycode">
+
+[root@plato]# <strong>insmod fortune.ko</strong>
+
+[root@plato]# <strong>echo "Success is an individual proposition.  Thomas Watson" &gt; /proc/fortune</strong>
+
+[root@plato]# <strong>echo "If a man does his best, what else is there?  Gen. Patton" &gt; /proc/fortune</strong>
+
+[root@plato]# <strong>echo "Cats: All your base are belong to us.  Zero Wing" &gt; /proc/fortune</strong>
+
+[root@plato]# <strong>cat /proc/fortune</strong>
+
+Success is an individual proposition.  Thomas Watson
+
+[root@plato]# <strong>cat /proc/fortune</strong>
+
+If a man does his best, what else is there?  Gen. Patton
+
+[root@plato]#
+
+</pre></td></tr></table><br /><p>The
+        /proc virtual filesystem is widely used to report kernel information and also for
+        dynamic configuration. You'll find it integral to both driver and module
+        programming. You can learn more about it in the <a href="#resources">Resources</a>
+        below.</p><!-- CMA ID: 105677 --> <!-- Site ID: 1 --> <!-- XSLT stylesheet used to transform this file: dw-document-html-6.0.xsl -->
+<br />
+<p><a name="resources"><span class="atitle">Resources</span></a></p><p><strong>Learn</strong></p><ul><li> "<a href="http://www.ibm.com/developerworks/linux/library/l-adfly.html">Administer
+          Linux on the fly</a>" (developerWorks, May 2003) gives you a thorough
+        grounding in /proc, including how you can administer many details of the operating
+        system without ever having to shut down and reboot the machine. <br /><br /></li><li> Explore the <a href="http://www.comptechdoc.org/os/linux/howlinuxworks/linux_hlproc.html">files
+          and subdirectories</a> in the /proc filesystem. <br /><br /></li><li> This article on <a href="http://lwn.net/Articles/22197/">driver porting</a> to the 2.6 Linux kernel
+        discusses kernel modules in detail. <br /><br /></li><li><a href="http://www.linuxhq.com/index.html">LinuxHQ</a> is a great site for
+        information on the Linux kernel. <br /><br /></li><li> The <a href="http://lwn.net/Articles/115405/">debugfs</a> filesystem is a debugging alternative to /proc. <br /><br /></li><li> "<a href="http://www.ibm.com/developerworks/linux/library/l-dev26/">Kernel
+          comparison: Improvements in kernel development from 2.4 to 2.6</a>"
+        (developerWorks, February 2004) takes a look behind the scenes at the tools,
+        tests, and techniques that make up kernel 2.6. <br /><br /></li><li> "<a href="http://www.ibm.com/developerworks/linux/library/l-kprobes.html">Kernel
+          debugging with Kprobes</a>" (developerWorks, August 2004) shows how in
+        combination with 2.6 kernels, Kprobes provides a lightweight, non-disruptive, and
+        powerful mechanism to insert the <code>printk</code> function
+        dynamically. <br /><br /></li><li> The <code>printk</code> function
+        and <code>dmesg</code> methods are common means for kernel
+        debugging. Allessando Rubini's book <em>Linux Device Drivers</em> provides
+        an <a href="http://www.xml.com/ldd/chapter/book/ch04.html">online chapter</a>
+        about kernel debugging techniques. <br /><br /></li><li> The <a href="http://www.samag.com/documents/s=8920/sam0311a/0311a.htm">sysctl</a>
+        command is another option for dynamic kernel configuration. <br /><br /></li><li> In the <a href="http://www.ibm.com/developerworks/linux/">developerWorks Linux zone</a>,
+        find more resources for Linux developers. <br /><br /></li><li> Stay current with <a href="http://www.ibm.com/developerworks/offers/techbriefings/?S_TACT=105AGX03&amp;S_CMP=art">developerWorks technical events and Webcasts</a>. <br /><br /></li></ul><p><strong>Get products and technologies</strong></p><ul><li><a href="http://www.kernel.org">kernel.org</a> has the latest Linux kernel. <br /><br /></li><li> The <a href="http://www.gnu.org/software/make/manual/make.html">GNU make utility
+          documentation</a> is at the <a href="http://www.gnu.org">gnu.org site</a>. <br /><br /></li><li> The <a href="http://www.faqs.org/docs/linux_scratch/appendixa/modutils.html">Modutils</a> package provides a number of utilities for kernel modules. <br /><br /></li><li> With <a href="http://www.ibm.com/developerworks/downloads/?S_TACT=105AGX03&amp;S_CMP=art">IBM trial software</a>, available for download directly from developerWorks,
+        build your next development project on Linux. <br /><br /></li></ul><p><strong>Discuss</strong></p><ul><li> Check out <a href="http://www.ibm.com/developerworks/blogs/">developerWorks blogs</a> and get
+        involved in the <a href="http://www.ibm.com/developerworks/community">developerWorks community</a>. <br /><br /></li></ul>
+<p><a name="author"><span class="atitle">About the author</span></a></p><div class="ibm-container ibm-portrait-module ibm-alternate-two"><div class="ibm-container-body"><img src="http://www.ibm.com/developerworks/i/p-mjones.jpg" class="dw-author-img" width="64" height="80" alt="M. Tim Jones"/><a name="author1"> </a><img class="dw-author-level-img" src="//www.ibm.com/developerworks/i/authorrecogbadge_cont_v3.jpg" width="187" height="30" alt="developerWorks Contributing author level"/><p>M. Tim Jones is an embedded software engineer and the author of <em>GNU/Linux Application Programming</em>, <em>AI Application Programming</em>, and 
+
+<em>BSD Sockets Programming from a Multilanguage Perspective</em>. 
+
+His engineering background ranges from the development of kernels for geosynchronous spacecraft to embedded systems architecture and networking protocols development. Tim is a senior principal engineer at Emulex Corp.</p></div></div>
+<!-- MAIN_COLUMN_CONTENT_END -->
+
+<!-- OVERLAYS_START -->
+<!-- Report_Abuse_Start -->
+<div class="ibm-common-overlay ibm-no-print" id="reportabuseoverlay">
+   <div class="ibm-head"><p><a class="ibm-common-overlay-close" href="#">Close [x]</a></p></div>
+   <div class="ibm-body">
+      <div class="ibm-main">
+         <a class="ibm-access" name="reportabuseoverlay">Report abuse help</a>   
+         <div class="ibm-title"><h1>Report abuse</h1></div>
+         <div class="ibm-container ibm-alternate">
+            <p><strong>Thank you.</strong>  This entry has been flagged for moderator attention.</p>
+            <div class="ibm-overlay-rule"><hr /></div>
+            <div class="ibm-buttons-row">
+               <input type="button" onclick="ibmCommon.Overlays.hide('reportabuseoverlay');return false;" class="ibm-btn-cancel-sec dw-btn-cancel-sec" name="ibm-cancel" value="Close" />
+            </div>
+         </div>
+      </div> 
+   </div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Report_Abuse_Error_Start -->
+<div class="ibm-common-overlay ibm-no-print" id="reportabuseoverlayerror">
+   <div class="ibm-head"><p><a class="ibm-common-overlay-close" href="#">Close [x]</a></p></div>
+   <div class="ibm-body">
+      <div class="ibm-main">
+         <a class="ibm-access" name="reportabuseoverlayerror">Report abuse help</a>   
+         <div class="ibm-title"><h1>Report abuse</h1></div>
+         <div class="ibm-container ibm-alternate">
+            <p class="ibm-ind-error"><strong>Report abuse submission failed.  Please try again later.</strong></p>
+            <div class="ibm-overlay-rule"><hr /></div>
+            <div class="ibm-buttons-row">
+               <input type="button" onclick="ibmCommon.Overlays.hide('reportabuseoverlayerror');return false;" class="ibm-btn-cancel-sec dw-btn-cancel-sec" name="ibm-cancel" value="Close" />
+            </div>
+         </div>
+      </div> 
+   </div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Sign in OVERLAY STARTS HERE --> 
+<div class="ibm-common-overlay" id="signin_overlay">
+<div class="ibm-head">
+<p><a class="ibm-common-overlay-close" href="#" onclick="clearForm();">Close [x]</a></p>
+</div>
+<div class="ibm-body">
+<div class="ibm-main">
+<div class="ibm-title ibm-subtitle">
+<h1>developerWorks: Sign in</h1>
+<div id="ibm-overlay-error-signin" class="no-display"></div>
+</div>
+
+<div class="ibm-container ibm-alternate ibm-buttons-last">
+<div class="ibm-container-body">
+<p class="ibm-overlay-intro">If you don't have an IBM ID and password, <a href="#" onclick="(function () {window.location='/developerworks/dwwi/DWAuthRouter?m=reg&amp;d='+encodeURIComponent(location.href);})();">register here</a>.</p>
+<form class="ibm-column-form" id="sFormId" action="" method="post" name="sForm" onsubmit="return false;">
+<p><label for="ibmid">IBM ID:</label><span><input name="ibm-id" id="ibmid" size="25" value="" class="required" type="text" onkeypress="handleEP(event,this.form);" /><br /><a class="ibm-forward-link" href="/developerworks/dwwi/jsp/WSHelp.jsp?lang=en_US">Forgot your IBM ID?</a></span>   
+</p> 
+<p><label for="password">Password:</label><span><input name="password" id="password" size="25" value="" class="required" type="password" onkeypress="handleEP(event,this.form);" /><br /><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=forgot&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(getAuthUrl())+'%3Fm%3Dloginpage%26lang%3Den_US%26d%3D'+encodeURIComponent(location.href);})();">Forgot your password?</a><br /><a class="ibm-forward-link" href="#" onclick="(function () {window.location='https://www.ibm.com/account/profile?page=chpw&amp;lang=en_US&amp;appname=ibm&amp;required=null&amp;d='+encodeURIComponent(location.href);})();">Change your password</a></span></p> 
+<p class="no-bottom-padding"> 
+   <label for="AfterSignIn">After sign in:</label> 
+   <span>
+
+      <select name="SignInAction" id="AfterSignIn">
+          <option value="">Stay on the current page</option>
+          <option value="/developerworks/mydeveloperworks/profiles/html/myProfileView.do">My developerWorks profile</option>
+          <option value="/developerworks/mydeveloperworks/homepage/">My developerWorks home</option>
+      </select>
+   </span>
+</p>
+<p class="dw-perm-box">
+	<span><input id="perm" type="checkbox" name="perm_name"/><label for="perm"> Keep me signed in.</label></span>
+</p>
+<div class="ibm-overlay-rule"><hr /></div>
+<p>By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+<div class="ibm-buttons-row">
+   <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="Submit" onclick="signin();return false;" type="submit" /><span class="ibm-sep">&nbsp;</span>
+<input value="Cancel" type="button" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="clearForm();ibmCommon.Overlays.hide('signin_overlay');return false;"/></p>
+</div>
+</form>
+<div class="ibm-overlay-rule"><hr /></div>
+<p>The first time you sign into developerWorks, a profile is created for you. This profile includes the first name, last name, and display name you identified when you registered with developerWorks. 
+<strong>Select information in your developerWorks profile is displayed to the public, but you may edit the information at any time</strong>. Your first name, last name (unless you choose to hide them), and display name will accompany the content that you post.</p>
+<div class="dw-overlay-legal"><p>All information submitted is secure.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Sign in OVERLAY ENDS HERE --> 
+ 
+
+<!-- Display name OVERLAY STARTS HERE --> 
+<div class="ibm-common-overlay" id="displayname_overlay">
+<div class="ibm-head">
+<p><a class="ibm-common-overlay-close" href="#" onclick="clearForm();">Close [x]</a></p>
+</div>
+<div class="ibm-body">
+<div class="ibm-main">
+<div class="ibm-title ibm-subtitle">
+<h1>Choose your display name</h1>
+<div id="ibm-overlay-error-dname" class="no-display"></div>
+</div>
+<div class="ibm-container ibm-alternate ibm-buttons-last">
+<div class="ibm-container-body">
+<p class="ibm-overlay-intro">The first time you sign in to developerWorks, a profile is created for you, so you need to choose a display name.  Your display name accompanies the content you post on developerWorks.</p>
+<p><strong>Please choose a display name between 3-31 characters</strong>. Your display name must be unique in the developerWorks community and should not be your email address for privacy reasons.</p>
+<form id="dFormId" method="post" action="" name="dForm" onsubmit="return false;" class="ibm-column-form">
+<p><label for="displayname">Display name:</label><span><input name="displayname" id="displayname" size="25" value="" type="text" onkeypress="handleEP(event,this.form);" /></span><span class="ibm-form-note">(Must be between 3 &ndash; 31 characters.)</span>
+</p>
+
+<div class="ibm-overlay-rule"><hr />
+</div>
+<p>By clicking <strong>Submit</strong>, you agree to the <a href="https://www.ibm.com/developerworks/community/terms/">developerWorks terms of use</a>.</p>
+<div class="ibm-buttons-row">
+   <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="Submit" onclick="signin();return false;" type="submit" /><span class="ibm-sep">&nbsp;</span>
+<input value="Cancel" type="button" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="clearForm();ibmCommon.Overlays.hide('displayname_overlay');return false;" /></p>
+</div>
+</form>
+<div class="ibm-overlay-rule"><hr /></div>
+<div class="dw-overlay-legal"><p>All information submitted is secure.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Display name OVERLAY ENDS HERE -->
+<!-- OVERLAYS_END -->
+
+<!-- RATINGS START -->
+<p class="ibm-no-print"><span class="atitle"><a name="iratings">Rate this article</a></span></p>
+<input id="art-rating" name="ratinga" type="hidden" value="0"/><div id="art-rating-module"></div>
+<script language="JavaScript" type="text/javascript">
+// <![CDATA[
+   // widget div id and article id as args
+   window.artRating.init('art-rating-module','art-rating-summary');
+// ]]>
+</script>
+<!-- RATINGS END -->
+
+<!-- INLINE_COMMENTS_START -->
+<p class="ibm-no-print"><span class="atitle"><a name="icomments">Comments</a></span></p>
+<div id="threadShow"></div>
+<!-- INLINE_COMMENTS_END -->
+
+<p class="ibm-ind-link ibm-back-to-top"><a class="ibm-anchor-up-link" href="#ibm-pcon">Back to top</a></p>
+
+<!-- Overlays -->
+<!-- Zone/Leaf_Interest_Overlay_Start -->
+<div class="ibm-common-overlay ibm-no-print" id="dwmyinterestadd">
+<div class="ibm-head"><p><a class="ibm-common-overlay-close" href="#close">Close [x]</a></p></div>
+<div class="ibm-body">
+<div class="ibm-main">
+<a class="ibm-access" name="dwmyinterestaddhelp">Help: Update or add to My dW interests</a>   
+<div class="ibm-title"><h1>What's this?</h1></div>
+<div class="ibm-container ibm-alternate">
+<p>This little timesaver lets you update your My developerWorks profile with just one click!  The general subject of this content (AIX and UNIX, Information Management, Lotus, Rational, Tivoli, WebSphere, Java, Linux, Open source, SOA and Web services, Web development, or XML) will be added to the interests section of your profile, if it's not there already.  You only need to be logged in to My developerWorks.</p>
+<p>And what's the point of adding your interests to your profile?  That's how you find other users with the same interests as yours, and see what they're reading and contributing to the community.  Your interests also help us recommend relevant developerWorks content to you.</p>
+<p><a href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/home.do?lang=en">View your My developerWorks profile</a></p>
+<p class="ibm-access"><a href="#interestShow">Return from help</a></p>
+</div> 
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+
+<div class="ibm-common-overlay ibm-no-print" id="dwmyinterestremove">
+<div class="ibm-head"><p><a class="ibm-common-overlay-close" href="#close">Close [x]</a></p></div>
+<div class="ibm-body">
+<div class="ibm-main">
+<a class="ibm-access" name="dwmyinterestremovehelp">Help: Remove from My dW interests</a> 
+<div class="ibm-title"><h1>What's this?</h1></div>
+<div class="ibm-container ibm-alternate">
+<p>Removing this interest does not alter your profile, but rather removes this piece of content from a list of all content for which you've indicated interest.  In a future enhancement to My developerWorks, you'll be able to see a record of that content.</p>
+<p><a href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/home.do?lang=en">View your My developerWorks profile</a></p>
+<p class="ibm-access"><a href="#interestShow">Return from help</a></p>
+</div> 
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Zone/Leaf_Interest_Overlay_End --></div>
+<!-- MAIN_COLUMN_CONTAINER_END -->
+
+<!-- Rating_Meta_BEGIN -->
+<!--Rating_Meta_BEGIN--><div class="metavalue">static.content.url=http://www.ibm.com/developerworks/js/artrating/</div><div class="metavalue">SITE_ID=1</div><div class="metavalue">Zone=Linux</div><div class="metavalue">ArticleID=105677</div><div class="metavalue">ArticleTitle=Access the Linux kernel using the /proc filesystem</div><div class="metavalue">publish-date=03142006</div><div class="metavalue">author1-email=mtj@mtjones.com</div><div class="metavalue">author1-email-cc=tomyoung@us.ibm.com</div><script language="javascript" type="text/javascript">document.write('<div class="metavalue">url='+location.href.replace(/</g,  '%3C')+'</div>');</script><!--Rating_Meta_END-->
+<!-- Rating_Meta_END -->
+
+</div>
+<!-- MAIN_COLUMN_END-->
+
+<!-- RIGHT_COLUMN_BEGIN -->
+<div id="ibm-content-sidebar">
+
+<!-- RIGHT_COLUMN_CONTENT_BEGIN --> 
+<div class="ibm-container"><h2>Table of contents</h2><div class="ibm-container-body"><img alt="" height="1" width="1" src="//www.ibm.com/i/c.gif"/><ul class="ibm-bullet-list"><li><a class="ibm-feature-link" href="#N100BA">Introducing kernel modules</a></li><li><a class="ibm-feature-link" href="#N10178">Integrating into the /proc filesystem</a></li><li><a class="ibm-feature-link" href="#N102A3">Fortune cookies through the /proc
+        filesystem</a></li><li><a class="ibm-feature-link" href="#resources">Resources</a></li><li><a class="ibm-feature-link" href="#author">About the author</a></li><li><a class="ibm-feature-link" href="#icomments">Comments</a></li></ul></div></div>
+
+<!-- Tagging_Start -->
+<div id="dw-tag-cloud-container" class="ibm-container dw-hidetag"><h2>Tags</h2>
+<div id="dw-tag-help"><a class="dwauthor" rel="#tagtip" id="dwtagtip"><img alt="Help" height="16" width="16" align="top" src="//dw1.s81c.com/developerworks/i/help_icon.gif"/></a></div>
+<div id="tagtip" class="dwauthor-onload-state ibm-no-print">Use the <strong>search field</strong> to find all types of content in My developerWorks with that tag.<p>Use the <strong>slider bar</strong> to see more or fewer tags.</p><p>For articles in technology zones (such as Java technology, Linux, Open source, XML), <strong>Popular tags</strong> shows the top tags 
+for <em>all technology zones</em>.  For articles in product zones (such as Info Mgmt, Rational, WebSphere), <strong>Popular tags</strong> shows the top tags for <em>just that product zone</em>.</p><p>For articles in technology zones (such as Java technology, Linux, Open source, XML), <strong>My tags</strong> shows your tags for <em>all technology zones</em>.  For articles in product zones (such as Info Mgmt, Rational, WebSphere), <strong>My tags</strong> shows your tags for <em>just that product zone</em>.</p></div>
+<div class="ibm-access">Use the search field to find all types of content in My developerWorks with that tag.  <em>Popular tags</em> shows the top tags for this particular content zone (for example, Java technology, Linux, WebSphere).  <em>My tags</em> shows your tags for this particular content zone (for example, Java technology, Linux, WebSphere).</div>
+<div class="ibm-container-body">
+<div class="dw-tag-search"><form action="//www.ibm.com/developerworks/mydeveloperworks/bookmarks/html?lang=en" method="get" id="actualtagform" onsubmit="popupform(this, 'join')">
+<p><label for="tagfield"><strong>Search all tags</strong></label><input id="tagfield" name="tag" type="text" maxlength="20" size="17" />&nbsp;<input src="//dw1.s81c.com/i/v16/buttons/short-btn.gif" type="image" class="ibm-btn-view" alt="submit search" title="submit search" value="Search" /></p></form></div>
+<div class="ibm-rule"><hr/></div>
+<div id="dw-tag-select">
+<div id="dw-tag-select-popular"><p><strong>Popular article tags</strong>&nbsp;|&nbsp;<br /><a id="a-my" href="javascript:;">My article tags</a><a href="#dw-tag-access" class="ibm-access">Skip to tags list</a></p></div>
+<div id="dw-tag-select-my" class="dw-hidetag"><p><a id="a-popular" href="javascript:;">Popular article tags</a>&nbsp;|&nbsp;<br /><strong>My article tags</strong></p><a href="#dw-tag-access" class="ibm-access">Skip to tags list</a></div>
+<div id="dw-tag-cloud"></div>  
+</div>   
+</div>
+</div>
+<!-- Tagging_End -->
+<!-- Dig_Deeper -->
+
+<!-- High_Visibility_Offer -->
+
+<!-- Special_Offers -->
+
+<!-- RIGHT_COLUMN_CONTENT_END -->
+
+</div>
+<!-- RIGHT_COLUMN_END -->
+
+<!-- CONTENT_BODY_END -->
+</div>
+
+</div>
+<!-- CONTENT_END -->
+
+ <!-- END_IBM-PCON -->
+</div>
+
+<!-- FOOTER_BEGIN -->
+<div id="ibm-footer">
+<!-- IBM footer container; disabled -->
+</div>
+
+<div id="ibm-page-tools-dw">
+	<div id="dw-footer-top-row">
+		<ul id="dw-foot-options">
+			<li id="dw-print"><a class="ibm-print-link" href="#">Print this page</a></li>
+		</ul>
+		<ul id="ibm-foot-options-dw">
+			<li id="dw-foot-0"><a href="#">Share this page</a></li>
+			<li id="dw-foot-1"><a href="#">Follow developerWorks</a></li>
+		</ul>
+	</div>
+
+	<!-- TOP ROW SLIDER -->
+    <div id="dw-page-tools-menu">    
+        <div class="ibm-ribbon-pane-dw">
+            <div class="ibm-ribbon-section-dw">
+				<!-- Share this page -->			
+                <div class="dw-footer-columns">
+                    <div class="dw-footer-col-3-1">
+                        <h2>Share this page:</h2>                       
+						<ul class="ibm-link-list">
+							<li><a id="dw-foot-0-0" class="ibm-facebook-link" href="#">Facebook</a></li>
+							<li><a class="ibm-linkedin-link" href="#">LinkedIn</a></li>
+							<li><a class="ibm-twitter-link" href="#">Twitter</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-col-3-2">
+						<ul class="ibm-link-list">
+							<li><a class="ibm-delicious-link" href="#">Delicious</a></li>
+							<li><a class="ibm-digg-link" href="#">Digg</a></li>
+							<li><a class="ibm-stumbleupon" href="#">StumbleUpon</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-col-3-3">
+						<ul class="ibm-link-list">
+							<li><a class="ibm-email-link" href="#">Email this page</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-close">
+						<ul>
+							<li><a href="#">Close [x]</a></li>
+						</ul>
+                    </div>
+                </div>
+                <!-- Follow developerWorks -->
+                <div class="dw-footer-columns">
+                    <div class="dw-footer-col-1-1">
+                        <h2>Follow developerWorks:</h2>
+						<ul class="ibm-link-list">
+							<li><a id="dw-foot-1-0" class="ibm-facebook-link" href="http://www.facebook.com/developerworks">Facebook</a></li>
+							<li><a class="ibm-twitter-link" href="http://twitter.com/developerWorks">Twitter</a></li>
+						</ul>
+                    </div>
+                    <div class="dw-footer-close">
+						<ul>
+							<li><a href="#">Close [x]</a></li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ibm-footer-module-dw">
+	<div class="dw-footer-columns">
+		<div class="dw-footer-col-6-1"> 
+			<h2><a href="http://www.ibm.com/developerworks/topics/">Technical topics</a></h2>
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/aix/">AIX and UNIX</a></li>
+				<li><a href="http://www.ibm.com/developerworks/ibmi/">IBM i</a></li>
+				<li class="dw-footer-newline dw-footer-newline-en"><a href="http://www.ibm.com/developerworks/data/">Information<br /> Management</a></li>
+				<li><a href="http://www.ibm.com/developerworks/lotus/">Lotus</a></li>
+				<li><a href="http://www.ibm.com/developerworks/rational/">Rational</a></li>
+				<li><a href="http://www.ibm.com/developerworks/tivoli/">Tivoli</a></li>
+				<li><a href="http://www.ibm.com/developerworks/websphere/">WebSphere</a></li>
+			</ul>
+			<ul>
+				<li class="dw-footer-newgroup"><a href="http://www.ibm.com/developerworks/cloud/">Cloud computing</a></li>
+				<li><a href="http://www.ibm.com/developerworks/industry/">Industries</a></li>
+				<li class="dw-footer-newline dw-footer-newline-en"><a href="http://www.ibm.com/developerworks/servicemanagement/">Integrated Service<br /> Management</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-2">
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/java/">Java technology</a></li>
+				<li><a href="http://www.ibm.com/developerworks/linux/">Linux</a></li>
+				<li><a href="http://www.ibm.com/developerworks/opensource/">Open source</a></li>
+				<li><a href="http://www.ibm.com/developerworks/webservices/">SOA and web services</a></li>
+				<li><a href="http://www.ibm.com/developerworks/web/">Web development</a></li>
+				<li><a href="http://www.ibm.com/developerworks/xml/">XML</a></li>
+			</ul>
+			<h2 class="dw-footer-more"><a href="http://www.ibm.com/developerworks/topics/">More...</a></h2>
+		</div>
+		<div class="dw-footer-col-6-3">
+			<h2><a href="http://www.ibm.com/developerworks/downloads/">Evaluation software</a></h2>
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/downloads/product.html">By IBM product</a></li>
+				<li><a href="http://www.ibm.com/developerworks/downloads/evalmethod.html">By evaluation method</a></li>
+				<li><a href="http://www.ibm.com/developerworks/downloads/industry.html">By industry</a></li>
+			</ul>
+			<h2 class="dw-footer-newgroup"><a href="http://www.ibm.com/developerworks/events/">Events</a></h2>
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/briefings/">Briefings</a></li>
+				<li><a href="http://www.ibm.com/developerworks/find/webcasts/">Webcasts</a></li>
+				<li><a href="http://www.ibm.com/developerworks/find/events/">Find events</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-4">
+			<h2><a href="http://www.ibm.com/developerworks/community/">Community</a></h2>
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/forums/">Forums</a></li>
+				<li><a href="http://www.ibm.com/developerworks/community/groups/">Groups</a></li>
+				<li><a href="http://www.ibm.com/developerworks/community/blogs/">Blogs</a></li>
+				<li><a href="http://www.ibm.com/developerworks/mydeveloperworks/wikis/">Wikis</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/terms/">Terms of use</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/report/">Report abuse</a></li>
+			</ul>
+			<ul>
+				<li class="dw-footer-newgroup dw-footer-newline"><a href="http://www.ibm.com/developerworks/champion/">IBM Champion<br /> program</a></li>
+			</ul>
+			<h2 class="dw-footer-more"><a href="http://www.ibm.com/developerworks/community/">More...</a></h2>
+		</div>
+		<div class="dw-footer-col-6-5">
+			<h2><a href="http://www.ibm.com/developerworks/aboutdw/">About developerWorks</a></h2>
+			<ul>
+				<li><a href="https://www.ibm.com/developerworks/feedback">Site help and feedback</a></li>
+				<li><a href="http://www.ibm.com/developerworks/aboutdw/contacts.html">Contacts</a></li>
+				<li><a href="https://www.ibm.com/developerworks/ideas">Article submissions</a></li>
+			</ul>
+			<h2 class="dw-footer-headonly dw-footer-newgroup">Related resources</h2>
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/university/">Students and faculty</a></li>
+				<li><a href="http://www.ibm.com/isv/">Business Partners</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-6">
+			<h2><a href="http://www.ibm.com">IBM</a></h2>
+			<ul>
+				<li><a href="http://www.ibm.com/solutions/">Solutions</a></li>
+				<li><a href="http://www.ibm.com/software/">Software</a></li>
+				<li><a href="http://www.ibm.com/software/sw-services/">Software services</a></li>
+				<li><a href="http://www.ibm.com/support/">Support</a></li>
+				<li><a href="http://www.ibm.com/support/publications/us/library/index.shtml">Product information</a></li>
+				<li><a href="http://www.ibm.com/redbooks/">Redbooks</a></li>
+				<li><a href="http://www.ibm.com/privacy/">Privacy</a></li>
+				<li><a href="http://www.ibm.com/accessibility/">Accessibility</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- Language selector no-script -->
+	<noscript>
+	<div id="dw-footer-selectlang">
+		<h2><a name="SELECTLANG">Select a language:</a></h2>
+		<ul>
+			<li><a href="http://www.ibm.com/developerworks/">English</a></li>
+			<li><a href="http://www.ibm.com/developerworks/cn/">中文</a></li>
+			<li><a href="http://www.ibm.com/developerworks/jp/">日本語</a></li>
+			<li><a href="http://www.ibm.com/developerworks/kr/">한국어</a></li>
+			<li><a href="http://www.ibm.com/developerworks/ru/">Русский</a></li>
+			<li><a href="http://www.ibm.com/developerworks/br/">Português (Brasil)</a></li>
+			<li><a href="http://www.ibm.com/developerworks/ssa/">Español</a></li>
+			<li><a href="http://www.ibm.com/developerworks/vn/">Việt</a></li>
+		</ul>
+	</div>
+	</noscript>
+</div><!-- FOOTER_END -->
+
+ <!-- END_IBM-TOP -->
+</div>
+ 
+ <!-- SCRIPTS_INCLUDE_BEGIN -->
+<!-- JQuery start -->
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/jquery/cluetip98/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/jquery/cluetip98/jquery.cluetip.js"></script>
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/jquery/tagging/ui.core-1.7.1.js"></script>
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/jquery/tagging/ui.slider-1.7.1.js"></script>
+<!-- xM Masthead/Footer -->
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/dw-mf/jquery.tools.min.js">//</script>
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/dw-mf/jquery.jscroll.js">//</script>
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/dw-mf/dw_v16.js">//</script>
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/dw-mf/flash-detect.js">//</script>
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/dw-mf/dwsi.js">//</script>
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/dw-mf/dwjquerytags.js"></script>
+<script type="text/javascript" language="JavaScript" src="//dw1.s81c.com/developerworks/js/dw-mf/showcomments.js">//</script>
+<script language="JavaScript" type="text/javascript">
+// <![CDATA[
+ jQuery('threadShow').showComments('95%',5,'nCmts','icomments');
+// ]]>
+</script>
+
+<script type="text/javascript" language="JavaScript">
+	jQuery.noConflict();     
+	// Put all your code in your document ready area
+	jQuery(document).ready(function(jQuery) {
+	// Do jQuery stuff using jQuery 
+	jQuery('a.dwauthor').cluetip({
+		local: true,
+		showTitle: false,
+		positionBy: 'bottomTop',
+		sticky: true,	
+		mouseOutClose: true,
+		closeText: '<img src="//dw1.s81c.com/developerworks/js/jquery/cluetip98/i/x.gif" alt="Close" />',
+		arrows: false,
+		dropShadow: true,
+		cluetipClass: 'dwbasic'
+		});
+
+		//tagging
+		login="false";
+		userid="";
+		whichTags = "init";
+		pCont = "";
+		mCont = "";
+		signInMCont = "";
+		accessCont = "";
+		pValue = 0;
+		mValue = 0;
+
+		rBHash = null;
+		rBHash = new Object();
+		rBHash['viperLang'] = 'en';
+		rBHash['urlLang'] = 'en';
+		rBHash['tagThisWinTitle'] = 'Tagit';
+		rBHash['pTags1'] = 'Popular tags';
+		rBHash['pTags2'] = 'End of Popular tags';
+		rBHash['mTags1'] = 'My tags';
+		rBHash['mTags2'] = 'End of My tags';
+		rBHash['alt1'] = 'Loading Content';
+		rBHash['noATags'] = 'No active tags';
+		rBHash['signIn1'] = 'Please ';
+		rBHash['signIn2'] = 'sign in';
+		rBHash['signIn3'] = ' to access';
+		rBHash['signIn4'] = 'My Tags';
+		rBHash['signIn5'] = 'To access My Tags, please ';
+		rBHash['signIn6'] = 'sign in';
+		rBHash['signIn7'] = 'Read Popular tags';
+
+		zoneHash = new Object();
+		zoneHash['aix'] = 'AIX and UNIX zone';
+		zoneHash['ibmi'] = 'IBM i zone';
+		zoneHash['data'] = 'Information Management zone';
+		zoneHash['lotus'] = 'Lotus zone';
+		zoneHash['rational'] = 'Rational zone';
+		zoneHash['tivoli'] = 'Tivoli zone';
+		zoneHash['websphere'] = 'WebSphere zone';
+		zoneHash['architecture'] = 'Technical library';
+		zoneHash['autonomic'] = 'Technical library';
+		zoneHash['java'] = 'Technical library';
+		zoneHash['cloud'] = 'Technical library';
+		zoneHash['industry'] = 'Technical library';
+		zoneHash['library'] = 'Technical library';
+		zoneHash['linux'] = 'Technical library';
+		zoneHash['opensource'] = 'Technical library';
+		zoneHash['power'] = 'Technical library';
+		zoneHash['webservices'] = 'Technical library';
+		zoneHash['web'] = 'Technical library';
+		zoneHash['xml'] = 'Technical library';
+		zoneHash['wireless'] = 'Technical library';
+		jQuery.checkRB();
+		jQuery.getPopularTags("/developerworks/dwtags/dwjquerytabtags?lang=" + rBHash['viperLang'] + "&base=" + jQuery.getNormalizedZoneUrl(location.href));
+		jQuery.getUserTags();
+		if(jQuery.isTutorial(location.href) == "true") {
+			jQuery.getTagsForContent("/developerworks/tagging/UseCaseServlet?lang=" + rBHash['viperLang'] + "&format=maverick&cType=tutorials&use_case=geturltags&action=gettags&url=" + jQuery.normalizeUrl(location.href));
+		}
+		else {
+			jQuery.getTagsForContent("/developerworks/tagging/UseCaseServlet?lang=" + rBHash['viperLang'] + "&format=maverick&cType=articles&use_case=geturltags&action=gettags&url=" + jQuery.normalizeUrl(location.href));
+
+		}
+		
+		// si
+		initSI();
+	});
+ </script>
+ <!-- JQuery end -->
+ <!-- Overlay js -->
+<script language="JavaScript" src="//dw1.s81c.com/common/js/overlay.js" type="text/javascript"></script>
+<!-- My dW Interest article -->
+<script language="JavaScript" src="//dw1.s81c.com/developerworks/js/dw-mf/showinterest.js" type="text/javascript">//</script>
+<script language="JavaScript" type="text/javascript">
+        // <![CDATA[
+			var contentId = '';
+			var contentAreas = '';
+			var caArr = [];
+			contentId = '105677';
+			contentAreas = 'linux';
+			if(contentAreas != ''){caArr = contentAreas.split(',');}
+			var loginLink = 'https://www.ibm.com/developerworks/dwwi/DWAuthRouter?m=loginpage&d=' + encodeURIComponent(window.location);jQuery('interestShow').showInterest(contentId,'dw-article',{'int_tops':[],'int_prods':[], 'int_prod_fam':[],'int_cont_area':caArr},
+'<div id="dw-interest-anon"><a id="intAnonBtn" class="ibm-external-link" href="">Update My dW interests</a> (<a class="dw-interest" href="' + loginLink + '">Log in</a> | <a class="dw-interest" href="#overlay" onclick="ibmCommon.Overlays.show(\'dwmyinterestadd\', this);return false;">What\'s this?</a>) <a class="ibm-access" href="#dwmyinterestaddhelp">Skip to help for Update My dW interests</a></div>',
+'<div id="dw-interest-add"><a id="intSelectBtn" class="ibm-external-link" href="">Add to My dW interests</a> (<a class="dw-interest" href="#overlay" onclick="ibmCommon.Overlays.show(\'dwmyinterestadd\', this);return false;">What\'s this?</a>) <a class="ibm-access" href="#dwmyinterestaddhelp">Skip to help for Add to My dW interests</a></div>',
+'<div id="dw-interest-remove">Added to My dW interests (<a class="dw-interest" href="https://www.ibm.com/developerworks/mydeveloperworks/profiles/html/myProfileView.do?lang=en">Edit</a>)</div>'
+);
+// ]]>
+</script><!-- BEGIN: Use this section to set page specific variables for the Unica Page Tag -->
+<script language="JavaScript">var NTPT_PGEXTRA="ibmSkillLevel=1&ibmAdoptPhase=-&ibmRole=-";</script>
+<!--END --><!-- SCRIPTS_INCLUDE_END -->
+
+<div id="ibm-metrics">
+<script src="//dw1.s81c.com/common/stats/stats.js" type="text/javascript">//</script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>A Beginner&#8217;s Guide to Big O Notation &laquo; Rob Bell</title>
+
+<link rel="stylesheet" href="http://rob-bell.net/wp-content/themes/robbell/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Rob Bell RSS Feed" href="http://rob-bell.net/feed/" />
+<link rel="alternate" type="application/atom+xml" title="Rob Bell Atom Feed" href="http://rob-bell.net/feed/atom/" />
+<link rel="pingback" href="http://rob-bell.net/xmlrpc.php" />
+
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://rob-bell.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://rob-bell.net/wp-includes/wlwmanifest.xml" /> 
+<script type='text/javascript' src='http://rob-bell.net/wp-includes/js/comment-reply.js?ver=20081210'></script>
+<meta name="generator" content="WordPress 2.7" />
+
+</head>
+<body>
+	<div id="top">
+		<h4 id="site-name"><a href="http://rob-bell.net/">Rob Bell</a></h4>
+		<div id="nav">
+			<h4 class="hidden">Navigation</h4>
+			<ul>
+				<li><a href="/" class="new first">New Things<span class="hidden"> - </span><span>All the newest things</span></a></li>
+				<li><a href="/categories/projects/" class="projects">Projects<span class="hidden"> - </span><span>Completed and work in progress</span></a></li>
+				<li><a href="/categories/articles/" class="articles ">Articles<span class="hidden"> - </span><span>Writing on programming etc.</span></a></li>
+				<li><a href="/about" class="about">About Me<span class="hidden"> - </span><span>A bit about me</span></a></li>
+			</ul>
+			
+			<div class="clear"></div>
+		</div>
+	</div>
+
+<div id="middle">
+
+
+	<div class="article">
+		<h1>A Beginner&#8217;s Guide to Big O Notation</h1>
+		
+		<p>Big O notation is used in Computer Science to describe the performance or complexity of an algorithm. Big O specifically describes the <strong>worst-case</strong> scenario, and can be used to describe the execution time required or the space used (e.g. in memory or on disk) by an algorithm.<span id="more-200"></span></p>
+<p>Anyone who&#8217;s read Programming Pearls or any other Computer Science books and doesn&#8217;t have a grounding in Mathematics will have hit a wall when they reached chapters that mention O(N log N) or other seemingly crazy syntax. Hopefully this article will help you gain an understanding of the basics of Big O and Logarithms.</p>
+<p>As a programmer first and a mathematician second (or maybe third or fourth) I found the best way to understand Big O thoroughly was to produce some examples in code. So, below are some common orders of growth along with descriptions and examples where possible.</p>
+<h3>O(1)</h3>
+<p>O(1) describes an algorithm that will always execute in the same time (or space) regardless of the size of the input data set.</p>
+<pre>bool IsFirstElementNull(String[] strings)
+{
+	if(strings[0] == null)
+	{
+		return true;
+	}
+	return false;
+}</pre>
+<h3>O(N)</h3>
+<p>O(N) describes an algorithm whose performance will grow linearly and in direct proportion to the size of the input data set. The example below also demonstrates how Big O favours the worst-case performance scenario; a matching string could be found during any iteration of the <code>for</code> loop and the function would return early, but Big O notation will always assume the upper limit where the algorithm will perform the maximum number of iterations.</p>
+<pre>bool ContainsValue(String[] strings, String value)
+{
+	for(int i = 0; i &lt; strings.Length; i++)
+	{
+		if(strings[i] == value)
+		{
+			return true;
+		}
+	}
+	return false;
+}</pre>
+<h3>O(N<sup>2</sup>)</h3>
+<p>O(N<sup>2</sup>) represents an algorithm whose performance is directly proportional to the square of the size of the input data set. This is common with algorithms that involve nested iterations over the data set. Deeper nested iterations will result in O(N<sup>3</sup>), O(N<sup>4</sup>) etc.</p>
+<pre>bool ContainsDuplicates(String[] strings)
+{
+	for(int i = 0; i &lt; strings.Length; i++)
+	{
+		for(int j = 0; j &lt; strings.Length; j++)
+		{
+			if(i == j) // Don't compare with self
+			{
+				continue;
+			}
+
+			if(strings[i] == strings[j])
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}</pre>
+<h3>O(2<sup>N</sup>)</h3>
+<p>O(2<sup>N</sup>) denotes an algorithm whose growth will double with each additional element in the input data set. The execution time of an O(2<sup>N</sup>) function will quickly become very large.</p>
+<h3>Logarithms</h3>
+<p>Logarithms are slightly trickier to explain so I&#8217;ll use a common example:</p>
+<p><a href="http://en.wikipedia.org/wiki/Binary_search" target="_blank">Binary search</a> is a technique used to search sorted data sets. It works by selecting the middle element of the data set, essentially the median, and compares it against a target value. If the values match it will return success. If the target value is higher than the value of the probe element it will take the upper half of the data set and perform the same operation against it. Likewise, if the target value is lower than the value of the probe element it will perform the operation against the lower half. It will continue to halve the data set with each iteration until the value has been found or until it can no longer split the data set.</p>
+<p>This type of algorithm is described as <strong>O(log N)</strong>. The iterative halving of data sets described in the binary search example produces a growth curve that peaks at the beginning and slowly flattens out as the size of the data sets increase e.g. an input data set containing 10 items takes one second to complete, a data set containing 100 items takes two seconds, and a data set containing 1000 items will take three seconds. Doubling the size of the input data set has little effect on its growth as after a single iteration of the algorithm the data set will be halved and therefore on a par with an input data set half the size. This makes algorithms like binary search extremely efficient when dealing with large data sets.</p>
+<p><em>This article only covers the very basics or Big O and logarithms. For a more in-depth explanation take a look at their respective Wikipedia entries: <a href="http://en.wikipedia.org/wiki/Big_O_notation" target="_blank">Big O Notation</a>, <a href="http://en.wikipedia.org/wiki/Logarithm" target="_blank">Logarithms</a>.</em></p>
+
+		<div class="meta">
+			<div class="meta-date">
+				<h4>Publish Date</h4>
+				<p>23rd June 2009</p>
+			</div>
+			
+			<div class="meta-cat">
+				<h4>Category</h4>
+				<p><a href="http://rob-bell.net/categories/articles/" title="View all posts in Articles" rel="category tag">Articles</a></p>
+			</div>
+			
+			<div class="meta-tags">
+				<h4>Tagged With</h4>
+				<ul><li><a href="http://rob-bell.net/tags/computer-science/" rel="tag">Computer Science</a></li><li><a href="http://rob-bell.net/tags/programming/" rel="tag">Programming</a></li></ul>			</div>
+		</div>
+						
+			</div>
+
+	
+	<h2 id="comments">26 Responses to "A Beginner&#8217;s Guide to Big O Notation"</h2>
+
+	   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn"><a href='http://www.redwhitecode.com/blog' rel='external nofollow' class='url'>Horacio</a></cite> <span class="says">says:</span></h5>
+				<p>Excellent explanation, big O notation is sometimes hard to &#8220;imagine&#8221; when teaching but this examples couldn&#8217;t have made it easier</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn"><a href='http://www.greynode.org' rel='external nofollow' class='url'>Jeff Aigner</a></cite> <span class="says">says:</span></h5>
+				<p>It might be worth mentioning that O(log N) is the theoretical limit for searching a data set.</p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn"><a href='http://www.posterburner.com' rel='external nofollow' class='url'>Matt S</a></cite> <span class="says">says:</span></h5>
+				<p>I remember learning Big-O in college and it went right over my head.  Your article gave me a better understanding than any of my professor&#8217;s ever did.  Thanks!</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn">bluehavana</cite> <span class="says">says:</span></h5>
+				<p>O(log N) is log base 2 as well.  This is an important distinction.</p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn"><a href='http://talkingincircles.net' rel='external nofollow' class='url'>probabilityzero</a></cite> <span class="says">says:</span></h5>
+				<p>When my programming professor went over this during our intro to programming class, that&#8217;s about all she said about the subject. Seeing O(logN) looks scary if you don&#8217;t know what it means, but it isn&#8217;t really that difficult a concept to pick up.</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn">Mylo</cite> <span class="says">says:</span></h5>
+				<p>A very helpful and easy to understand explanation of the Big O - thanks for providing this. I always find code examples make understanding the problem easier!</p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn">Al K.</cite> <span class="says">says:</span></h5>
+				<p>Nice article, but I&#8217;ll have to quibble with this: &#8220;Big O specifically describes the worst-case scenario.&#8221;<br />
+That is not the case. Big-O notation just describes asymptotic bounds, so it is correct to say something like, for example, &#8220;Quicksort is in O(n!),&#8221; even though Quicksort&#8217;s actual worst-case running time will never exceed O(n^2). All Big-O is saying is &#8220;for an input of size n, there is a value of n after which quicksort will always take less than n! steps to complete.&#8221; It does not say &#8220;Quicksort will take n! steps in the worst case.&#8221;</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn">Dan</cite> <span class="says">says:</span></h5>
+				<p>Thanks for writing this article and using programming code as an example. It was very insightful and useful !</p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn">Priyanka Tyagi</cite> <span class="says">says:</span></h5>
+				<p>Very nice article !</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn">Evelyn</cite> <span class="says">says:</span></h5>
+				<p>A graph showing each of these at the same time would be helpful.</p>
+<p>This one is in the right region, but bad:<br />
+<a href="http://therecyclebin.files.wordpress.com/2008/05/time-complexity.png" rel="nofollow">http://therecyclebin.files.wordpress.com/2008/05/time-complexity.png</a><br />
+(why the different scales?)</p>
+<p>This one is better, but doesn&#8217;t have all of your examples:<br />
+<a href="http://science.slc.edu/~jmarshall/courses/2002/spring/cs50/BigO/index.html" rel="nofollow">http://science.slc.edu/~jmarshall/courses/2002/spring/cs50/BigO/index.html</a></p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn"><a href='http://www.tensailabs.com/' rel='external nofollow' class='url'>Gregory Kornblum</a></cite> <span class="says">says:</span></h5>
+				<p>Very well put. It&#8217;s a shame people concern themselves more with design patterns and domain models while not giving a bit of attention to the core of all programming and where most of its concepts and methods are born, mathematical logic. Of course they all play an equal role in development but none should never be forgotten as often as the mathematical logic is.</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn"><a href='http://hiddenson.graphility.com' rel='external nofollow' class='url'>hiddenson</a></cite> <span class="says">says:</span></h5>
+				<p>Thank you for your crystal clear guide. I studied some of this concepts so long ago that it almost seems another life <img src='http://rob-bell.net/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+<p>PS: I knew about the binary search under another name: the dichotomic search.</p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn"><a href='http://steveeichert.com' rel='external nofollow' class='url'>Steve</a></cite> <span class="says">says:</span></h5>
+				<p>Nice post.  I like the code examples to add context to what you&#8217;re describing.</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn"><a href='http://jwepman.com' rel='external nofollow' class='url'>Josh W.</a></cite> <span class="says">says:</span></h5>
+				<p>Nice explanation. Might be nice to have some info on &#8220;Big Theta&#8221; and &#8220;Omega&#8221; running times, and perhaps on space-complexity. But that&#8217;s for another post I suppose&#8230;</p>
+<p>@Al K.: From a practical perspective of big O notation, the description in this blog post is correct. One could say that Quicksort is O(n!), the phrase meets the definition of an asymptotic bound, but that would go against a generally accepted idea that Big O complexity is the best-possible, worst case running time. In most programming contexts, the best possible, worst case order of the algorithm is given, because this is what most (the ones who aren&#8217;t into theory as much) programmers worry about when they code solutions to problems. I guess there is context I could see for giving a higher-than-best, worst case time complexity is for categorizing algorithms, or for theoretical proofs of another algorithm, but I don&#8217;t come across it very often <img src='http://rob-bell.net/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> .</p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn"><a href='http://mjac.co.uk/' rel='external nofollow' class='url'>Michael Clark</a></cite> <span class="says">says:</span></h5>
+				<p>@bluehavana &#8220;O(log N) is log base 2 as well. This is an important distinction.&#8221;</p>
+<p>Regarding O notation there is no distinction between O(log N), O(ln N) or logarithms of any base. This is because O notation is saying, asymptotically, that the algorithm has a time complexity limited by the log function. A logarithm of any base b is a real multiple of any generic logarithm: log_b N = log N / log b. These are equivalent in O notation because of its definition:<br />
+&#8220;if g(x) is O(f(x)) there exists some real constant M such that g(x) &lt;= M f(x)&#8221;<br />
+obviously if we multiply by 1/log b, there is another real constant N = M / log b that satisfies this definition.</p>
+<p>Anyway nice article Rob, hopefully I&#8217;ll be joining you for a few lunches up in London soon.</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn"><a href='http://www.lispmachine.wordpress.com' rel='external nofollow' class='url'>arnuld</a></cite> <span class="says">says:</span></h5>
+				<p>Short and accurate content. Its was so much easier with source code and not to mention the quite good explanation of O(log N).  Thanks for this  <img src='http://rob-bell.net/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn"><a href='http://www.twitter.com/akikaikai' rel='external nofollow' class='url'>kai</a></cite> <span class="says">says:</span></h5>
+				<p>Great article! This made understanding the Big O notation so much easier. I&#8217;m looking forward to reading more blog posts.</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn">Saman</cite> <span class="says">says:</span></h5>
+				<p>Very nice article for beginners who want to gain understanding of Big Oh.<br />
+Good work.</p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn">Mick</cite> <span class="says">says:</span></h5>
+				<p>Fantastic - you want to come and be our lecturer. As a mature computing student with no grounding in mathematics I was really hitting the wall with this.. The O and big O I can grip but finding n within a program was the problem. The examples are great and I now have a better angle on this&#8230; Thanks</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn"><a href='http://nerdgerl.wordpress.com' rel='external nofollow' class='url'>georgi</a></cite> <span class="says">says:</span></h5>
+				<p>I found this to be an excellent introductory post and have used it as an inspiration for my own post where ive included some examples in java. Thanks a lot <img src='http://rob-bell.net/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /><br />
+<a href="http://nerdgerl.wordpress.com/2009/11/18/an-intro-to-big-oh-notation-with-java/" rel="nofollow">http://nerdgerl.wordpress.com/2009/11/18/an-intro-to-big-oh-notation-with-java/</a></p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn">ktj</cite> <span class="says">says:</span></h5>
+				<p>This is a brilliant piece of work, very easy to understand. Most programming lecturers/professors at university have serious hardships in trying to explain the big O notation.</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn">Joseph</cite> <span class="says">says:</span></h5>
+				<p>Thank you. Nice article. I&#8217;ve tired of reading textbooks with cryptic writing and lack of introduction to Big O and logarithms. I&#8217;m still on the struggle, but your posts has given me a foundation in which I&#8217;m very grateful.</p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn"><a href='http://dimedomains.com' rel='external nofollow' class='url'>Karim Naufal</a></cite> <span class="says">says:</span></h5>
+				<p>Hey, great explanation man! Simple and straightforward&#8230; Even MIT teachers in there video course (check out <a href="http://academicearth.org" rel="nofollow">http://academicearth.org</a>) couldn&#8217;t explain it so simply. Thanks a lot and keep up the good work. Cheers!</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn">Anjaneai</cite> <span class="says">says:</span></h5>
+				<p>This was a great lesson. Good Example. usually people get stuck understanding and relating Mathematical Notations Functions and Complex Equations with Code. You did a great job building a bridge in between!</p>
+<p>Kudos!</p>
+<p>Thanks!</p>
+
+</div>
+   
+	<div class="comment even thread-even depth-1">
+		<h5><cite class="fn">Andrew</cite> <span class="says">says:</span></h5>
+				<p>You made this particularly complicated subject very simple. I was taught this in a college course, but it didn&#8217;t make any sense. I finally get it after reading your article, thank you for writing this.</p>
+
+</div>
+   
+	<div class="comment odd alt thread-odd thread-alt depth-1">
+		<h5><cite class="fn">Puneet</cite> <span class="says">says:</span></h5>
+				<p>Excellent. You beauty. You made my day. Being an average in Maths, it was increasingly difficult to get this big O notation. Thanks, I am bookmarking. Don&#8217;t get rid of this page, ever.</p>
+
+</div>
+	
+ 
+
+
+<h3>Leave a Comment</h3>
+
+<div class="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="/2009/06/a-beginners-guide-to-big-o-notation/#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://rob-bell.net/wp-comments-post.php" method="post" id="commentform">
+
+
+<dl class="form">
+
+	<dt><label for="author"><small>Name </small></label></dt>
+	<dd><input type="text" name="author" id="author" value="" size="22" tabindex="1"  /></dd>
+
+	<dt><label for="email"><small>Mail (will not be published) </small></label></dt>
+	<dd><input type="text" name="email" id="email" value="" size="22" tabindex="2"  /></dd>
+
+	<dt><label for="url"><small>Website</small></label></dt>
+	<dd><input type="text" name="url" id="url" value="" size="22" tabindex="3" /></dd>
+
+	
+	<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+	<dt>Comment</dt>
+	<dd><textarea name="comment" id="comment" cols="100%" rows="5" tabindex="4"></textarea></dd>
+
+</dl>
+
+<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" class="sendbutton" />
+<input type='hidden' name='comment_post_ID' value='200' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+
+
+</form>
+
+
+
+
+</div>
+
+		<div id="bottom">
+		
+			<div class="footer-half">
+				<h4>About</h4>
+				<p>Rob Bell is an application developer from West London specialising in web development with an interest in most things nerdy. </p><p>&copy; Rob Bell 2008-2013</p>
+			</div>
+			
+			<div class="footer-quarter">
+				
+				<h4>More</h4>
+				<ul id="footer-internal">
+					<li><a href="/about#contact">Contact Me</a></li>
+					<li><a href="/feed">RSS Feed</a></li>
+					<li><a href="http://github.com/robbell">GitHub</a></li>
+				</ul>
+				
+			</div>
+			
+			<div class="footer-quarter">
+				
+				<h4>And others</h4>
+				<ul id="footer-external">
+					<li><a href="http://validator.w3.org/check?uri=referer">XHTML</a></li>
+					<li><a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></li>
+					<li><a href="/about#contact">WAI</a></li>
+				</ul>
+			</div>
+			
+		</div><!-- end bottom -->
+
+		<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-412135-2");
+		pageTracker._trackPageview();
+		</script>
+		
+		
+	</body>
+</html>
+<!-- Dynamic page generated in 0.129 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2013-08-23 15:33:18 -->

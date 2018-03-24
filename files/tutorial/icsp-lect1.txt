@@ -1,0 +1,52 @@
+
+-- Skills :
+
+ 1. computational thinking.
+ 2. understand code.
+ 3. understand the abilities and limits of computation.
+ 4. maps problems to computation.
+
+--
+
+
+-- knowledge = declarative knowledge  + imperative knowledge -- 
+
+-- imperative knowledge = HOWTO knowledge --
+
+-- there can be a circuit to find the square root of a value --
+
+-- there can be a circuit which accepts the input as a circuit
+   and make the circuit work like the input circuit --
+
+-- stored program computer = will have a sequence of instruction 
+   to process --
+
+-- stored program computer = memory + CPU + ALU + Program Counter --
+
+-- program counter points to the first instruction in memory and
+   after it is executed it moves to the second instruction and so
+   on... --
+
+-- given a fixed set of primitives , a programmer can program 
+   anything --
+
+-- a typical primitive example = anything that is done using c
+   can also be done in fortran --
+
+-- description to primitives needs a programming language --
+
+-- there is no such thing as best language --
+
+-- dimensions of a language :
+ 1. high level or low level language
+ 2. general or a targetted language
+ 3. interpreted or compiled language
+
+--
+
+-- syntax says = what are the legal expressions --
+
+-- static semantic says = which programs are meaningful --
+-- full semantics say = what is going to happen when i run 
+   a program --
+

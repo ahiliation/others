@@ -1,0 +1,669 @@
+<!doctype html>
+<html dir="ltr" lang="en-US">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>  23 Awesome Linux/Unix command chaining examples </title>
+
+<link rel="alternate" type="application/rss+xml" title="The Linux Juggernaut RSS Feed" href="http://feeds.feedburner.com/TheLinuxJuggernaut">
+
+
+<!-- media-queries.js -->
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<!-- html5.js -->
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- wp_header -->
+<link rel="alternate" type="application/rss+xml" title="The Linux Juggernaut &raquo; Feed" href="http://www.linuxnix.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="The Linux Juggernaut &raquo; Comments Feed" href="http://www.linuxnix.com/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="The Linux Juggernaut &raquo; 23 Awesome Linux/Unix command chaining examples Comments Feed" href="http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html/feed" />
+<link rel='stylesheet' id='feedburner-email-subscription-css'  href='http://www.linuxnix.com/wp-content/plugins/feedburner-email-subscription/css/widget.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='themify-shortcodes-css'  href='http://www.linuxnix.com/wp-content/themes/elemin/themify/css/shortcodes.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='themify-styles-css'  href='http://www.linuxnix.com/wp-content/themes/elemin/style.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='themify-media-quries-css'  href='http://www.linuxnix.com/wp-content/themes/elemin/media-queries.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='pretty-photo-css'  href='http://www.linuxnix.com/wp-content/themes/elemin/prettyPhoto.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css'  href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT%3Aregular%2Citalic&#038;ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='popular-widget-css'  href='http://www.linuxnix.com/wp-content/plugins/popular-widget/_css/pop-widget.css?ver=1.5.4' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-pagenavi-css'  href='http://www.linuxnix.com/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70' type='text/css' media='all' />
+<link rel='stylesheet' id='smp_style-css'  href='http://www.linuxnix.com/wp-content/plugins/wp-super-popup/colorbox.css?ver=714536969' type='text/css' media='all' />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?ver=3.4.1'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/themes/elemin/themify/js/flowplayer-3.2.4.min.js?ver=1.6'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/themes/elemin/js/audio-player.js?ver=3.4.1'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-includes/js/comment-reply.js?ver=3.4.1'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/plugins/wp-super-popup/jquery.colorbox-min.js?ver=560190850'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/plugins/wp-super-popup/jquery.utils-min.js?ver=848923099'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.linuxnix.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.linuxnix.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Linux Bash Shell auto completion and Wild cards' href='http://www.linuxnix.com/2012/07/linux-bash-shell-auto-completion-and-wild-cards.html' />
+<meta name="generator" content="WordPress 3.4.1" />
+<link rel='canonical' href='http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html' />
+<link rel='shortlink' href='http://www.linuxnix.com/?p=1631' />
+<script charset="utf-8" type="text/javascript">var switchTo5x=true;</script><script charset="utf-8" type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'wp.16d574e2-3051-4595-a9df-55a1c3f2e6de'});var st_type='wordpress3.4.1';</script><script charset="utf-8" type="text/javascript" src="http://s.sharethis.com/loader.js"></script><script charset="utf-8" type="text/javascript">var options={ "service": "facebook", "timer": { "countdown": 30, "interval": 10, "enable": false}, "frictionlessShare": false, "style": "7", publisher:"wp.16d574e2-3051-4595-a9df-55a1c3f2e6de"};var st_service_widget = new sharethis.widgets.serviceWidget(options);</script>
+
+<style type='text/css'>
+body {
+background-image: url(http://www.linuxnix.com/wp-content/themes/elemin/uploads/bg/body/bgimage.png);
+background-repeat: repeat;
+}
+
+#site-description {
+font-size: 33px;
+}
+
+.post-title a {
+color: #d12222;
+}
+
+</style>
+
+
+
+<!-- custom css -->
+
+<style type='text/css'></style><script type="text/javascript">
+	jQuery.noConflict();
+	jQuery(document).ready(function($) {
+		$(document).ready(function(){
+			var smp_cookie_name_a = 'smp_1301520679206_a';//1
+			var smp_cookie_name_b = 'smp_1301520679206_b';//2
+			var smp_cookie_num_visits = 3;
+			var smp_show_mode = 1;
+			function smp_show_popup(){
+								setTimeout(function() 	{ $.fn.colorbox({
+											fixed: true,
+											width:"350px", 
+											height:"300px", 
+											iframe:true, 
+											opacity:0.5, 
+											speed:700, 
+											overlayClose:true, 
+											href:'http://www.linuxnix.com/wp-content/uploads/smp_popup.html'}) 
+										}, 
+							10);
+			}
+			function smp_reset_cookies(){
+				c_value_a = $.cookie(smp_cookie_name_a);
+				c_value_b = $.cookie(smp_cookie_name_b);
+				if (smp_show_mode == 1 && c_value_b != null){
+					$.cookie(smp_cookie_name_b, null, { path: '/', expires: 0 });
+					return true;
+				} else if (smp_show_mode == 2 && c_value_a != null){
+					$.cookie(smp_cookie_name_a, null, { path: '/', expires: 0 });
+					return true;
+				} else {
+					return false;
+				}
+			}
+			$(document).ready(function(){
+				var date = new Date();
+				if (!smp_reset_cookies()){
+					c_value_a = $.cookie(smp_cookie_name_a);
+					c_value_b = $.cookie(smp_cookie_name_b);
+					if (smp_show_mode == 1){
+						date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+						c_value = c_value_a;
+						smp_cookie_name = smp_cookie_name_a;
+					} else if (smp_show_mode == 2){
+						date.setTime(date.getTime() + (100000 * 24 * 60 * 60 * 1000));
+						c_value = c_value_b;
+						smp_cookie_name = smp_cookie_name_b;
+					}
+					if (c_value == null){	
+				    $.cookie(smp_cookie_name, '0', { path: '/', expires: date });
+						smp_show_popup();
+					} else {
+						//cookie exists
+						if (smp_show_mode == 2){
+							date.setTime(date.getTime() + (100000 * 24 * 60 * 60 * 1000));
+							c_value++;
+							$.cookie(smp_cookie_name, c_value, { path: '/', expires: date });
+							if (c_value < smp_cookie_num_visits){
+								smp_show_popup();
+							}
+						}
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	AudioPlayer.setup("http://www.linuxnix.com/wp-content/themes/elemin/player.swf", {
+		width: '90%',
+		transparentpagebg: 'yes'
+	});
+</script>
+
+</head>
+
+<body class="single single-post postid-1631 single-format-aside">
+
+<div id="pagewrap">
+
+	<header id="header">
+
+		<hgroup>
+							 <h1 id="site-logo"><a href="http://www.linuxnix.com/">The Linux Juggernaut</a></h1>
+			
+			<h2 id="site-description">roles on&#8230;&#8230;</h2>
+		</hgroup>
+
+		<!-- social-widget --> 
+		<div class="social-widget">
+
+			
+							<div class="rss"><a href="http://feeds.feedburner.com/TheLinuxJuggernaut">RSS</a></div>
+			
+		</div>
+		<!-- /social-widget --> 
+
+		<nav>
+			<ul id="main-nav" class="main-nav"><li id="menu-item-1531" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1531"><a href="http://www.linuxnix.com/">Home</a></li>
+<li id="menu-item-1532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1532"><a href="http://www.linuxnix.com/about-the-linux-juggernaut-blog">About US</a></li>
+<li id="menu-item-1533" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1533"><a href="http://www.linuxnix.com/advertise-on-linuxnix-com">Advertise</a></li>
+<li id="menu-item-1534" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1534"><a href="http://www.linuxnix.com/contribute-to-linuxnix-com-with-hackstutorialstips-etc">Contribute</a></li>
+<li id="menu-item-1535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1535"><a href="http://www.linuxnix.com/testimonials">Testimonials</a></li>
+</ul>		</nav>
+		<!-- /main-nav -->
+	
+					<form method="get" id="searchform" action="http://www.linuxnix.com/">
+	<input type="search" name="s" id="s"  placeholder="Search">
+</form>
+		
+	</header>
+	<!-- /header -->
+	
+	<div id="body" class="clearfix"> 
+
+
+		
+		
+	<!-- layout-container -->
+	<div id="layout" class="clearfix sidebar1">
+	
+		<!-- content -->
+		<div id="content" class="list-post">
+			
+																														
+						
+	
+<!-- post -->
+<article id="post-1631" class="post-1631 post type-post status-publish format-aside hentry category-basics tag-bash tag-command-chaining tag-enter-your-zip-code-here tag-shell post clearfix">
+	
+						
+	<span class="post-icon"></span><!-- /post-icon -->
+
+	<!-- post-title -->
+						<h1 class="post-title"><a href="http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html">23 Awesome Linux/Unix command chaining examples</a></h1>
+		 
+	    
+	<!-- /post-title -->
+
+	<!-- post-meta -->
+	<p class="post-meta"> 
+					<time datetime="2012-07-26" class="post-date" pubdate>Jul 26, 2012</time>
+		
+						<span class="post-author"><em>By</em> Surendra Anne</span>
+				<span class="post-category"><em>in</em> <a href="http://www.linuxnix.com/category/basics" title="View all posts in Basics" rel="category tag">Basics</a></span>
+									<span class="post-comment"><a href="http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html#comments" title="Comment on 23 Awesome Linux/Unix command chaining examples"><span class="dsq-postid" rel="1631 http://www.linuxnix.com/?p=1631">7 Comments</span></a></span>
+								 <span class="post-tag"><em>Tags:</em> <a href="http://www.linuxnix.com/tag/bash" rel="tag">bash</a>, <a href="http://www.linuxnix.com/tag/command-chaining" rel="tag">command chaining</a>, <a href="http://www.linuxnix.com/tag/enter-your-zip-code-here" rel="tag">Enter your zip code here</a>, <a href="http://www.linuxnix.com/tag/shell" rel="tag">shell</a></span>		    
+	</p>
+	<!-- /post-meta -->
+	
+		
+	
+	
+<!-- post-image -->
+
+								<figure class='post-image '><a href='http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html'><img src='http://www.linuxnix.com/wp-content/themes/elemin/themify/img.php?src=http://www.linuxnix.com/wp-content/uploads/2012/07/3-chain.jpg&amp;w=50&amp;h=50' alt='23 Awesome Linux/Unix command chaining examples'   width='50' height='50' /></a></figure>			   
+	
+<!-- /post-image -->
+
+<!-- post-content -->
+<div class="post-content">
+		
+		<p>Command chaining is a concept to execute two or more commands in one shot to increase ..</p>
+<ol>
+<li><span style="color: #000000;"><strong>productivity</strong></span></li>
+<li><span style="color: #000000;"><strong>Reduce system resource usage(In some cases )</strong></span></li>
+<li><span style="color: #000000;"><strong>Short and sweet codes <img src='http://www.linuxnix.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> .</strong></span></li>
+</ol>
+<p>In this post we will see how to use different command chaining operators available for us in an easy way.</p>
+<h1 style="text-align: center;">Command chaining operators</h1>
+<p><span style="color: #000000;"><strong>&amp; &#8211;Forking operator(run in background parallelly )</strong></span><br />
+<span style="color: #000000;"><strong> ; &#8211;Run multiple commands in one run, sequentially.</strong></span><br />
+<span style="color: #000000;"><strong> \ &#8211;To combine a big command for multiple lines</strong></span><br />
+<span style="color: #000000;"><strong> &amp;&amp; &#8211;Logical AND operator</strong></span><br />
+<span style="color: #000000;"><strong> || &#8211;Logical OR operator</strong></span><br />
+<span style="color: #000000;"><strong> ! -NOT operator(I did not find much info on this.0)</strong></span><br />
+<span style="color: #000000;"><strong> | &#8212; PIPE operator</strong></span><br />
+<span style="color: #000000;"><strong> {} &#8211;Command combination operator.</strong></span><br />
+<span style="color: #000000;"><strong> () &#8211;Precedence operator</strong></span></p>
+<p><span style="color: #000000;"><strong>&amp; &#8211; Forking operator(AND operator):</strong> </span>This operator is used to send a process/script/command to run background so that we can execute other commands in foreground to increase effective utilization of system resources and to speed up the script execution. This is also called as Child process creation or forking in other programming languages.</p>
+<p><strong>Example1:</strong> Run commands in background</p>
+<p><strong>$ping -c1 google.com &amp;</strong></p>
+<p><strong>Example2:</strong> Run more commands in background in single line</p>
+<p><strong>$ping -c1 google.com &amp; scp root@1.1.1.10:/opt/* /opt &amp;</strong></p>
+<p>Above commands are run in background parallelly independent of other commands. Like this we can run many such commands parallel.</p>
+<p><strong>; &#8211; semicolon operator:</strong> This operator Run multiple commands in one go but in a sequential order. So second command will run after first command completion, third command will run only after second command run.</p>
+<p><strong>Example3:</strong> Execute ls, pwd, whoami commands in one command</p>
+<p><strong>ls;pwd;whoami</strong></p>
+<p><strong>Note1:</strong> The number of commands you can run is infinity. By default there is no limit on how many commands you can run with ; operator. We have checked this with 500 commands executed in one line. The limit depends only on memory or ulimits settings.</p>
+<p><strong>Exampl4:</strong> Run a bash shell script IF statement in one command</p>
+<p><strong>if [ $? -eq 0 ]; then echo “sucess”; else echo “fail”; fi</strong></p>
+<p><strong>Example5:</strong> Run online FOR loop</p>
+<p><strong>for i in `ls -1`;do echo “file is $i”;done</strong></p>
+<p><strong>Example6:</strong> Run online while loop</p>
+<p><strong>while [ $VAR1 -eq 10 ]; do echo “Var value is $VAR1”; done</strong></p>
+<p><strong>Example7:</strong> Run online until loop</p>
+<p><strong>until [ $VAR1 -eq 10 ]; do echo “Var value is $VAR1”; done</strong></p>
+<p>This is a kind of shell scripting at terminal or one liner shell scripting or temporary shell scripting. This will help you not to create a file for your small and dirty scripts. Just execute your script directly at terminal.</p>
+<p><strong>\ &#8211; Concatenation operator:</strong> This operator is used to execute a command which is too big and spread on multiple lines. This operator helps to spread this command to do multi line execution.</p>
+<p><strong>Example8:</strong> Try to copy a file /var/ftp/pub/webadmin/debina/read from sysloggerserver1.linuxnix.com to /opt/oradba/debadmin/logic/abc folder on sysloggerserver2.persistentsystems.co.in and I am at surendrahome.beamtele.com.</p>
+<p><strong>ssh <a href="mailto:root@sysloggerserver1.linuxnix.com">root@sysloggerserver1.linuxnix.com</a>:\</strong><br />
+<strong> /var/ftp/pub/webadmin/debian/read \</strong><br />
+<strong> <a href="mailto:root@sysloggerserver2.persistent.co.in">root@sysloggerserver2.persistent.co.in</a>\</strong><br />
+<strong> :/opt/oradba/debadmin/logic/abc/</strong></p>
+<p>Actually this a big command but I divided this to multiple lines to make it look good and understandable by using \.</p>
+<p><strong>&amp;&amp; &#8211;Logical AND operator:</strong> This operator lets you execute second command, if the first command runs successfully i.e <a href="http://www.linuxnix.com/2011/03/find-exit-status-script-command-linux.html" target="_blank">exit status</a> is zero. This is very much useful to check the success status of first command. For example I want to connect to abc.com before connecting I want to check if that machine is pingable or not.</p>
+<p><strong>Example9:</strong> Connect to a machine only if its able to ping other wise dont execute connect command</p>
+<p><strong>ping -c1 abc.com &amp;&amp; ssh <a href="mailto:root@abc.com">root@abc.com</a></strong></p>
+<p><strong>Example10:</strong> Assign a value to variable if it&#8217;s not set</p>
+<p><strong>[ -z $VAR1 ] &amp;&amp; VAR1=10</strong></p>
+<p><strong>Example11:</strong> Check if a folder exists or not. If it&#8217;s not present, create it.</p>
+<p><strong>[ ! -d /var/temp ] &amp;&amp; mkdir /var/temp</strong></p>
+<p><strong>Example12:</strong> Create folder, if the folder creation is successful then only change the directory.</p>
+<p><strong>mkdir abc &amp;&amp; cd abc</strong></p>
+<p><strong>Example13:</strong> Change to a folder, if this is success then list the content.</p>
+<p><strong>cd /var/ftp &amp;&amp; ls</strong><br />
+Like this you can use your imagination to use this operator effectively to save some time.</p>
+<p><strong>|| &#8211;Logical OR operator:</strong> This operator lets you execute second command, if the first command fails i.e exit status is greater than zero. This is very much useful to check the failed status of first command. For example I want to create a folder, but before that I want to check if folder exits or not. If it&#8217;s not exists then create it.</p>
+<p><strong>Example 14:</strong> Create a folder if the folder does not exits.</p>
+<p><strong>[ -d /var/temp ] || mkdir /var/temp</strong></p>
+<p><strong>Example15:</strong> Ping to a machine and let users know if it&#8217;s not reachable in a meaning full way.</p>
+<p><strong>ping -c1 google.com <a href="http://www.linuxnix.com/2012/02/linuxunix-redirection-operatorsfile-descriptors-explained-examples.html" target="_blank">&amp;&gt; /dev/null</a> || echo “There is some problem with network, please connect your network admin”</strong></p>
+<p><strong>&amp;&amp; and || operators combination:</strong> We can use &amp;&amp; and || to simulate if-else statement with in one line. If the first command executed successfully we can execute second command otherwise we will execute third command.</p>
+<p><strong>Example16:</strong> ping google.com, and display useful information to user if its pingable or not.</p>
+<p><strong>ping -c1 google.com &amp;&amp; echo “Thats good, able to ping google.com” || echo “Thats bad unable to ping google.com”</strong></p>
+<p><strong>Example17:</strong> Check if a file exists or not. If its exists inform user it exists otherwise create it.</p>
+<p><strong>[ -f /var/abc.txt ] &amp;&amp; echo “file exists” || touch /var/abc.txt</strong></p>
+<p><strong>Example18:</strong> Check if my previous command executed successfully or not</p>
+<p><strong>pwd</strong><br />
+<strong> /home/surendra</strong><br />
+<strong> [ $? -eq 0 ] &amp;&amp; echo “Yes, pwd command successfully executed” || echo “pwd command failed”</strong></p>
+<p><strong>! -NOT operator</strong>(I read about this operator but did not find real usage of this). Please do let us know how to use this operator so that I can update this post.</p>
+<p><strong>| &#8212; PIPE operator:</strong> This operator is used to send output of first command as an input to second command.</p>
+<p><strong>Example19:</strong> Count no of files/folder located in a folder</p>
+<p><strong>ls -l | wc -l</strong></p>
+<p><strong>Example20:</strong> Display all the partition names in the system.</p>
+<p><strong>df -h | awk ‘{print $1}’</strong></p>
+<p><strong>{ } &#8211;Command combination operator:</strong> This operator used to combine two or more commands to be executed depending on the previous command. This can be explained with an example</p>
+<p>Suppose I want to check if a file exists or not. If it does not exists We have to display error and then we have to create it. Lets do that without this {} operator</p>
+<p><strong>Example21:</strong> Check if /opt/abc.txt exists or not?</p>
+<p><span style="color: #ff0000;"><strong>[ -f /opt/abc.txt ] || echo “The file does not exists”; touch /opt/abc.txt</strong></span></p>
+<p>touch command in the above command never depends on first command exit status. In order to make it depend on first command we have to use { } braces as shown below.</p>
+<p><strong>[ -f /opt/abc.txt ] || { echo “The file does not exists”; touch /opt/abc.txt; }</strong></p>
+<p><strong>Note:</strong> Make sure that you given ; operator at the end of last command as shown in above example. This is mandatory and without it you may get error.</p>
+<p><strong>Example22:</strong> Ping to a machine, if able to ping display some useful info then try to connect to it using ssh.</p>
+<p><strong>ping -c <a href="http://www.linuxnix.com/">www.linuxnix.com</a> &amp;&amp; {echo “That is pingable, too good..!”; ssh root@<a href="about:blank">www.linuxnix.com;</a>}</strong></p>
+<p><strong>() &#8211;Precedence operator:</strong> This operator used to execute command in precedence order which command to execute first. For example see below example</p>
+<p><strong>command1 &amp;&amp; command2 || command3 &amp;&amp; command4</strong></p>
+<p>If you see command2 executes if the command1 executed successfully. But once command2 executed remaining commands command3 and command4 are not going to execute. In order to eliminate this we have to use precedence operator. So below command sequence command3 and command4 will be executed if command1 or command2 failed.</p>
+<p><strong>Example23:</strong></p>
+<p><strong>( caommand1 &amp;&amp; command2 ) || ( command3 &amp;&amp; command4 )</strong></p>
+<p>In this way we can save some valuable time. Please comment your thoughts on this.</p>
+<p><span class='st_facebook' st_title='23 Awesome Linux/Unix command chaining examples' st_url='http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html' displayText='facebook'></span><span class='st_twitter' st_title='23 Awesome Linux/Unix command chaining examples' st_url='http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html' displayText='twitter'></span><span class='st_email' st_title='23 Awesome Linux/Unix command chaining examples' st_url='http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html' displayText='email'></span><span class='st_sharethis' st_title='23 Awesome Linux/Unix command chaining examples' st_url='http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html' displayText='sharethis'></span><span class='st_fblike' st_title='23 Awesome Linux/Unix command chaining examples' st_url='http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html' displayText='fblike'></span><span class='st_plusone' st_title='23 Awesome Linux/Unix command chaining examples' st_url='http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html' displayText='plusone'></span></p><p>Related posts:</p><ol>
+<li><a href='http://www.linuxnix.com/2012/04/learn-linuxunix-find-command-60-practical-examples-part-ii.html' rel='bookmark' title='Learn Linux/Unix Find command with 60+ Practical examples Part-II'>Learn Linux/Unix Find command with 60+ Practical examples Part-II</a> <small>Advanced finds command usages Playing with basics find command options...</small></li>
+<li><a href='http://www.linuxnix.com/2012/02/linuxunix-redirection-operatorsfile-descriptors-explained-examples.html' rel='bookmark' title='Linux/Unix redirection operators(File descriptors) explained with examples'>Linux/Unix redirection operators(File descriptors) explained with examples</a> <small>Redirecting operators in Linux In order to understand about Redirecting...</small></li>
+<li><a href='http://www.linuxnix.com/2012/04/learn-linuxunix-find-command-50-practical-examples-part-i.html' rel='bookmark' title='Learn Linux/Unix Find command with 60+ Practical examples Part-I'>Learn Linux/Unix Find command with 60+ Practical examples Part-I</a> <small>60+ Practical find commands examples with explanation find command is very much powerful command...</small></li>
+<li><a href='http://www.linuxnix.com/2012/07/23-linux-cd-command-examples.html' rel='bookmark' title='23 Linux cd command examples'>23 Linux cd command examples</a> <small>This is a basic post to show you what we...</small></li>
+<li><a href='http://www.linuxnix.com/2012/07/how-to-set-path-in-linux-and-unix.html' rel='bookmark' title='How to set path in Linux and Unix'>How to set path in Linux and Unix</a> <small>What is a path? A path is a unique location...</small></li>
+<li><a href='http://www.linuxnix.com/2011/12/chown-command-linuxunix-explained-examples.html' rel='bookmark' title='CHOWN command in Linux/Unix explained with examples'>CHOWN command in Linux/Unix explained with examples</a> <small>This is our second post in “Linux Files and folders”...</small></li>
+</ol>	
+	</div>
+<!-- /post-content -->	
+		
+	
+</article>
+<!-- /post -->	
+			
+				
+			<!-- post-nav -->
+<div class="post-nav clearfix"> 
+	<span class="prev"><a href="http://www.linuxnix.com/2012/07/linux-bash-shell-auto-completion-and-wild-cards.html" rel="prev"><span class="arrow">&laquo;</span> Linux Bash Shell auto completion and Wild cards</a></span>	</div>
+<!-- /post-nav -->
+	
+							
+<div id="disqus_thread">
+                    <div id="dsq-content">
+
+
+            <ul id="dsq-comments">
+                    <li class="comment even thread-even depth-1" id="dsq-comment-680">
+        <div id="dsq-comment-header-680" class="dsq-comment-header">
+            <cite id="dsq-cite-680">
+                <span id="dsq-author-user-680">Gouthamk10</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-680" class="dsq-comment-body">
+            <div id="dsq-comment-message-680" class="dsq-comment-message"><p>good work,nice explanation</p>
+</div>
+        </div>
+    </li>
+
+    </li>
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-681">
+        <div id="dsq-comment-header-681" class="dsq-comment-header">
+            <cite id="dsq-cite-681">
+                <span id="dsq-author-user-681">gouthamk10</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-681" class="dsq-comment-body">
+            <div id="dsq-comment-message-681" class="dsq-comment-message"><p>good work.nice expanation</p>
+</div>
+        </div>
+    </li>
+
+    </li>
+    <li class="comment even thread-even depth-1" id="dsq-comment-683">
+        <div id="dsq-comment-header-683" class="dsq-comment-header">
+            <cite id="dsq-cite-683">
+                <span id="dsq-author-user-683">Chaturvedi Kuldeep</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-683" class="dsq-comment-body">
+            <div id="dsq-comment-message-683" class="dsq-comment-message"><p>The title of this post was attractive but after visiting this page, nothing  looks like less known commands. These are all very common operators in Shell scripting or Shell navigation.</p>
+</div>
+        </div>
+    </li>
+
+    <ul class='children'>
+    <li class="comment odd alt depth-2" id="dsq-comment-685">
+        <div id="dsq-comment-header-685" class="dsq-comment-header">
+            <cite id="dsq-cite-685">
+http://www.linuxnix.com                <span id="dsq-author-user-685">Surendra</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-685" class="dsq-comment-body">
+            <div id="dsq-comment-message-685" class="dsq-comment-message"><p>I agree.. Updated the post title with &#8220;23 Awesome Linux/Unix command chaining examples&#8221; no hard feelings..!</p>
+</div>
+        </div>
+    </li>
+
+    </li>
+</ul>
+</li>
+    <li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-691">
+        <div id="dsq-comment-header-691" class="dsq-comment-header">
+            <cite id="dsq-cite-691">
+http://www.linuxnix.com                <span id="dsq-author-user-691">Surendra</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-691" class="dsq-comment-body">
+            <div id="dsq-comment-message-691" class="dsq-comment-message"><p>Thought some one may try this example so want to warn them before executing. I just updated the post and removed the note.</p>
+<p>Thanks,<br />
+Surendra.</p>
+</div>
+        </div>
+    </li>
+
+    </li>
+    <li class="comment odd alt thread-even depth-1" id="dsq-comment-692">
+        <div id="dsq-comment-header-692" class="dsq-comment-header">
+            <cite id="dsq-cite-692">
+http://www.linuxnix.com                <span id="dsq-author-user-692">Surendra</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-692" class="dsq-comment-body">
+            <div id="dsq-comment-message-692" class="dsq-comment-message"><p>True.. update the post, removed less known word <img src='http://www.linuxnix.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+</div>
+        </div>
+    </li>
+
+    </li>
+    <li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-693">
+        <div id="dsq-comment-header-693" class="dsq-comment-header">
+            <cite id="dsq-cite-693">
+http://www.linuxnix.com                <span id="dsq-author-user-693">Surendra</span>
+            </cite>
+        </div>
+        <div id="dsq-comment-body-693" class="dsq-comment-body">
+            <div id="dsq-comment-message-693" class="dsq-comment-message"><p>Thanks for the hands-up.. Updated the post.</p>
+</div>
+        </div>
+    </li>
+
+    </li>
+            </ul>
+
+
+        </div>
+
+    </div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var disqus_url = 'http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html';
+    var disqus_identifier = '1631 http://www.linuxnix.com/?p=1631';
+    var disqus_container_id = 'disqus_thread';
+    var disqus_domain = 'disqus.com';
+    var disqus_shortname = 'linuxnix';
+    var disqus_title = "23 Awesome Linux\/Unix command chaining examples";
+        var disqus_config = function () {
+        var config = this; // Access to the config object
+
+        /*
+           All currently supported events:
+            * preData — fires just before we request for initial data
+            * preInit - fires after we get initial data but before we load any dependencies
+            * onInit  - fires when all dependencies are resolved but before dtpl template is rendered
+            * afterRender - fires when template is rendered but before we show it
+            * onReady - everything is done
+         */
+
+        config.callbacks.preData.push(function() {
+            // clear out the container (its filled for SEO/legacy purposes)
+            document.getElementById(disqus_container_id).innerHTML = '';
+        });
+                config.callbacks.onReady.push(function() {
+            // sync comments in the background so we don't block the page
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = '?cf_action=sync_comments&post_id=1631';
+
+            var firstScript = document.getElementsByTagName( "script" )[0];
+            firstScript.parentNode.insertBefore(script, firstScript);
+        });
+                    };
+    var facebookXdReceiverPath = 'http://www.linuxnix.com/wp-content/plugins/disqus-comment-system/xd_receiver.htm';
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var DsqLocal = {
+        'trackbacks': [
+        ],
+        'trackback_url': "http:\/\/www.linuxnix.com\/2012\/07\/23-awesome-less-known-linuxunix-command-chaining-examples.html\/trackback"    };
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+    dsq.async = true;
+        dsq.src = 'http' + '://' + disqus_shortname + '.' + 'disqus.com' + '/embed.js?pname=wordpress&pver=2.73';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+/* ]]> */
+</script>
+							
+		</div>
+		<!-- /content -->
+
+
+
+<!-- sidebar -->
+<aside id="sidebar">
+
+	<section id="feedburner-email-subscription-2" class="widget feedburner-email-subscription"><h4 class="widgettitle">Subscribe and Get Free E-Book</h4>		<form id="feedburner-zframefeedburner" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=TheLinuxJuggernaut', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+
+		<p><input type="text" value="Your email here" onfocus="if(this.value=='Your email here')this.value='';" onblur="if(this.value=='')this.value='Your email here';" id="email-zframefeedburner" name="email">
+
+		<input type="hidden" value="TheLinuxJuggernaut" name="uri"/>
+		<input type="hidden" name="loc" value="en_US"/>
+		<label>
+			<input type="submit" id="imageField" name="imageField" value="Subscribe" alt="Submit">
+		</label></p>
+		</form>
+	</section><section id="facebooklikebox-2" class="widget widget_FacebookLikeBox"><h4 class="widgettitle">Like us on Facebook..!</h4><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like-box href="https://www.facebook.com/pages/linuxnix/116806825018326" width="292" show_faces="true" border_color="FFFFFF" stream="false" header="true"></fb:like-box>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like layout="standard" show_faces="yes" width="292" action="recommend" font="arial" colorscheme="light"></fb:like></section><section id="popular-widget-2" class="widget popular-widget">
+<h4 class="widgettitle">Most read posts..!</h4>
+<div class="pop-layout-v"><ul id="pop-widget-tabs-2" class="pop-widget-tabs pop-widget-tabs-1" ><li><a href="#viewed" rel="nofollow"><span>Most </span>Viewed</a></li></ul><div class="pop-inside-2 pop-inside"><ul id="pop-widget-viewed-2"><li><a href="http://www.linuxnix.com/2012/07/23-awesome-less-known-linuxunix-command-chaining-examples.html"><span class="pop-text"><span class="pop-title">23 Awesome Linux/Unix command chaining examples </span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/04/learn-linuxunix-find-command-50-practical-examples-part-i.html"><span class="pop-text"><span class="pop-title">Learn Linux/Unix Find command with 60+ Practical examples Part-I</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/04/learn-linuxunix-find-command-60-practical-examples-part-ii.html"><span class="pop-text"><span class="pop-title">Learn Linux/Unix Find command with 60+ Practical examples Part-II</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/04/sedsteam-editor-explained-detail-linuxunix.html"><span class="pop-text"><span class="pop-title">SED(Stream EDitor ) Explained in detail for Linux/Unix</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/04/learn-sed-examples.html"><span class="pop-text"><span class="pop-title">Learn SED with examples</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/05/7-linux-read-command-examples-shell-scripting.html"><span class="pop-text"><span class="pop-title">7 Linux read command examples for Shell scripting</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/05/view-directories-linux.html"><span class="pop-text"><span class="pop-title">How to View or see only directories in Linux</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/05/12-examples-flower-brackets-linux.html"><span class="pop-text"><span class="pop-title">12 examples to use flower brackets in Linux</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/05/7-linux-sort-command-examples-sort-files.html"><span class="pop-text"><span class="pop-title">7 linux sort command examples to sort files</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/05/redhat-flagship-distro-rhel7-release-2013.html"><span class="pop-text"><span class="pop-title">Redhat Flagship distro RHEL7 to release in 2013 second half</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/05/linux-find-command-location.html"><span class="pop-text"><span class="pop-title">How to find command location in Linux?</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/05/setup-ip-address-single-nic-linux.html"><span class="pop-text"><span class="pop-title">How to setup two IP address on single NIC in Linux</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/02/linuxunix-redirection-operatorsfile-descriptors-explained-examples.html"><span class="pop-text"><span class="pop-title">Linux/Unix redirection operators(File descriptors) explained with examples</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/05/convert-binaryhex-oct-decimal-linuxunix.html"><span class="pop-text"><span class="pop-title">Convert Binary,HEX, Oct to decimal in Linux/Unix</span> </span></a><div class="pop-cl"></div></li><li><a href="http://www.linuxnix.com/2012/02/domain-serverdns-evolution.html"><span class="pop-text"><span class="pop-title">Domain Name Server(DNS) Evolution</span> </span></a><div class="pop-cl"></div></li></ul></div><!--.pop-inside--></div><!--.pop-layout-v--></section>
+<section id="text-5" class="widget widget_text"><h4 class="widgettitle">sponsored Links</h4>			<div class="textwidget"><div id="header-inner">
+<a href="http://www.linux-ninjas.com/" style="display: block" target="_blank">
+<img alt="Linux-Ninjas" height="300px; " id="Header1_headerimg" src="http://2.bp.blogspot.com/-VAT8GlkhnWQ/TdJbjFYdktI/AAAAAAAAADA/CE2r_a_YFvo/s1600/Linux-Ninjas.test.png" style="display: block" width="300px; ">
+</a>
+</div></div>
+		</section><section id="themify-list-categories-2" class="widget list-categories"><h4 class="widgettitle">Navigation</h4><ul class="categories-list">	<li class="cat-item cat-item-20"><a href="http://www.linuxnix.com/category/administration" title="View all posts filed under Administration">Administration</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://www.linuxnix.com/category/basics" title="View all posts filed under Basics">Basics</a>
+</li>
+	<li class="cat-item cat-item-83"><a href="http://www.linuxnix.com/category/clusters" title="View all posts filed under Clusters">Clusters</a>
+</li>
+	<li class="cat-item cat-item-84"><a href="http://www.linuxnix.com/category/database" title="View all posts filed under Database">Database</a>
+</li>
+	<li class="cat-item cat-item-85"><a href="http://www.linuxnix.com/category/interviews-2" title="View all posts filed under Interviews">Interviews</a>
+</li>
+	<li class="cat-item cat-item-86"><a href="http://www.linuxnix.com/category/monitoring" title="View all posts filed under Monitoring">Monitoring</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="http://www.linuxnix.com/category/news" title="View all posts filed under News">News</a>
+</li>
+	<li class="cat-item cat-item-36"><a href="http://www.linuxnix.com/category/scripting" title="View all posts filed under Scripting">Scripting</a>
+</li>
+	<li class="cat-item cat-item-39"><a href="http://www.linuxnix.com/category/security" title="View all posts filed under Security">Security</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.linuxnix.com/category/servers" title="View all posts filed under Servers">Servers</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.linuxnix.com/category/uncategorized" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-87"><a href="http://www.linuxnix.com/category/virtualization-2" title="View all posts filed under virtualization">virtualization</a>
+</li>
+</ul></section><section id="text-3" class="widget widget_text"><h4 class="widgettitle">About Author</h4>			<div class="textwidget"><p><img style="float: right; padding: 0pt 10px;" alt="Surendra Kumar Chowdary" src="http://www.linuxnix.com/wp-content/themes/Linuxnix/images/Surendra_anne_photo-64x60.jpg"></p>
+<div class="author-bio">
+<p style="color:#666666;">Surendra Kumar Anne from Vijayawada which is cultural capital of south Indian state of Andhra Pradesh. I am a Linux evangelist who believes in &nbsp;&nbsp;<a title="Surendra Kumar" href="http://www.linuxnix.com/about/">read more »</a></p>
+</div>
+</div>
+		</section>
+	<section class="clearfix">
+		<div class="secondary">
+				</div>
+		<div class="secondary last">
+				</div>
+	</section>
+
+	
+</aside>
+<!-- /sidebar -->
+
+</div>
+<!-- /layout-container -->
+	
+	</div>
+	<!-- /body -->
+	
+	<footer id="footer" class="clearfix">
+
+																<div class="col4-1 first">
+					 <section id="text-4" class="widget widget_text">			<div class="textwidget"><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-752078-3']);
+  _gaq.push(['_setDomainName', 'linuxnix.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></div>
+		</section>				</div>
+											<div class="col4-1 ">
+					 				</div>
+											<div class="col4-1 ">
+					 				</div>
+											<div class="col4-1 ">
+					 				</div>
+							
+		<div id="footer-logo">
+							 <a href="http://www.linuxnix.com/">The Linux Juggernaut</a>
+					</div>
+		<!-- /footer-logo -->
+
+		<ul id="footer-nav" class="footer-nav"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1531"><a href="http://www.linuxnix.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1532"><a href="http://www.linuxnix.com/about-the-linux-juggernaut-blog">About US</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1533"><a href="http://www.linuxnix.com/advertise-on-linuxnix-com">Advertise</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1534"><a href="http://www.linuxnix.com/contribute-to-linuxnix-com-with-hackstutorialstips-etc">Contribute</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1535"><a href="http://www.linuxnix.com/testimonials">Testimonials</a></li>
+</ul>
+		<div class="footer-text clearfix">
+			<div class="one">&copy; <a href="http://www.linuxnix.com">The Linux Juggernaut</a> 2012</div>
+			<div class="two">Designed by my best buddy Surya &bull; </div>
+		</div>
+		<!-- /footer-text --> 
+
+		<p class="back-top"><a href="#header">&uarr; <span>Back to top</span></a></p>
+
+
+	</footer>
+	<!-- /footer --> 
+	
+</div>
+<!-- /pagewrap -->
+
+
+<!-- wp_footer -->
+    <script type="text/javascript">
+    // <![CDATA[
+        var disqus_shortname = 'linuxnix';
+        (function () {
+            var nodes = document.getElementsByTagName('span');
+            for (var i = 0, url; i < nodes.length; i++) {
+                if (nodes[i].className.indexOf('dsq-postid') != -1) {
+                    nodes[i].parentNode.setAttribute('data-disqus-identifier', nodes[i].getAttribute('rel'));
+                    url = nodes[i].parentNode.href.split('#', 1);
+                    if (url.length == 1) url = url[0];
+                    else url = url[1]
+                    nodes[i].parentNode.href = url + '#disqus_thread';
+                }
+            }
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+                        s.src = 'http' + '://' + 'disqus.com/forums/' + disqus_shortname + '/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    //]]>
+    </script>
+
+
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/themes/elemin/themify/js/jcarousel.js?ver=1.6'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/themes/elemin/themify/js/themify.shortcodes.js?ver=3.4.1'></script>
+<script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=false&#038;ver=1.6'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/themes/elemin/themify/js/themify.map.js?ver=1.6'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/themes/elemin/js/jquery.prettyPhoto.js?ver=3.4.1'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/themes/elemin/js/themify.script.js?ver=3.4.1'></script>
+<script type='text/javascript' src='http://www.linuxnix.com/wp-content/plugins/popular-widget/_js/pop-widget.js?ver=1.5.4'></script>
+
+</body>
+</html>

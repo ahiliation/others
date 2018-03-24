@@ -1,0 +1,8 @@
+what i understood and like to document related ?
+
+1. __mkdir is a system function. (file found in GNU C library.)
+2. the double underscore is used to show that it is a system function.
+3. "man 2 mkdir" shows it's definition and found it ok related with
+the code in the GNU C Library.
+4. standard ansi c  keywords and it's details http://tigcc.ticalc.org/doc/keywords.html
+5. GNU C language extensions. http://tigcc.ticalc.org/doc/gnuexts.html

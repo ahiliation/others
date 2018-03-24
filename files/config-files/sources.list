@@ -1,0 +1,14 @@
+#deb cdrom:[Debian GNU/Linux testing _Squeeze_ - Official Snapshot amd64 CD Binary-1 20101011-04:01]/ squeeze main
+#deb http://http.us.debian.org/debian testing  main contrib
+#deb http://http.us.debian.org/debian testing  main contrib non-free
+#deb http://http.us.debian.org/debian stable  main contrib non-free
+#deb-src http://http.us.debian.org/debian stable  main contrib non-free
+deb http://http.us.debian.org/debian sid  main contrib non-free
+deb http://http.us.debian.org/debian stable  main contrib non-free
+deb-src http://http.us.debian.org/debian sid  main contrib non-free
+deb http://http.us.debian.org/debian testing  main contrib non-free
+deb http://dl.google.com/linux/deb/ stable non-free main
+#deb-src http://http.us.debian.org/debian sid  main contrib non-free
+#deb http://www.debian-multimedia.org testing main non-free
+#deb-src http://www.debian-multimedia.org testing main non-free
+#deb-src http://http.us.debian.org/debian testing  main contrib

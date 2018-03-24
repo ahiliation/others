@@ -1,0 +1,72 @@
+.. beautifulwork documentation master file, created by
+   sphinx-quickstart on Sat Nov 12 20:14:24 2016.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+beautifulwork's documentation
+=============================
+(may be TODO stuff also included and doc is not complete(work in progress))
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+beautifulwork
+==============
+beautifulwork project is about documentation, 
+sharing and helping of spiritual and learning process
+
+Features
+--------
+
+  Use shell session to
+
+- Do general learning.
+- Learn computing.  
+- Work as a prototype.
+- Learn basics which helps to debug programs.
+
+Learn computing
+^^^^^^^^^^^^^^^
+  Use bash shell
+  
+- to find the command equivalent of a GNU programming API.
+- as an abstraction for a GNU programming API. 
+- to learn GNU/Linux internals using bash shell commands.
+- to learn GNU/Linux design using bash shell command design.
+
+
+Installation
+------------
+
+- git clone https://github.com/ahiliation/beautifulwork.git
+  
+
+
+
+Contribute
+----------
+
+- Issue Tracker: github.com/ahiliation/beautifulwork/issues
+- Source Code: github.com/ahiliation/beautifulwork
+
+Support
+-------
+
+If you are having issues, please let me know. e-mail: ahiliation@yahoo.co.in
+
+License
+-------
+
+The project is mostly licensed under GNU General Public License
+

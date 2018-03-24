@@ -1,0 +1,2443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='1fM/RIxQEHPUAM9UTN8lxyNfwWoifaXWtG35nO1uZgE=' name='verify-v1'/>
+<meta content='9BC9323032' name='blogcatalog'/>
+<link href='http://alexgorbatchev.com/pub/sh/2.0.320/styles/shCore.css' rel='stylesheet' type='text/css'/>
+<link href='http://alexgorbatchev.com/pub/sh/2.0.320/styles/shThemeDefault.css' rel='stylesheet' type='text/css'/>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shCore.js' type='text/javascript'></script>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushJScript.js' type='text/javascript'></script>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushCss.js' type='text/javascript'></script>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushJava.js' type='text/javascript'></script>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushPhp.js' type='text/javascript'></script>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushPlain.js' type='text/javascript'></script>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushPython.js' type='text/javascript'></script>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushSql.js' type='text/javascript'></script>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushXml.js' type='text/javascript'></script>
+<script src='http://alexgorbatchev.com/pub/sh/2.0.320/scripts/shBrushBash.js' type='text/javascript'></script>
+<script type='text/javascript'>
+SyntaxHighlighter.config.bloggerMode = true;
+SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/2.0.320/scripts/clipboard.swf';
+SyntaxHighlighter.defaults['wrap-lines'] = false;
+SyntaxHighlighter.all();
+</script>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<script type="text/javascript">(function() { var b=window,e="jstiming",g="tick";(function(){function d(a){this.t={};this.tick=function(a,d,c){c=void 0!=c?c:(new Date).getTime();this.t[a]=[c,d]};this[g]("start",null,a)}var a=new d;b.jstiming={Timer:d,load:a};if(b.performance&&b.performance.timing){var a=b.performance.timing,c=b[e].load,f=a.navigationStart,a=a.responseStart;0<f&&a>=f&&(c[g]("_wtsrt",void 0,f),c[g]("wtsrt_","_wtsrt",a),c[g]("tbsd_","wtsrt_"))}try{a=null,b.chrome&&b.chrome.csi&&(a=Math.floor(b.chrome.csi().pageT),c&&0<f&&(c[g]("_tbnd",void 0,b.chrome.csi().startE),
+c[g]("tbnd_","_tbnd",f))),null==a&&b.gtbExternal&&(a=b.gtbExternal.pageT()),null==a&&b.external&&(a=b.external.pageT,c&&0<f&&(c[g]("_tbnd",void 0,b.external.startE),c[g]("tbnd_","_tbnd",f))),a&&(b[e].pt=a)}catch(l){}})();b.tickAboveFold=function(d){var a=0;if(d.offsetParent){do a+=d.offsetTop;while(d=d.offsetParent)}d=a;750>=d&&b[e].load[g]("aft")};var h=!1;function k(){h||(h=!0,b[e].load[g]("firstScrollTime"))}b.addEventListener?b.addEventListener("scroll",k,!1):b.attachEvent("onscroll",k);
+ })();</script>
+<meta content='blogger' name='generator'/>
+<link href='http://www.cforcoding.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="C for Coding - Atom" href="http://www.cforcoding.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="C for Coding - RSS" href="http://www.cforcoding.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="C for Coding - Atom" href="http://www.blogger.com/feeds/336308386934546555/posts/default" />
+
+<link rel="alternate" type="application/atom+xml" title="C for Coding - Atom" href="http://www.cforcoding.com/feeds/5221546630989521549/comments/default" />
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<!-- Start of Changing the Blogger Title Tag -->
+<title>Plain English Explanation of Big O Notation ~ C for Coding</title>
+<!-- End of Changing the Blogger Title Tag -->
+<link type='text/css' rel='stylesheet' href='//www.blogger.com/static/v1/widgets/103638431-widget_css_bundle.css' />
+<link type='text/css' rel='stylesheet' href='//www.google.com/uds/css/gsearch.css' />
+<link type="text/css" rel="stylesheet" href="//www.blogger.com/dyn-css/authorization.css?targetBlogID=336308386934546555&zx=656d3f86-45a0-4143-bcec-369a17ae240d"/>
+<style id='page-skin-1' type='text/css'><!--
+*//* Variable Definitions
+====================
+<Variable name="textocolor" description="Text Color"
+type="color" default="#63565f">
+<Variable name="enlacecolor" description="Link Color"
+type="color" default="#cc0000">
+<Variable name="colorenlaceencima" description="Hover Link Color"
+type="color" default="#ff6600">
+<Variable name="colortituloblog" description="Blog Title Color"
+type="color" default="#660000">
+<Variable name="descripcioncolor" description="Blog Description Color"
+type="color" default="#cc0000">
+<Variable name="colortituloentrada" description="Post Title Color"
+type="color" default="#109dd0">
+<Variable name="colormenu" description="Menu Color"
+type="color" default="#cc0000">
+<Variable name="colortituloslateral" description="Sidebar Title Color"
+type="color" default="#660000">
+<Variable name="colortextolateral" description="Sidebar Text Color"
+type="color" default="#cc0000">
+<Variable name="colortituloslateral2" description="Sidebar Title Color Right"
+type="color" default="#660000">
+<Variable name="colortextolateral2" description="Sidebar Text Color Right"
+type="color" default="#cc0000">
+*/
+#outer-wrapper {
+width: 1010px; margin: 0 auto;
+}
+/**/ * html .Header { height: 130px;} /* */
+/*-- (General) --*/
+body { background: #f3f2e8 url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/bp.gif) no-repeat center top; font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; font-size: 12px; padding: 0px; margin: 0px; color:#35383d;}
+html { padding: 0; margin: 0;}
+a:link { text-decoration: none; color : #cc0000; border: 0px; -moz-outline-style: none;}
+a:active { text-decoration: underline; color : #cc0000; border: 0px; -moz-outline-style: none;}
+a:visited { text-decoration: none; color : #cc0000; border: 0px; -moz-outline-style: none;}
+a:hover	{ text-decoration: underline; color : #ff6600; border: 0px; -moz-outline-style: none;}
+a:focus { outline: none;-moz-outline-style: none;}
+h1, h2, h3, h4 {font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; clear: left;}
+img { padding: 0px; margin: 0px; border: none; text-align: center;}
+hr { border-left:0px solid #abb0b5; border-right:0px solid #abb0b5; border-top:1px dotted #abb0b5; border-bottom:0px solid #abb0b5; height : 1px;  }
+form { padding: 0px; margin: 0px;}
+input { font-family: 'Verdana'; color: #282b31; font-size: 11px;}
+textarea { font-family: 'Verdana'; color: #282b31; font-size: 11px;}
+select { font-family: 'Verdana'; color: #282b31; font-size: 11px;}
+#main-wrapper {overflow:hidden;}
+.clear {clear:both;}
+#blog-pager-newer-link {float: left;}
+#blog-pager-older-link {float: right;}
+#blog-pager {text-align: center; }
+/*-- (Header) --*/
+#header-wrapper {
+width: 1010px;
+margin: 0 auto;
+position:relative;
+min-height: 130px;
+}
+#header-inner {
+float: right; width: 500px;
+}
+#header-wrapper h1 {
+font-size: 55px; line-height: 55px; letter-spacing: -3px; padding: 0px; margin: 0px; font-weight: bold; font-family: "Trebuchet MS";position: absolute; top: 48px; color:#660000; }
+#header-wrapper h1 a, #header-wrapper h1 { color:#660000; text-decoration: none; }
+#header-wrapper h1 a:visited { color:#660000; text-decoration: none; }
+#header-wrapper h1 a:hover { color:#660000; text-decoration: none; }
+#header-wrapper p {
+position: absolute; top: 105px; color:#cc0000; font-size: 14px; line-height: 14px; font-weight: bold; font-family: "Trebuchet MS"; padding: 0px; margin: 0px;
+}
+/*-- (Menu) --*/
+.Menu { width: 500px; padding: 0px 0px 0px 30px; float: left; position: absolute;  top: 100px; }
+.Menu em { display: none}
+.Menu ul { list-style: none; margin: 0px; padding: 0px;}
+.Menu ul li { padding: 0px; margin: 0px; display: inline; font-size: 14px; line-height: 14px; font-weight: bold; font-family: "Trebuchet MS"; }
+.Menu ul li a { padding: 0px 0px 0px 9px; background: url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/menuleft.gif) no-repeat left top; float: left;}
+.Menu ul li a span { padding: 4px 9px 9px 0px; display: block; background: url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/menuright.gif) no-repeat right top; float: right; }
+.Menu ul li a span { float: none; color: #cc0000;}
+.Menu ul li a:hover span { color: #cc0000;}
+.Menu ul li a:hover { background-position: 0% -27px; color:#ffff99; text-decoration: none;}
+.Menu ul li a:hover span { background-position: 100% -27px;  color:#ffff99;}
+.Menu ul li ul { display: none;}
+/*-- (Content) --*/
+#content-wrapper {
+width: 980px; padding: 14px; border: solid 1px #e1dfd0; background: #fff; margin: 0 auto;
+}
+/*-- (Main) --*/
+#main-wrapper {
+width: 510px; float: left; padding: 0px 15px 0px 15px;
+}
+.post {
+padding: 15px 0px; position: relative; clear: left;
+}
+.PostHead { margin-left: 55px; }
+.post-title, .post-title a { font-size: 24px; line-height: 24px; letter-spacing: -1px; font-weight: bold; padding: 0px 0px 1px 0px; margin: 0px; }
+.post-title a { color:#109dd0; text-decoration: none;}
+.post-title a:visited { color: #109dd0; text-decoration: none;}
+.post-title a:hover { color:#000; text-decoration: none;}
+.post-body { padding: 10px 0px 0px 0px; font-size: 13px; line-height: 1.4em ; color:#63565f}
+.post-body p { font-size: 13px; line-height: 1.4em;}
+.post-body p strong {}
+.post-body img {}
+.post-body ol { padding: 10px 0px 10px 25px; margin: 0px; }
+.post-body ol li { padding: 2px 0px 2px 0px; font-size: 12px; line-height: 15px; color:#63565f; }
+.post-body ul { padding: 5px 0px; margin: 0px; list-style: none; }
+.post-body ul li { padding: 2px 0px 2px 15px; background: url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/postcontentliicotr2.png) no-repeat left top; font-size: 12px; line-height: 15px; color:#63565f; }
+.post-body blockquote { padding: 10px; margin: 0px; color:#993366; background: #eaf7ff;}
+.post-body blockquote ul { list-style: circle; }
+.post-body blockquote p { font-size: 12px; padding: 0px; margin: 0.5em; line-height: 15px;}
+.post-body blockquote li { padding: 2px 0px 2px 15px; font-size: 12px; line-height: 15px;}
+.post-body blockquote a { color:#336699;}
+.post-body blockquote a:visited { color:#336699;}
+.post-body blockquote a:hover { color:#000033;}
+/**/ * html .post-body p img {} /* */
+.post-body p img { max-width: 550px;}
+.post-body p img { width:expression(this.width > 550 ? "550px" : this.width); }
+.post-body img { margin: 0px 10px 10px 0px; float: left; border:solid 1px #495b6b;}
+.PostHead small {display:block; font-size:11px; font-weight:bold;  line-height:14px; margin:0px; padding:0px; }
+/**/ * html #fecha { left: -70px;} /**/
+#fecha { padding: 0px; margin: 0px; position: absolute; left: -15px; top: 3px; background: url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/PostTimeBkg.gif) no-repeat; height: 71px; width: 67px; text-align: center; color:#fff; }
+#fecha strong { display: block; line-height: 9px; font-family: 'Verdana';}
+small#fecha {
+padding: 0px; margin: 0px; font-size: 11px; line-height: 14px; font-weight: bold; display: block
+}
+#fecha .fecha_dia{ font-size: 16px; line-height: 18px; letter-spacing: -1px; padding-top: 20px; font-family: 'Arial';}
+#fecha .fecha_mes { font-size: 10px; text-transform: lowercase;}
+#fecha .fecha_anio { padding-top: 7px; font-weight: normal; }
+#fecha span {padding: 0px; margin: 0px; font-size: 11px; line-height: 14px; font-weight: bold; display: block}
+.post-labels { color:#ff6600; }
+.post-labels a { color:#ff6600; text-decoration: none; }
+.post-labels a:visited { color:#ff6600; text-decoration: none; }
+.post-labels a:hover { color:#ff6600; text-decoration: none; }
+.post-author {color:#999;}
+.post-comment-link .comment-link {padding: 5px 0px 5px 20px;display: inline; color:#336699; font-size: 12px; background: url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/PostCom.png) no-repeat left center;}
+.post-comment-link a {font-weight: bold; text-decoration: none; color:#ff6600;}
+.post-comment-link li a:visited { font-weight: bold; text-decoration: none; color:#ff6600;}
+.post-comment-link li a:hover { font-weight: bold; text-decoration: none; color:#cc0000;}
+#blog-pager { font-size: 11px; padding: 10px 0px; color:#666; font-family: 'Verdana';}
+#blog-pager a { padding: 1px 6px 1px 4px; font-size: 11px;}
+#blog-pager a:visited { padding: 1px 6px 1px 4px; }
+#blog-pager a:hover { padding: 1px 6px 1px 4px; text-decoration: none;}
+/*-- (Sidebar) --*/
+#sidebar-wrapper {
+width: 440px; float: right; position: relative; padding: 0px;
+}
+#sidebar-itz { width: 260px; float: left; position: relative;}
+#sidebar-izq { width: 160px; float: right; position: relative;}
+#sidebar-izq .widget { background: #fff3e2 url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/SRL-widgetbkg.gif) repeat-x left top; padding: 10px 0; margin-bottom: 10px;}
+#sidebar-izq .widget h2 { color:#660000; font-size: 14px; border-bottom: solid 1px #ffe0bf; padding: 0px 0px 5px 0px; margin: 0px;}
+#sidebar-izq .widget ul { margin: 0px; padding: 0px;}
+#sidebar-izq .widget li { margin: 0px; padding: 0px; list-style-type: none; }
+#sidebar-izq .widget a { color:#cc0000;}
+#sidebar-izq .widget a:visited { color:#cc0000;}
+#sidebar-izq .widget a:hover { color:#ff6600; text-decoration: none;}
+/**/ *html .Search  { height: 74px;} /**/
+.Search { background: #cc0000 url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/Search.gif) no-repeat left top; right: 0px; padding: 45px 20px 20px 20px; min-height: 74px;}
+.Search form { background: url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/SearchForm.gif) no-repeat left top; padding: 0px; margin: 0px; }
+.Search input { color: #330033; font-size: 12px;}
+.Search  input.keyword { background: none; border: none; padding: 5px 0px 5px 8px; width: 185px; }
+.Search  input.search { width: 27px; height: 24px; background: url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/SearchButton.gif) no-repeat;}
+.Search .bt { padding: 0px; margin: 43px 0px 0px 0px; top: 2px; background: none; position: absolute; right: 20px; }
+.Syn ul { margin: 0px; padding: 5px 0px;}
+.Syn li { background: url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/SynIco.png) no-repeat left center; margin: 0px 5px 0px 0px; padding: 3px 0px 3px 15px; list-style-type: none; font-size: 12px; color:#ffcc66; display: inline; font-weight: bold;}
+.Syn li a {color:#fff; }
+.Syn li a:visited {color:#fff; }
+.Syn li a:hover {color:#fff; }
+/* Description Blog */
+.About { background: #ff6600 url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/AboutBkg.gif) no-repeat left bottom; padding: 0px 20px 10px 20px; color:#fff;}
+.About h2 { padding: 0px; margin: 0px; font-size: 18px; font-weight: normal;}
+.About p { padding: 5px 0px; margin: 0px; font-size: 13px; line-height: 16px;}
+.Recent {
+background:#FFE0BF url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/RecentBkg-1.gif) repeat-x scroll left top;
+margin-bottom:10px;
+padding:10px;
+}
+.TabMenu {
+float:left;
+margin:0px;
+padding:0px;
+}
+.TabMenu li {
+display:inline;
+font-family:"Trebuchet MS";
+font-size:12px;
+font-weight:bold;
+line-height:14px;
+list-style-type:none;
+margin:0px;
+padding:0px;
+text-transform:lowercase;
+}
+.TabMenu li a {
+background:transparent url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/mleft.gif) no-repeat scroll left top;
+float:left;
+margin-right:7px;
+padding:0px 0px 0px 9px;
+}
+.TabMenu li a span {
+background:transparent url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/mright.gif) no-repeat scroll right top;
+display:block;
+float:right;
+padding:4px 9px 9px 0px;
+}
+.TabMenu li a span {
+color:#CC0000;
+float:none;
+}
+.TabMenu li a:hover span {
+color:#CC0000;
+}
+.TabMenu li a:hover {
+background-position:0% -27px;
+color:#FFFF99;
+text-decoration:none;
+}
+.TabMenu li a:hover span {
+background-position:100% -27px;
+color:#FFFF99;
+}
+.TabLink a.active:link {
+background-position:0% -27px;
+color:#FFFF99;
+text-decoration:none;
+}
+.TabLink a.active:link span {
+background-position:0% -27px;
+color:#FFFF99;
+text-decoration:none;
+}
+.TabLink a.active:visited {
+background-position:left bottom;
+color:#FFFF99;
+}
+.TabLink a.active:visited span {
+background-position:right bottom;
+color:#FFFF99;
+}
+.TabContent {
+clear:left;
+padding-top:10px;
+}
+.TabContent ul {
+margin:0px;
+padding:0px;
+}
+.TabContent li {
+border-bottom:1px solid #ECC9A5;
+color:#000033;
+font-size:13px;
+list-style-type:none;
+margin:0px;
+padding:1px 0px;
+}
+.TabContent li a {
+color:#336699;
+text-decoration:none;
+}
+.TabContent li a:visited {
+color:#336699;
+text-decoration:none;
+}
+.TabContent li a:hover {
+color:#000033;
+text-decoration:none;
+}
+#sidebar-der { width: 165px; float: right; padding: 0px 0px 0px 0px;}
+#sidebar-der h2 { color:#660000; font-size: 16px; border-bottom: solid 1px #eeede4; letter-spacing: -1px; padding: 5px 0px; margin: 0px;}
+#sidebar-der ul { margin: 0px; padding: 0px;}
+#sidebar-der li { margin: 0px; padding: 0px; list-style-type: none; }
+#sidebar-der a { color:#cc0000;}
+#sidebar-der a:visited { color:#cc0000;}
+#sidebar-der a:hover { color:#ff6600; text-decoration: none;}
+#sidebar-der .widget { margin: 0px 0px 10px 0px; padding: 0px;}
+#sidebar-der .widget ul { margin: 0px; padding: 0px;}
+#sidebar-der .widget li { margin: 0px; padding: 1px 0px 1px 0px; list-style-type: none; font-size: 12px; border-bottom: solid 1px #eeede4; color:#999;}
+#sidebar-der .widget li a { color:#cc0000;}
+#sidebar-der .widget li a:visited { color:#cc0000;}
+#sidebar-der .widget li a:hover { color:#ff6600; text-decoration: none;}
+#sidebar-wrapper .Label ul { margin: 0px; padding: 0px;}
+#sidebar-wrapper .Label ul li { margin: 0px; padding: 1px 0px 1px 0px; list-style-type: none; font-size: 12px; border-bottom: solid 1px #eeede4; color:#999; font-weight: bold;}
+#sidebar-wrapper .Label ul li a { color:#cc0000;}
+#sidebar-wrapper .Label ul li a:visited { color:#cc0000;}
+#sidebar-wrapper .Label ul li a:hover { color:#ff6600; text-decoration: none;}
+.widget-content {
+}
+.sidebar .widget {
+}
+#footer-wrapper { width: 100%; padding: 0px; clear: both;
+}
+#footer-wrapper { width: 980px; margin: 0 auto; background: url(http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/FooterIco.gif) no-repeat left center; padding: 10px 0px 10px 30px;}
+#footer-wrapper p { font-size: 10px; line-height: 12px; color:#999; padding: 0px; margin: 0px; font-family: 'Verdana'; }
+#footer-wrapper a { color:#999; text-decoration: underline;}
+#footer-wrapper .links {
+}
+/*-- (Comments) --*/
+#comments h4 {
+font-size: 16px; letter-spacing: -1px; margin: 0px 0px 5px 0px; padding: 10px 0px; color:#660000; border-bottom: solid 2px #660000;
+}
+#comments dl {
+padding: 0px; margin: 0px;
+}
+.comment-author { margin: 15px 0 0 0; padding: 0px; font-size: 11px; line-height: 12px; color:#999; font: bold 16px "Trebuchet MS", sans-serif; letter-spacing: -1px; color:#666;}
+.comment-author a { color:#cc0000; text-decoration: none;}
+.comment-body { margin: 10px 0px 0px 0px; padding: 0px; font-size: 12px; line-height: 16px; border-top: solid 1px #ccc;}
+.comment-body p { margin: 0px; padding: 5px 0px; font-size: 12px; line-height: 16px;}
+dd .comment-timestamp a {
+color:#999999;
+text-decoration:none;
+}
+dd.comment-footer {
+margin-left:0; padding-left:0;
+}
+/** Page structure tweaks for layout editor wireframe */
+body#layout #sidebar, body#layout #main,
+body#layout #main-wrapper,
+body#layout #outer-wrapper,
+body#layout #sidebar-wrapper {
+padding: 0;
+}
+body#layout #outer-wrapper {
+width: 740px;
+margin-left: auto;
+margin-right: auto;
+}
+body#layout #wrap2 {
+width: 740px;
+margin-left: auto;
+margin-right: auto;
+}
+body#layout #content-wrapper {
+margin-left: 0px;
+margin-right: 0px;
+width: 740px;
+padding: 0;
+}
+body#layout #header-wrapper {
+margin-left: 0px;
+margin-right: 0px;
+width: 740px;
+padding: 0;
+}
+body#layout #footer-wrapper {
+margin-left: 0px;
+margin-right: 0px;
+width: 740px;
+padding: 0;
+}
+body#layout #header-inner {
+margin-left: 0px;
+margin-right: 0px;
+width: 740px;
+padding: 0;
+}
+body#layout .Menu {
+margin-left: 0px;
+margin-right: 0px;
+width: 740px;
+padding: 0;
+}
+body#layout #footer1 {
+margin-left: 0px;
+margin-right: 0px;
+width: 740px;
+padding: 0;
+}
+body#layout #main-wrapper {
+margin-left: 0px;
+margin-right: 0px;
+width: 500px;
+padding: 0 0 0 0;
+}
+body#layout #sidebar-wrapper {
+margin-left: 0px;
+margin-right: 0px;
+width: 235px;
+padding: 0 0 0 0px;
+}
+body#layout #container-bottom {
+width:740px;
+margin:0 auto;
+padding-top:15px;
+}
+body#layout #sidebar-itz {
+margin-left: 0px;
+margin-right: 0px;
+width: 110px;
+padding: 0 0 0 0px;
+}
+body#layout #sidebar-der {
+margin-left: 0px;
+margin-right: 0px;
+width: 110px;
+padding: 0 0 0 0px;
+}
+body#layout #sidebar-izq {
+margin-left: 0px;
+margin-right: 0px;
+width: 110px;
+padding: 0 0 0 0px;
+}
+body#layout .container-top {
+width:740px;
+margin:0 auto;
+padding-top:15px;
+}
+#bookmark-links {
+float:right;
+padding-left:10px;
+background: white;
+}
+#bookmark-links iframe {
+display: block;
+margin-bottom: 10px;
+}
+/* Label Cloud Styles
+----------------------------------------------- */
+#labelCloud {text-align:center;font-family:arial,sans-serif;}
+#labelCloud .label-cloud li{display:inline;background-image:none !important;padding:0 5px;margin:0;vertical-align:baseline !important;border:0 !important;}
+#labelCloud ul{list-style-type:none;margin:0 auto;padding:0;}
+#labelCloud a img{border:0;display:inline;margin:0 0 0 3px;padding:0}
+#labelCloud a{text-decoration:none}
+#labelCloud a:hover{text-decoration:underline}
+#labelCloud li a{}
+#labelCloud .label-cloud {}
+#labelCloud .label-count {padding-left:0.2em;font-size:9px;color:#000}
+#labelCloud .label-cloud li:before{content:"" !important}
+
+--></style>
+<script type='text/javascript'>
+// Label Cloud User Variables
+var cloudMin = 1;
+var maxFontSize = 26;
+var maxColor = [255,0,0];
+var minFontSize = 12;
+var minColor = [80,0,0];
+var lcShowCount = false;
+</script>
+<script>
+function remplaza_fecha(d){
+var da = d.split(' ');
+dia = "<strong class='fecha_dia'>"+da[2].replace(/,/,"")+"</strong>"; 
+mes = "<strong class='fecha_mes'>"+da[1].slice(0,3)+"</strong>"; 
+anio = "<strong class='fecha_anio'>"+da[3]+"</strong>";
+  document.write(dia+mes+anio);
+}
+</script>
+<script type='text/javascript'>
+// <![CDATA[
+function display(id)
+{
+var zDD=document.getElementById('show').getElementsByTagName('div');
+var ZON=document.getElementById('name_'+id);
+for(var i=0;i<zDD.length;i++){
+   zDD[i].className='hide';	 
+    }
+ZON.className='show';
+var d1=document.getElementById('topTab');
+dArr=d1.getElementsByTagName('a');
+for(var i=0;i<dArr.length; i++)
+{
+if(id==(i+1))
+{ 
+str=dArr[i].className;
+dArr[i].className=str.replace('_on','')+'_on';
+}
+else{ 
+str=dArr[i].className;
+dArr[i].className=str.replace('_on','');  }
+}
+/*
+if(id==1){ d1.className='cautare_on'; d2.className='contulmeu';}
+else{ d1.className='cautare'; d2.className='contulmeu_on'; }
+*/
+}
+function ShowTab(T)
+{
+i = 0;
+while(document.getElementById("tab" + i) != null){
+document.getElementById("div" + i).style.display = "none";
+document.getElementById("tab" + i).className = "";
+document.getElementById("paging" + i).style.display = "none";
+i++;
+}
+document.getElementById("paging" +  T).style.display = "";
+document.getElementById("div" + T).style.display = "";
+document.getElementById("tab" + T).className = "active";
+}
+// ]]>
+</script>
+<script type="text/javascript">var a=navigator,b="userAgent",c="indexOf",f="&m=1",g="(^|&)m=",h="?",k="?m=1";function l(){var d=window.location.href,e=d.split(h);switch(e.length){case 1:return d+k;case 2:return 0<=e[1].search(g)?null:d+f;default:return null}}if(-1!=a[b][c]("Mobile")&&-1!=a[b][c]("WebKit")&&-1==a[b][c]("iPad")||-1!=a[b][c]("Opera Mini")||-1!=a[b][c]("IEMobile")){var m=l();m&&window.location.replace(m)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script></head>
+<body>
+<div class='navbar section' id='navbar'><div class='widget Navbar' id='Navbar1'><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"></div>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+        gapi.load("iframes-styles-bubble", function() {
+          if (window.iframes && iframes.open) {
+            iframes.open(
+                '//www.blogger.com/navbar.g?targetBlogID\075336308386934546555\46blogName\75C+for+Coding\46publishMode\75PUBLISH_MODE_HOSTED\46navbarType\75TAN\46layoutType\75LAYOUTS\46searchRoot\75http://www.cforcoding.com/search\46blogLocale\75en\46v\0752\46homepageUrl\75http://www.cforcoding.com/\46targetPostID\0755221546630989521549\46blogPostOrPageUrl\75http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html\46vt\758925581684339157048',
+                {
+                  container: "navbar-iframe-container",
+                  id: "navbar-iframe"
+                },
+                {
+                });
+          }
+        });
+      </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div id='outer-wrapper'>
+<div id='wrap2'>
+<!-- skip links for text browsers -->
+<span id='skiplinks' style='display:none;'>
+<a href='#main'>skip to main </a> |
+      <a href='#sidebar'>skip to sidebar</a>
+</span>
+<!-- (Header) -->
+<div id='header-wrapper'>
+<div id='header-in'>
+<div class='header section' id='header'><div class='widget Header' id='Header1'>
+<div id='header-inner'>
+<div class='titlewrapper'>
+<h1 class='title'>
+<a href='http://www.cforcoding.com/'>C for Coding</a>
+</h1>
+</div>
+<div class='descriptionwrapper'>
+<p class='description'><span>
+</span></p>
+</div>
+</div>
+</div><div class='widget LinkList' id='LinkList3'>
+<div class='widget-content'>
+<div class='Menu'>
+<ul>
+<li class='page_item'><a href='/'><span>Home</span></a></li>
+<li class='page_item'><a href='http://www.cforcoding.com/2009/05/contact.html'><span>Contact</span></a></li>
+</ul>
+</div>
+</div>
+</div></div>
+</div><!-- header in -->
+</div><!-- header wrapper -->
+<!-- (Container) -->
+<div id='content-wrapper'>
+<!-- (Main) -->
+<div id='main-wrapper'>
+<div class='main section' id='main'><div class='widget Blog' id='Blog1'>
+<div class='blog-posts hfeed'>
+<!-- google_ad_section_start -->
+<div class='post hentry uncustomized-post-template'><div class='PostHead'>
+<a name='5221546630989521549'></a>
+<h2 class='post-title entry-title'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html'>Plain English Explanation of Big O Notation</a>
+</h2>
+<small id='fecha'>
+<script>remplaza_fecha('Thursday, July 09, 2009');</script>
+</small>
+<small class='post-author vcard'>
+Posted by
+<span class='fn'>William Shields</span>
+</small>
+<small class='post-labels'>
+Labels:
+<a href='http://www.cforcoding.com/search/label/algorithms' rel='tag'>algorithms</a>,
+<a href='http://www.cforcoding.com/search/label/computer%20science' rel='tag'>computer science</a>
+</small>
+</div>
+<div class='post-header-line-1'></div>
+<div class='post-body entry-content'>
+<div id='bookmark-links'>
+<script>reddit_url='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html'</script><br/><script>reddit_title='Plain English Explanation of Big O Notation'</script><br/><script language='javascript' src='http://reddit.com/button.js?t=2'></script>
+<div style='clear:both;'></div>
+<script type='text/javascript'>
+var dzone_url = 'http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html';
+var dzone_title = 'Plain English Explanation of Big O Notation';
+var dzone_style = '1';
+if (dzone_url == 'http://www.cforcoding.com/2009/05/everything-old-is-new-again.html') {
+  dzone_url = 'http://cforcoding.blogspot.com/2009/05/everything-old-is-new-again.html';
+}
+</script>
+<script language='javascript' src='http://widgets.dzone.com/links/widgets/zoneit.js'></script>
+<script type='text/javascript'>
+tweetmeme_url = 'http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html';
+</script>
+<script src='http://tweetmeme.com/i/scripts/button.js' type='text/javascript'>
+</script>
+</div>
+<p><p>I recently read <a href="http://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/">A Beginners&#8217; Guide to Big O Notation</a> and while I appreciate such efforts I don&#8217;t think it went far enough. I&#8217;m a <em>huge</em> fan of &#8220;plain English&#8221; explanations to, well, anything. Just look at the <a href="http://en.wikipedia.org/wiki/Big_O_notation#Formal_definition">formal definition of Big O</a>. The only people who can understand that already know what it means (and probably have a higher degree in mathematics and/or computer science).</p>  <p>On <a href="http://stackoverflow.com">StackOverflow</a> you often get comments like &#8220;you should do X because it&#8217;s O(2n) and Y is O(3n)&#8221;. Such statements originate from a basic misunderstanding of what Big O is and how to apply it. The material in this post is basically a rehash and expansion of what <a href="http://stackoverflow.com/questions/487258/plain-english-explanation-of-big-o/487278#487278">I've previously written</a> on the subject.</p>  <h3>What is Big O?</h3>  <p>Big O notation seeks to describe the <em>relative complexity</em> of an algorithm by reducing the growth rate to the key factors when the key factor tends towards infinity. For this reason, you will often hear the phrase <em>asymptotic complexity</em>. In doing so, all other factors are ignored. It is a&#160; <strong>relative representation of complexity</strong>.</p>  <h3>What <em>Isn&#8217;t</em> Big O?</h3>  <p>Big O <em>isn&#8217;t</em> a performance test of an algorithm. It is also <em>notional</em> or <em>abstract</em> in that it tends to ignore other factors. Sorting algorithm complexity is typically reduced to the number of elements being sorted as being the key factor. This is fine but it doesn&#8217;t take into account issues such as:</p>  <ul>   <li><strong>Memory Usage:</strong> one algorithm might use much more memory than another. Depending on the situation this could be anything from completely irrelevant to critical; </li>    <li><strong>Cost of Comparison:</strong> It may be that comparing elements is really expensive, which will potentially change any real-world comparison between algorithms; </li>    <li><strong>Cost of Moving Elements:</strong> copying elements is typically cheap but this isn&#8217;t necessarily the case; </li>    <li>etc. </li> </ul>  <h3>Arithmetic</h3>  <p>The best example of Big-O I can think of is doing arithmetic. Take two numbers (123456 and 789012). The basic arithmetic operations we learnt in school were:</p>  <ul>   <li>addition; </li>    <li>subtraction; </li>    <li>multiplication; and </li>    <li>division. </li> </ul>  <p>Each of these is an operation or a problem. A method of solving these is called an <strong>algorithm</strong>.</p>  <p>Addition is the simplest. You line the numbers up (to the right) and add the digits in a column writing the last number of that addition in the result. The 'tens' part of that number is carried over to the next column.</p>  <p>Let's assume that the addition of these numbers is the most expensive operation in this algorithm. It stands to reason that to add these two numbers together we have to add together 6 digits (and possibly carry a 7th). If we add two 100 digit numbers together we have to do 100 additions. If we add two 10,000 digit numbers we have to do 10,000 additions.</p>  <p>See the pattern? The <strong>complexity</strong> (being the number of operations) is directly proportional to the number of digits. We call this <strong>O(n)</strong> or <strong>linear complexity</strong>. Some argue that this is in fact <strong>O(log n)</strong> or <strong><em>logarithmic complexity</em></strong>. Why? Because adding 10,000,000 to itself takes twice as long as adding 1,000 to itself as there are 8 digits instead of 4. But 10,000,000 is 10,000 times as large so depending on your application it may be appropriate to define the problem in terms of number of digits (ie order of magnitude) of the input. In others, the number itself may be appropriate.</p>  <p>Subtraction is similar (except you may need to borrow instead of carry).</p>  <p>Multiplication is different. You line the numbers up, take the first digit in the bottom number and multiply it in turn against each digit in the top number and so on through each digit. So to multiply our two 6 digit numbers we must do 36 multiplications. We may need to do as many as 10 or 11 column adds to get the end result too.</p>  <p>If we have 2 100 digit numbers we need to do 10,000 multiplications and 200 adds. For two one million digit numbers we need to do one trillion (10<sup>12</sup>) multiplications and two million adds.</p>  <p>As the algorithm scales with n-<em>squared</em>, this is <strong>O(n<sup>2</sup>)</strong> or <strong>quadratic complexity</strong>. This is a good time to introduce another important concept:</p>  <p><strong>We only care about the most significant portion of complexity.</strong></p>  <p>The astute may have realized that we could express the number of operations as: n<sup>2</sup> + 2n. But as you saw from our example with two numbers of a million digits apiece, the second term (2n) becomes insignificant (accounting for 0.00002% of the total operations by that stage).</p>  <h3>The Telephone Book</h3>  <p>The next best example I can think of is the telephone book, normally called the White Pages or similar but it'll vary from country to country. But I'm talking about the one that lists people by surname and then initials or first name, possibly address and then telephone numbers.</p>  <p>Now if you were instructing a computer to look up the phone number for &quot;John Smith&quot;, what would you do? Ignoring the fact that you could guess how far in the S's started (let's assume you can't), what would you do?</p>  <p>A typical implementation might be to open up to the middle, take the 500,000<sup>th</sup> and compare it to &quot;Smith&quot;. If it happens to be &quot;Smith, John&quot;, we just got real lucky. Far more likely is that &quot;John Smith&quot; will be before or after that name. If it's after we then divide the last half of the phone book in half and repeat. If it's before then we divide the first half of the phone book in half and repeat. And so on.</p>  <p>This is called a <strong>bisection search</strong> and is used every day in programming whether you realize it or not.</p>  <p>So if you want to find a name in a phone book of a million names you can actually find any name by doing this at most 21 or so times (I might be off by 1). In comparing search algorithms we decide that this comparison is our 'n'.</p>  <p>For a phone book of 3 names it takes 2 comparisons (at most).    <br />For 7 it takes at most 3.     <br />For 15 it takes 4.     <br />...     <br />For 1,000,000 it takes 21 or so.</p>  <p>That is staggeringly good isn't it?</p>  <p>In Big-O terms this is <strong>O(log n)</strong> or <strong>logarithmic complexity</strong>. Now the logarithm in question could be ln (base e), log<sub>10</sub>, log<sub>2</sub> or some other base. It doesn't matter it's still O(log n) just like O(2n<sup>2</sup>) and O(100n<sup>2</sup>) are still both O(n<sup>2</sup>).</p>  <p>It's worthwhile at this point to explain that Big O can be used to determine three cases with an algorithm:</p>  <ul>   <li><strong>Best Case:</strong> In the telephone book search, the best case is that we find the name in one comparison. This is <strong>O(1)</strong> or <strong>constant complexity</strong>; </li>    <li><strong>Expected Case:</strong> As discussed above this is O(log n); and </li>    <li><strong>Worst Case:</strong> This is also O(log n). </li> </ul>  <p>Normally we don't care about the best case. We're interested in the expected and worst case. Sometimes one or the other of these will be more important.</p>  <p>Back to the telephone book.</p>  <p>What if you have a phone number and want to find a name? The police have a reverse phone book but such lookups are denied to the general public. Or are they? Technically you can reverse lookup a number in an ordinary phone book. How?</p>  <p>You start at the first name and compare the number. If it's a match, great, if not, you move on to the next. You have to do it this way because the phone book is <strong>unordered</strong> (by phone number anyway).</p>  <p>So to find a name:</p>  <ul>   <li><strong>Best Case:</strong> O(1); </li>    <li><strong>Expected Case:</strong> O(n) (for 500,000); and </li>    <li><strong>Worst Case:</strong> O(n) (for 1,000,000). </li> </ul>  <h3>The Travelling Salesman</h3>  <p>This is quite a famous problem in computer science and deserves a mention. In this problem you have N towns. Each of those towns is linked to 1 or more other towns by a road of a certain distance. The Travelling Salesman problem is to find the shortest tour that visits every town.</p>  <p>Sounds simple? Think again.</p>  <p>If you have 3 towns A, B and C with roads between all pairs then you could go:</p>  <pre>A -&gt; B -&gt; C 
+A -&gt; C -&gt; B 
+B -&gt; C -&gt; A 
+B -&gt; A -&gt; C 
+C -&gt; A -&gt; B 
+C -&gt; B -&gt; A</pre>
+
+<p>Well actually there's less than that because some of these are equivalent (A -&gt; B -&gt; C and C -&gt; B -&gt; A are equivalent, for example, because they use the same roads, just in reverse).</p>
+
+<p>In actuality there are 3 possibilities.</p>
+
+<p>Take this to 4 towns and you have (iirc) 12 possibilities. With 5 it's 60. 6 becomes 360.</p>
+
+<p>This is a function of a mathematical operation called a <strong>factorial</strong>. Basically:</p>
+
+<pre>5! = 5 * 4 * 3 * 2 * 1 - 120
+6! = 6 * 5 * 4 * 3 * 2 * 1 = 720
+7! = 7 * 6 * 5 * 4 * 3 * 2 * 1 = 5040
+...
+25! = 25 * 24 * ... * 2 * 1 = 15,511,210,043,330,985,984,000,000
+...
+50! = 50 * 49 * ... * 2 * 1 = 3.04140932... &#215; 10^64</pre>
+
+<p>So far, the only way known of solving the Travelling Salesman problem is by brute force. Unfortunately, such a technique has O(n!) complexity to solve.</p>
+
+<p><strong>By the time you get to 200 towns there isn't enough time left in the universe to solve the problem with traditional computers.</strong></p>
+
+<p>Something to think about.</p>
+
+<h3>Polynomial Time</h3>
+
+<p>Another point I wanted to make quick mention of is that any algorithm that has a complexity of <strong>O(n<sup>k</sup>)</strong> for any constant <em>k</em> is said to have <strong>polynomial complexity</strong> or is solvable in <strong>polynomial time</strong>.</p>
+
+<p>Traditional computers can solve problems in polynomial time. Certain things are used in the world because of this. Public Key Cryptography is a prime example. It is computationally hard to find two prime factors of a very large number. If it wasn't, we couldn't use the public key systems we use.</p>
+
+<h3>Big Greek Letters</h3>
+
+<p>Big O is often misused. Big O or Big Oh is actually short for Big Omicron. It represents the <em>upper bound</em> of asymptotic complexity. So if an algorithm is O(n log n) there exists a constant <em>c</em> such that the upper bound is <em>c</em>n log n.</p>
+
+<p>Θ(n log n) (Big Theta) is more tightly bound than that. Such an algorithm means there exists two constants <em>c</em><sub>1</sub> and <em>c</em><sub>2</sub> such that <em>c</em><sub>1</sub>n log n &lt; <em>f</em>(n) &lt; <em>c</em><sub>2</sub>n log n.</em> </p>
+
+<p>Ω(n log n) (Big Omega) says that the algorithm has a <em>lower bound</em> of <em>c</em>n log n.</p>
+
+<p>There are others but these are the most common and Big O is the most common of all. Such a distinction is <em>typically</em> unimportant but it is worth noting. The correct notation is the correct notation, after all.</p>
+
+<h3>Determinism</h3>
+
+<p>Algorithms can also be classified as being either <strong>deterministic</strong> or <strong>probabilistic</strong>.It&#8217;s important to understand the difference. Sometimes requirements or constraints may dictate the choice of one over the other even if the expected case is worse. You should be able to classify an algorithm as one or the other.</p>
+
+<p>A good example of this is comparing files. Say you have two files A and B and you want to determine if they are the same. The simple implementation for this is:</p>
+
+<ol>
+  <li>If the sizes are different, the files are different; else </li>
+
+  <li>Compare each file byte-for-byte. If two different bytes are found, the files are different; else </li>
+
+  <li>The files are the same. </li>
+</ol>
+
+<p>This is a <strong>deterministic</strong> algorithm because the probability of a false positive (the algorithm saying the files are the same when they aren&#8217;t) and a false negative (saying they are different when they aren&#8217;t) is 0 in both cases.</p>
+
+<p>For various reasons however it might be impractical or undesirable to implement the algorithm this way. Many file comparisons may be required making the operation potentially very expensive on large files. Also the files might be remote to each other and it might be impractical to send a complete copy just so the remote system can see if its changed.</p>
+
+<p>A more common approach is to use a <strong>hash function</strong>. A hash function basically just converts a large piece of data into a smaller piece of data (called a <strong>hash</strong>), usually a 32-128 bit integer. A good hash function will distribute values in the new (smaller) data range as evenly as possible.</p>
+
+<p>A common hash function is an <a href="http://en.wikipedia.org/wiki/Md5#MD5_hashes">MD5 hash</a>, which generates a 128-bit hash. Let&#8217;s say files A and B were on different servers. One could send an MD5 hash of the file to the other, which could compare it to its own MD5 hash. If they&#8217;re different, the files are different. If they&#8217;re the same, the files are <em>highly likely to be the same</em>.</p>
+
+<p>An MD5 hash comparison is a <strong>probabilistic</strong> comparison algorithm for this reason.</p>
+
+<p>And before you say that the chance is so remote it&#8217;ll never happen, <em>think again</em>. A malicious exploit has been demonstrated of <a href="http://www.mscs.dal.ca/~selinger/md5collision/">generating two files with the same MD5 hash</a>.</p>
+
+<p>Algorithms such as this that only have brute force approaches age relatively quickly. Where once MD5 was considered safe, creating two messages with the same MD5 hash is now feasible (in a matter of days with not unreasonable hardware) such that the more secure <a href="http://en.wikipedia.org/wiki/SHA-1">SHA-1</a> algorithm has largely replaced it&#8217;s usage.</p>
+
+<h3>Conclusion</h3>
+
+<p>Anyway, that's it for my (hopefully plain English) explanation of Big O. I intend to follow this up with applications to some common scenarios in weeks to come.</p>
+
+<div class="blogger-post-footer"><img border="0" alt="." src="http://c.statcounter.com/counter.php?sc_project=4738793&amp;java=0&amp;security=26803be4&amp;invisible=1" width="1" height="1" /></div>  </p>
+<div style='clear: both;'></div>
+</div>
+<div class='post-footer'>
+<p class='post-footer-line post-footer-line-1'>
+<span class='post-comment-link'>
+</span>
+<span class='post-backlinks post-comment-link'>
+</span>
+<span class='post-icons'>
+<span class='item-action'>
+<a href='http://www.blogger.com/email-post.g?blogID=336308386934546555&postID=5221546630989521549' title='Email Post'>
+<img alt='' class='icon-action' src='http://www.blogger.com/img/icon18_email.gif'/>
+</a>
+</span>
+<span class='item-control blog-admin pid-469710810'>
+<a href='http://www.blogger.com/post-edit.g?blogID=336308386934546555&postID=5221546630989521549&from=pencil' title='Edit Post'>
+<img alt='' class='icon-action' src='http://www.blogger.com/img/icon18_edit_allbkg.gif'/>
+</a>
+</span>
+</span>
+</p>
+<p class='post-footer-line post-footer-line-2'></p>
+<p class='post-footer-line post-footer-line-3'></p>
+</div>
+</div>
+<div class='comments' id='comments'>
+<a name='comments'></a>
+<h4>
+24
+comments:
+        
+</h4>
+<dl id='comments-block'>
+<dt class='comment-author ' id='c8543936890847064027'>
+<a name='c8543936890847064027'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>Thanks William! This is by far the best explanation of Big O in plain english.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247153745399#c8543936890847064027' title='comment permalink'>
+July 9, 2009 at 11:35 PM
+</a>
+<span class='item-control blog-admin pid-1834957142'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=8543936890847064027' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c4372501996126237082'>
+<a name='c4372501996126237082'></a>
+<a href='http://www.blogger.com/profile/05942655765590156852' rel='nofollow'>Trey</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>You wrote &quot;highly unlikely&quot; when you meant &quot;highly likely&quot;.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247159066291#c4372501996126237082' title='comment permalink'>
+July 10, 2009 at 1:04 AM
+</a>
+<span class='item-control blog-admin pid-656482085'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=4372501996126237082' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c8213756598030028643'>
+<a name='c8213756598030028643'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>&gt;&gt; See the pattern? The complexity (being the number of operations) is directly proportional to the number of digits. We call this O(n) or linear complexity.<br /><br />If an algorithm is directly proportional to *the number of digits* in the problem size, then that algorithm has logarithmic complexity.<br /><br />An O(n) algorithm would be something like a linear search through the phone book, or a (very) naive primality test, but not simple addition.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247159926336#c8213756598030028643' title='comment permalink'>
+July 10, 2009 at 1:18 AM
+</a>
+<span class='item-control blog-admin pid-49402044'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=8213756598030028643' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c3625177446245920076'>
+<a name='c3625177446245920076'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>regarding the MD5 hash at the end of your post, you say:<br /><br />&quot; If they&#8217;re different, the files are different. If they&#8217;re the same, the files are highly unlikely to be the same.&quot;<br /><br />Your saying that if the Hashes are the same then then they are *unlikely* to be the same as the full resolution file that generated the hash?<br /><br />I can&#39;t quite grock that, could you have another go at explaining it, please?  <br /><br />If the hashes match and that means that they are unlikely to be the same as the originals, and if the hashes don&#39;t match you&#39;re saying that they are not the same too; so whats the point of hashes if they can&#39;t distinguish between same/non-same files?<br /><br />I&#39;m sure I&#39;m missing something, its a great post thank you for writing it.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247160664803#c3625177446245920076' title='comment permalink'>
+July 10, 2009 at 1:31 AM
+</a>
+<span class='item-control blog-admin pid-828456567'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=3625177446245920076' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c8134810727725778415'>
+<a name='c8134810727725778415'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>&quot;Public Key Cryptography is a prime example.&quot;<br />pun intended? ;)</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247162360451#c8134810727725778415' title='comment permalink'>
+July 10, 2009 at 1:59 AM
+</a>
+<span class='item-control blog-admin pid-1946560517'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=8134810727725778415' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c3846493744830440268'>
+<a name='c3846493744830440268'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>@Anonymous commenter #2<br /><br />&gt;&gt; If an algorithm is directly proportional to *the number of digits* in the problem size, then that algorithm has logarithmic complexity. <br /><br />I am pretty sure the author was correct when he said that his human addition algorithm is linear complexity and that you are wrong when you say it is logarithmic.  Logarithmic would mean having more digits in the numbers you are adding would yeild smaller changes in the number of operations required. How can you add two numbers without adding each digit? And why would the positive slope of the number of additions you need to make fall as the two numbers got bigger? Maybe you are confused about the details of the addition algorithm.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247174489433#c3846493744830440268' title='comment permalink'>
+July 10, 2009 at 5:21 AM
+</a>
+<span class='item-control blog-admin pid-1632098198'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=3846493744830440268' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5318922724099654228'>
+<a name='c5318922724099654228'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>Also, one more explanation. In the function y = Ax , where A is a constant, y and x are  &quot;directly proportional&quot;. In the function y = log x , their relationship is  logarithmic. So saying that an algorithm which is directly proprtional has logarithmic complexity is false.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247174885071#c5318922724099654228' title='comment permalink'>
+July 10, 2009 at 5:28 AM
+</a>
+<span class='item-control blog-admin pid-1632098198'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=5318922724099654228' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5424158817307145675'>
+<a name='c5424158817307145675'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>&gt;&gt; If an algorithm is directly proportional to *the number of digits* in the problem size, then that algorithm has logarithmic complexity. <br /><br />Put more accurately, the algorithm has logarithmic complexity relative to the size of the number. You are correct in this.<br /><br />Unfortunately, computer scientists (largely) don&#39;t care about complexity relative to the size of the number. When dealing with numbers as input to a problem (as in the case of addition), computer scientists tend to care about complexity relative to the size of the *encoding* of the number (that is, its length when you write it down).<br /><br />So: In a sense you&#39;re both right - Big Oh can be used to measure the complexity both ways. Normally, though, we talk about the one used in the article.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247176805237#c5424158817307145675' title='comment permalink'>
+July 10, 2009 at 6:00 AM
+</a>
+<span class='item-control blog-admin pid-1623123903'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=5424158817307145675' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c4980364794463698936'>
+<a name='c4980364794463698936'></a>
+<a href='http://www.xerxesb.com' rel='nofollow'>Xerxes</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>Excellent article. Thanks for taking the time :)</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247194045783#c4980364794463698936' title='comment permalink'>
+July 10, 2009 at 10:47 AM
+</a>
+<span class='item-control blog-admin pid-904904745'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=4980364794463698936' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c6953326342602283126'>
+<a name='c6953326342602283126'></a>
+Dan
+said...
+</dt>
+<dd class='comment-body'>
+<p>@Anonymous #3 -<br /><br />See Trey&#39;s comment: &quot;unlikely&quot; in that section should read &quot;likely&quot;. If you have the hashes of two files and the hashes are different, then the files are different. If the hashes are the same, then they&#39;re very likely the same - although they could be be different (by the Pigeonhole Principle) since people have been able to generate collisions (which is the link provided).<br /><br />&gt;&gt; &#8220;you should do X because it&#8217;s O(2n) and Y is O(3n)&#8221;<br /><br />This always pisses me off, since it&#39;s people who should know better (since they can presumably determine that an algorithm is O(2n)). Big-O, as you say, deals with the algorithm when the factor in question goes to infinity. In this case, the &quot;2&quot; vs. &quot;3&quot; isn&#39;t going to be an issue. Big-O is meant to compare the order of an algorithm&#39;s performance, as opposed to the details.<br /><br />The rule of thumb, when I was taught Big-O, was to use 1000000000 for n - at which point it becomes apparent what the dominant factor is. Big-O isn&#39;t meant for comparing 2000000000 [O(2n)] to 3000000000 [O(3n)] - it&#39;s meant for comparing 2000000000 [O(2n)] to 1000000000000000000 [O(n^2)]. The other one we were taught is that O(n) is really O(kn), where k is a constant that we supress since it doesn&#39;t matter when making comparisons of this nature.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247196386346#c6953326342602283126' title='comment permalink'>
+July 10, 2009 at 11:26 AM
+</a>
+<span class='item-control blog-admin pid-628679347'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=6953326342602283126' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c1937585631593347685'>
+<a name='c1937585631593347685'></a>
+<a href='http://www.blogger.com/profile/18124047732843355736' rel='nofollow'>Jass</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>A very good explanation of Big O in plain english!<br /><br />P.S: Been following your posts from a couple months now... &quot;I&#39;m lovin it&quot; ;)</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1247225470204#c1937585631593347685' title='comment permalink'>
+July 10, 2009 at 7:31 PM
+</a>
+<span class='item-control blog-admin pid-120559329'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=1937585631593347685' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c1956173001969990349'>
+<a name='c1956173001969990349'></a>
+<a href='http://arachnode.net' rel='nofollow'>arachnode.net</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>Great article!  Could you go into more detail about calculating the &#39;log&#39;...</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1253310455948#c1956173001969990349' title='comment permalink'>
+September 19, 2009 at 5:47 AM
+</a>
+<span class='item-control blog-admin pid-2140301104'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=1956173001969990349' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c945274854172055834'>
+<a name='c945274854172055834'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>That is an excellent article!  I wish I&#39;d read it yesterday, might not have screwed up my job interview this afternoon so badly :(<br /><br />Thanks for writing it.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1254796849909#c945274854172055834' title='comment permalink'>
+October 6, 2009 at 10:40 AM
+</a>
+<span class='item-control blog-admin pid-1920686789'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=945274854172055834' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5555114481782430419'>
+<a name='c5555114481782430419'></a>
+<a href='http://www.blogger.com/profile/02883173275073527457' rel='nofollow'>NonComplacentLabRat</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>I&#39;m a self taught programmer who&#39;s still having some trouble with what O(log n) means.  I understand logaritms (e.g. log base 2 1024 = 10), but what does the n mean in O(log n)?  And what does the O mean.  What is the base?  2?  I think if the base is 2 then O means &quot;the number of times you need to raise n to the power of 2 to get O?&quot;.  <br /><br />But I also think I&#39;m totally wrong and I&#39;m thinking too logically.  Does O(log n) represent a concept as opposed to a formula?  For instance does O(log n) mean that the worst case scenario is n times?  and O(log n squared) mean the worst case scenario is n squared?<br /><br />Please help!</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1259739099809#c5555114481782430419' title='comment permalink'>
+December 2, 2009 at 3:31 PM
+</a>
+<span class='item-control blog-admin pid-1987822039'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=5555114481782430419' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author blog-author' id='c1671836129024581379'>
+<a name='c1671836129024581379'></a>
+<a href='http://www.blogger.com/profile/18356811199950883367' rel='nofollow'>William Shields</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>Searching for a name in the telephone book (example above) is a classic O(log n) algorithm.<br /><br />1 name = 1 comparison<br />2-3 names = 2 comparisons<br />4-7 names = 3 comparisons<br />8-15 names = 4 comparisons<br />16-31 names = 5 comparisons<br />...<br />1,000,000 names = 21 comparisons<br /><br />Logarithms are just the inverse of exponents (&quot;to the power of&quot;).<br /><br />2^20 = 1,048,576<br />log2 1,048,576 = 20<br /><br />or<br /><br />loga(a^n) = n<br /><br />n in any O(...) expression is the meaningful quantifier and varies depending on the algorithm. For sorting it is typically the number of elements. For multiplication it is the number of digits.<br /><br />Base isn&#39;t specified with O(log n). Whether it&#39;s log2 n, log10 n or log100 n is irrelevant just like it&#39;s irrelevant if its 2n, 10n or 100n. Mathematically there is a linear relationship between loga n and logb n.<br /><br />Big O generally refers to expected or worst cases.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1259740397995#c1671836129024581379' title='comment permalink'>
+December 2, 2009 at 3:53 PM
+</a>
+<span class='item-control blog-admin pid-469710810'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=1671836129024581379' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c6028500145793275329'>
+<a name='c6028500145793275329'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>&quot;So the Big-O of the Travelling Salesman problem is O(n!) or factorial or combinatorial complexity.&quot;<br />I&#39;m not clear what this means. Surely problems don&#39;t have complexities, only algorithms?<br /><br />Also you give &quot;Public Key Cryptography&quot; is given as an algorithm of polynomial complexity. I thought it was unknown what the complexity of integer factorisation was.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1263726896020#c6028500145793275329' title='comment permalink'>
+January 17, 2010 at 7:14 PM
+</a>
+<span class='item-control blog-admin pid-650578567'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=6028500145793275329' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c8110242776229955352'>
+<a name='c8110242776229955352'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>Well its good explanation but i would like to know what does the Big-O actually do.I mean say we have 2 expressions O(n^2) and O(n^2logn)......how do we compare them and know which is better</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1264535699442#c8110242776229955352' title='comment permalink'>
+January 27, 2010 at 3:54 AM
+</a>
+<span class='item-control blog-admin pid-83854387'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=8110242776229955352' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c5841025489297426395'>
+<a name='c5841025489297426395'></a>
+<a href='http://www.blogger.com/profile/02883173275073527457' rel='nofollow'>NonComplacentLabRat</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>Thanks William Shields!  I just revisted your reply from 3 months ago and re-read the article.  I understand now that that the O doesn&#39;t stand for anything, it just tells you that this is notation called Big-O.  And the Big-O notation means not to take the notation literally, but as a concept to describe the complexity of a problem.  So, for any number n, O(log n2) is more complex than O(log n) because there are more digits in the problem, thus increasing it&#39;s complexity.  And the base of the log doesn&#39;t matter because there is a linear relationship among the base of logarithms that is insignificant when it comes to the complexity of the problem <br /><br />similar to when you wrote &quot;The astute may have realized that we could express the number of operations as: n2 + 2n. But as you saw from our example with two numbers of a million digits apiece, the second term (2n) becomes insignificant (accounting for 0.00002% of the total operations by that stage).&quot;<br /><br />The base portion is the insignificant portion (I think anyway).<br /><br />Thanks for the &quot;english&quot; explanation!</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1266822103138#c5841025489297426395' title='comment permalink'>
+February 22, 2010 at 3:01 PM
+</a>
+<span class='item-control blog-admin pid-1987822039'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=5841025489297426395' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c768468319728350024'>
+<a name='c768468319728350024'></a>
+<a href='http://www.google.com/profiles/andren.lars' rel='nofollow'>andren.lars</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>Thank you William! This is a very concise yet clear explanation of Big-O and the other algorithm buzzwords.<br /><br />Thanks for taking time to write this, I am sure many people will find this helpful.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1272854043928#c768468319728350024' title='comment permalink'>
+May 3, 2010 at 10:34 AM
+</a>
+<span class='item-control blog-admin pid-2021736070'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=768468319728350024' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c2527798950163132827'>
+<a name='c2527798950163132827'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>Wow this was amazing - you should consider writing a book: Computer Science in PLAIN ENGLISH!</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1276509308717#c2527798950163132827' title='comment permalink'>
+June 14, 2010 at 5:55 PM
+</a>
+<span class='item-control blog-admin pid-541342915'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=2527798950163132827' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c4625418181355256036'>
+<a name='c4625418181355256036'></a>
+<a href='http://www.blogger.com/profile/05609988258195555784' rel='nofollow'>Gmust</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>Great article, commendable efforts too... although your treatment of the concept is largely incomplete. Try effecting some of the corrections pointed out and give thorough dissection of all concepts in the original article.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1277904879301#c4625418181355256036' title='comment permalink'>
+June 30, 2010 at 9:34 PM
+</a>
+<span class='item-control blog-admin pid-824577487'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=4625418181355256036' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c3318742507505927182'>
+<a name='c3318742507505927182'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>please can some one tell me is there any function for which Big O and Omega are same?? are there any fuctions exists?? for f(x) and g(x) for which both are same. Please mail me ansary_90@yahoo.com Thanks all</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1285672459269#c3318742507505927182' title='comment permalink'>
+September 28, 2010 at 7:14 PM
+</a>
+<span class='item-control blog-admin pid-635687123'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=3318742507505927182' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c6112916493094805297'>
+<a name='c6112916493094805297'></a>
+<a href='http://www.blogger.com/profile/09011253370549598661' rel='nofollow'>ruwan Indika Prasanna</a>
+said...
+</dt>
+<dd class='comment-body'>
+<p>cheers !!! ...good one</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1291595636396#c6112916493094805297' title='comment permalink'>
+December 6, 2010 at 8:33 AM
+</a>
+<span class='item-control blog-admin pid-1692617508'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=6112916493094805297' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+<dt class='comment-author ' id='c4028796918401800369'>
+<a name='c4028796918401800369'></a>
+Anonymous
+said...
+</dt>
+<dd class='comment-body'>
+<p>I could not understand this concept in 4 years of college..I read this article and makes sense overnight.. Awesome article..Good Job and Thanks a million.</p>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html?showComment=1294976960094#c4028796918401800369' title='comment permalink'>
+January 14, 2011 at 11:49 AM
+</a>
+<span class='item-control blog-admin pid-1732763269'>
+<a href='http://www.blogger.com/delete-comment.g?blogID=336308386934546555&postID=4028796918401800369' title='Delete Comment'>
+<span class='delete-comment-icon'>&#160;</span>
+</a>
+</span>
+</span>
+</dd>
+</dl>
+<p class='comment-footer'>
+<div class='comment-form'>
+<a name='comment-form'></a>
+<h4 id='comment-post-message'>Post a Comment</h4>
+<p>
+</p>
+<a href='http://www.blogger.com/comment-iframe.g?blogID=336308386934546555&postID=5221546630989521549' id='comment-editor-src'></a>
+<iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410' id='comment-editor' name='comment-editor' src='' width='100%'></iframe>
+<script type="text/javascript" src="//www.blogger.com/static/v1/jsbin/3943210116-comment_from_post_iframe.js"></script>
+<script type='text/javascript'>
+      BLOG_CMT_createIframe('http://www.blogger.com/rpc_relay.html', '09361728773488288954');
+    </script>
+</div>
+</p>
+<div id='backlinks-container'>
+<div id='Blog1_backlinks-container'>
+<a name='links'></a><h4>
+</h4>
+<p class='comment-footer'>
+<a class='comment-link' href='' id='Blog1_backlinks-create-link' target='_blank'>
+</a>
+</p>
+</div>
+</div>
+</div>
+<!-- google_ad_section_end -->
+</div>
+<div class='blog-pager' id='blog-pager'>
+<span id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' href='http://www.cforcoding.com/2009/07/starting-programming-blog-part-2.html' id='Blog1_blog-pager-newer-link' title='Newer Post'>Newer Post</a>
+</span>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' href='http://www.cforcoding.com/2009/07/stackoverflow-for-marketing-questions.html' id='Blog1_blog-pager-older-link' title='Older Post'>Older Post</a>
+</span>
+<a class='home-link' href='http://www.cforcoding.com/'>Home</a>
+</div>
+<div class='clear'></div>
+<div class='post-feeds'>
+<div class='feed-links'>
+Subscribe to:
+<a class='feed-link' href='http://www.cforcoding.com/feeds/5221546630989521549/comments/default' target='_blank' type='application/atom+xml'>Post Comments (Atom)</a>
+</div>
+</div>
+</div></div>
+</div>
+<!-- (Sidebar) -->
+<div id='sidebar-wrapper'>
+<div id='sidebar-itz'>
+<div class='sidebar-top section' id='sidebar-top'><div class='widget CustomSearch' id='CustomSearch1'>
+<div class='Search'>
+<form action='http://www.cforcoding.com/search' method='get'>
+<input class='keyword' name='q' type='text' value=''/>
+<div class='bt'>
+<input alt='Search' class='search' name='submit' src='http://i254.photobucket.com/albums/hh92/eblogtemplates/dilectio/buttontransparentkb4.png' title='Search' type='image'/>
+</div>
+</form>
+<div class='Syn'>
+<ul>
+<li><a href='http://www.cforcoding.com/feeds/posts/default'>Entries</a> (RSS)</li>
+<li><a href='http://www.cforcoding.com/feeds/comments/default'>Comments</a> (RSS)</li>
+</ul>
+</div>
+</div>
+</div><div class='widget Profile' id='Profile1'>
+<div class='About'>
+<h2>About</h2>
+<div class='widget-content'>
+<p>I am a software developer from Perth, Western Australia with some 15 years of experience, primarily in <b>Java</b> and in Web-based systems.</p>
+<p>I am a frequent lurker and regular contributor on StackOverflow.com as <a href='http://stackoverflow.com/users/18393/cletus'>cletus</a>.</p>
+<p>Here is my <a href='http://www.linkedin.com/profile?viewProfile=&key=2439471&trk=tab_pro'>LinkedIn profile</a>.</p>
+<p><a href='http://stackoverflow.com/users/18393/cletus'>
+<img alt='profile for cletus at Stack Overflow, Q&A for professional and enthusiast programmers' height='58' src='http://stackoverflow.com/users/flair/18393.png' title='profile for cletus at Stack Overflow, Q&A for professional and enthusiast programmers' width='208'/>
+</a></p>
+<p>
+</p>
+</div>
+</div>
+</div></div>
+<!-- Start Recent Comments/Articles -->
+<div class='Recent'>
+<div class='sidebar-top-recent section' id='sidebar-top-recent'><div class='widget Feed' id='Feed1'>
+<div class='widget-content'>
+<ul class='TabMenu'>
+<li class='TabLink'><a href='#top' id='tab0' onclick='ShowTab(0)'><span>Recent Articles</span></a></li>
+<li class='TabLink'><a href='#top' id='tab1' onclick='ShowTab(1)'><span>Recent Comments</span></a></li>
+<li class='NavLinks' id='paging0'><div style='display:none'></div></li>
+<li class='NavLinks' id='paging1'><div style='display:none'></div></li>
+</ul>
+<div class='TabContent' id='div0' style='display:none'>
+<ul id='Feed1_feedItemListDisplay'>
+</ul>
+</div>
+</div>
+</div><div class='widget Label' id='Label1'>
+<h2>Labels</h2>
+<div class='widget-content'>
+<div id='labelCloud'></div>
+<script type='text/javascript'>
+
+// Don't change anything past this point -----------------
+// Cloud function s() ripped from del.icio.us
+function s(a,b,i,x){
+      if(a>b){
+          var m=(a-b)/Math.log(x),v=a-Math.floor(Math.log(i)*m)
+             }
+      else{
+          var m=(b-a)/Math.log(x),v=Math.floor(Math.log(i)*m+a)
+          }
+      return v
+   }
+
+
+var c=[];
+var labelCount = new Array();  
+var ts = new Object;
+
+var theName = "algorithms";
+ts[theName] = 3;
+
+var theName = "blog";
+ts[theName] = 3;
+
+var theName = "browser compatibility";
+ts[theName] = 1;
+
+var theName = "career";
+ts[theName] = 1;
+
+var theName = "computer science";
+ts[theName] = 4;
+
+var theName = "css";
+ts[theName] = 6;
+
+var theName = "database";
+ts[theName] = 6;
+
+var theName = "ejb";
+ts[theName] = 1;
+
+var theName = "flash";
+ts[theName] = 1;
+
+var theName = "git";
+ts[theName] = 1;
+
+var theName = "google";
+ts[theName] = 2;
+
+var theName = "gwt";
+ts[theName] = 1;
+
+var theName = "hosting";
+ts[theName] = 1;
+
+var theName = "html";
+ts[theName] = 3;
+
+var theName = "ibatis";
+ts[theName] = 5;
+
+var theName = "Java";
+ts[theName] = 23;
+
+var theName = "javascript";
+ts[theName] = 8;
+
+var theName = "jpa";
+ts[theName] = 3;
+
+var theName = "lombok";
+ts[theName] = 1;
+
+var theName = "markdown";
+ts[theName] = 8;
+
+var theName = "methodology";
+ts[theName] = 2;
+
+var theName = "news";
+ts[theName] = 3;
+
+var theName = "open source";
+ts[theName] = 9;
+
+var theName = "opinion";
+ts[theName] = 25;
+
+var theName = "oracle";
+ts[theName] = 1;
+
+var theName = "orm";
+ts[theName] = 2;
+
+var theName = "parsing";
+ts[theName] = 8;
+
+var theName = "performance";
+ts[theName] = 2;
+
+var theName = "php";
+ts[theName] = 14;
+
+var theName = "review";
+ts[theName] = 2;
+
+var theName = "silverlight";
+ts[theName] = 1;
+
+var theName = "site";
+ts[theName] = 1;
+
+var theName = "smarty";
+ts[theName] = 2;
+
+var theName = "spring";
+ts[theName] = 3;
+
+var theName = "sql";
+ts[theName] = 4;
+
+var theName = "stackoverflow";
+ts[theName] = 7;
+
+var theName = "tables";
+ts[theName] = 1;
+
+var theName = "tdd";
+ts[theName] = 1;
+
+var theName = "tutorial";
+ts[theName] = 1;
+
+var theName = "usability";
+ts[theName] = 1;
+
+var theName = "web";
+ts[theName] = 5;
+
+var theName = "web 2.0";
+ts[theName] = 2;
+
+var theName = "web development";
+ts[theName] = 2;
+
+var theName = "windows";
+ts[theName] = 1;
+
+
+for (t in ts){
+     if (!labelCount[ts[t]]){
+           labelCount[ts[t]] = new Array(ts[t])
+           }
+        }
+var ta=cloudMin-1;
+tz = labelCount.length - cloudMin;
+lc2 = document.getElementById('labelCloud');
+ul = document.createElement('ul');
+ul.className = 'label-cloud';
+for(var t in ts){
+    if(ts[t] < cloudMin){
+       continue;
+       }
+    for (var i=0;3 > i;i++) {
+             c[i]=s(minColor[i],maxColor[i],ts[t]-ta,tz)
+              }      
+         var fs = s(minFontSize,maxFontSize,ts[t]-ta,tz);
+         li = document.createElement('li');
+         li.style.fontSize = fs+'px';
+         li.style.lineHeight = '1';
+         a = document.createElement('a');
+         a.title = ts[t]+' Posts in '+t;
+         a.style.color = 'rgb('+c[0]+','+c[1]+','+c[2]+')';
+         a.href = '/search/label/'+encodeURIComponent(t);
+         if (lcShowCount){
+             span = document.createElement('span');
+             span.innerHTML = '('+ts[t]+') ';
+             span.className = 'label-count';
+             a.appendChild(document.createTextNode(t));
+             li.appendChild(a);
+             li.appendChild(span);
+             }
+          else {
+             a.appendChild(document.createTextNode(t));
+             li.appendChild(a);
+             }
+         ul.appendChild(li);
+         abnk = document.createTextNode(' ');
+         ul.appendChild(abnk);
+    }
+  lc2.appendChild(ul);    
+</script>
+<noscript>
+<ul>
+<li>
+<a href='http://www.cforcoding.com/search/label/algorithms'>algorithms</a>
+
+        (3)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/blog'>blog</a>
+
+        (3)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/browser%20compatibility'>browser compatibility</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/career'>career</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/computer%20science'>computer science</a>
+
+        (4)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/css'>css</a>
+
+        (6)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/database'>database</a>
+
+        (6)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/ejb'>ejb</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/flash'>flash</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/git'>git</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/google'>google</a>
+
+        (2)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/gwt'>gwt</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/hosting'>hosting</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/html'>html</a>
+
+        (3)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/ibatis'>ibatis</a>
+
+        (5)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/Java'>Java</a>
+
+        (23)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/javascript'>javascript</a>
+
+        (8)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/jpa'>jpa</a>
+
+        (3)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/lombok'>lombok</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/markdown'>markdown</a>
+
+        (8)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/methodology'>methodology</a>
+
+        (2)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/news'>news</a>
+
+        (3)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/open%20source'>open source</a>
+
+        (9)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/opinion'>opinion</a>
+
+        (25)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/oracle'>oracle</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/orm'>orm</a>
+
+        (2)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/parsing'>parsing</a>
+
+        (8)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/performance'>performance</a>
+
+        (2)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/php'>php</a>
+
+        (14)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/review'>review</a>
+
+        (2)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/silverlight'>silverlight</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/site'>site</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/smarty'>smarty</a>
+
+        (2)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/spring'>spring</a>
+
+        (3)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/sql'>sql</a>
+
+        (4)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/stackoverflow'>stackoverflow</a>
+
+        (7)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/tables'>tables</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/tdd'>tdd</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/tutorial'>tutorial</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/usability'>usability</a>
+
+        (1)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/web'>web</a>
+
+        (5)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/web%202.0'>web 2.0</a>
+
+        (2)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/web%20development'>web development</a>
+
+        (2)
+      </li>
+<li>
+<a href='http://www.cforcoding.com/search/label/windows'>windows</a>
+
+        (1)
+      </li>
+</ul>
+</noscript>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=336308386934546555&widgetType=Label&widgetId=Label1&action=editWidget&sectionId=sidebar-top-recent' onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target='configLabel1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget Feed' id='Feed2'>
+<div class='widget-content'>
+<div class='TabContent' id='div1' style='display:none'>
+<ul id='Feed2_feedItemListDisplay'>
+</ul>
+</div>
+</div>
+</div><div class='widget BlogArchive' id='BlogArchive1'>
+<h2>Archive</h2>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/search?updated-min=2012-01-01T00:00:00%2B08:00&amp;updated-max=2013-01-01T00:00:00%2B08:00&amp;max-results=2'>2012</a>
+<span class='post-count' dir='ltr'>(2)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2012_07_01_archive.html'>July</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2012_01_01_archive.html'>January</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/search?updated-min=2010-01-01T00:00:00%2B08:00&amp;updated-max=2011-01-01T00:00:00%2B08:00&amp;max-results=19'>2010</a>
+<span class='post-count' dir='ltr'>(19)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2010_10_01_archive.html'>October</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2010_08_01_archive.html'>August</a>
+<span class='post-count' dir='ltr'>(2)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2010_07_01_archive.html'>July</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2010_04_01_archive.html'>April</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2010_02_01_archive.html'>February</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2010_01_01_archive.html'>January</a>
+<span class='post-count' dir='ltr'>(8)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>&#9660;&#160;</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/search?updated-min=2009-01-01T00:00:00%2B09:00&amp;updated-max=2010-01-01T00:00:00%2B08:00&amp;max-results=50'>2009</a>
+<span class='post-count' dir='ltr'>(51)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2009_12_01_archive.html'>December</a>
+<span class='post-count' dir='ltr'>(5)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2009_11_01_archive.html'>November</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2009_10_01_archive.html'>October</a>
+<span class='post-count' dir='ltr'>(3)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2009_09_01_archive.html'>September</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2009_08_01_archive.html'>August</a>
+<span class='post-count' dir='ltr'>(4)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate expanded'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy toggle-open'>&#9660;&#160;</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2009_07_01_archive.html'>July</a>
+<span class='post-count' dir='ltr'>(7)</span>
+<ul class='posts'>
+<li><a href='http://www.cforcoding.com/2009/07/is-it-politically-incorrect-to.html'>Is it Politically Incorrect to Criticize Open-Sour...</a></li>
+<li><a href='http://www.cforcoding.com/2009/07/spring-batch-or-how-not-to-design-api.html'>Spring Batch or How Not to Design an API</a></li>
+<li><a href='http://www.cforcoding.com/2009/07/starting-programming-blog-part-2.html'>Starting a Programming Blog, Part 2</a></li>
+<li><a href='http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html'>Plain English Explanation of Big O Notation</a></li>
+<li><a href='http://www.cforcoding.com/2009/07/stackoverflow-for-marketing-questions.html'>StackOverflow for... marketing questions?!</a></li>
+<li><a href='http://www.cforcoding.com/2009/07/aggregation-vs-joins-methodology.html'>Aggregation vs Joins: Methodology</a></li>
+<li><a href='http://www.cforcoding.com/2009/07/oracle-vs-mysql-vs-sql-server.html'>Oracle vs MySQL vs SQL Server: Aggregation vs Join...</a></li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2009_06_01_archive.html'>June</a>
+<span class='post-count' dir='ltr'>(9)</span>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2009_05_01_archive.html'>May</a>
+<span class='post-count' dir='ltr'>(18)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/search?updated-min=2000-01-01T00:00:00%2B08:00&amp;updated-max=2001-01-01T00:00:00%2B08:00&amp;max-results=1'>2000</a>
+<span class='post-count' dir='ltr'>(1)</span>
+<ul class='hierarchy'>
+<li class='archivedate collapsed'>
+<a class='toggle' href='javascript:void(0)'>
+<span class='zippy'>
+
+          &#9658;&#160;
+        
+</span>
+</a>
+<a class='post-count-link' href='http://www.cforcoding.com/2000_01_01_archive.html'>January</a>
+<span class='post-count' dir='ltr'>(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=336308386934546555&widgetType=BlogArchive&widgetId=BlogArchive1&action=editWidget&sectionId=sidebar-top-recent' onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target='configBlogArchive1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div><div class='widget BlogList' id='BlogList1'>
+<h2 class='title'>My Blog List</h2>
+<div class='widget-content'>
+<div class='blog-list-container' id='BlogList1_container'>
+<ul id='BlogList1_blogs'>
+<li style='display: block;'>
+<div class='blog-icon'>
+<input type='hidden' value='http://www.billthelizard.com/favicon.ico'/>
+</div>
+<div class='blog-content'>
+<div class='blog-title'>
+<a href='http://www.billthelizard.com/' target='_blank'>
+Bill the Lizard</a>
+</div>
+<div class='item-content'>
+<span class='item-title'>
+<a href='http://www.billthelizard.com/2013/04/sicp-266-sets-and-information-retrieval.html' target='_blank'>
+SICP 2.66: Sets and information retrieval</a>
+</span>
+
+                      -
+                    
+<span class='item-snippet'>
+From SICP section 2.3.3 Sets and information retrieval
+
+The final part of section 2.3.3 asks us to consider a database that 
+contains records, each of which ...
+</span>
+<div class='item-time'>
+3 months ago
+</div>
+</div>
+</div>
+<div style='clear: both;'></div>
+</li>
+<li style='display: block;'>
+<div class='blog-icon'>
+<input type='hidden' value='http://www.brianbondy.com/favicon.ico'/>
+</div>
+<div class='blog-content'>
+<div class='blog-title'>
+<a href='http://www.brianbondy.com/blog/' target='_blank'>
+Brian R. Bondy</a>
+</div>
+<div class='item-content'>
+<span class='item-title'>
+<a href='http://www.brianbondy.com/blog/id/153' target='_blank'>
+Firefox Metro Preview Release - Status update 8</a>
+</span>
+
+                      -
+                    
+<span class='item-snippet'>
+
+
+As per this Future of Firefox announcement, we have a work-in-progress, 
+Metro Firefox preview!
+
+ This preview will give you a glimpse of what Firefox on M...
+</span>
+<div class='item-time'>
+10 months ago
+</div>
+</div>
+</div>
+<div style='clear: both;'></div>
+</li>
+</ul>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=336308386934546555&widgetType=BlogList&widgetId=BlogList1&action=editWidget&sectionId=sidebar-top-recent' onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogList1"));' target='configBlogList1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div>
+</div><div class='widget LinkList' id='LinkList1'>
+<h2>Links</h2>
+<div class='widget-content'>
+<ul>
+<li><a href='http://stackoverflow.com/'>StackOverflow</a></li>
+<li><a href='http://kontactr.com/user/wshields'>Contact Me</a></li>
+</ul>
+</div>
+</div></div>
+<script type='text/javascript'>ShowTab(0);</script>
+</div>
+<!-- End Recent Comments/Articles -->
+</div>
+<div id='sidebar-der'>
+<div class='sidebar section' id='sidebar2'><div class='widget Subscribe' id='Subscribe1'>
+<div style='white-space:nowrap'>
+<h2 class='title'>Subscribe</h2>
+<div class='widget-content'>
+<div class='subscribe-wrapper subscribe-type-POST'>
+<div class='subscribe expanded subscribe-type-POST' id='SW_READER_LIST_Subscribe1POST' style='display:none;'>
+<div class='top'>
+<span class='inner' onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Posts
+</span>
+<div class='feed-reader-links'>
+<a class='feed-reader-link' href='http://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fwww.cforcoding.com%2Ffeeds%2Fposts%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-netvibes.png'/>
+</a>
+<a class='feed-reader-link' href='http://add.my.yahoo.com/content?url=http%3A%2F%2Fwww.cforcoding.com%2Ffeeds%2Fposts%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-yahoo.png'/>
+</a>
+<a class='feed-reader-link' href='http://www.cforcoding.com/feeds/posts/default' target='_blank'>
+<img align='absmiddle' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+                Atom
+              </a>
+</div>
+</div>
+<div class='bottom'></div>
+</div>
+<div class='subscribe' id='SW_READER_LIST_CLOSED_Subscribe1POST' onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<div class='top'>
+<span class='inner'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Posts
+</span>
+</span>
+</div>
+<div class='bottom'></div>
+</div>
+</div>
+<div class='subscribe-wrapper subscribe-type-PER_POST'>
+<div class='subscribe expanded subscribe-type-PER_POST' id='SW_READER_LIST_Subscribe1PER_POST' style='display:none;'>
+<div class='top'>
+<span class='inner' onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Comments
+</span>
+<div class='feed-reader-links'>
+<a class='feed-reader-link' href='http://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fwww.cforcoding.com%2Ffeeds%2F5221546630989521549%2Fcomments%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-netvibes.png'/>
+</a>
+<a class='feed-reader-link' href='http://add.my.yahoo.com/content?url=http%3A%2F%2Fwww.cforcoding.com%2Ffeeds%2F5221546630989521549%2Fcomments%2Fdefault' target='_blank'>
+<img src='http://img1.blogblog.com/img/widgets/subscribe-yahoo.png'/>
+</a>
+<a class='feed-reader-link' href='http://www.cforcoding.com/feeds/5221546630989521549/comments/default' target='_blank'>
+<img align='absmiddle' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+                Atom
+              </a>
+</div>
+</div>
+<div class='bottom'></div>
+</div>
+<div class='subscribe' id='SW_READER_LIST_CLOSED_Subscribe1PER_POST' onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<div class='top'>
+<span class='inner'>
+<img class='subscribe-dropdown-arrow' src='http://img2.blogblog.com/img/widgets/arrow_dropdown.gif'/>
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img align='absmiddle' alt='' border='0' class='feed-icon' src='http://img1.blogblog.com/img/icon_feed12.png'/>
+Comments
+</span>
+</span>
+</div>
+<div class='bottom'></div>
+</div>
+</div>
+<div style='clear:both'></div>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=336308386934546555&widgetType=Subscribe&widgetId=Subscribe1&action=editWidget&sectionId=sidebar2' onclick='return _WidgetManager._PopupConfig(document.getElementById("Subscribe1"));' target='configSubscribe1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div><div class='widget Followers' id='Followers1'>
+<h2 class='title'>Followers</h2>
+<div class='widget-content'>
+<div id='Followers1-wrapper'>
+<div style='margin-right:2px;'>
+<script type="text/javascript">
+        if (!window.google || !google.friendconnect) {
+          document.write('<script type="text/javascript"' +
+              'src="http://www.google.com/friendconnect/script/friendconnect.js">' +
+              '</scr' + 'ipt>');
+        }
+      </script>
+<script type="text/javascript">
+      if (!window.registeredBloggerCallbacks) {
+        window.registeredBloggerCallbacks = true;
+
+        
+
+        
+        gadgets.rpc.register('requestReload', function() {
+          document.location.reload();
+        });
+
+        
+        gadgets.rpc.register('requestSignOut', function(siteId) {
+          
+          google.friendconnect.container.openSocialSiteId = siteId;
+          google.friendconnect.requestSignOut();
+        });
+      }
+    </script>
+<script type="text/javascript">
+    
+    function registerGetBlogUrls() {
+      gadgets.rpc.register('getBlogUrls', function() {
+        var holder = {};
+        
+          
+            
+            
+              holder.currentPost = "http://www.blogger.com/feeds/336308386934546555/posts/default/5221546630989521549";
+            
+            
+            
+              holder.currentComments = "http://www.blogger.com/feeds/336308386934546555/5221546630989521549/comments/default";
+            
+            holder.currentPostUrl = "";
+            holder.currentPostId = 5221546630989521549
+          
+          
+          
+            holder.postFeed = "http://www.blogger.com/feeds/336308386934546555/posts/default";
+          
+          
+          
+            holder.commentFeed = "http://www.blogger.com/feeds/336308386934546555/comments/default";
+          
+          holder.currentBlogUrl = "http://www.cforcoding.com/";
+          holder.currentBlogId = "336308386934546555";
+        
+        return holder;
+      });
+    }
+  </script>
+<script type="text/javascript">
+  if (!window.registeredCommonBloggerCallbacks) {
+    window.registeredCommonBloggerCallbacks = true;
+
+    gadgets.rpc.register('resize_iframe', function(height) {
+      var el = document.getElementById(this['f']);
+      if (el) {
+        el.style.height = height + 'px';
+      }
+    });
+
+    
+    gadgets.rpc.register('set_pref', function() {});
+
+    registerGetBlogUrls();
+  }
+  </script>
+<div id="div-8sbvllw4o36i" style="width: 100%; "></div>
+<script type="text/javascript">
+    var skin = {};
+    skin['FACE_SIZE'] = '32';
+    skin['HEIGHT'] = "260";
+    skin['TITLE'] = "Followers";
+    skin['BORDER_COLOR'] = "transparent";
+    skin['ENDCAP_BG_COLOR'] = "transparent";
+    skin['ENDCAP_TEXT_COLOR'] = "#000000";
+    skin['ENDCAP_LINK_COLOR'] = "#000000";
+    skin['ALTERNATE_BG_COLOR'] = "transparent";
+    
+    skin['CONTENT_BG_COLOR'] = "transparent";
+    skin['CONTENT_LINK_COLOR'] = "#000000";
+    skin['CONTENT_TEXT_COLOR'] = "#000000";
+    skin['CONTENT_SECONDARY_LINK_COLOR'] = "#FFFFFF";
+    skin['CONTENT_SECONDARY_TEXT_COLOR'] = "#000000";
+    skin['CONTENT_HEADLINE_COLOR'] = "#000000";
+    skin['FONT_FACE'] = "Arial";
+    google.friendconnect.container.setParentUrl("/");
+    google.friendconnect.container["renderMembersGadget"](
+    {id: "div-8sbvllw4o36i",
+     height: 260,
+     
+     
+     
+     site: "09361728773488288954",
+     
+     locale: 'en' },
+     skin);
+  </script>
+</div>
+</div>
+<div class='clear'></div>
+<span class='widget-item-control'>
+<span class='item-control blog-admin'>
+<a class='quickedit' href='//www.blogger.com/rearrange?blogID=336308386934546555&widgetType=Followers&widgetId=Followers1&action=editWidget&sectionId=sidebar2' onclick='return _WidgetManager._PopupConfig(document.getElementById("Followers1"));' target='configFollowers1' title='Edit'>
+<img alt='' height='18' src='http://img1.blogblog.com/img/icon18_wrench_allbkg.png' width='18'/>
+</a>
+</span>
+</span>
+<div class='clear'></div>
+</div>
+</div></div>
+</div>
+<div id='sidebar-izq'>
+<div class='sidebar section' id='sidebar1'><div class='widget AdSense' id='AdSense1'>
+<div class='widget-content'>
+<script type="text/javascript"><!--
+google_ad_client="pub-6664321689904123";
+google_ad_host="pub-1556223355139109";
+google_ad_host_channel="00000";
+google_ad_width=160;
+google_ad_height=600;
+google_ad_format="160x600_as";
+google_ad_type="text";
+google_color_border="FFF3E2";
+google_color_bg="FFF3E2";
+google_color_link="63565F";
+google_color_url="FF6600";
+google_color_text="CC0000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div></div>
+</div>
+</div>
+<div class='clear'></div>
+</div>
+<!-- end content-wrapper -->
+<div id='footer-wrapper'>
+<div class='footer section' id='footer'></div>
+<!-- Don't delete or change please! We worked many hours converting this free template for you. All we ask in return is to keep the footer credits -->
+<p><strong>Copyright &#169; 2009-2010 - <a href='http://www.cforcoding.com/' style='text-decoration: none;'>C for Coding</a> -  is proudly powered by <a href='http://www.blogger.com/' style='text-decoration: none;'>Blogger</a></strong><br/>
+<a href='http://blogger-templates.blogspot.com/' title='Blogger Templates'>Blogger Template</a></p>
+</div>
+</div>
+</div>
+<!-- end outer-wrapper -->
+<script type='text/javascript'>
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type='text/javascript'>
+try {
+var pageTracker = _gat._getTracker("UA-7134315-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="//www.blogger.com/static/v1/widgets/3297666575-widgets.js"></script>
+<script type="text/javascript" src="//www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type='text/javascript'>
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV1";window['blogger_blog_id'] = '336308386934546555';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d336308386934546555','//www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html','336308386934546555');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '336308386934546555', 'bloggerUrl': 'http://www.blogger.com', 'title': 'C for Coding', 'pageType': 'item', 'url': 'http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html', 'canonicalUrl': 'http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html', 'canonicalHomepageUrl': 'http://www.cforcoding.com/', 'homepageUrl': 'http://www.cforcoding.com/', 'blogspotFaviconUrl': 'http://www.cforcoding.com/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': '', 'searchLabel': '', 'searchQuery': '', 'pageName': 'Plain English Explanation of Big O Notation', 'pageTitle': 'C for Coding: Plain English Explanation of Big O Notation', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42C for Coding - Atom\42 href\75\42http://www.cforcoding.com/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42C for Coding - RSS\42 href\75\42http://www.cforcoding.com/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42C for Coding - Atom\42 href\75\42http://www.blogger.com/feeds/336308386934546555/posts/default\42 /\76\n\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42C for Coding - Atom\42 href\75\42http://www.cforcoding.com/feeds/5221546630989521549/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'imageSrcTag': '', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var b\75window,e\75\42jstiming\42,g\75\42tick\42;(function(){function d(a){this.t\75{};this.tick\75function(a,d,c){c\75void 0!\75c?c:(new Date).getTime();this.t[a]\75[c,d]};this[g](\42start\42,null,a)}var a\75new d;b.jstiming\75{Timer:d,load:a};if(b.performance\46\46b.performance.timing){var a\75b.performance.timing,c\75b[e].load,f\75a.navigationStart,a\75a.responseStart;0\74f\46\46a\76\75f\46\46(c[g](\42_wtsrt\42,void 0,f),c[g](\42wtsrt_\42,\42_wtsrt\42,a),c[g](\42tbsd_\42,\42wtsrt_\42))}try{a\75null,b.chrome\46\46b.chrome.csi\46\46(a\75Math.floor(b.chrome.csi().pageT),c\46\0460\74f\46\46(c[g](\42_tbnd\42,void 0,b.chrome.csi().startE),\nc[g](\42tbnd_\42,\42_tbnd\42,f))),null\75\75a\46\46b.gtbExternal\46\46(a\75b.gtbExternal.pageT()),null\75\75a\46\46b.external\46\46(a\75b.external.pageT,c\46\0460\74f\46\46(c[g](\42_tbnd\42,void 0,b.external.startE),c[g](\42tbnd_\42,\42_tbnd\42,f))),a\46\46(b[e].pt\75a)}catch(l){}})();b.tickAboveFold\75function(d){var a\0750;if(d.offsetParent){do a+\75d.offsetTop;while(d\75d.offsetParent)}d\75a;750\76\75d\46\46b[e].load[g](\42aft\42)};var h\75!1;function k(){h||(h\75!0,b[e].load[g](\42firstScrollTime\42))}b.addEventListener?b.addEventListener(\42scroll\42,k,!1):b.attachEvent(\42onscroll\42,k);\n })();\74/script\076', 'mobileHeadScript': '', 'adsenseClientId': 'pub-6664321689904123', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/15de8d1bfc9ff1d1', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sf': 'n', 'tf': ''}}, {'name': 'skin', 'data': {'vars': {'colortituloslateral': '#660000', 'colortituloentrada': '#109dd0', 'enlacecolor': '#cc0000', 'colorenlaceencima': '#ff6600', 'descripcioncolor': '#cc0000', 'colortituloblog': '#660000', 'colortextolateral2': '#cc0000', 'textocolor': '#63565f', 'colormenu': '#cc0000', 'colortituloslateral2': '#660000', 'colortextolateral': '#cc0000'}, 'override': ''}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '/?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '/?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '/?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '/?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '/?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '/?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '/?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_FeedView', new _WidgetInfo('Feed1', 'sidebar-top-recent', null, document.getElementById('Feed1'), {'title': 'Recent Posts', 'showItemDate': false, 'showItemAuthor': false, 'feedUrl': 'http://www.cforcoding.com/feeds/posts/default?alt\75rss', 'numItemsShow': 5, 'loadingMsg': 'Loading...', 'openLinksInNewWindow': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar-top-recent', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FeedView', new _WidgetInfo('Feed2', 'sidebar-top-recent', null, document.getElementById('Feed2'), {'title': 'Recent Comments', 'showItemDate': false, 'showItemAuthor': false, 'feedUrl': 'http://www.cforcoding.com/feeds/comments/default', 'numItemsShow': 5, 'loadingMsg': 'Loading...', 'openLinksInNewWindow': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar-top-recent', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogListView', new _WidgetInfo('BlogList1', 'sidebar-top-recent', null, document.getElementById('BlogList1'), {'numItemsToShow': 0, 'totalItems': 2}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList1', 'sidebar-top-recent', null, document.getElementById('LinkList1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_CustomSearchView', new _WidgetInfo('CustomSearch1', 'sidebar-top', null, document.getElementById('CustomSearch1'), {'title': 'Search', 'includeBlog': true, 'includePostLinks': true, 'includeWeb': true, 'linkLists': [{'id': 'LinkList1', 'title': 'Links'}], 'blogUrl': 'http://www.cforcoding.com/', 'loadingMsg': 'Loading...', 'thisBlogMsg': 'This Blog', 'linkedFromHereMsg': 'Linked From Here', 'theWebMsg': 'The Web', 'backgroundColor': '#fff', 'textColor': '#000', 'dateColor': '#6f6f6f', 'linkColor': '#00c', 'urlColor': '#00c', 'visitedLinkColor': '#00c', 'borderColor': '#6f6f6f', 'activeBorderColor': '#6f6f6f'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebar-top', null, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense1', 'sidebar1', null, document.getElementById('AdSense1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_SubscribeView', new _WidgetInfo('Subscribe1', 'sidebar2', null, document.getElementById('Subscribe1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowersView', new _WidgetInfo('Followers1', 'sidebar2', null, document.getElementById('Followers1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList3', 'header', null, document.getElementById('LinkList3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'showBacklinks': true, 'postId': '5221546630989521549', 'lightboxEnabled': true, 'lightboxModuleUrl': '//www.blogger.com/static/v1/jsbin/2403286207-lbx.js', 'lightboxCssUrl': '//www.blogger.com/static/v1/v-css/4138445517-lightbox_bundle.css'}, 'displayModeFull'));
+</script>
+</body>
+</html>
