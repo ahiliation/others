@@ -26,3 +26,12 @@
 
 
 --- may be the most stable state a man can be is in the state of play ---
+
+--- may be you should learn one thing in different ways.
+    may be you should do software build of debian packages and learn
+    to write tests using expect for another simple code and put it on github ---
+
+--- may be learn to write testcases using one code related and learn to
+    file bug reports using debian logs and other and learn programming using
+    python by writing code for another software ---
+
