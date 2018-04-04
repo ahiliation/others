@@ -1,0 +1,6 @@
+1. debian bug filing and testing --- looking log of kernel using dmesg and also syslog and other logs in /var/log/
+2. system adminitration -- Debian -- Desktop administration -- Server administration -- htop ( monitoring )
+3. programming -- Dollect -- software written in python -- (bopen learn)  wordpress plugin in php  
+4. knowledge building -- beautifulwork .
+5. user interface -- hacking wordpress themes -- html css fonts -- styling fixes -- linux kernel
+
