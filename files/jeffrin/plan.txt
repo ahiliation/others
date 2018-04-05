@@ -1177,3 +1177,6 @@ so product price is 31998 and monthly installment that should be given to church
 
 --- may be you know methods to learn and build knowledge ---
 
+--- may be beautifulwork shell sessions can be used to write what actucally a command does.
+    it may be used to find out the way  a command in intepreted from the output of the command.
+    this use may be used to conduct tests and competition. ---
