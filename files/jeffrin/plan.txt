@@ -1181,7 +1181,9 @@ so product price is 31998 and monthly installment that should be given to church
     it may be used to find out the way  a command in intepreted from the output of the command.
     this use may be used to conduct tests and competition. ---
 
---- may be the first step in debug method development is to find methods to find
+--- may be a step in debug method development is to find methods to find
     bugs in a program. this can be accomplished by first testing program that needs to be
-    debugged.may be learn different types of testing methods in free software --- 
+    debugged.may be learn different types of testing methods in free software.
+    may be some methods to find bugs are 1. reading log files 2. running programs in terminal
+    3. building programs from source  --- 
    
