@@ -1,0 +1,13 @@
+build gdb
+build gdb with python support
+build glibc
+try to find method to work on kernel threads shown in top command
+build chromium wen browser
+build linux kernel
+work with both upstream kernel and debian kernel
+build python
+build coreutils
+build procps
+build binutils
+build firefox
+.....
