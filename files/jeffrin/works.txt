@@ -4,3 +4,10 @@
 4. knowledge building -- beautifulwork .
 5. user interface -- hacking wordpress themes -- html css fonts -- styling fixes -- linux kernel
 
+
+--- may be focus on algorithms also. like 1. algorithm to download linux journal magazine 2. algorithm related to tiles
+3. ... ---
+
+--- may be you should learn a wide range of things so that you can penetrate through the layers of stack
+    to do debug and fix things ---
+    
