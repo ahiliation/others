@@ -36,3 +36,7 @@
     python by writing code for another software ---
 
 
+--- may be you should only report bugs and do testing in debian and do not
+    try to fix the code if it is there because if you try to do everything
+    you may not be a part of a team typically. so just test and report bugs.
+    fixing things in code may be done in your own project like dollect---
