@@ -11,3 +11,4 @@ build procps
 build binutils
 build firefox
 .....
+learn how logging is done in debian. how are these errors reported and by whom ?
