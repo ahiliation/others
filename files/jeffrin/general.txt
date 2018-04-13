@@ -36,5 +36,3 @@
     python by writing code for another software ---
 
 
---- may be the main purpose of the coursera course is to learn to find bugs and do testing
-    and may be give ideas to fix bugs ---
