@@ -40,3 +40,13 @@
     try to fix the code if it is there because if you try to do everything
     you may not be a part of a team typically. so just test and report bugs.
     fixing things in code may be done in your own project like dollect---
+
+--- may be do not take the responsibility of testing the whole of kernel.
+    may be try to choose an area in linux such as "tools/testing/selftest"
+    part.Now do not think that you will report all the problems in this area.
+    give that chance for others.even if its is your area . do not try to do
+    every thing in that. ---
+
+--- now in debian do not try to report every thing you see in syslog.leave
+    things for others. even do not report and test every bug related you
+    find in debian. leave it for others  ---
