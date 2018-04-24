@@ -50,3 +50,11 @@
 --- now in debian do not try to report every thing you see in syslog.leave
     things for others. even do not report and test every bug related you
     find in debian. leave it for others  ---
+
+--- "DEBUG ENGINEER  .To expand knowledge to many things, may be you should
+    generalize the knowledge you have towards a specific thing. to do that
+    may be you should open your mind to find connect to related areas .
+    may be if you generalize, then that knowledge can be useful to many people
+    and may become world class.may be you should try to expand the concept of
+    "DEBUG METHODS ENGINEERING" from software to other engineering disciplines.
+    if DME already exists, may be you can contribute to that.---
