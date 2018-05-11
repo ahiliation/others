@@ -56,3 +56,10 @@
     may be you should open your mind to find connect to related areas .
     may be if you generalize, then that knowledge can be useful to many people
     and may become world class. ---
+
+
+--- read code . write code . do easy things . may be learn the basics of git
+    again and again. be patient . may be do testing in linux kernel .
+    may be write c code for testing linux kernel. may be start with aperf.c .
+    may be try to fix error shown during compiling "tools/testing/selftest"
+    part of the linux kernel ---
