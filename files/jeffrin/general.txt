@@ -63,3 +63,17 @@
     may be write c code for testing linux kernel. may be start with aperf.c .
     may be try to fix error shown during compiling "tools/testing/selftest"
     part of the linux kernel ---
+    
+--- may be you are a generalist in linux kernel testing. may be you should find
+    ways to contribute to the linux kernel testing ---
+
+--- may be you should do things in a cyclic and well as in straignt line fashion.
+    [0]beautifulwork.org   [1]Python Programming  [2]Debian  [3]Linux Kernel [4]OPENEND DISCOVERY
+
+    [0] KNOWLEDGE BUILDING AND SHARING
+    [1] ALGORITHMS
+    [2] PACKAGE BUILD AND BUG FILING
+    [3] LINUX KERNEL TESTING, FIX AND BUG FILING
+    [4] DISCOVERING THINGS AND DOCUMENTATION
+
+    MAY BE THERE ARE TWO THINGS COMMON IN ALL SECTIONS: "BEAUTY AND PLAY" --- 
