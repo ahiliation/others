@@ -70,10 +70,10 @@
 --- may be you should do things in a cyclic and well as in straignt line fashion.
     [0]beautifulwork.org   [1]Python Programming  [2]Debian  [3]Linux Kernel [4]OPENEND DISCOVERY
 
-    [0] KNOWLEDGE BUILDING AND SHARING
+    [0] KNOWLEDGE BUILDING AND SHARING [ Whole Year ]
     [1] ALGORITHMS
-    [2] PACKAGE BUILD AND BUG FILING
-    [3] LINUX KERNEL TESTING, MAY BE FIX AND BUG FILING
+    [2] PACKAGE BUILD AND BUG FILING  [Feb - March]
+    [3] LINUX KERNEL TESTING, MAY BE FIX AND BUG FILING  [April - May]
     [4] DISCOVERING THINGS AND DOCUMENTATION
 
     MAY BE YOU SHOULD PENETRATE THROUGH THE LAYERS OF THE STACK.
