@@ -1187,3 +1187,10 @@ so product price is 31998 and monthly installment that should be given to church
     may be some methods to find bugs are 1. reading log files 2. running programs in terminal
     3. building programs from source  --- 
    
+
+---  A  MODEL OF LEARNING IN WHICH YOU DO NOT TYPICALLY NEED TO TYPICALLY LEARN
+     ALL OF THE WORK IN THAT AREA
+     	  0. HERE YOU LEARN THE BASIC KNOWLEDGE AND HISTORY IN THAT AREA 
+          1. HERE YOU BUILD KNOWLEDGE BY CONNECTING THE THINGS THAT YOU HAVE LEARNED --- 
+	  
+	     
