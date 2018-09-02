@@ -83,3 +83,26 @@
     MAY BE THERE ARE TWO THINGS COMMON IN ALL SECTIONS: "BEAUTY AND PLAY" --- 
 
 --- may be in your "testing and debugging" part you may work on "error handling" ---
+
+--- you may have two kind of work . 1.unofficial 2. official
+    all official work may be documented by other organization.
+    all unofficial work may be documented by me ---
+
+===  HUMAN LEARNING FOR KNOWLEDGE BUILDING USING DEBIAN :
+     	   	    		  	   	 General Learning Methdology
+						 ---------------------------
+                                                 + about learning
+						 + defining category
+						 + about organizing into a category
+						 + about learning new things even if old one is not completed
+						 + about coming back and continue to learn old things
+						 + about relearning things of the same topic
+						 + about bookmarking the area you touched.
+						 + connecting things you learned and finding higher level abstraction.
+						  
+
+                                                 Special method using debian and wordpress:
+						 -----------------------------------------
+						 + about configuring wordpress in debian.
+						 + from B WORK ALGORITHM.
+						 + about connecting the "target knowledge packet" concept to finding abstraction. ---
