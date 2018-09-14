@@ -1,6 +1,6 @@
 decision : do not give books and movies typically
-reason: they are good companion and gives confidence that there is something for you
-        they also give support when ebooks and digital movies fail
+reason:    they are good companion and gives confidence that there is something for you
+           they also give support when ebooks and digital movies fail
 
 
 decision: normally do not take cable tv
@@ -9,11 +9,22 @@ reason : movies may not be able to play on your timing.
 	 contents of some channels may not be suitable for you.
 
 decision: buy a web streaming device
-reason : can watch streaming videos on non smart tv
-         hall room does not have youtube and typical others in the tv
-	 if some guest or relatives come they can spend time on tv using web streaming device.
+reason :  can watch streaming videos on non smart tv
+          hall room does not have youtube and typical others in the tv
+	  if some guest or relatives come they can spend time on tv using web streaming device.
 
 decision: focus on your paper at ssrn.com related . work on writing papers
-reason: you can contribute to the world by sharing knowledge.
-        if god willing it is time to produce something from yourself and something
-	from your experience and may be get an international reputation. 
+reason:   you can contribute to the world by sharing knowledge.
+          if god willing it is time to produce something from yourself and something
+	  from your experience and may be get an international reputation. 
+
+decision: 1. you can buy and use smart phone. 2. learn and work on windows and mac. 3. wear color dress
+reason: i felt that i can attend holy mass if i leave my extreme behaviors
+
+decision: do not put typical things of windows and "mac os" on beautifulwork.org
+reason:   Debian, GNU and Linux are very much supportive for learning due to the
+          freedoms that comes with it. free software have typical higher priority
+	  pver non-free software in this context.
+
+decision: be open to lend a helping hand to non-free software supportive work at rset
+reason:   you will become less fit for rset. so i should keep a friendly relationship with others at rset
