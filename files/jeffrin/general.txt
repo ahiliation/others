@@ -106,3 +106,4 @@
 						 + about configuring wordpress in debian.
 						 + from B WORK ALGORITHM.
 						 + about connecting the "target knowledge packet" concept to finding abstraction. ---
+
