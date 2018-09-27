@@ -107,3 +107,8 @@
 						 + from B WORK ALGORITHM.
 						 + about connecting the "target knowledge packet" concept to finding abstraction. ---
 
+--- i do not want to attach a typical ethics of me using free software from fsf.
+    but i do not anymore abide to the ethics that every software should be free software and
+    writing non-free software is unethical. now i use typical free software because it is free of charge
+    and it is a good tool for learning, good knowledge for a UNIX related job and to seek advanced and latest
+    things and work with communities all around the world for experience and reputation. ---
