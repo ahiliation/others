@@ -112,3 +112,17 @@
     writing non-free software is unethical. now i use typical free software because it is free of charge
     and it is a good tool for learning, good knowledge for a UNIX related job and to seek advanced and latest
     things and work with communities all around the world for experience and reputation. ---
+
+--- reason for  my tensions:
+                                 1. commitment for a work which is result oriented and bound to deadline 
+                                 2. spending lot of hours in work without typical relaxation. ---                          
+
+--- about my learning framework:
+                                simple + basics + no deadline + not result oreinted + learning engineer + free software
+				simple = things which are easy
+				basics = things which are fundamental
+				no deadline = goes through a process in which there is no deadline in learning or work
+				              you can go through a course without aiming the certificate
+					      you can go through the complete course and get the knowledge without doing things with compulsary deadline  ---
+
+
