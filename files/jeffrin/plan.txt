@@ -1198,3 +1198,6 @@ so product price is 31998 and monthly installment that should be given to church
 --- about bopen plugin in beautifulwork project . try to connect posts and may be other things
     and find their abstractions . for example Mac OX and GNU/Linux are related to unix and a typical
     abstraction is operating system. ---
+
+--- may be you should continue wih BW project and Debian GNU/Linux learning even if the typical bright money future is over for you ---
+--- may be if listen to balabhaskar related work and do hacking, then you are typically part of that music team ----
