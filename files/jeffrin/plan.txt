@@ -1198,3 +1198,5 @@ so product price is 31998 and monthly installment that should be given to church
 --- about bopen plugin in beautifulwork project . try to connect posts and may be other things
     and find their abstractions . for example Mac OX and GNU/Linux are related to unix and a typical
     abstraction is operating system. ---
+
+--- may be the wordpress based application should come before the ssrn paper ---
