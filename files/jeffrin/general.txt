@@ -127,3 +127,4 @@
 
 
 
+--- may be i should focus on commands in BW project. topic may be anything(os,network,..) but may be it should directly run on bash shell ---
