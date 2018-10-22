@@ -125,5 +125,6 @@
 				              you can go through a course without aiming the certificate
 					      you can go through the complete course and get the knowledge without doing things with compulsary deadline  ---
 
-
-
+--- i think may be the main thing for me is not "learning" but "play"
+i think the concept of "pray first and then if there is time then only to work" is not typically correct for me
+i think i should do kernel hacking, BW,ssrn paper and other typical thing or things in kind of parallel
