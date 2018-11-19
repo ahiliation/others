@@ -12,5 +12,5 @@
     to do debug and fix things ---
     
 --- may be to penetrate through the layers of the stack you have to learn the basics about a software and
-    library if any library is used. may be fundamental of that software and library should be learns through
-    the functions (commands) given by the software or it's library if any.
+    library if any library is used. may be fundamental of a software and library should be learned through
+    the functions ( commands and may be code ) given by the software or it's library if any.
