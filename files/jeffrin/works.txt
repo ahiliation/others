@@ -18,3 +18,4 @@
 --- 1. BEAUTIFULWORK 2. DOLLECT 3. WORDPRESS PLUGIN BOPEN 4. APPLICATION USING PYTHON AND TKINTER(may be
        you can learn database and GUI programming along with this. 5. KERNEL HACKING (May be do error handling in C)
        and KUnit and selftests related. ---
+--- may be you should learn to read data from TXT as well as CSV files. ---
