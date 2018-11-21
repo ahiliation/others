@@ -1200,3 +1200,9 @@ so product price is 31998 and monthly installment that should be given to church
     abstraction is operating system. ---
 
 --- may be the wordpress based application should come before the ssrn paper ---
+
+--- may be write an application with python and tkinter and may be using the downloaded version
+    of wordpress database. python application should display wordpress post in it and other things
+    to improve learning experience.in future you may add a lot of other features to the application.
+    you may add functional programming and other things. if future generalize this application to
+    work on any wordpress database. ---
