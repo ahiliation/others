@@ -1206,3 +1206,7 @@ so product price is 31998 and monthly installment that should be given to church
     may be in future you may add a lot of other features to the application.
     you may add functional programming and other things. may be in  future generalize this application to
     work on any wordpress database. ---
+
+--- may be you are a researcher . may be you can write papers about "penetrating through the layers
+    of the stack and debugging"  with your beautifulwork.org experience. you may also write papers
+    about "learning". ---
