@@ -128,3 +128,10 @@
 --- i think may be the main thing for me is not "learning" but "play"
 i think the concept of "pray first and then if there is time then only to work" is not typically correct for me
 i think i should do kernel hacking, BW,ssrn paper and other typical thing or things in kind of parallel
+
+--- may be do one thing at a time .may be do beautifulwork project . it may be a knowledge sharing project.
+    research paper may not be done by me. may be it should be done by other person or persons. suppose no
+    one completes that work, even then i will not take up that work. ---
+
+--- may be the roles you can play in BW project are 1. UI/UX related designer. 2. systems engineer,3. researcher
+    4. learning engineer  ---
