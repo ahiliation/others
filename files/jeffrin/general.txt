@@ -135,3 +135,6 @@ i think i should do kernel hacking, BW,ssrn paper and other typical thing or thi
 
 --- may be the roles you can play in BW project are 1. UI/UX related designer. 2. systems engineer,3. researcher
     4. learning engineer  ---
+
+
+--- change the above plan of doing only beautifulwork project. may be it is not compulsory to do related to "RELATED SOURCE CODE EXPOSURE" part in typical beautifulwork project posts ---

@@ -6,3 +6,5 @@
 --- may be try to give mathematical representation to your content which can simplify your paper ---
 --- try to give an apt title for the paper ---
 --- publish the initial version in trueangle.org ---
+
+--- may be the above things should be done in collaboration ---
