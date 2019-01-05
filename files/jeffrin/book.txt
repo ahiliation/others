@@ -1,0 +1,13 @@
+may you can write a book about methods of solving problems
+---------------------------------------------------------
+
+may be you can write about fixing bugs.
+---------------------------------------
+	may be you start by creating a bug
+	may be there are different methods in creating a bug.
+	may be you use a tool to debug 
+        may be you use a combination of tools to debug
+	may be use printf related stuff to debug
+	may be you use different method in using a tool.
+	may be you should read about science and technology which is related to the problem.(related knowledge acquisition)
+	
