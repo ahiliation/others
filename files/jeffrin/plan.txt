@@ -1210,3 +1210,8 @@ so product price is 31998 and monthly installment that should be given to church
 --- may be you are a researcher . may be you can write papers about "penetrating through the layers
     of the stack and debugging"  with your beautifulwork.org experience. you may also write papers
     about "learning". ---
+
+--- [knowledge building method] may be your shell sessions can be read like code and can be used to find how a command works. ---
+
+--- [knowledge building method] may be your shell sessions can be considered as cryptic and should be unlocked(or may be reverse engin    eered) to find out what that shell session does or find the overall effect of that session ---
+
