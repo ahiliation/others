@@ -1215,3 +1215,10 @@ so product price is 31998 and monthly installment that should be given to church
 
 --- [knowledge building method] may be your shell sessions can be considered as cryptic and should be unlocked(or may be reverse engin    eered) to find out what that shell session does or find the overall effect of that session ---
 
+--- Shell may be a technology like python and R. may be later you should join GNU Bash project in savannah ---
+
+--- may be in future you should give a bash shell for people to play with at beautifulwork.org related ---
+
+--- may be you are good at UI and Expereince of GNU bash shell related and should also learn gnome-shell ---
+
+

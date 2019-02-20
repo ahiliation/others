@@ -141,3 +141,5 @@ i think i should do kernel hacking, BW,ssrn paper and other typical thing or thi
 
 --- may be in all the books that you read, may be you need to read only a few chapters that are simple, easy, fundamental and also
     what enhance and bring clarity to your existing knowledge ---
+
+--- may be for every program you like to know how, then find out the source of it's data ---
