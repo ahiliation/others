@@ -143,3 +143,13 @@ i think i should do kernel hacking, BW,ssrn paper and other typical thing or thi
     what enhance and bring clarity to your existing knowledge ---
 
 --- may be for every program you like to know how, then find out the source of it's data ---
+
+--- learn easy and introductory courses with certification (example - datacamp.com) ---
+
+--- may be do not go for entire specialization course . may be you can choose what is needed ---
+
+--- may be learn from courses on new and different topics ---
+
+--- may be no certification courses like rhce, lpi etc ---
+
+--- may be go in work with beautifulwork.org and Linux Kernel Development ---
