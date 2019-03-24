@@ -1221,4 +1221,5 @@ so product price is 31998 and monthly installment that should be given to church
 
 --- may be you are good at UI and Expereince of GNU bash shell related and should also learn gnome-shell ---
 
-
+--- may be you should write an algorithm and name it "come back" algorithm, which should help people to
+    come to a same topic in which thay have started building knowledge. ---
