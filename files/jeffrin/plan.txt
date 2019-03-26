@@ -1223,3 +1223,6 @@ so product price is 31998 and monthly installment that should be given to church
 
 --- may be you should write an algorithm and name it "come back" algorithm, which should help people to
     come to a same topic in which thay have started building knowledge. ---
+
+--- may be a reason to come back is having same or similar tags of posts ---
+--- the condition in conditional statement may tell about crucial decisions of how the program works ---
