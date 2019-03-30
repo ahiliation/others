@@ -149,3 +149,9 @@ i think i should do kernel hacking, BW,ssrn paper and other typical thing or thi
 --- may be do not go for entire specialization course . may be you can choose what is needed ---
 
 --- may be learn from courses on new and different topics ----
+
+--- challenges related : doing same kind of job
+		         not able to find any new job
+			 not able to complete a job
+			 not enough programming
+			 not writing a book  ---
