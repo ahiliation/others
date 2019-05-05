@@ -19,3 +19,13 @@
        you can learn database and GUI programming along with this. 5. KERNEL HACKING (May be do error handling in C)
        and KUnit and selftests related. ---
 --- may be you should learn to read data from TXT as well as CSV files. ---
+
+
+--- SHELL, PYTHON, SINGLE UNIX SPECIFICATION, OPENEND, DEBIAN, lINUX KERNEL
+
+                           SHELL --O  TEST Linux Kernel ==> KNOWLEDGE ABOUT LINUX KERNEL AND SHELL
+			   BWORK --O  GENERAL UNIX LEARNING AND DISCOVERY  ==> KNOWLEDGE ABOUT GENERAL UNIX AND RESEARCH
+			   https://pubs.opengroup.org/onlinepubs/9699919799.2018edition/ ==> KNOWLEDGE ABOUT SINGLE UNIX SPECIFICATION
+			   https://savannah.gnu.org/projects/bash/ ==> KNOWLEDGE ABOUT THE DEVELOPMENT OF GNU Bash 
+			   DOLLECT --O  (used  python for development) ==> KNOWLEDGE ABOUT PROGRAMMING
+			   OPENEND --O TAKING EXPERIENCE FROM ALL OF THE ABOVE ==> KNOWLEDGE ABOUT LEARNING PROCESS ---
