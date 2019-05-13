@@ -31,3 +31,23 @@
 			   OPENEND --O TAKING EXPERIENCE FROM ALL OF THE ABOVE ==> KNOWLEDGE ABOUT LEARNING PROCESS ---
 
 --- A CORE THING IS "METHODS TO FIND OPENENDS"
+
+
+--- KNOWLEDGE BUILDING:
+
+               1.   BWORK --O DEBIAN [ COME BACK ALGORITHM. APPLICATION FOR KNOWLEDGE BUILDING ]
+
+                    WORDPRESS
+		    PHP
+		    PYTHON
+		    CSS
+		    HTML
+		    SQL
+		    JAVASCRIPT
+		    LINUX
+		    
+               2.   SINGLE UNIX SPECIFICATION
+               3.   COURSES --O DATACAMP, COURSERA  ---
+                    
+
+--- solve big problems in a simple way ---
