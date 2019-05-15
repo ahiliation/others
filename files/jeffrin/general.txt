@@ -155,3 +155,5 @@ i think i should do kernel hacking, BW,ssrn paper and other typical thing or thi
 			 not able to complete a job
 			 not enough programming
 			 not writing a book  ---
+
+--- may be in a way do not try to implement all the work ideas that come into your mind --- 
