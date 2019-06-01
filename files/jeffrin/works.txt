@@ -57,3 +57,15 @@
     SKILL TRACK = SOFTWARE ALGORITHMS  ---
 
 --- may be learning bring knowledge and learning again brings new knowledge and hence knowledge building ---
+
+                                                        WORKS
+                                                        -----
+							
+	-----COURSE/READING/SEARCHING--------COURSE/READING/SEARCHING---COURSE/READING/SEARCHING
+		       |                                  |                   |
+		       |                                  |                   |
+		LINUX KERNEL(HACK)               DOLLECT(HACK)            BWORK(HACK)
+                       |                                  |                   | 
+		       |		                  |                   |
+                     COURSE                             COURSE              COURSE
+                         
