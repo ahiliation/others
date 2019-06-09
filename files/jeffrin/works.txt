@@ -61,11 +61,21 @@
                                                         WORKS
                                                         -----
 							
-	-----COURSE/READING/SEARCHING--------COURSE/READING/SEARCHING---COURSE/READING/SEARCHING
-		       |                                  |                   |
-		       |                                  |                   |
-		LINUX KERNEL(HACK)               DOLLECT(HACK)            BWORK(HACK)
-                       |                                  |                   | 
-		       |		                  |                   |
-                     COURSE                             COURSE              COURSE
+	-----COURSE/READING/SEARCHING--------COURSE/READING/SEARCHING---COURSE/READING/SEARCHING--------COURSE/READING/SEARCHING----
+		       |                                  |                   |                                   |
+		       |                                  |                   |                                   |
+		LINUX KERNEL(HACK)               PYTHON SYSTEM(HACK)       BWORK(HACK)                       ALGORITHMS(HACK)MATH
+                       |                                  |                   |                                   |
+		       |		                  |                   |                                   |
+                     COURSE                             COURSE              COURSE                             COURSE
                          
+
+       ------COURSE/READING/SEARCHING-----
+                        |
+			|
+		EASYCOOK(HACK..DOCUMENT)
+
+
+--- MAY BE  PYTHON SYSTEM HACK BLOG MAY BE MAIMUM 10 LINES ---
+--- MAY BE  ALGORITHM HACK MATH IS ON ALGEBRA AND MAY BE SIMPLE MATHEMATICS ---
+
