@@ -166,3 +166,10 @@ i think i should do kernel hacking, BW,ssrn paper and other typical thing or thi
 --- may be you are a Generalist in Free software technologies and Others ---
 --- may be you are a Specialist in Debian. so may be keep learning Debian ---
 
+--- may be teaching(writing blog and sharing knowledge) is the main thing that you do.
+    may be sharing knowledge is thing you should do
+    may be your BWORK will not be a self contained blog and other people can take parts from it
+    may be showing shell sessions itself should be considered as teaching
+    may be shell sessions(or typical code related) should be seen as library which can be
+    attached with other documents ---
+--- may be there should be an option to embed BWORK posts in other docs related ---
