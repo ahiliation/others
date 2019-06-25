@@ -162,7 +162,11 @@ i think i should do kernel hacking, BW,ssrn paper and other typical thing or thi
     may be you have depth in breath.
     may be you can connect general things and discover something new.
     may be you are a master connector ---
-        
+
+--- may be you can use "GNU Bash" to connect  several programming languages and also may be  others ---
+--- may be you can use ALGEBRA to connect to an extent branches of mathematics.
+    like connecting geometry shapes  with algebraic formulas ---  
+
 --- may be you are a Generalist in Free software technologies and Others ---
 --- may be you are a Specialist in Debian. so may be keep learning Debian ---
 
@@ -173,3 +177,5 @@ i think i should do kernel hacking, BW,ssrn paper and other typical thing or thi
     may be shell sessions(or typical code related) should be seen as library which can be
     attached with other documents ---
 --- may be there should be an option to embed BWORK posts in other docs related ---
+
+
