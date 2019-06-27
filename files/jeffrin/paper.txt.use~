@@ -1,0 +1,87 @@
+An algorithm becomes a function when used in an application.
+
+methods
+-------
+1. (method to contribute to a typical kernel source package using scripts)
+focus on scripts for kernel related. ex: linux-3.10.0/scripts ( scripting with Bash )
+
+2.(method to create a simple program and then to create a library and an application using that library)
+try to write code for geometric functions.
+try to form a library using those functions.
+try to write an application using that library.
+
+3. (method to learn porting) i like to port some GNU software that work in commandline interface to a web interface(as a web application).
+
+4. try to solve same problem in different programming languages. (method to learn different programming languages )
+5. (method to become an expert in writing a typical program )
+try to rewrite the same program again and again so may be your brain may get comfortable  with the patterns.
+
+
+6. DEBUG METHODS
+
+get source code of quicksort in different languages.(C,JavaScript,Perl,Python,C++,Java...)
+try to debug all the code with debuggers.gdb , may be firebug .. chrome...related...
+may be try to integrate or otherwise if possible run the code into different
+environments and conditions and debug to see if there is any bug.fix the bug
+or give the idea to fix it to the developer if possible.
+
+also try to learn about linux kernel debugging.
+
+take source code from lots of free software(may be debian) and do
+extensive debugging.lot of debugging is studied through testing
+(i mean atleast testing the debugger features using a program)
+note : Testing programs using debugger and debug techniques
+make it a test driven development. a development of debug methods.
+(DEBUG METHODS DEVELOPER)
+
+try to document and develop methods for unlocking knowledge.
+engineering methods and algorithms for unlocking knowledge.
+METHODS Developer.
+METHODS Algorithm Developer.
+Algorithms For Methods Usage.
+Package Developer.
+
+in debug method development try to connect topic of "functions" in mathematics to GNU/Linux commands
+
+may be try to write debug code (the code added to a computer program so that it can be debugged easily )---
+--- may be writing debug code is part of [debug method development] ---
+
+--- may be i should try to do typical data science course at coursera.
+    knowledge in data science may help you debug new things ---
+may be you can do debug method development using data visualization of linux kernel
+
+ may be you should  use data
+    structures and visualizing  the data to debug things.
+
+--- may be a simple shell session can give ideas to a big thing or related big concepts or
+    ideas to check source code to know internals or find ideas to debug large programs ---
+
+Using debuggers helps you find the internals of a program.
+
+may be you should know only the beginner basics about a concept to do debugging
+
+--- may be you should write comments in code and help write a patch for debug support
+
+---  may be it can be "learning method developer"--->"knowledge building"--->"debug method developer"
+    may be to become a learning method developer you should try to learn things .
+    may be for knowledge building you should document and share what you have learned.
+    may be to become a debug method developer you should try debugging things.
+    there is debugging in learning and learning in debugging. may be learning comes first. ---
+
+--- may be a step in debug method development is to find methods to find
+    bugs in a program. this can be accomplished by first testing program that needs to be
+    debugged.may be learn different types of testing methods in free software.
+    may be some methods to find bugs are 1. reading log files 2. running programs in terminal
+    3. building programs from source
+
+may be you should know to penetrate through the layers of the software stack
+
+may be you should know method or methods to locate the part of source code you like to fix
+
+suppose you want to know which function is involved in doing a task and that function may
+be located in the library of a software. you may find a sample basic program code written using
+that library and may be find the name of that function in the library source code.
+
+
+
+
