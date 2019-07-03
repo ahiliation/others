@@ -60,22 +60,30 @@
 
                                                         WORKS
                                                         -----
-							
+		(LINUX KERNEL DOC)					
 	-----COURSE/READING/SEARCHING--------COURSE/READING/SEARCHING---COURSE/READING/SEARCHING--------COURSE/READING/SEARCHING----
 		       |                                  |                   |                                   |
 		       |                                  |                   |                                   |
-		LINUX KERNEL(HACK)               PYTHON SYSTEM(HACK)       BWORK(HACK)                       ALGORITHMS(HACK)MATH
+		LINUX KERNEL(HACK)               PYTHON SYSTEM(HACK)       BWORK(HACK)                       ALGORITHMS(HACK)(THEORY)
                        |                                  |                   |                                   |
 		       |		                  |                   |                                   |
-                     COURSE                             COURSE              COURSE                             COURSE
+                     COURSE                              COURSE              COURSE                             COURSE
                          
+                                          (MATHS 1O STD STATE SYLLABUS + PYGAME + MIT related)
+       ------COURSE/READING/SEARCHING-----------COURSE/READING/SEARCHING----
+                        |                                 |
+			|                                 |
+		EASYCOOK(HACK..DOCUMENT)              CGRAPHICS(HACK)
+		                                          |
+                                                          |
+							COURSE
 
-       ------COURSE/READING/SEARCHING-----
-                        |
-			|
-		EASYCOOK(HACK..DOCUMENT)
 
 
---- MAY BE  PYTHON SYSTEM HACK BLOG MAY BE MAIMUM 10 LINES ---
+
+--- MAY BE  PYTHON SYSTEM HACK BLOG MAY BE MAXIMUM 10 LINES ---
 --- MAY BE  ALGORITHM HACK MATH IS ON ALGEBRA AND MAY BE SIMPLE MATHEMATICS ---
+
+
+
 
