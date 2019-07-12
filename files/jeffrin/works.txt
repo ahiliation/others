@@ -89,6 +89,6 @@
 --- MAY BE  PYTHON SYSTEM HACK BLOG MAY BE MAXIMUM 10 LINES ---
 --- MAY BE  ALGORITHM HACK MATH IS ON ALGEBRA AND MAY BE SIMPLE MATHEMATICS ---
 
-
+--- may be you should connect the posts in bwork and form a book (this should be part core algo's related ---
 
 
