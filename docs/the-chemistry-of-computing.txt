@@ -1,0 +1,184 @@
+For many, memories of chemistry class stir up more cold sweat than nostalgia. Think lab-coated poindexters have done nothing but suck the life out of your teenage years? We think differently.
+
+Chemistry PCChemistry has given us faster computers, bigger hard disks, and ever-more-dazzling displays, multiplying our power to work, to create, or at least to play Half Life 2 in style. Engineering gets all the glory—but chemistry is key.
+
+“Chemistry plays a huge, huge role in computing,” says Ghavam Shahidi, director of silicon technology at IBM Research. “It’s what lets us meet our goal of increasing speed while using less power.” But as computer components continue to shrink—processors and hard disks in particular—the imagination of designers (and the demands of the market) are testing the laws of physics. You can squeeze silicon transistors and hard disk magnets only so much before they act in ways you don’t want. These are no small problems. Here’s how chemistry is solving them. 
+
+
+At the heart of any microprocessor are transistors—plenty of them. It’s the sheer number of transistors that make today’s CPUs more powerful then ever—and give their designers more headaches.
+
+Chemistry gave us transistors nearly 60 years ago and continues to improve them, mainly by letting engineers make them ever smaller. But as transistors, and the chips containing them, have continued to shrink, new problems have arisen, and once again chemistry will be needed to solve them.
+
+In addition to winning its inventors—John Bardeen, Walter Brattain, and William Shockley of Bell Labs—a Nobel Prize in 1956, the transistor performs two tasks very well. Amplification is one. But often the device simply acts as the electronic equivalent of an on-off switch. When on, it completes a circuit and lets current flow; when off, it breaks the electrical path.
+
+A lone transistor isn’t good for much, but there’s strength in numbers. By grouping vast quantities together and turning them on and off as appropriate (to represent ones and zeros) a microprocessor can manipulate enormous amounts of data—at extraordinary speeds.
+
+
+The Chemistry of a Transistor
+Transistors are possible because the semiconductors they’re built from—elements like silicon and germanium—have one strange and very useful property: They carry electricity better than insulators, such as glass, but not as well as conductors—aluminum for example.
+
+Scientists can push a semiconductor’s conductivity one way or the other by doping—adding small amounts of impurities. (Arsenic and boron are two of the commonly used elements.) “When you dope silicon you make it act differently,” says Shahidi. “It can act like an insulator or as a metal.” Doping specific areas of a semiconductor in different ways is what creates a transistor enables its switching action.
+
+Silicon, the semiconductor used to make transistors today, is one of the most abundant elements on earth. It makes up 25.7 percent of the crust by weight and is the principle ingredient in sand. Yet that first Bell Labs transistor, developed in 1947, was actually made from germanium. Still, there’s a reason California has no prime real estate known as Germanium Valley.
+
+The element proved to be less than ideal for manufacturing transistors, partly because of its limited availability and high cost. There was a larger problem, though: The insulator form, germanium oxide, was soluble in water and would dissolve in the etching process used to fabricate multiple transistors on a single chip. “Germanium was hard to work with, so there was a move to silicon,” says Ken David, director of the components research group at Intel.
+
+Silicon, however, is creating its own brand of trouble. The first microprocessor, the Intel 4004, introduced in 1971, contained 2,300 transistors. Today’s processors have hundreds of millions. We want that to increase, though, and for good reason: The more transistors you pack on a chip, the faster and more powerful the microprocessor.
+
+Moore’s Law—named after its creator and Intel cofounder, Gordon Moore—predicts that the number of transistors on a chip will roughly double every 2 years. His prediction remains remarkably accurate—but transistors are getting so small that their size is creating significant power and heat problems. So far, advances in chemistry have been able to mitigate these issues and keep his law going strong.
+
+
+For example, as components shrank, the places where the transistors’ connecting wires attached to the silicon became problematic. “The contact points were becoming very resistive, impeding the flow of current,” according to David.
+
+This was bad news, but he says it was hardly surprising, “We’re trying to build more and more transistors and get them to go faster, but at the same time we’re shrinking the critical wire that’s going to them. Something had to give.”
+
+Clean room at fab
+Intel’s solution was to change the metal—and keep doing so as the chips got smaller and resistance got larger. When one conductor stopped working, designers used another with lower resistance. David gives this progression: “We went from using tungsten in the 1980s to titanium in the early nineties to cobalt in the late nineties to nickel today. Each new metal improved resistance because there would be lower resistance at the contact points.”
+
+But he also says switching from one metal to another gets complicated. “We’d use tungsten for five years and then move to titanium and have to start over. We’d have to change out the reactors that deposited the material. We’d move from putting wafers in a furnace to heating them with high-intensity lamps because that caused the new material to adhere better with silicon. We’d need to figure out ways to etch the new material so it doesn’t get where you don’t want it and interact in a way you don’t want. There would be a whole host of problems.”
+
+Chemistry’s Role Is Shrinking More
+Meanwhile, ever-shrinking transistors have required another chemical shift—this time in the wiring itself—from aluminum to copper. Again the issue was resistance, and as before, the switch was complicated. While copper is a much better conductor than aluminum, it had never been used to connect transistors, because it corroded easily, making it hard to work with. “Moving from aluminum to copper at the beginning of this decade was the largest change for us,” says David.
+
+By the early nineties, engineers had figured out that a thin layer of titanium over the copper would stop the corrosion. But problems remained. Aluminum wiring could be etched onto the microprocessor using standard lithographic techniques. Copper could not. David describes the difficulty: “We have to use a sort of reverse process, etching trenches in the silicon dioxide insulating layer, then filling them with copper.”
+
+And copper couldn’t touch the silicon—the elements react in ways that could damage transistors. Hence the need for the nickel contact point, or interface, between the copper wire and the silicon transistor. It’s a lot of work (and arguably a lot of grief), but this intricate chemical ballet enables transistors to get smaller and CPUs faster.
+
+Plugging Leaks
+
+Size is taking a toll on more than just contact points and wiring. The transistor’s gate—its on-off switch—relies on a thin insulating layer of silicon dioxide to work. As transistors have gotten smaller, so too has this layer, which now measures just 3 or 4 atoms thick.
+
+“The downside of getting so thin is that you tend to leak current,” says David. So instead of the transistor being on or off, it’s on or leaky off, wasting power. The result: Transistors are getting smaller, but their power requirements are increasing.
+
+“It’s the price we pay for faster processors,” laments IBM’s Shahidi. “You’ll turn the transistor off, but you can’t stop the current from leaking. A Pentium chip used to burn at 10 to 15 watts with less than 1 watt leakage. Today you’ll need 100 watts of energy to operate, losing half of that to leakage.” And that means bigger heat sinks, too. The problem is particularly acute for mobile computing. “You can’t use a 100-watt chip in a laptop,” says Shahidi. “30 to 40 watts is the limit.”
+
+Not surprisingly, there’s a big push to solve the problem—without a solution, Moore’s Law becomes Moore’s History. “A lot of research is going on,” says Shahidi. “Everyone is looking at new materials to use instead of silicon oxide.”
+
+
+By acohen on April 5, 2006 at 12:00 am 0 Comments
+Facebook
+Twitter
+Google Plus
+Reddit
+Hacker News
+Flipboard
+Intel has already announced that as early as 2007 it expects to replace silicon dioxide, which has been used for over 30 years, with what it calls high-k material (k refers to charge-holding capability). Intel won’t say exactly what its high-k material is, but the industry is particularly interested in three materials: hafnium oxide, lanthanum oxide, and zirconium oxide.
+
+DNA Instead of Silicon? Other researchers are looking into replacing silicon entirely. Already, some transistors use gallium arsenide (GaAs), and they have several advantages over their silicon counterparts: Speed, for one. They’re also more sensitive to radio frequencies, and thus ideal for cell phones and wireless cards. But because they suck a lot more power, so far their use has been limited to communications chips.
+
+Ironically, the search for a new semiconductor may end with an old one—germanium. Although the difficulty its insulating form presented was a big reason for rejecting the element decades ago (and silicon was relatively easy to use), new insulators coming out make germanium look better. “Now that we’re using high-k instead of silicon dioxide, we could go back to germanium in the future,” says Intel’s David.
+
+Down the Tubes or Into a Spiral?
+
+Or we could attempt completely novel approaches, like using carbon nanotubes. Transistors made from the tiny hollow cylinders would use far less power than those made of silicon. Intel and IBM are working on the technology. (IBM has been at it for 10 to 15 years, according to Shahidi.).
+
+There’s another prospect, though it’s a long way down the road: Replace silicon with DNA—the same deoxyribonucleic acid that forms the building blocks of our genes. At first glance the idea seems pure science fiction, but consider: DNA chains already encode information, and existing tools let scientists manipulate strands by copying, joining, deleting, and inserting sections.
+
+Thus, as with silicon, DNA provides a a way to store and process information—but far faster on far less power (theoretically). Also, the material is readily available, cheap, and like nanotubes, almost unimaginably small. The idea isn’t exactly new, anyway.
+
+In 1994, Leonard Adleman, a computer scientist at the University of Southern California, used DNA in a test tube to solve the traveling salesman problem (finding the shortest route between a set of cities, hitting each city just once). You won’t see a full-blown DNA computer anytime soon (it took Adleman days to get an answer) but you may see it in your lifetime…depending on what’s written in your own DNA.
+
+
+Clever chemistry is what lets you put thousands of songs and photos on your hard drive without having to add another room to your house. We’re seeing bigger storage in smaller packages (think iPod), but getting more in less hasn’t been easy.
+
+Hard disk surfaceThe idea behind hard drives is simple: Store the ones and zeroes using tiny magnets, and info won’t be lost when the power dies. But the chemistry gets tricky, especially when we shrink magnets to cram more, and hence more data, onto disks.
+
+For the last decade or so, the magnetic coating most often used on hard disks has been a metal alloy of cobalt, chromium, and platinum. The first two make up 50 to 60 percent of the mixture and provide the magnetism.
+
+The platinum keeps the coating’s magnetic regions from flipping directions too easily. A region’s direction determines whether it represents a one or a zero, so accidental flips make storage unreliable.
+
+“You want the magnet to have a strong preference for one direction or the other, and it’s the platinum that does this,” says James A. Bain, associate director of Carnegie Mellon University’s Data Storage Systems Center.
+
+The disk is a thin, shiny, circular piece of aluminum or glass that looks much like a DVD. The ultrathin magnetic layer is sprayed on it all at once. “You want it to break up into small regions,” says Bain. Each magnetized region can store one binary digit—more regions, more data.
+
+Big Trouble in Small Packages
+
+When these tiny magnets start to get too tiny, problems arise. “As you make the magnetic bits smaller and smaller you have new physics to contend with,” says Bain. Today’s magnetic particles are typically 10 nanometers in diameter, putting them firmly in the nanotechnology range. Magnets that small vibrate, when they get warm. While the platinum helps keep them in place, there’s a limit to its power.
+
+“If you make a magnet really small it will jump between zero and one,” warns Bain. “At some point you won’t be able to scale down any further because the physics forbids it. You’ll need a whole new paradigm.”
+
+Luckily, we haven’t reached that point. Researchers are devising all sorts of chemical tricks to reduce magnet size below 10 nanometers—the goal being 5. “You can change the temperature at which you deposit the alloy, you can put certain materials under the magnetic layer,” Bain says. For example, applying nickel aluminum first lets the magnets break up into smaller bits.
+
+Shrinking : On a typical disk, the magnetic bits do not break up into uniform sizes—some wind up bigger than others. That’s a major problem, says Bain. “You’ll try to switch one magnet from north to south, but you don’t quite know where it is, because the grid of magnets is irregular.”
+
+Today’s hard drives use sophisticated algorithms to calculate when the disk head is hovering over the right magnet. A better solution, of course, would be a perfect grid, where every magnet is of uniform size. That may not be out of the question.
+
+In the last few years, researchers have been working on a system that deposits silicon dioxide with the cobalt-chromium-platinum alloy simultaneously. Bain reveals the reason: “The silicon dioxide forms isolated boundaries between the [magnetic] grains, separating them better and giving more uniformity in size. Commercial application of this technology may be just a year or so away.
+
+
+
+The chemistry of the disk head, which flies over the magnets and changes their orientation, has also evolved. It’s had to—because the magnets no longer flip accidentally, they’re harder to flip intentionally. Engineers needed to make the heads generate bigger and bigger magnetic fields.
+
+Manufacturers first made heads 80 percent nickel, 20 percent iron, then 45/55. When that proved inadequate, an iron-cobalt alloy solved the problem. “Each alloy has been a step up in generating a magnetic field,” says Bain. “It’s been an important advance in the last decade.”
+
+A huge amount of chemical engineering also goes into the interface between the head and the disk surface. Bain lays out the problem this way: “The gap between the head and disk is about 10 nanometers, and you’re moving at 40 meters a second, which is like flying a 747 jet 6 inches off the ground.
+
+It’s almost impossible to avoid collisions, but at the same time you need a system that will be robust and reliable enough to last 10 years.” Both the head and disk need some sort of protective layer—but it can’t be too thick or the head won’t be able to read and write data.
+
+Trying to meet criteria like this could drive a chemist mad, but fortunately at least one stayed sane long enough to figure out how: A thin but hard layer of diamond-like carbon coats the head and disk, and between the two is a lubricant just one molecule thick. If the head strikes the platter, the two hard surfaces slide on the lubricant, preventing damage.
+
+But collisions occur frequently, and the lubricating layer must be so incredibly thin that it could wear out far too quickly. To prevent this, manufacturers use a special type of oil known as a perfluorinated ether. This kind of substance creates a greasy film that’s mobile enough to quickly move into any gouge created in the layer. Engineers call it a self-healing interface.
+
+
+
+Optical discs are an entirely different breed of mass storage medium. Although they spin like hard disks, and the drives have moving heads, that’s where the resemblance ends.
+
+Optical discs hang onto data without using any magnetic material whatsoever, of course. The chemical engineering needed to accomplish that feat is remarkable.
+
+It’s Just a Phase
+
+Of the various CD and DVD media, rewritables are the most chemically interesting. This kind of disc uses a special coating known as a phase-change alloy. Of the various alloy types, the oldest and most common is made from germanium, antimony, and tellurium.
+
+“Phase-change alloys have a very interesting property,” says Carnegie Mellon’s Bain. “Their atoms can randomly assemble, like marbles in a box, or they can be in a perfectly packed state.” The random assembly looks dull; the perfectly packed looks shiny—and that sounds like ones-and-zeroes land.
+
+The drive uses a laser with three power levels to read and write. During reads, the laser is at its lowest power. It focuses on the phase-change alloy, which can be buried several layers below the disc’s surface. An optical pickup senses whether the beam bounced off a dull or shiny spot.
+
+Writing gets a little bit more complicated. On high power, the laser generates hot spots that melt tiny patches of the alloy, scattering the atoms into their random, dull state. Medium power merely warms the alloy without melting it—creating the perfectly packed, shiny atomic arrangement. After the laser finishes writing, it simply drops back to its lowest power level and scans the disc’s surface to read. 
+
+
+
+The changes that chemistry has brought to computing—smaller transistors that enable more powerful processors, tinier disks that can hold ever more, and so on—normally happened well out of sight. But one change has taken place right before our eyes: The switch from monitors that use cathode ray tubes to liquid crystal displays.
+
+Lust for Power Leads to a Fall
+
+LCDs bring thinner monitors that use less power, and they also bring entirely new chemistry that, makes reading spreadsheets and playing The Sims a whole lot easier on the eyes.
+
+When CRTs were first demonstrated in 1927 by Philo Farnsworth they were revolutionary. But they never lost their hunger for power, and they had other problems.
+
+Colored Glass A CRT makes phosphor dots on its screen glow to form an image by rapidly scanning an electron beam across them. Refreshing the entire dot matrix many times a second creates the illusion of movement. Later CRTs produced color by making each pixel with three different phosphors—one glowed red, one green, one blue.
+
+Chemists found thousands of formulas. Properly mixed, Zinc sulfide with copper and aluminum glows green; with silver, it makes blue. One red brew uses europium, oxygen, and Yttrium (found in moon rocks, but display makers buy locally).
+
+But phosphors could be less than environmentally friendly—zinc sulfide, for example, is toxic. And monitors used vast quantities of lead which leeches into groundwater from landfills filled with junked displays.
+
+Then ,too, the electron gun needed a great deal of power which, among other issues such as the need for thick, heavy glass to prevent implosion, limited size. And between refreshes, the glow from the phosphors would decay, causing vision strain from image flicker.
+
+Crystal Red, Green, and Blue Persuasion
+
+Researchers noted odd properties—like dual boiling points—in some substances as much as 150 years ago, and in 1889, physicist Otto Lehmann deduced that these “apparently living crystals,” had a state between liquid and crystalline. But not until the 1960s would anyone realize the true power of liquid crystals.
+
+In 1971, James Fergason used the nematic field effect, which causes liquid crystals to align with an electric field, to make the first practical LCDs. This type of display sandwiches columns of normally twisted liquid crystals between filters polarized at 90 degrees to each other.
+
+White light passed through first filter twists enough going through the liquid crystals to pass through the second. Applying an electric field to the column untwists it, and the light is blocked. Red, green and blue filters over individual pixels produce color.
+
+No electron gun is needed, reducing power needs and display size. Because the screen is constantly lit, it doesn’t flicker.
+
+
+Chemistry has even more in store for displays. Organic light-emitting diode (OLEDs) promises less power consumption than LCDs, brighter images, faster response times, and a far wider viewing angle. Researchers say the displays will also be thinner—and here’s the real draw—flexible.
+
+OLEDConductive polymers are the key. These carbon-based compounds, although plastic, can carry electricity. Some can also be made to glow. But OLEDs aren’t quite ready for prime time.
+
+“It’s a huge field of research, but the problem is that they suffer from lifetime issues and don’t last as long as you would like,” says Amy Walker, assistant professor of chemistry at Washington University in St. Louis. “It’s believed that the polymer gets destroyed by oxidation. It’s not fully understood why.”
+
+Scientists also need a way of depositing metal power channels onto the polymer. Metals and polymers interact, and not always well. If a metal is too reactive, it destroys the polymer. If it’s not reactive enough, it might not form a good contact.
+
+Titanium, for example, destroys the polymer, making it a poor contact. Aluminum and copper have proved to be poor contacts, as well.
+
+Pointer Graphic for FingerlinksClick here to read up on the latest CPUs, boards, and components.
+
+“We’re only just starting to understand these metal-molecule interactions,” explains Walker. Another hitch is getting the OLEDs to glow with the right colors. “There are a lot of companies working on this,” says Walker. And a lot of users waiting for their bendable screens.
+
+
+
+
+
