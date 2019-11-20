@@ -11,7 +11,7 @@
 --- may be you should learn a wide range of things so that you can penetrate through the layers of stack
     to do debug and fix things ---
     
---- may be to penetrate through the layers of the stack you have to learn about basics of relevenl functions
+--- may be to penetrate through the layers of the stack you have to learn about basics of relevent functions
     and concepts. ---
 
 
@@ -95,3 +95,8 @@
 --- may be you should create featured images as kind of logo for a command ---
 --- may be when you learn and work with GIMP, you may get knowledge discovery ---
 --- may be you should do web design and also other work and contribute through behance.net ---
+
+--- may be you should participate in stable kernel release related process ---
+--- may be you should get involved in cki-project.org ---
+
+
