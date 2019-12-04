@@ -99,4 +99,9 @@
 --- may be you should participate in stable kernel release related process ---
 --- may be you should get involved in cki-project.org ---
 
-
+--- may be stress testing and performance of the kernel ---
+--- may be you should do basic testing of the linux kernel ---
+--- may be you should examine kernel logs ---
+--- may be you should learn dynamic debugging ---
+--- may be you should learn and do test related work with "kernel hacking" stuff while doing "make menuconfig" ---
+--- may be you should put testing works on linux kernel in www.github.com KERNEL name related repository ---
