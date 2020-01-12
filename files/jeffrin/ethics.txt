@@ -8,3 +8,8 @@ you may try to improve those services
 you may go to someone else house or to any places without a computer and still you may be a hacker.
 may be it is like "once a hacker, always a hacker'
 may be you are a general hacker and generalize your hacking into other things other than software.
+
+PIONEER   : BWORK [ART] (GIMP)
+VOLUNTEER : SOFTWARE TESTING 
+LANGUAGE  : PYTHON
+JOB       : SOFTWARE ENGINEER (DEBIAN, GNU AND LINUX)
