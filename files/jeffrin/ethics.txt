@@ -12,3 +12,4 @@ may be you are a general hacker and generalize your hacking into other things ot
 PIONEER   : BWORK [ART] (GIMP)
 VOLUNTEER : SOFTWARE TESTING 
 JOB       : SOFTWARE ENGINEER (DEBIAN, GNU AND LINUX)
+SPIRITUAL : BOlearn
