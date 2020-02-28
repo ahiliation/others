@@ -110,7 +110,7 @@
 may be you can do multiple small web applications.
 may be you can port other app to a web application.
 may be you can collect functions from the applications	
-you may  make and make it as a generic library (new web apis related, web related library related)
+you may  make and make it as a generic library.
 
 Bash (systems)      ---    database like MySQL(backend) --- web browser like firefox (frontend)
 
