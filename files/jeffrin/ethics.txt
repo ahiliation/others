@@ -13,3 +13,6 @@ PIONEER   : BWORK [ART] (GIMP)
 VOLUNTEER : SOFTWARE TESTING 
 JOB       : SOFTWARE ENGINEER (DEBIAN, GNU AND LINUX)
 SPIRITUAL : BOlearn
+
+be the software big or small, the main thing is to make it free software.
+

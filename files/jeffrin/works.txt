@@ -105,3 +105,14 @@
 --- may be you should learn dynamic debugging ---
 --- may be you should learn and do test related work with "kernel hacking" stuff while doing "make menuconfig" ---
 --- may be you should put testing works on linux kernel in www.github.com KERNEL name related repository ---
+
+
+may be you can do multiple small web applications.
+may be you can port other app to a web application.
+may be you can collect functions from the applications	
+you may  make and make it as a generic library (new web apis related, web related library related)
+
+Bash (systems)      ---    database like MySQL(backend) --- web browser like firefox (frontend)
+
+GNU Bash scripting  ---    SQL scripting                ---  JavaScript GIMP HTML	CSS Python
+
