@@ -116,3 +116,15 @@ Bash (systems)      ---    database like MySQL(backend) --- web browser like fir
 
 GNU Bash scripting  ---    SQL scripting                ---  JavaScript GIMP HTML	CSS Python
 
+
+
+WORK FLOW
+----------->
+    "DEBIAN"
+     -- (Debian Developer)
+     -- (GNU Bash)
+     -- (Emacs)
+    "PYTHON" 
+     -- (Python Developer) (become a programmer)
+     -- (Python For Data Science)
+        
