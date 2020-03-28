@@ -125,6 +125,8 @@ WORK FLOW
      -- (GNU Bash)
      -- (Emacs)
     "PYTHON" 
-     -- (Python Developer) (become a programmer)
+     -- (Python Developer)
      -- (Python For Data Science)
-        
+
+---  "programming" ---
+---  "systems(softwre)  administration" ---
