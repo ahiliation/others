@@ -126,7 +126,8 @@ WORK FLOW
      -- (Emacs)
     "PYTHON" 
      -- (Python Developer)
-     -- (Python For Data Science)
+    ---x-------(Python For Data Science)----x---
+     -- Problem solving using python
 
 ---  "programming" ---
 ---  "systems/software"  administration ---
