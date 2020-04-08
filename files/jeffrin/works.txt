@@ -129,4 +129,4 @@ WORK FLOW
      -- (Python For Data Science)
 
 ---  "programming" ---
----  "systems(softwre)  administration" ---
+---  "systems/software"  administration ---
