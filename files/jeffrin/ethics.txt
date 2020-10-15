@@ -18,3 +18,6 @@ be the software big or small, the main thing is to make it free software.
 do not do typical repeated things, it may cause pressure .
 Jump to other projects which my be new or an old one you have not
 worked for a typical time. Do not work on the same work > 2 times.
+
+do the kernel work (testing related to stable release)
+learn new things when things come up related to your basic testing work.
