@@ -21,7 +21,7 @@
 --- may be you should learn to read data from TXT as well as CSV files. ---
 
 
---- SHELL, PYTHON, SINGLE UNIX SPECIFICATION, OPENEND, DEBIAN, lINUX KERNEL
+--- SHELL, PYTHON, SINGLE UNIX SPECIFICATION, OPENEND, DEBIAN, LINUX KERNEL
 
                            SHELL --O  TEST Linux Kernel ==> KNOWLEDGE ABOUT LINUX KERNEL AND SHELL [MEDIUM TERM]
 			   BWORK --O  GENERAL UNIX LEARNING AND DISCOVERY  ==> KNOWLEDGE ABOUT GENERAL UNIX AND RESEARCH
@@ -134,3 +134,5 @@ WORK FLOW
 
 
 
+may be compile and test "linux-next" "linux(torvalds)" kernels (to catch bugs) 
+may be compile and test release candidate kernels. (look for regression)
