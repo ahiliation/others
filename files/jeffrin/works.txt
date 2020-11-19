@@ -136,3 +136,11 @@ WORK FLOW
 
 may be compile and test "linux-next" "linux(torvalds)" kernels (to catch bugs) 
 may be compile and test release candidate kernels. (look for regression)
+
+WORK FLOW (NOV 20 2020)
+-----------------------
+Kernel Testing
+looking for bugs in linux kernel.
+BWORK  project
+pypi.org -- python projects
+lwn.net
