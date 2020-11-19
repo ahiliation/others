@@ -144,3 +144,4 @@ looking for bugs in linux kernel.
 BWORK  project
 pypi.org -- python projects
 lwn.net
+writing  book about "filesystems"
