@@ -21,3 +21,5 @@ worked for a typical time. Do not work on the same work > 2 times.
 
 do the kernel work (testing related to stable release)
 learn new things when things come up related to your basic testing work.
+
+(3 days veg and 3 days non-veg) per week  
