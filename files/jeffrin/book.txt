@@ -7,3 +7,12 @@ book:
 ## filesystems. (nov 18 2020)
 
 #
+
+
+kernel testing + debugging
+--------------------------
+
+how to find code in file using gdb
+
+gdb ./vmlinux
+gdb) l <function>
