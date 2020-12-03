@@ -23,3 +23,7 @@ do the kernel work (testing related to stable release)
 learn new things when things come up related to your basic testing work.
 
 (3 days veg and 3 days non-veg) per week  
+
+may be when you do work in kernel do not try to grab all work but relax
+a take the work you get in your relaxed way. do not be greedy.give work
+for others to do.
