@@ -144,6 +144,13 @@ looking for bugs in linux kernel.
 BWORK  project
 pypi.org -- python projects
 lwn.net
-writing  book about "filesystems"
+------------------------------------------------------------------------------------------------
+writing  book about "filesystems" (about "knowledge building" with commands along with theory)
+writing  book about methods for general debugging. [book name may be "debug method hacks'
+methods may be of different kind.
+book will be like "hack,hack2,hack3... (it will be like  cookbook)
+first write different hacks then organize(may be on web,system,appliction...) it to form chapters.
+--------------------------------------------------------------------------------------------------
+
 
 https://lwn.net/Articles/533552/
