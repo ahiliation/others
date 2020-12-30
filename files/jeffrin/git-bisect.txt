@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/4713088/how-to-use-git-bisect
