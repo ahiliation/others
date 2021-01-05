@@ -1,0 +1,14 @@
+writing  book about methods for general debugging. [book name may be "debug methods'
+in this book we are giving mainly methods to solve problems and also solutions
+sample problems and solutions will be created.
+fundamental and simple problems will be chosed.
+----------------------------------------------------------------------------------------
+
+sample chapter design:
+
+o problem 
+p debug method
+o debug tool or tools used 
+o explanation of how to use tools to debug and solve with screen shots of shell sessions
+o about technology and science involved.
+-----------------------------------------------------------------------------------------
