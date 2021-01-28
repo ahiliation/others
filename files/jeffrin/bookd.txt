@@ -2,6 +2,7 @@ writing  book about methods for general debugging. [book name may be "debug meth
 in this book we are giving mainly methods to solve problems and also solutions
 sample problems and solutions will be created.
 fundamental and simple problems will be chosed.
+excercise at the end of chapter to bring more clarity in fundamentals
 ----------------------------------------------------------------------------------------
 
 sample chapter design:
@@ -11,4 +12,7 @@ p debug method
 o debug tool or tools used 
 o explanation of how to use tools to debug and solve with screen shots of shell sessions
 o about technology and science involved.
+o excercise 
 -----------------------------------------------------------------------------------------
+
+https://unix.stackexchange.com/questions/94021/who-is-file-owner-if-the-file-is-created-using-sudo-command

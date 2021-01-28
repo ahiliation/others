@@ -1,3 +1,7 @@
+step: add user
+step: apt-get dist-upgrade
+step: apt-get install zile
+step: apt-get install apache2
 step 0: backup from server to local harddisk =
 stepx : how to bckup nd restore  mysl stbse ? = https://phoenixnap.com/kb/how-to-backup-restore-a-mysql-database
 step : how to instll wordpress ?  =  https://codex.wordpress.org/Installing/Updating_WordPress_with_Subversion
