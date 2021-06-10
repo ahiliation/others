@@ -154,3 +154,5 @@ first write different hacks then organize(may be on web,system,appliction...) it
 
 
 https://lwn.net/Articles/533552/
+
+rewrite coreutils package in debian (may be add new feature or features)
