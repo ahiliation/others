@@ -156,3 +156,6 @@ first write different hacks then organize(may be on web,system,appliction...) it
 https://lwn.net/Articles/533552/
 
 rewrite coreutils package in debian (may be add new feature or features)
+
+may be study a book and run the exercise programs , learn how it works. modify it if needed . redistribute if needed 
+(put the above stuff in github if possible)
