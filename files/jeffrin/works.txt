@@ -160,7 +160,8 @@ rewrite coreutils package in debian (may be add new feature or features)
 may be study a book and run the exercise programs , learn how it works. modify it if needed . redistribute if needed 
 (put the above stuff in github if possible)
 
-
-
+try to be a regular contributor at  bugs.debian.org/<package>
+try to learn  "linux kernel programming"  book
+try to write a compiler using python
 
 
