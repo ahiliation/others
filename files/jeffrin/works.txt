@@ -165,3 +165,6 @@ try to learn  "linux kernel programming"  book
 try to write a compiler using python
 
 
+knowledge (single and team)  = Debian   Systems administration  [Systems engineering - Debian Developer/Maintainer]
+knowledge (single and team)  = Debian   Systems programming     [Teaching - YouTube]
+knowledge (single and team)  = Debian   General Research        [Discovery - acm, ieee...]
