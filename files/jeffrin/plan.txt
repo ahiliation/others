@@ -1226,3 +1226,15 @@ so product price is 31998 and monthly installment that should be given to church
 
 --- may be a reason to come back is having same or similar tags of posts ---
 --- the condition in conditional statement may tell about crucial decisions of how the program works ---
+
+--- 
+    *  Computing Education Research
+    *  Debug Methods... strace
+    *  Debug Methods... Bash
+    *  Debug Methods... autotools
+    *  Debug Methods... ltrace.
+    *  Debug Methods... kasan
+    *  Debug Methods... debian
+    *  Debug Methods... how-can-i-help
+    *  Debug Methods... gdb 
+    *  Debug Methods... kernel debugging
