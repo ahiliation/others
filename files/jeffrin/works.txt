@@ -168,3 +168,4 @@ try to write a compiler using python
 knowledge (single and team)  = Debian   Systems administration  [Systems engineering - Debian Developer/Maintainer]
 knowledge (single and team)  = Debian   BASIC  Research         [Programming,Algorithms - GitHub, ACM, IEEE, ...]
 
+may be Graphics repo in github should have a knowledge.txt file which has new knowledge .
