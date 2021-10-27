@@ -1,0 +1,2 @@
+education  : write books.
+             write a book on computer graphics using python and pygame
