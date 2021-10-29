@@ -169,3 +169,7 @@ knowledge (single and team)  = Debian   Systems administration  [Systems enginee
 knowledge (single and team)  = Debian   BASIC  Research         [Programming,Algorithms - GitHub, ACM, IEEE, ...]
 
 may be Graphics repo in github should have a knowledge.txt file which has new knowledge .
+
+may be when you write a book, you may go into different topics. You may 
+write  algorithms using those topics. mark down all the topics and later work
+on it to write the book.
