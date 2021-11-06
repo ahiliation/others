@@ -1239,7 +1239,7 @@ so product price is 31998 and monthly installment that should be given to church
     *  Debug Methods... gdb 
     *  Debug Methods... kernel debugging
 
-plan for "https://github.com/ahiliation/Graphics" (typical start date nov 5 2021. original date - 2 years ago related)
+plan for "https://github.com/ahiliation/Graphics" (typical start date - july 15 2019 )
 ================================================
 step1: draw works with shapes like line, circle, triangle...   (do 100 works combinig all works)
 step2: classify shapes based on file names.
