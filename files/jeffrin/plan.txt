@@ -1246,4 +1246,6 @@ step2: classify shapes based on file names.
 for example: any work with a line will have file name like... line-<name>.py
 step3: write python class for each shape
 step4: write methods to accept arguments for each shape.
-step5: got to step 1
+step5: write a question that the "work" explains
+step6: look for a knowledge discovery 
+step7: got to step 1
