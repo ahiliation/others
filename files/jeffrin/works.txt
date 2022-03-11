@@ -155,21 +155,14 @@ first write different hacks then organize(may be on web,system,appliction...) it
 
 https://lwn.net/Articles/533552/
 
-rewrite coreutils package in debian (may be add new feature or features)
+------------------------<circle>----------------------
+[research]
 
-may be study a book and run the exercise programs , learn how it works. modify it if needed . redistribute if needed 
-(put the above stuff in github if possible)
-
-try to be a regular contributor at  bugs.debian.org/<package>
-try to learn  "linux kernel programming"  book
-try to write a compiler using python
-
-
-knowledge (single and team)  = Debian   Systems administration  [Systems engineering - Debian Developer/Maintainer]
-knowledge (single and team)  = Debian   BASIC  Research         [Programming,Algorithms - GitHub, ACM, IEEE, ...]
-
-may be Graphics repo in github should have a knowledge.txt file which has new knowledge .
-
-may be when you write a book, you may go into different topics. You may 
-write  algorithms using those topics. mark down all the topics and later work
-on it to write the book.
+input = linux kernel and debian package testing(both tests using build) (using dmesg for linux ).
+output = learn how core system libraries(like libelf)  work
+output = bug discovery
+.
+.
+.
+.
+------------------------<circle>----------------------
