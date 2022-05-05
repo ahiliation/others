@@ -150,6 +150,7 @@ writing  book about methods for general debugging. [book name may be "debug meth
 methods may be of different kind.
 book will be like "hack,hack2,hack3... (it will be like  cookbook)
 first write different hacks then organize(may be on web,system,appliction...) it to form chapters.
+may be you can send hacks to other book projects
 ----------------------------------------------------------------------------------------------------------------------
 
 
@@ -162,7 +163,14 @@ input = linux kernel and debian package testing(both tests using build) (using d
 output = learn how core system libraries(like libelf)  work
 output = bug discovery
 .
-.
+
 .
 .
 ------------------------<circle>----------------------
+
+---- basic system software install (test and debug)
+ --- basic commandline tools (system. Algorithm Test Debug)
+---- application software (Algorithm Test Debug)
+---- system software (Algorithm Test Debug)
+ --- advanced system software (Algorithm Test Debug) -- todo
+---  KERNEL address sanitizer -- todo
