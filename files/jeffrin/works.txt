@@ -168,9 +168,11 @@ output = bug discovery
 .
 ------------------------<circle>----------------------
 
----- basic system software install (test and debug)
+---- basic system software installer (test and debug)
  --- basic commandline tools (system. Algorithm Test Debug)
 ---- application software (Algorithm Test Debug)
 ---- system software (Algorithm Test Debug)
  --- advanced system software (Algorithm Test Debug) -- todo
 ---  KERNEL address sanitizer -- todo
+
+document the above 6 activities and form a study text book(book should mainly focus on testing)
