@@ -181,3 +181,6 @@ document the above 6 activities and form a study text book(book should mainly fo
 may be write about software of aeound 600 lines without gui code
 do kernel testing
 learn system administration
+
+update valavil theme to add a shell script to include step by step instructions to complete
+the valavil theme installation
