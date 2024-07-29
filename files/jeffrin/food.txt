@@ -38,13 +38,13 @@ elaneer -- elaneer kazhambu` -- Chocolate
 I week
 ------
 
-1     -- 1 dark chocolate. (food from home)
+1     -- 1 dark chocolate. + Alt Food 
 2     -- 1 ghee roast , 1 cup icecream (vanilla)
 3     -- 1 masal roast, 1 cuo icecream (vanilla)
 4     -- 1 tomato rice, 1 halwa peice
 5     -- 1 kothu parotta. Alt: ghee roast + 1 cup ice cream
 6     -- 1 veg biriyani.1 coffee.
-7     -- ! elaneer + kazhambu (food from home)
+7     -- ! elaneer and  kazhambu. + Alt Food 
 
 II and III weeks
 ----------------
