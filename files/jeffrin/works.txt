@@ -193,6 +193,7 @@ Week 1 --  valavil -   add post with learning model 5 (1 addition per week)
 Week 2 --  valavil -   formatting posts (3 formats per week)
 Week 3 --  trueangle - create gospel preaching images with gimp and upload (2 images per week)
 Week 4 --  stable kernel testing. 1 test per week
+Week 5 --  gospel preaching through linkedin
 
 
 
