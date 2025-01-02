@@ -1,0 +1,21 @@
+[Joju]
+
+Morning:
+   serlift 100     : 1
+   glufomin XL 500 : 1
+   volibo 0.3      : 1
+   livogin         : 1
+   roseday 40      : 1
+   nebicard 2.5    : 1
+   lopomide        : 1
+
+Might:
+  serlift 100     : 1
+  glufomin XL 500 : 1
+  volibo 0.3      : 1
+  sulphitac 100   : 1
+  sizdon plus     : 1
+  activen 1mg     : 1
+  zapiz 0.25mg    : 1
+  qutipin 25mg    : 1
+  lonazep 0.25mg  : 1
