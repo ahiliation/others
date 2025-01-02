@@ -53,3 +53,9 @@ docler  ps
 
 how to stop a container
 docker stop CONTAINER NAME
+
+how to remove a docker container
+docker container rm [OPTIONS] CONTAINER [CONTAINER...]
+
+how to explore a docker containers file system
+docker exec -t -i mycontainer /bin/bash
