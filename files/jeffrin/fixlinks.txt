@@ -1,0 +1,5 @@
+virtualbox:
+
+https://stackoverflow.com/questions/38437264/i-cant-execute-command-modprobe-vboxdrv
+https://askubuntu.com/questions/820883/how-to-resolve-ssl-error-during-make-modules-install-command
+https://superuser.com/questions/1214116/no-openssl-sign-file-signing-key-pem-leads-to-error-while-loading-kernel-modules/1322832#1322832
