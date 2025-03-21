@@ -9,3 +9,9 @@ bootloader iso and raw:
 https://tinyurl.com/y4w6uhhh
 https://stackoverflow.com/questions/34268518/creating-a-bootable-iso-image-with-custom-bootloader
 https://wiki.debian.org/RepackBootableISO
+
+sudo losetup -f -P disk.raw
+sudo dd if=/dev/loop0 of=boot.img bs=512 count=1
+sudo mkisofs -allow-limited-size -l -J -r -iso-level 3 -o bootable.iso disk.raw
+
+
