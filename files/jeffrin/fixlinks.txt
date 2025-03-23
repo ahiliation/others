@@ -15,4 +15,4 @@ sudo losetup -f -P disk.raw
 sudo dd if=/dev/loop0 of=boot.img bs=512 count=1
 sudo mkisofs -allow-limited-size -l -J -r -iso-level 3 -o bootable.iso disk.raw
 
-
+sudo apt-get install qemu-utils
