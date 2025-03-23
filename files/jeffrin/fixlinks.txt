@@ -17,3 +17,10 @@ sudo mkisofs -allow-limited-size -l -J -r -iso-level 3 -o bootable.iso disk.raw
 
 sudo apt-get install qemu-utils
 qemu-img convert -O vmdk  disk.raw disk.vmdk
+sudo modprobe nbd
+sudo qemu-nbd  -c /dev/nbd0  disk.vmdk
+sudo mount /dev/nbd0p1 /media/
+mkdir iso_image
+sudo cp -r /media/* iso_image/
+sudo umount /media
+
