@@ -10,6 +10,7 @@ https://tinyurl.com/y4w6uhhh
 https://stackoverflow.com/questions/34268518/creating-a-bootable-iso-image-with-custom-bootloader
 https://wiki.debian.org/RepackBootableISO
 https://stackoverflow.com/questions/20209263/genisoimage-script-cannot-burn-bigger-than-4gb-but-less-than-4-5gb-file
+https://tinyurl.com/5fmpbe48
 
 sudo losetup -f -P disk.raw
 sudo dd if=/dev/loop0 of=boot.img bs=512 count=1
