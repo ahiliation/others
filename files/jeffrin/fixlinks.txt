@@ -24,6 +24,7 @@ sudo mount /dev/nbd0p1 /media/
 mkdir iso_image
 sudo cp -r /media/* iso_image/
 sudo umount /media
-sudo genisoimage -quiet -no-emul-boot -boot-load-size 4 -boot-info-table -V 'MYOS' -input-charset iso8859-1 -o myos.iso -b boot.img -c boot.cdr -R -T iso_image/
+$sudo genisoimage -quiet -no-emul-boot -boot-load-size 4 -boot-info-table -V 'MYOS' -input-charset iso8859-1 -o myos.iso  -b boot/grub/i386-pc/boot.img -c boot.cdr -R -T iso_image/
+
 
 
