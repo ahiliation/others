@@ -11,6 +11,7 @@ https://stackoverflow.com/questions/34268518/creating-a-bootable-iso-image-with-
 https://wiki.debian.org/RepackBootableISO
 https://stackoverflow.com/questions/20209263/genisoimage-script-cannot-burn-bigger-than-4gb-but-less-than-4-5gb-file
 https://tinyurl.com/5fmpbe48
+https://superuser.com/questions/357512/why-is-my-linux-reporting-an-allowable-size-error-when-building-an-iso
 
 sudo losetup -f -P disk.raw
 sudo dd if=/dev/loop0 of=boot.img bs=512 count=1
