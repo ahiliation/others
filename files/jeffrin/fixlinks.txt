@@ -27,5 +27,6 @@ sudo cp -r /media/* iso_image/
 sudo umount /media
 $sudo genisoimage -quiet -no-emul-boot -boot-load-size 4 -boot-info-table -V 'MYOS' -input-charset iso8859-1 -o myos.iso  -b boot/grub/i386-pc/boot.img -c boot.cdr -R -T iso_image/
 
+https://tinyurl.com/mhf2pt3p
 
 
