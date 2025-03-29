@@ -1,3 +1,4 @@
 Focus: knowledge and wisdom
 Learn: learning by doing
 audience: students
+research: fundamental research
