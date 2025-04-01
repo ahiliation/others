@@ -29,5 +29,5 @@ $sudo genisoimage -quiet -no-emul-boot -boot-load-size 4 -boot-info-table -V 'MY
 
 https://tinyurl.com/mhf2pt3p
 https://www.gnu.org/software/grub/manual/grub/html_node/Images.html
-
+https://tinyurl.com/3vprcbst (what is mbr boot sector)
 
