@@ -34,3 +34,5 @@ https://tinyurl.com/yc2ydd4r (what is bootable device)
 
 sudo mount /dev/loop0p1 /media/
 sudo mount /dev/loop0p15  /media/boot/efi/
+chroot /media
+mount -t devtmpfs dev/ dev/
