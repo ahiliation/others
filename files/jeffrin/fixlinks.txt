@@ -43,3 +43,5 @@ mount -t devpts  dev/pts/ dev/pts/
 mount -t efivarfs sys/firmware/efi/efivars/ sys/firmware/efi/efivars/
 grub-install /dev/loop0
 special link :https://medium.com/@ThyCrow/creating-hybrid-image-file-from-compiled-linux-kernel-and-initramfs-with-grub-c7599895b742
+
+sudo genisoimage -quiet -no-emul-boot -boot-load-size 4 -boot-info-table -V 'MYOS' -input-charset iso8859-1 -b boot/efi/EFI/BOOT/grubx64.efi -o mycloud.iso  -R -T  /media/
