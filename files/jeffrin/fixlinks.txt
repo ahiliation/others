@@ -42,3 +42,4 @@ update-grub2
 mount -t devpts  dev/pts/ dev/pts/
 mount -t efivarfs sys/firmware/efi/efivars/ sys/firmware/efi/efivars/
 grub-install /dev/loop0
+special link :https://medium.com/@ThyCrow/creating-hybrid-image-file-from-compiled-linux-kernel-and-initramfs-with-grub-c7599895b742
