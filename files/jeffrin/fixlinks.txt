@@ -39,3 +39,6 @@ mount -t sysfs sys/  sys/
 mount -t devtmpfs dev/ dev/
 mount -t proc proc/ proc/
 update-grub2
+mount -t devpts  dev/pts/ dev/pts/
+mount -t efivarfs sys/firmware/efi/efivars/ sys/firmware/efi/efivars/
+grub-install /dev/loop0
