@@ -47,3 +47,9 @@ special link :https://medium.com/@ThyCrow/creating-hybrid-image-file-from-compil
 sudo genisoimage -quiet -no-emul-boot -boot-load-size 4 -boot-info-table -V 'MYOS' -input-charset iso8859-1 -b boot/efi/EFI/BOOT/grubx64.efi -o mycloud.iso  -R -T  /media/
 
 https://askubuntu.com/questions/314754/how-to-get-the-grub-using-virtualbox
+
+qemmu :
+
+https://tinyurl.com/3wce29dz
+
+sudo apt-get install qemu-system
