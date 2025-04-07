@@ -53,3 +53,9 @@ qemmu :
 https://tinyurl.com/3wce29dz
 
 sudo apt-get install qemu-system
+
+
+convert from uppercase to lowecase :
+
+echo "THIS IS MY DATA" | tr '[:upper:]' '[:lower:]'
+
