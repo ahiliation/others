@@ -73,3 +73,7 @@ In Emacs Lisp (and Lisp in general), "t" represents the truth value "true",
 similar to how "true" is represented in other programming languages.
 The opposite of "t" is "nil", which represents "false" or the absence of a value. 
 
+https://superuser.com/questions/356129/is-there-a-way-to-print-the-definition-of-an-existing-function-in-emacs
+
+If you type C-h f function-name RET,
+you'll get the function's documentation, with a link to the function source if available.
