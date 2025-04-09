@@ -55,7 +55,19 @@ https://tinyurl.com/3wce29dz
 sudo apt-get install qemu-system
 
 
-convert from uppercase to lowecase :
+bash:
+
+convert from uppercase to lowecase 
 
 echo "THIS IS MY DATA" | tr '[:upper:]' '[:lower:]'
+
+emacs lisp::
+
+(mark-end-of-sentence)
+(set-face-background-color region brightcyan)
+(Custom-save  yes)
+
+https://emacs.stackexchange.com/questions/2797/emacs-wont-load-theme-on-startup
+(load-theme `jeffrin t)
+In Emacs Lisp (and Lisp in general), "t" represents the truth value "true", similar to how "true" is represented in other programming languages. The opposite of "t" is "nil", which represents "false" or the absence of a value. 
 
