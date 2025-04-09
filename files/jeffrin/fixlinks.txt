@@ -69,5 +69,7 @@ emacs lisp::
 
 https://emacs.stackexchange.com/questions/2797/emacs-wont-load-theme-on-startup
 (load-theme `jeffrin t)
-In Emacs Lisp (and Lisp in general), "t" represents the truth value "true", similar to how "true" is represented in other programming languages. The opposite of "t" is "nil", which represents "false" or the absence of a value. 
+In Emacs Lisp (and Lisp in general), "t" represents the truth value "true",
+similar to how "true" is represented in other programming languages.
+The opposite of "t" is "nil", which represents "false" or the absence of a value. 
 
