@@ -77,3 +77,5 @@ https://superuser.com/questions/356129/is-there-a-way-to-print-the-definition-of
 
 If you type C-h f function-name RET,
 you'll get the function's documentation, with a link to the function source if available.
+
+https://emacs.stackexchange.com/questions/73213/why-cant-i-compose-commands-mark-whole-buffer-and-copy-region-as-kill-in-el
