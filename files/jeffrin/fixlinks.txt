@@ -1,4 +1,4 @@
-virtualbox  Local desktop virtualization :
+Virtualbox  Local desktop virtualization :
 
 https://stackoverflow.com/questions/38437264/i-cant-execute-command-modprobe-vboxdrv
 https://askubuntu.com/questions/820883/how-to-resolve-ssl-error-during-make-modules-install-command
@@ -12,6 +12,7 @@ https://wiki.debian.org/KVM?highlight=%28%5CbCategoryVirtualization%5Cb%29
 
 
 DigitalOcean Virtualization:
+---------------------------
 
 https://tinyurl.com/fbktcw5s
 https://www.digitalocean.com/community/tutorials/what-is-a-virtual-machine
@@ -84,7 +85,7 @@ convert from uppercase to lowecase
 
 echo "THIS IS MY DATA" | tr '[:upper:]' '[:lower:]'
 
-emacs lisp::
+Emacs and Lisp::
 
 (mark-end-of-sentence)
 (set-face-background-color region brightcyan)
@@ -102,3 +103,8 @@ If you type C-h f function-name RET,
 you'll get the function's documentation, with a link to the function source if available.
 
 https://emacs.stackexchange.com/questions/73213/why-cant-i-compose-commands-mark-whole-buffer-and-copy-region-as-kill-in-el
+http://xahlee.info/emacs/emacs/emacs_as_word_processor.html
+https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Faces
+
+(underline-region)
+(set-face-underline)
