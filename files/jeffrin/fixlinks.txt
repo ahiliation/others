@@ -11,6 +11,21 @@ https://wiki.debian.org/KVM?highlight=%28%5CbCategoryVirtualization%5Cb%29
 
 
 
+DigitalOcean Virtualization:
+
+https://tinyurl.com/fbktcw5s
+https://www.digitalocean.com/community/tutorials/what-is-a-virtual-machine
+https://www.digitalocean.com/community/tutorial-series/getting-started-with-cloud-computing
+https://www.digitalocean.com/community/tutorials/a-general-introduction-to-cloud-computing
+https://www.digitalocean.com/community/conceptual-articles/cloud-servers-an-introduction
+https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
+
+
+
+
+
+
+
 
 bootloader iso and raw:
 
