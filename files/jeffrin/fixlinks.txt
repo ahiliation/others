@@ -11,8 +11,8 @@ https://wiki.debian.org/KVM?highlight=%28%5CbCategoryVirtualization%5Cb%29
 
 
 
+
 DigitalOcean Virtualization:
----------------------------
 
 https://tinyurl.com/fbktcw5s
 https://www.digitalocean.com/community/tutorials/what-is-a-virtual-machine
@@ -108,3 +108,8 @@ https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Faces
 
 (underline-region)
 (set-face-underline)
+
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-language-environment 'utf-8)
+(set-selection-coding-system 'utf-8)

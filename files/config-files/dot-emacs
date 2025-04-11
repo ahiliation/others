@@ -4,4 +4,37 @@
 ;; (require 'color-theme-tomorrow)
 (require 'rippedcasts-theme)
 ;; (require 'tomorrow-night-paradise-theme)
- 
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.                                            
+ ;; If you edit it by hand, you could mess it up, so be careful.                         
+ ;; Your init file should contain only one such instance.                                
+ ;; If there is more than one, they won't work right.                                    
+ '(custom-safe-themes
+   '("7200d53cf0477ec8a83fb7257bcee7135e829cf2189d12e36c44438f198ec70f"
+     default))
+ '(package-selected-packages '(dape org-real)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.                                                
+ ;; If you edit it by hand, you could mess it up, so be careful.                         
+ ;; Your init file should contain only one such instance.                                
+ ;; If there is more than one, they won't work right.                                    
+ )
+
+
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(set-language-environment 'UTF-8) ; prefer utf-8 for language settings                    
+(set-default-coding-systems 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+(prefer-coding-system       'utf-8)
+(setq buffer-file-coding-system 'utf-8-unix)
+(setq default-file-name-coding-system 'utf-8-unix)
+(setq default-keyboard-coding-system 'utf-8-unix)
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+(setq default-sendmail-coding-system 'utf-8-unix)
+(setq default-terminal-coding-system 'utf-8-unix)
