@@ -113,3 +113,7 @@ https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Faces
 (set-default-coding-systems 'utf-8)
 (set-language-environment 'utf-8)
 (set-selection-coding-system 'utf-8)
+
+(set-buffer-file-coding-system)
+(package-list-packages)
+
