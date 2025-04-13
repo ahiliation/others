@@ -1,18 +1,18 @@
-Virtualbox  Local desktop virtualization :
+_Virtualbox  Local desktop virtualization :_
 
 https://stackoverflow.com/questions/38437264/i-cant-execute-command-modprobe-vboxdrv
 https://askubuntu.com/questions/820883/how-to-resolve-ssl-error-during-make-modules-install-command
 https://superuser.com/questions/1214116/no-openssl-sign-file-signing-key-pem-leads-to-error-while-loading-kernel-modules/1322832#1322832
 
 
-KVM Remote desktop virtualization and Server virtualization:
+_KVM Remote desktop virtualization and Server virtualization:_
 
 https://wiki.debian.org/KVM?highlight=%28%5CbCategoryVirtualization%5Cb%29
 
 
 
 
-DigitalOcean Virtualization:
+_DigitalOcean Virtualization:_
 
 https://tinyurl.com/fbktcw5s
 https://www.digitalocean.com/community/tutorials/what-is-a-virtual-machine
@@ -24,11 +24,11 @@ https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubunt
 
 
 
+0
 
 
 
-
-bootloader iso and raw:
+_bootloader iso and raw:_
 
 https://tinyurl.com/y4w6uhhh
 https://stackoverflow.com/questions/34268518/creating-a-bootable-iso-image-with-custom-bootloader
@@ -72,20 +72,20 @@ sudo genisoimage -quiet -no-emul-boot -boot-load-size 4 -boot-info-table -V 'MYO
 
 https://askubuntu.com/questions/314754/how-to-get-the-grub-using-virtualbox
 
-qemmu :
+_qemmu:_
 
 https://tinyurl.com/3wce29dz
 
 sudo apt-get install qemu-system
 
 
-bash:
+_Bash:_
 
 convert from uppercase to lowecase 
 
 echo "THIS IS MY DATA" | tr '[:upper:]' '[:lower:]'
 
-Emacs and Lisp::
+_Emacs and Lisp::_
 
 (mark-end-of-sentence)
 (set-face-background-color region brightcyan)
