@@ -1,0 +1,130 @@
+<h1>Virtualbox  Local desktop virtualization</h1>_ 
+
+<pre style="font-size:200%">
+stackoverflow.com/questions/38437264/i-cant-execute-command-modprobe-vboxdrv
+https://askubuntu.com/questions/820883/how-to-resolve-ssl-error-during-make-modules-install-command
+https://superuser.com/questions/1214116/no-openssl-sign-file-signing-key-pem-leads-to-error-while-loading-kernel-modules/1322832#1322832
+</pre>
+
+<h1>KVM Remote desktop virtualization and Server virtualization:</h1>_
+
+https://wiki.debian.org/KVM?highlight=%28%5CbCategoryVirtualization%5Cb%29
+
+
+
+
+<h1>DigitalOcean Virtualization:</h1>_
+
+https://tinyurl.com/fbktcw5s
+https://www.digitalocean.com/community/tutorials/what-is-a-virtual-machine
+https://www.digitalocean.com/community/tutorial-series/getting-started-with-cloud-computing
+https://www.digitalocean.com/community/tutorials/a-general-introduction-to-cloud-computing
+https://www.digitalocean.com/community/conceptual-articles/cloud-servers-an-introduction
+https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
+
+
+
+
+
+<h1>Bootloader iso and raw:</h1>_
+
+https://tinyurl.com/y4w6uhhh
+https://stackoverflow.com/questions/34268518/creating-a-bootable-iso-image-with-custom-bootloader
+https://wiki.debian.org/RepackBootableISO
+https://stackoverflow.com/questions/20209263/genisoimage-script-cannot-burn-bigger-than-4gb-but-less-than-4-5gb-file
+https://tinyurl.com/5fmpbe48
+https://superuser.com/questions/357512/why-is-my-linux-reporting-an-allowable-size-error-when-building-an-iso
+
+sudo losetup -f -P disk.raw
+sudo dd if=/dev/loop0 of=boot.img bs=512 count=1
+sudo mkisofs -allow-limited-size -l -J -r -iso-level 3 -o bootable.iso disk.raw
+
+sudo apt-get install qemu-utils
+qemu-img convert -O vmdk  disk.raw disk.vmdk
+sudo modprobe nbd
+sudo qemu-nbd  -c /dev/nbd0  disk.vmdk
+sudo mount /dev/nbd0p1 /media/
+mkdir iso_image
+sudo cp -r /media/* iso_image/
+sudo umount /media
+$sudo genisoimage -quiet -no-emul-boot -boot-load-size 4 -boot-info-table -V 'MYOS' -input-charset iso8859-1 -o myos.iso  -b boot/grub/i386-pc/boot.img -c boot.cdr -R -T iso_image/
+
+https://tinyurl.com/mhf2pt3p
+https://www.gnu.org/software/grub/manual/grub/html_node/Images.html
+https://tinyurl.com/3vprcbst (what is mbr boot sector)
+https://tinyurl.com/yc2ydd4r (what is bootable device)
+
+sudo mount /dev/loop0p1 /media/
+sudo mount /dev/loop0p15  /media/boot/efi/
+chroot /media
+mount -t sysfs sys/  sys/
+mount -t devtmpfs dev/ dev/
+mount -t proc proc/ proc/
+update-grub2
+mount -t devpts  dev/pts/ dev/pts/
+mount -t efivarfs sys/firmware/efi/efivars/ sys/firmware/efi/efivars/
+grub-install /dev/loop0
+special link :https://medium.com/@ThyCrow/creating-hybrid-image-file-from-compiled-linux-kernel-and-initramfs-with-grub-c7599895b742
+
+sudo genisoimage -quiet -no-emul-boot -boot-load-size 4 -boot-info-table -V 'MYOS' -input-charset iso8859-1 -b boot/efi/EFI/BOOT/grubx64.efi -o mycloud.iso  -R -T  /media/
+
+https://askubuntu.com/questions/314754/how-to-get-the-grub-using-virtualbox
+
+<h1>Qemu Virtualization:</h1>
+
+https://tinyurl.com/3wce29dz
+sudo apt-get install qemu-system
+
+
+<h1>Bash Commands:</h1>
+
+convert from uppercase to lowecase 
+
+echo "THIS IS MY DATA" | tr '[:upper:]' '[:lower:]'
+
+<h1>Emacs and Lisp:</h1>
+
+(mark-end-of-sentence)
+(set-face-background-color region brightcyan)
+(Custom-save  yes)
+
+https://emacs.stackexchange.com/questions/2797/emacs-wont-load-theme-on-startup
+(load-theme `jeffrin t)
+In Emacs Lisp (and Lisp in general), "t" represents the truth value "true",
+similar to how "true" is represented in other programming languages.
+The opposite of "t" is "nil", which represents "false" or the absence of a value. 
+
+https://superuser.com/questions/356129/is-there-a-way-to-print-the-definition-of-an-existing-function-in-emacs
+
+If you type C-h f function-name RET,
+you'll get the function's documentation, with a link to the function source if available.
+
+https://emacs.stackexchange.com/questions/73213/why-cant-i-compose-commands-mark-whole-buffer-and-copy-region-as-kill-in-el
+http://xahlee.info/emacs/emacs/emacs_as_word_processor.html
+https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Faces
+
+(underline-region)
+(set-face-underline)
+
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-language-environment 'utf-8)
+(set-selection-coding-system 'utf-8)
+
+(set-buffer-file-coding-system)
+(package-list-packages)
+
+(describe-current-coding-system)
+
+https://orgmode.org/quickstart.html
+https://elpa.gnu.org/packages/org-modern.html
+
+<pre>The command M-x kill-some-buffers asks about each buffer,
+  one by one. An answer of yes means to kill the buffer, just
+  like kill-buffer . This command ignores buffers whose names
+  begin with a space, which are used internally by Emacs.</pre>
+
+(kill-some-buffers)
+(windmove-delete-up)
+
+
