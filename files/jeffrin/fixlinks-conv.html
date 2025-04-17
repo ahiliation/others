@@ -180,6 +180,12 @@ https://elpa.gnu.org/packages/org-modern.html
 
 
 https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-on-ubuntu-22-04-with-a-lamp-stack
+https://wiki.debian.org/WordPress
+
+
+sudo apt-get install mysql-server-8.0
+sudo apt-get install mysql-client-8.0
+
 
 mysql -u root -p
 sudo mysql -u root
@@ -194,7 +200,7 @@ EXIT;
 
 sudo apt update
 sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
-
+sudo apt install apache2
 sudo systemctl restart apache2
 sudo nano /etc/apache2/sites-available/wordpress.conf
 
@@ -203,6 +209,7 @@ sudo nano /etc/apache2/sites-available/wordpress.conf
 </Directory>
 
 sudo a2enmod rewrite
+sudo systemctl restart apache2
 
 http://example.com/2012/post-name/
 http://example.com/2012/12/30/post-name
@@ -303,6 +310,9 @@ define( 'DB_COLLATE', '' );
 . . .
 
 define('FS_METHOD', 'direct');
+
+sudo a2ensite wordpress
+systemctl reload apache2
 
 https://server_domain_or_IP
 
