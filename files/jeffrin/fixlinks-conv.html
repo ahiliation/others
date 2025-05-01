@@ -315,10 +315,196 @@ sudo a2ensite wordpress
 systemctl reload apache2
 
 https://server_domain_or_IP
+<br>
+					       
+&lt;<span class="function-name">h1</span>&gt;<span class="underline"><span class="bold">
+Here's how to read from /dev/dsp in Linux using Python:</span></span>&lt;/<span class="function-name">h1</span>&gt;
+<br>
+
+import os
+import ossaudiodev
+
+def read_from_dsp(device_path="/dev/dsp", chunk_size=1024):
+    """Reads audio data from the specified /dev/dsp device.
+
+    Args:
+        device_path: The path to the /dev/dsp device (default: /dev/dsp).
+        chunk_size: The number of bytes to read in each chunk (default: 1024).
+
+    Returns:
+        A generator that yields chunks of audio data read from the device.
+    """
+    try:
+        dsp = ossaudiodev.open(device_path, 'rb')
+        while True:
+            chunk = dsp.read(chunk_size)
+            if not chunk:
+                break
+            yield chunk
+    except ossaudiodev.error as e:
+        print(f"Error accessing {device_path}: {e}")
+    finally:
+        if 'dsp' in locals():
+            dsp.close()
 
 
+if __name__ == "__main__":
+    for data_chunk in read_from_dsp():
+        # Process the audio data chunk here
+        # Example: print(f"Received chunk of size: {len(data_chunk)}")
+        pass
+
+mkdir fread-and-fwrite
+python3 -m venv fread-and-fwrite/
+python3 devdsp.py
+
+Traceback (most recent call last):
+  File "/home/jeffrin/others/files/fread-and-fwrite/devdsp.py", line 2, in <module>
+    import ossaudiodev
+ModuleNotFoundError: No module named 'ossaudiodev'
+(fread-and-fwrite) $pip install ossaudiodev
+ERROR: Could not find a version that satisfies the requirement ossaudiodev (from versions: none)
+ERROR: No matching distribution found for ossaudiodev
+
+    https://unix.stackexchange.com/questions/17828/output-sound-by-writing-to-dev-dsp
+    https://www.geeksforgeeks.org/play-sound-in-python/
+    pip install playground
+
+https://tinyurl.com/5ycwzxp2
+
+    
+    Here is how to read from /dev/dsp in Linux using C: Include necessary headers.
+
+    #include <fcntl.h>    // for open()
+    #include <unistd.h>   // for read(), close()
+    #include <sys/ioctl.h> // for ioctl()
+    #include <linux/soundcard.h> // for soundcard definitions
+    #include <stdio.h> // for perror and printf
+    #include <stdlib.h> // for exit
 
 
+    
+
+    Open the device.
+    
+        int fd = open("/dev/dsp", O_RDONLY);
+    if (fd == -1) {
+        perror("Error opening /dev/dsp");
+        exit(1);
+    }
+
+	      
+Set audio format (optional).
+	      
+
+        int format = AFMT_S16_LE; // Example: 16-bit signed little-endian
+    if (ioctl(fd, SNDCTL_DSP_SETFMT, &format) == -1) {
+        perror("Error setting audio format");
+        close(fd);
+        exit(1);
+    }
+
+     int channels = 1; // Mono
+    if (ioctl(fd, SNDCTL_DSP_CHANNELS, &channels) == -1) {
+        perror("Error setting number of channels");
+        close(fd);
+        exit(1);
+    }
+
+    int speed = 44100; // Sample rate
+     if (ioctl(fd, SNDCTL_DSP_SPEED, &speed) == -1) {
+        perror("Error setting sample rate");
+        close(fd);
+        exit(1);
+	      }
+
+	      
+	      Read audio data.
+	      
+
+    #define BUFFER_SIZE 1024
+    char buffer[BUFFER_SIZE];
+    ssize_t bytes_read;
+
+    while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0) {
+        // Process the audio data in 'buffer'
+        // Example: write(STDOUT_FILENO, buffer, bytes_read); // Output to standard output
+        printf("Read %zd bytes\n", bytes_read);
+    }
+
+    if (bytes_read == -1) {
+        perror("Error reading from /dev/dsp");
+        close(fd);
+        exit(1);
+	      }
+
+	      Close the device.
+
+    close(fd);
+
+Example   
+    
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <linux/soundcard.h 
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BUFFER_SIZE 1024
+
+int main() {
+    int fd;
+    int format = AFMT_S16_LE;
+    int channels = 1;
+    int speed = 44100;
+    char buffer[BUFFER_SIZE];
+    ssize_t bytes_read;
+
+    fd = open("/dev/dsp", O_RDONLY);
+    if (fd == -1) {
+        perror("Error opening /dev/dsp");
+        return 1;
+    }
+
+    if (ioctl(fd, SNDCTL_DSP_SETFMT, &format) == -1) {
+        perror("Error setting audio format");
+        close(fd);
+        return 1;
+    }
+
+   if (ioctl(fd, SNDCTL_DSP_CHANNELS, &channels) == -1) {
+        perror("Error setting number of channels");
+        close(fd);
+        return 1;
+    }
+
+    if (ioctl(fd, SNDCTL_DSP_SPEED, &speed) == -1) {
+        perror("Error setting sample rate");
+        close(fd);
+        return 1;
+    }
+
+
+    while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0) {
+         write(STDOUT_FILENO, buffer, bytes_read);
+    }
+
+    if (bytes_read == -1) {
+        perror("Error reading from /dev/dsp");
+        close(fd);
+        return 1;
+    }
+
+    close(fd);
+    return 0;
+}
+
+		      Compile and run:
+
+gcc your_program.c -o your_program
+./your_program
 
 
 </pre>
