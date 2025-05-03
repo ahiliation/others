@@ -510,7 +510,26 @@ https://askubuntu.com/questions/61693/how-do-i-select-and-copy-text-in-emacs-usi
 https://pixabay.com/sound-effects/search/16-bit/
 https://www.c-language.org/
 https://tinyurl.com/5n7v6xxa
-		      
+
+cat hoe-lot-better-334925.mp3 | mpg123 -
+cat hoe-lot-better-334925.mp3 > /dev/dsp1
+gcc -o devdsp -m64 devdsp-c.c
+cat hoe-lot-better-334925.mp3 l ./devdsp
+
+ while ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0) {
+      /*  write(STDOUT_FILENO, buffer, bytes_read); */
+         write(fd, buffer, bytes_read);
+    }
+
+strace cat mustafa_mustafa-song.mp3 | ./devdsp --
+
+https://tinyurl.com/2h5a8a5x
+https://tinyurl.com/4hxeb2zh (Linux Sound FAQ)
+
+cat happy-14585.mp3 | tee  /dev/dsp1
+$cat happy-14585.mp3 |  ./devdsp -
+bash: ./devdsp: cannot execute binary file: Exec format error
+
 
 </pre>
   </body>
