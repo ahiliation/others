@@ -604,7 +604,10 @@ _How to play video files in GNU/Linux_
 
 https://stackoverflow.com/questions/31058571/reading-camera-input-from-dev-video0-in-python-or-c
 https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html?highlight=videowriter
-https://tinyurl.com/kasht3vv (pip  install opencv)
+https://tinyurl.com/kasht3vv (pip  install opencv-python)
+
+pip install --upgrade pip. 
+
 
 </pre>
   </body>
