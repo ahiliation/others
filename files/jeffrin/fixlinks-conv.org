@@ -616,10 +616,8 @@ Traceback (most recent call last):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 cv2.error: OpenCV(4.10.0) ./modules/imgproc/src/color.cpp:196: error: (-215:Assertion failed) !_src.empty() in function 'cvtColor'
 
+https://forum.qt.io/topic/29587/solved-qsocketnotifier-can-only-be-used-with-threads-started-with-qthread
+https://stackoverflow.com/questions/13888061/qsocketnotifier-can-only-be-used-with-threads-started-with-qthread-error
 
 
 
-
-</pre>
-  </body>
-</html>
