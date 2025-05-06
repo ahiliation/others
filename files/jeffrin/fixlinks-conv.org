@@ -606,7 +606,18 @@ https://stackoverflow.com/questions/31058571/reading-camera-input-from-dev-video
 https://docs.opencv.org/2.4/modules/highgui/doc/reading_and_writing_images_and_video.html?highlight=videowriter
 https://tinyurl.com/kasht3vv (pip  install opencv-python)
 
-pip install --upgrade pip. 
+pip install --upgrade pip.
+sudo apt-get install  python3-opencv
+
+python3 playvideo.py 
+QSocketNotifier: Can only be used with threads started with QThread
+Traceback (most recent call last):
+  File "/home/jeffrin/others/files/fread-and-fwrite/playvideo.py", line 13, in <module>
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+cv2.error: OpenCV(4.10.0) ./modules/imgproc/src/color.cpp:196: error: (-215:Assertion failed) !_src.empty() in function 'cvtColor'
+
+
+
 
 
 </pre>
