@@ -573,4 +573,5 @@ https://forum.qt.io/topic/29587/solved-qsocketnotifier-can-only-be-used-with-thr
 https://stackoverflow.com/questions/13888061/qsocketnotifier-can-only-be-used-with-threads-started-with-qthread-error
 
 
-
+https://wiki.gnome.org/Apps/Videos
+https://gstreamer.freedesktop.org
