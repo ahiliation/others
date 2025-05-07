@@ -583,6 +583,7 @@ _How to write a device driver related stuff on GNU/Linux_
 https://stackoverflow.com/questions/22632713/how-to-write-a-simple-linux-device-driver
 https://www.apriorit.com/dev-blog/195-simple-driver-for-linux-os
 https://github.com/cirosantilli/linux-kernel-module-cheat/blob/68af3477cce1cd22566edce2651f54cf8c184a91/kernel_module/fops.c
+https://jvgd.medium.com/how-to-write-a-device-driver-76d0584a4be3
 
 /*
 Basic fops example, with a fixed size static data buffer.
