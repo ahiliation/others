@@ -787,4 +787,4 @@ cat f
 # => 12z4
 
 https://stackoverflow.com/questions/49459211/how-to-build-a-single-source-file-of-a-kernel-module
-
+https://docs.kernel.org/kbuild/modules.html
