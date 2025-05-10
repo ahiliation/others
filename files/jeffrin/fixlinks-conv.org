@@ -791,5 +791,7 @@ https://docs.kernel.org/kbuild/modules.html
 
 
 chat --
+<jeffrin> this is the c program https://pastebin.com/FnQFbFgq
+<jeffrin> this is a typical shell program https://pastebin.com/im3FDq3T
 <jeffrin> shall i disable secureboot from the bios is possible
 <aaabbb> or try booting with module.sig_enforce=0
