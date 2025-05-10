@@ -804,5 +804,123 @@ You need execute permission to cd into a directory.
 https://serverfault.com/questions/243191/why-cant-i-cd-into-a-directory
 
 
+chat --
 
+ First I need to compile your module. What kernel version are you on?
+<post-factum> > pr_info("buf = %.*s\n", (int)len, buf);
+<post-factum> this is wrong
+<jeffrin> i use debian 6.12.25
+<post-factum> you cannot read from a userspace buffer directly
+<post-factum> it will oops with protection failure and kill cat
 
+jeffrin, hello!
+<jeffrin> hello
+* tds has quit (Quit: Ping timeout (120 seconds))
+* tds (~tds@lounge.timstallard.me.uk) has joined
+<jeffrin> hello  /sys/kernel/debug/lkmc_fops exits
+<jeffrin> <jeffrin> but  cat gives...
+<jeffrin> <jeffrin> root@localhost:/sys/kernel/debug# cat lkmc_fops 
+<jeffrin> <jeffrin> Killed
+<jeffrin> did you get it
+<jeffrin> this is the c program https://pastebin.com/FnQFbFgq
+<jeffrin> iam learning to write  related driver  related to linux kernel
+<jeffrin> can you tell me what this program is trying to do  
+* nodelay has quit (Ping timeout: 260 seconds)
+<wobbol> First I need to compile your module. What kernel version are you on?
+<post-factum> > pr_info("buf = %.*s\n", (int)len, buf);
+<post-factum> this is wrong
+<jeffrin> i use debian 6.12.25
+<post-factum> you cannot read from a userspace buffer directly
+<post-factum> it will oops with protection failure and kill cat
+<jeffrin> so how to change the code to fix it
+<post-factum> it's up to you, of course, you copy-pasted this code from stackoverflow for some reason :)
+<post-factum> you can comment out that line, or you can use copy_from_user()
+<post-factum> not sure, maybe %pus will work
+<jeffrin> can you tell me what that program is trying to do
+* Milkman (~Milkman42@user/Milkman420) has joined
+<post-factum> no, %pus is for ebpf only
+<post-factum> just read the code, try to understand it yourself and ask questions. it's not a program, it's a kernel module
+<post-factum> hint: it registers a debugfs file, provides hooks for reading from it and writing
+<jeffrin> cat lkmc_fops
+<jeffrin> now come back to prompt
+<jeffrin> i commented the line as you said
+What does cat do to the lkmc_fops file?
+<jeffrin> iam not sure
+* jarthur (~jarthur@user/jarthur) has joined
+<jeffrin> is debugfs a kernel internal data structure
+* Milkman has quit (Quit: leaving)
+* Milkman (~Milkman42@p20030006338f02a630242a83fa2af93a.dip0.t-ipconnect.de) has joined
+<wobbol> Cat is a program that doesn't know anything about debugfs. But, it can operate on /sys/kernel/debug/lkmc_fops. What operation is cat doing on that file?
+<jeffrin> may be it can change some program value by altering lkmc_fops
+<wobbol> what does cat do to any file? It only does one thing.
+<jeffrin> read from a file ?
+<wobbol> yes.
+<wobbol> what does dbugfs_create_file() do?
+<jeffrin> may be it registers a new file into debugfs
+<wobbol> Yes. When is that function called?
+* psydroid (~psydroid@user/psydroid) has joined
+<jeffrin>  debugfs_create_file
+<wobbol> debugfs_create_file() is an external function. It is called inside your example kernel module. Which function calls debug_fs_create_file()?
+<jeffrin> static int myinit(void)
+<wobbol> Yes. What line in the example kernel module tells the kernel to execute that function?
+<jeffrin> may  be  module_init(myinit)
+<wobbol> Yes.
+<wobbol> Starting from module_init(myinit) walk me through the code. Explain what each function argument is.
+* nodelay (~zack@user/nodelay) has joined
+<jeffrin> debugfs_create_file("lkmc_fops", S_IRUSR | S_IWUSR, NULL, NULL, &f\
+<jeffrin> ops);
+* nodelay has quit (Ping timeout: 252 seconds)
+<jeffrin> the first gives the filename of the new file to be created
+<wobbol> Good. Keep going.
+<jeffrin> the second argument has S_IRUSR  which checks the read permission of the file
+<wobbol> The second argument has more than that in it.
+* Milkman has quit (Ping timeout: 252 seconds)
+* slidercrank (~slidercra@user/slidercrank) has joined
+<jeffrin> S_IWUSR represents  write permission bit of the file owner and finally both are bitwise ORed
+<wobbol> Excellent. Please go on.
+<jeffrin> the next two arguments are null
+* TheSilentLink_ (~TheSilent@idlerpg/player/TheSilentLink) has joined
+<jeffrin> the last argument pass the address of fops variable
+<wobbol> Excellent.
+<wobbol> When this function is finished, what happens to the /sys/kernel/debug/ directory?
+<wobbol> You might have to unload the kernel module. Then check with ls -l
+<jeffrin> a new file named lkmc_fops is created
+<wobbol> Yes. You saw that the address of fops was passed to debug_create_file(). What does fops have inside it?
+<jeffrin> does address of fops point to a method that will connect to userspace
+<wobbol> address of fops is the address of the first byte of a `struct file_operations` named fops. This structure is inside the module. It gets put into kernel address space when the module is loaded. It is removed when the module is unloaded.
+<wobbol> Everything in the code is kernel space _except_ variables marked with `__user`
+* harveypwca has quit (Quit: Leaving)
+<wobbol> It is supposed to be to help the humans reading it. The `__user` is not required however.
+* Articulus (~Articulus@c-71-198-98-73.hsd1.ca.comcast.net) has joined
+<jeffrin> great related thanks
+<wobbol> Did you learn what `struct file_operations` holds inside?
+<jeffrin> i saw that
+<wobbol> What operation does cat do to files again?
+<jeffrin> but what does .owner mean ? is it a data type
+<wobbol> `.owner` is the variable `fops.owner`
+<jeffrin> so why the dot ?
+<wobbol> it is called a "Designated Initializer" it is a C99 thing. Here is the gcc docs on it https://gcc.gnu.org/onlinedocs/gcc/Designated-Inits.html
+* MarcoGiorgi (~Thunderbi@user/MarcoGiorgi) has joined
+<jeffrin> cat concatenate files
+<wobbol> In this context, cat: open the file -> read the file -> print the file to stdout
+<wobbol> because it does that for each file, the effect is concatenate-ing the files.
+ ok
+<jeffrin> thanks
+<wobbol> It sounds like you are understanding. Do you have any more questions?
+* wobbol starts eating food
+* JuanDaugherty (~juan@user/JuanDaugherty) has joined
+<jeffrin> not now
+<jeffrin> so have food
+<wobbol> :D mention me if you like. I will be back.
+<jeffrin> shall we continue tommorrow
+<jeffrin> i like you
+<jeffrin> what is  :D
+<JuanDaugherty> big smile emoticon
+<wobbol> jeffrin, Sure.
+<jeffrin> thanks for the meaning of :D
+<jeffrin> bye
+<jeffrin> bye wobbol
+* wootehfoot has quit (Read error: Connection reset by peer)
+<wobbol> see you tomorrow jeffrin 
+* luc4 (~luca@host-82-56-126-113.retail.telecomitalia.it) has joined
+<jeffrin> ok thanks and bye again
