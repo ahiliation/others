@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -x
-insmod fops.ko
+sudo insmod ./fops.ko
 cd /sys/kernel/debug/lkmc_fops
 
 ## Basic read.

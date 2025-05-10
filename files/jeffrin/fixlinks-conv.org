@@ -795,3 +795,6 @@ chat --
 <jeffrin> this is a typical shell program https://pastebin.com/im3FDq3T
 <jeffrin> shall i disable secureboot from the bios is possible
 <aaabbb> or try booting with module.sig_enforce=0
+
+https://stackoverflow.com/questions/58546126/insmod-error-could-not-insert-module-helloworld-ko-operation-not-permitted
+https://askubuntu.com/questions/762254/why-do-i-get-required-key-not-available-when-install-3rd-party-kernel-modules
