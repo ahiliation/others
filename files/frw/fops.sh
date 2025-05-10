@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -x
-instmodsh  /fops.ko
+insmod fops.ko
 cd /sys/kernel/debug/lkmc_fops
 
 ## Basic read.
@@ -41,3 +41,4 @@ printf '1234' >f
 printf 'z' | dd bs=1 of=f seek=2
 cat f
 # => 12z4
+echo -n
