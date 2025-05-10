@@ -798,3 +798,11 @@ chat --
 
 https://stackoverflow.com/questions/58546126/insmod-error-could-not-insert-module-helloworld-ko-operation-not-permitted
 https://askubuntu.com/questions/762254/why-do-i-get-required-key-not-available-when-install-3rd-party-kernel-modules
+
+./fops.sh: 5: cd: can't cd to /sys/kernel/debug/lkmc_fops
+You need execute permission to cd into a directory.
+https://serverfault.com/questions/243191/why-cant-i-cd-into-a-directory
+
+
+
+
