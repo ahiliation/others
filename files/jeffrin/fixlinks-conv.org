@@ -788,3 +788,8 @@ cat f
 
 https://stackoverflow.com/questions/49459211/how-to-build-a-single-source-file-of-a-kernel-module
 https://docs.kernel.org/kbuild/modules.html
+
+
+chat --
+<jeffrin> shall i disable secureboot from the bios is possible
+<aaabbb> or try booting with module.sig_enforce=0
