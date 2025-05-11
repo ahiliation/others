@@ -924,3 +924,148 @@ What does cat do to the lkmc_fops file?
 <wobbol> see you tomorrow jeffrin 
 * luc4 (~luca@host-82-56-126-113.retail.telecomitalia.it) has joined
 <jeffrin> ok thanks and bye again
+
+https://stackoverflow.com/questions/38194057/struct-declaration-versus-definition
+
+
+<wobbol> We may want to take this out of #kernel chat
+<jeffrin> pk 
+<wobbol> ?
+* Disconnected ()
+* jeffrin is already in use. Retrying with jeffrin_...
+* jeffrin_ sets mode +Z on jeffrin_
+* jeffrin_ sets mode +i on jeffrin_
+* jeffrin_ sets mode +w on jeffrin_
+<wobbol> hello?
+<jeffrin_> shall i try to explain the code
+<wobbol> Sounds good.
+<jeffrin_> which function should i start explaining
+<jeffrin_> who is calling these functions
+<wobbol> start with module_init()
+<wobbol> The kernel is calling these functions.
+<jeffrin_> yesterday we started with module_init
+<jeffrin_> should i do it again
+<wobbol> alright, then pickup where we left off. We were looking at what the variable fops represents.
+<wobbol> I think you asked "why the dot" in `.owner` and I gave you a little documentation about designated initalizers.
+<jeffrin_> yes
+<jeffrin_> is that just a data structure definition
+<wobbol> It is an initialization. the definition is in the kernel source here linux/include/linux/fs.h
+<wobbol> A definition says "how big, what kind, and what name the data has"
+<wobbol> an err let me go make sure
+<jeffrin_> does initialization gives values to data ?
+<wobbol> ._. I was wrong about what the words mean.
+<jeffrin_> oh
+<wobbol> The code in the kernel module gives values to the variables of the struct.
+<wobbol> I don't often use those words.
+<wobbol> https://stackoverflow.com/questions/38194057/struct-declaration-versus-definition
+<jeffrin_> let me see the url
+<wobbol> There is discussion here about the exact terms. I find it confusing.
+<wobbol> I find the word "instance" to be clear.
+<jeffrin_> here fops is the instance right ?
+<wobbol> yes
+<wobbol> instance of what?
+<jeffrin_> instance of a function  right ?
+<jeffrin_> instance of a struct  right ?
+<wobbol> yes what is that struct's name?
+<jeffrin_> file_operations
+<wobbol> yes. What is the data type of llseek?
+<jeffrin_> static loff_t
+<wobbol> that is the return type of llseek.
+<wobbol> when a function is named but is missing the () it means the address of the function.
+<jeffrin_> so it's a  pointer ?
+<wobbol> absolutely, it is a pointer to function. Also called a function pointer. what would happen if fops.release(NULL, NULL) was written inside myinit()?
+<jeffrin_> it closes lkmc_fops file ?
+<wobbol> well, what is fops.release?
+<jeffrin_> it calls the release function ... the output of release function
+<wobbol> fops.release means the address of a function with the signature `static int(*func)(struct inode *inode, struct file *filep)`
+<wobbol> in c the function never gets called unless it has the arguments on it. `fops.release(NULL, NULL)` would call the function with NULL as the first and second arguments.
+<jeffrin_> oh because release is a function pointer ?
+<wobbol> yes
+<wobbol> what does `fops.open = open` mean?
+<jeffrin_> the address of a function with the signature static int open(struct inode *inode, struct file *filp)
+<wobbol> it means to assign the function pointer `open` to the variable `fops.open`
+<jeffrin_> ya sorry ?
+<wobbol> `struct file_operations` has a variable inside named open inside. this is what the .open or fopen.open means.
+<wobbol> inside the module a function named open is defined. this is what open or &open means.
+<wobbol> You can see this by renameing the open function to something like my_open then replacing all the references to the function pointer open with my_open.
+<wobbol> ensure that you still assign to .open
+ s/fopen/fops/
+<wobbol> If this part isn't making sense I can break it down with source code.
+<jeffrin_> please break it
+<jeffrin_> iam some ehat clear
+<jeffrin_> but confusing
+<jeffrin_> more clear now
+<wobbol> still writing. soon
+<wobbol> alright https://pastebin.com/n405570U
+<jeffrin_> ler me see
+<wobbol> lines 33-37 are like in the kernel module. 48-50 are how you can access those variables normally.
+<wobbol> each function pointer in sp is called twice with the same arguments. Because the function pointers inside sp are assigned to different functions in main, the second call_all() prints different stuff.
+<wobbol> I have about 1 hour left. I have to leave after that.
+<jeffrin_> ok
+<jeffrin_> you leave now
+<wobbol> In 40 min
+<wobbol> Is the function pointer syntax making sense?
+<jeffrin_> yes
+<jeffrin_> your help is  great
+<jeffrin_> thanks
+<wobbol> No problem!
+<wobbol> Keep learning! also checkout /usr/share/doc/linux/index.html if your distro has it. if not you can use the online version https://www.kernel.org/doc/html/latest/filesystems/debugfs.html
+
+
+
+
+
+#include <stdio.h>
+#include <time.h>
+ 
+int add(int a, int b) {
+    return a + b;
+}
+int subtract(int a, int b) {
+    return a - b;
+}
+ 
+int print(char *msg) {
+    return printf("print: %s\n", msg);
+}
+int time_print(char *msg) {
+    time_t now_time = time(NULL);
+    struct tm *now_tm = localtime(&now_time);
+    return printf("%s: %s",msg, asctime(now_tm));
+}
+ 
+void hello_world(void) {
+    printf("Hello, World!\n");
+}
+void a_name(void) {
+    printf("Hello, somebody!\n");
+}
+ 
+struct some_pointers {
+    int (*p1)(int, int);
+    int (*p2)(char *);
+    void (*p3)(void);
+};
+ 
+struct some_pointers sp = {
+    .p1 = add,
+    .p2 = print,
+    .p3 = hello_world
+};
+ 
+void call_all(struct some_pointers *p) {
+    printf("p->p1(1,2) -> %d\n", p->p1(1,2));
+    p->p2("It's something!");
+    p->p3();
+}
+ 
+int main(void) {
+    puts("\n1. call_all()");
+    call_all(&sp);
+    sp.p1 = subtract;
+    sp.p2 = time_print;
+    sp.p3 = a_name;
+    puts("\n2. call_all()");
+    call_all(&sp);
+    return 0;
+}
