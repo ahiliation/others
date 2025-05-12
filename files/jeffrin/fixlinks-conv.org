@@ -1069,3 +1069,25 @@ int main(void) {
     call_all(&sp);
     return 0;
 }
+
+
+chat --
+
+ Invalid NickServ command.
+-NickServ- Use /msg NickServ HELP for a NickServ command listing.
+<jeffrin> NickServ REGISTER  jeffrin  ahiliation@gmail.com
+-NickServ- Invalid NickServ command.
+-NickServ- Use /msg NickServ HELP for a NickServ command listing.
+-NickServ- You cannot use your nickname as a password.
+-NickServ- Syntax: REGISTER <password> <email>
+<jeffrin>  REGISTER hostmod  ahiliation@gmail.com
+-NickServ- An email containing nickname activation instructions has been sent to ahiliation@gmail.com.
+-NickServ- Please check the address if you don't receive it. If it is incorrect, DROP then REGISTER again.
+-NickServ- If you do not complete registration within one day, your nickname will expire.
+-NickServ- jeffrin is now registered to ahiliation@gmail.com.
+-NickServ-  
+-NickServ- For help using the network, please see the Guides
+-NickServ- section on our website: https://libera.chat/guides/
+-NickServ-  
+-NickServ- If you still need help you can /JOIN #libera to find
+-NickServ- network staff.
