@@ -43,3 +43,6 @@ action is reuired. plans are discovered  as we move forward.
 keep helping people in debian mailing lists. (for immediate effect to people)
 
 you are a softare tester at linux kernel
+
+you try to build knowledge on how stuff works.
+learn about filesystems in the linux kernel and try to build knowledge by hacking code
