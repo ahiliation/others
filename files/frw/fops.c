@@ -57,7 +57,7 @@ static ssize_t read(struct file *filp, char __user *buf, size_t len, loff_t *off
 			*off += ret;
 		}
 	}
-	/*	pr_info("buf = %pus\n", (int)len, buf); */
+	/*	pr_info("buf = %.*s\n", (int)len, buf); */
 	pr_info("ret = %lld\n", (long long)ret);
 	return ret;
 }

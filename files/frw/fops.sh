@@ -2,7 +2,7 @@
 
 set -x
 sudo  insmod ./fops.ko
-cd /sys/kernel/debug/lkmc_fops
+#cd /sys/kernel/debug/lkmc_fops
 
 ## Basic read.
 cat f

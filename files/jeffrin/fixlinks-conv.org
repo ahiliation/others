@@ -786,6 +786,98 @@ printf 'z' | dd bs=1 of=f seek=2
 cat f
 # => 12z4
 
+
+               open
+[ 1356.997745] write
+[ 1356.997747] len = 8
+[ 1356.997750] off = 0
+[ 1356.997752] ret = -28
+[ 1356.997846] release
+[ 1537.965916] open
+[ 1537.965946] read
+[ 1537.965950] len = 262144
+[ 1537.965955] off = 0
+[ 1537.965965] ret = 4
+[ 1537.965985] read
+[ 1537.965988] len = 262144
+[ 1537.965992] off = 4
+[ 1537.965995] ret = 0
+[ 1537.966026] release
+[ 1543.817742] open
+[ 1543.817775] read
+[ 1543.817779] len = 262144
+[ 1543.817784] off = 0
+[ 1543.817794] ret = 4
+[ 1543.817810] read
+[ 1543.817814] len = 262144
+[ 1543.817819] off = 4
+[ 1543.817823] ret = 0
+[ 1543.817855] release
+[ 1545.487963] open
+[ 1545.487994] read
+[ 1545.487997] len = 262144
+[ 1545.488003] off = 0
+[ 1545.488012] ret = 4
+[ 1545.488044] read
+[ 1545.488048] len = 262144
+[ 1545.488053] off = 4
+[ 1545.488057] ret = 0
+[ 1545.488091] release
+[ 1562.504299] open
+[ 1562.504344] read
+[ 1562.504349] len = 262144
+[ 1562.504355] off = 0
+[ 1562.504367] ret = 4
+[ 1562.504387] read
+[ 1562.504391] len = 262144
+[ 1562.504396] off = 4
+[ 1562.504401] ret = 0
+[ 1562.504435] release
+[ 1564.394598] open
+[ 1564.394616] read
+[ 1564.394618] len = 262144
+[ 1564.394621] off = 0
+[ 1564.394626] ret = 4
+[ 1564.394639] read
+[ 1564.394640] len = 262144
+[ 1564.394642] off = 4
+[ 1564.394644] ret = 0
+[ 1564.394659] release
+[ 1566.505413] open
+[ 1566.505453] read
+[ 1566.505457] len = 262144
+[ 1566.505463] off = 0
+[ 1566.505475] ret = 4
+[ 1566.505496] read
+[ 1566.505500] len = 262144
+[ 1566.505505] off = 4
+[ 1566.505509] ret = 0
+[ 1566.505545] release
+[ 1669.090267] open
+[ 1669.090303] write
+[ 1669.090306] len = 2
+[ 1669.090311] off = 0
+[ 1669.090315] buf = z
+
+[ 1669.090320] ret = 2
+[ 1669.090327] release
+[ 1689.022637] open
+[ 1689.022658] read
+[ 1689.022660] len = 262144
+[ 1689.022664] off = 0
+[ 1689.022670] ret = 4
+[ 1689.022684] read
+[ 1689.022686] len = 262144
+[ 1689.022688] off = 4
+[ 1689.022690] ret = 0
+[ 1689.022709] release
+
+
+
+
+
+
+
 https://stackoverflow.com/questions/49459211/how-to-build-a-single-source-file-of-a-kernel-module
 https://docs.kernel.org/kbuild/modules.html
 
@@ -1094,3 +1186,46 @@ chat --
 
 https://www.kernel.org/doc/html/latest/filesystems/
 https://www.howstuffworks.com/
+
+chat --
+
+<jeffrin> may be i should accept failure
+<mingdao> jeffrin, what do you mean by that?
+* renergy has quit (Remote host closed the connection)
+<jeffrin> kernel programming or c programming is too hard to follow
+<mingdao> C is not that difficult to learn.
+<jeffrin> i find it difficult to read a simple kernel module
+<mingdao> I had Till Kamppeter show me how to edit a C file to make a printer work in 2003 after only using a Linux distro for about a month.
+<mingdao> jeffrin: Maybe you need to start with some learning basics.
+<jeffrin> files ?
+<mingdao> Can you use more words...
+<Maccampus> yeah try Basics first, then do Pascl & when you handle that switch to C & Java
+<mingdao> machine learning first
+<jeffrin> mingdao: i think i need a helping hand with C
+<jeffrin> my be sysad is good for me 
+<mingdao> jeffrin: https://www.learn-c.org/
+<mingdao> You'll get better help if you post according to this: http://www.co.kerr.tx.us/it/howtoreport.html 
+<mingdao> https://www.w3schools.com/c/
+<mingdao> https://www.freecodecamp.org/news/the-c-programming-handbook-for-beginners/
+<mingdao> https://cppdepend.com/blog/write-efficient-c-code-learn-from-linus-torvalds/
+<schroes> there's one thing in c that confuses beingnners
+<schroes> most languages abstract types away as if they were something truly abstract
+<schroes> but in C, it emphasizes there's only "memory" and you optionally can use types to represent that
+<jeffrin> schroes : pointers ?
+<schroes> not only, the whole language is set around that principle
+<jeffrin> schroes : pointers ?
+<schroes> not only, the whole language is set around that principle
+* tolip has quit (Ping timeout: 252 seconds)
+* new_freedom has quit (Quit: Leaving)
+* rkazak has quit (Ping timeout: 252 seconds)
+* sajenim has quit (Ping timeout: 244 seconds)
+<jeffrin> In  Linux mostly everything is a file
+<xeyler> jeffrin: i recommend https://beej.us/guide/bgc/html/split/pointers.html
+<xeyler> beej's guides are exceptionally well written. his guide to c programming was criticized in the past when it was still a beta-quality document, but it's much more complete now
+<xeyler> the rhetoric is approachable without being shallow
+<jeffrin> i should learn more about file perations on C
+<jeffrin> mingdao :  thanks for the links
+<xeyler> jeffrin: there's some helpful information on file I/O in chapter 9 of beej's guide, should you chose to use it
+<schroes> <jeffrin> In  Linux mostly everything is a file
+<schroes> that's only kernel APIs
+<schroes> once you've already acquired the data you need, when you process them in the userspace, they aren't files anymore
