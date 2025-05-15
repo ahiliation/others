@@ -82,7 +82,9 @@ convert from uppercase to lowecase
 
 echo "THIS IS MY DATA" | tr '[:upper:]' '[:lower:]'
 
-&lt;<span class="function-name">h1</span>&gt;<span class="underline"><span class="bold">Emacs and Lisp:</span></span>&lt;/<span class="function-name">h1</span>&gt;
+
+_Emacs and Lisp_
+
 
 (mark-end-of-sentence)
 (set-face-background-color region brightcyan)
@@ -127,9 +129,20 @@ https://elpa.gnu.org/packages/org-modern.html
 (kill-some-buffers)
 (windmove-delete-up)
 
+How to play audio and video using emms ?
 
 
-&lt;<span class="function-name">h1</span>&gt;<span class="underline"><span class="bold">Wordpress:</span></span>&lt;/<span class="function-name">h1</span>&gt;
+
+(emms-all)
+(setq emms-player-list '(emms-player-vlc)
+      emms-info-functions '(emms-info-native))
+
+M-x emms-add-directory-tree RET ~/my_music_directory/ RET
+M-x emms-playlist-mode-go
+
+
+
+_Wordpress_
 
 
 https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-on-ubuntu-22-04-with-a-lamp-stack
@@ -1229,3 +1242,5 @@ chat --
 <schroes> <jeffrin> In  Linux mostly everything is a file
 <schroes> that's only kernel APIs
 <schroes> once you've already acquired the data you need, when you process them in the userspace, they aren't files anymore
+
+
