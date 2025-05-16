@@ -1,33 +1,50 @@
-(setq-default fill-column 57)
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-to-list 'load-path "~/.emacs.d/")
-;; (require 'color-theme-tomorrow)
-(require 'rippedcasts-theme)
-;; (require 'tomorrow-night-paradise-theme)
-
-
+;;; -*- lexical-binding: t -*-
 (custom-set-variables
- ;; custom-set-variables was added by Custom.                                            
- ;; If you edit it by hand, you could mess it up, so be careful.                         
- ;; Your init file should contain only one such instance.                                
- ;; If there is more than one, they won't work right.                                    
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("7200d53cf0477ec8a83fb7257bcee7135e829cf2189d12e36c44438f198ec70f"
+   '("1a115a5125aca3244fc09a946e52386d93d7bb2ca5c65338b05aabdc39d80f3b"
+     "fd6f696ce0bd8bfdb72c573631e0b0cdc33e6301852d656596617a7bbaf55729"
+     "8717434774f34f325aca6fedb24b572026a0e61dca6e3fe5c03f8c3af8f412f6"
+     "7200d53cf0477ec8a83fb7257bcee7135e829cf2189d12e36c44438f198ec70f"
      default))
- '(package-selected-packages '(dape org-real)))
+ '(package-selected-packages
+   '(## aircon-theme dape ef-themes emms htmlize modus-themes org-modern
+	org-real)))
+ 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.                                                
- ;; If you edit it by hand, you could mess it up, so be careful.                         
- ;; Your init file should contain only one such instance.                                
- ;; If there is more than one, they won't work right.                                    
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
+
+;; (mark-whole-buffer t)
+;; (mark-end-of-sentence (forward-sentence))
+;; (load-theme `jeffrin t)
+
+;; (use-package aircon-theme
+;;  :init
+;;  (load-theme 'aircon  t)
+;;  :bind ("<f9>" . aircon theme-select))
+
+ (use-package modus-themes
+   :defer t)
+(load-theme 'modus-operandi-tritanopia t)
+
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-language-environment 'utf-8)
+(set-selection-coding-system 'utf-8)
 
 
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
-(set-language-environment 'UTF-8) ; prefer utf-8 for language settings                    
+(set-language-environment 'UTF-8) ; prefer utf-8 for language settings
 (set-default-coding-systems 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
@@ -38,3 +55,15 @@
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 (setq default-sendmail-coding-system 'utf-8-unix)
 (setq default-terminal-coding-system 'utf-8-unix)
+
+(emms-all)
+(setq emms-player-list '(emms-player-vlc)
+      emms-info-functions '(emms-info-native))
+
+(emms-add-directory-tree "/home/jeffrin/Music")
+;; (emms-playlist-mode-go t)
+(emms-start)
+
+(global-display-line-numbers-mode)
+
+
