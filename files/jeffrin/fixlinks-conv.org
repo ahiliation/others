@@ -85,6 +85,9 @@ echo "THIS IS MY DATA" | tr '[:upper:]' '[:lower:]'
 
 _Emacs and Lisp_
 
+https://github.com/zoliky/dotemacs
+
+
 
 (mark-end-of-sentence)
 (set-face-background-color region brightcyan)
@@ -129,6 +132,7 @@ https://elpa.gnu.org/packages/org-modern.html
 (kill-some-buffers)
 (windmove-delete-up)
 
+
 How to play audio and video using emms ?
 
 
@@ -140,6 +144,12 @@ How to play audio and video using emms ?
 M-x emms-add-directory-tree RET ~/my_music_directory/ RET
 M-x emms-playlist-mode-go
 
+https://lucidmanager.org/productivity/configure-emms/
+
+emms
+emms-start
+emms-stop
+emms-pause
 
 
 _Wordpress_
