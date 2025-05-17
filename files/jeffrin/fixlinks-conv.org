@@ -1265,3 +1265,4 @@ https://lists.kernelnewbies.org/pipermail/kernelnewbies/2017-April/017765.html
 https://docs.kernel.org/admin-guide/index.html
 https://startpage.com/
 https://www.armosec.io/glossary/linux-kernel/
+goo.gl/zi5V (HOW TO ASK IN #kernel  https://libera.chat/)
