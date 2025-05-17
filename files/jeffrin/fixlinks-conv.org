@@ -146,10 +146,12 @@ M-x emms-playlist-mode-go
 
 https://lucidmanager.org/productivity/configure-emms/
 
-emms
-emms-start
-emms-stop
-emms-pause
+M-x emms
+M-x emms-start
+M-x emms-stop
+M-x emms-pause
+
+M-x menu-bar-open
 
 
 _Wordpress_
