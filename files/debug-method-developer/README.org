@@ -1,4 +1,0 @@
-__Debug Method Developer_  (DMD)
-
-We give methods and not solutions.
-We give methods to debug bugs. 
