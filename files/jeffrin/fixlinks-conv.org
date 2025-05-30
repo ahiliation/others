@@ -1267,3 +1267,13 @@ https://startpage.com/
 https://www.armosec.io/glossary/linux-kernel/
 goo.gl/zi5V (HOW TO ASK IN #kernel  https://libera.chat/)
 https://www.duckware.com/bugfreec/index.html/
+
+
+
+
+__Machine Learning__
+
+https://www.w3schools.com/ai/tryit.asp?filename=tryai_brain_xor
+https://brain.js.org/#/getting-started
+
+
