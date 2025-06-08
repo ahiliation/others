@@ -1320,3 +1320,6 @@ chat #ai
 <jeffrin> thanks all
 * nils` (~nils`@109.164.66.225) has joined
 * psydroid2 (~psydroid@user/psydroid) has joined
+
+https://www.w3schools.com/ai/ai_perceptrons.asp
+
