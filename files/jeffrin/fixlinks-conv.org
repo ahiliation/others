@@ -1271,9 +1271,52 @@ https://www.duckware.com/bugfreec/index.html/
 
 
 
-__Machine Learning__
+__AI Machine Learning Deep Learning__
 
 https://www.w3schools.com/ai/tryit.asp?filename=tryai_brain_xor
 https://brain.js.org/#/getting-started
 
 
+chat #ai
+
+<jeffrin> hello all
+<jeffrin> is image classification AI , ML or DL   is it
+<href> yes. all of the above.
+<jeffrin> oh
+<href> DL is a subset of ML which is a subset of AI, also
+<dostoyevsky> jeffrin: people are struggling to find the right words, so they keep changing
+<href> and then, i guess the true response is "AI", because "image classification" is a task, not a technique
+* techtruth has quit (Ping timeout: 276 seconds)
+<jeffrin> i ran a javascript related program and it gave the name of the bird in picture
+<jeffrin> with a certain level of confidence
+<jeffrin> but when i changed the bird photo .. it keeps scanning
+<href> afaik all the current classifications are "DL"
+<jeffrin> oh
+<jeffrin> but when i changed the bird photo .. it keeps scanning
+<href> yes?
+* BrindledCat has quit (Quit: Leaving)
+<jeffrin> iam using ml5.min.js
+<jeffrin> i got the code from  w3schools.com
+<href> cool ok
+<jeffrin> is ml5.min.js a module which digs into a data to find the name of the bird
+<href> iirc it's a friendly wrapper around tensorflow.js. need to implement an architecture and use a model for that.
+<href> apparently some birds examples are using MobileNet
+<jeffrin> iam using MobileNet
+<davros1> Image classification is AI & ML.  It so happens the best solutions utilise DL. As such it the original answer "all of the above" is valid
+<davros1> Alexnet in 2012 (?) .. ushered in DL's dominance of the field
+<jeffrin> davros1 : oh
+<davros1> There are other algos developped to try and do it but DL beats them all
+<href> so here ml5 is a wrapper around tensorflow, that implements some things to run clasfficiations models, and you're using the MobileNet model
+<href> I think it's a CNN (still DL)
+<jeffrin> is MobileNet the name of a nueral network
+<davros1> yes
+<href> it's a family of models yeah
+* techtruth (techtruth@ip68-2-164-46.ph.ph.cox.net) has joined
+<href> https://en.wikipedia.org/wiki/MobileNet
+<SigmoidFroid> ⇒ MobileNet - Wikipedia | 2025
+<davros1> There's all sorts of variations
+<davros1> EfficientNet.. ResNeXT blah bah
+<jeffrin> ok let me learn things again a come back if i have doubt
+<jeffrin> thanks all
+* nils` (~nils`@109.164.66.225) has joined
+* psydroid2 (~psydroid@user/psydroid) has joined
