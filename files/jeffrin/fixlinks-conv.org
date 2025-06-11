@@ -1267,6 +1267,7 @@ https://startpage.com/
 https://www.armosec.io/glossary/linux-kernel/
 goo.gl/zi5V (HOW TO ASK IN #kernel  https://libera.chat/)
 https://www.duckware.com/bugfreec/index.html/
+https://docs.kernel.org/dev-tools/kunit/index.html
 
 
 
