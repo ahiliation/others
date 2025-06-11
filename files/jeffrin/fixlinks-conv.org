@@ -1268,7 +1268,7 @@ https://www.armosec.io/glossary/linux-kernel/
 goo.gl/zi5V (HOW TO ASK IN #kernel  https://libera.chat/)
 https://www.duckware.com/bugfreec/index.html/
 https://docs.kernel.org/dev-tools/kunit/index.html
-
+https://docs.kernel.org/
 
 
 
@@ -1323,4 +1323,4 @@ chat #ai
 * psydroid2 (~psydroid@user/psydroid) has joined
 
 https://www.w3schools.com/ai/ai_perceptrons.asp
-
+https://transformer-circuits.pub/2025/attribution-graphs/biology.html
