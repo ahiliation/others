@@ -4,11 +4,9 @@
 <body>
 
 <h2>TensorFlow Visor</h2>
-<div id="demo"></div>
 
 <script>
 
-const surface = document.getElementById('demo');
 const series = ['First', 'Second'];
 
 const serie1 = []; 
@@ -19,7 +17,8 @@ for (let i = 0; i < 100; i++) {
 }
 
 const data = {values: [serie1, serie2], series}
-tfvis.render.scatterplot(surface, data);
+
+tfvis.render.scatterplot({name: "my Plots"}, data);
 
 </script>
 </body>
