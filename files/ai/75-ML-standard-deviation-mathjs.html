@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.3.0/math.js"></script>
+<body>
+<h2>JavaScript Machine Learning</h2>
+<p>Calculate the Standard Deviation</p>
+<div id="demo"></div>
+
+<script>
+// Calculate the Standard Deviation
+const values = [7,8,8,9,9,9,9,10,11,14,15];
+let std = math.std(values, "uncorrected");
+
+document.getElementById("demo").innerHTML = std;
+</script>
+
+</body>
+</html>
