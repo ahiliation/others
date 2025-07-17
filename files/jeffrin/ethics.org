@@ -46,3 +46,15 @@ you are a softare tester at linux kernel
 
 you try to build knowledge on how stuff works.
 learn about filesystems in the linux kernel and try to build knowledge by hacking code
+
+
+__can and cannot do__
+
+do not try to do intermediate or advanced courses in coursera
+your main focus should be  education
+do a lot of beginner level programming projects.
+coonnect those projects and discover where you are going.
+use those projects to teach students methods to  develop something
+do not try to do one single softwsre and make it huge all by yourself
+do frontend development.
+do lot of micro projects instead of one large project.
