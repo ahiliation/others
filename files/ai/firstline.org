@@ -1,1 +1,2 @@
 import * as brain  from './library/brain.js';
+import * as tf from '@tensorflow/tfjs';
