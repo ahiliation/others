@@ -1,4 +1,4 @@
-import * as brain  from './brain.js';
+import * as brain  from './library/brain.js';
 // Create a Neural Network
 const network = new brain.NeuralNetwork();
 
