@@ -3,4 +3,4 @@ const myArr = [1, 2, 3, 4];
 const shape = [2, 2];
 const tensorA = tf.tensor(myArr, shape);
 console.log(tensorA.dtype);
-console.log(tensorA);
+console.log(tensorA.rankType);
