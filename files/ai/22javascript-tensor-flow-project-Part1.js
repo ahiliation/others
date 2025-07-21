@@ -30,8 +30,6 @@ function myFunction() {
       if (x == xMax) {plot(xArr, yArr)};
     });
   }
-    console.log("result...");
-    console.log(result);
     console.log("hello");
 }
 
