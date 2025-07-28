@@ -11,5 +11,5 @@ const data = [{
 
 const layout = {title:"World Wide Wine Production"};
 
-console.log(data[0].marker)
-
+console.log(data[0]["x"]);
+console.log(data[0]["marker"]);
