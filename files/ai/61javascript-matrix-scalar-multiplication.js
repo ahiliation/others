@@ -16,3 +16,4 @@ const matrixMult = math.multiply(2, mA);
 
 // Result [ [2, 4], [6, 8], [10, 12] ]
 console.log(matrixMult);
+ 
