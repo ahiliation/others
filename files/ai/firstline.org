@@ -1,2 +1,4 @@
 import * as brain  from './library/brain.js';
 import * as tf from '@tensorflow/tfjs';
+import { create, all } from 'mathjs';                                                
+const math = create(all);
