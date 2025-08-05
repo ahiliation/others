@@ -19,14 +19,5 @@ echo $title;
 echo $queried_post->post_content;
 ?>
 
- 
-
- 
-
-
-
-
-
-
 </body>
 </html>
