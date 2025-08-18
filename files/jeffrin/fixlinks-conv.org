@@ -1325,3 +1325,7 @@ chat #ai
 
 https://www.w3schools.com/ai/ai_perceptrons.asp
 https://transformer-circuits.pub/2025/attribution-graphs/biology.html
+
+__DEBUG TYPES__
+
+1. debugging depreciated code.
