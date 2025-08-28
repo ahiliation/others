@@ -1330,3 +1330,4 @@ __DEBUG TYPES__
 
 1. debugging depreciated code.
 2. debugging natural language grammer
+3. debugging initialization  file
