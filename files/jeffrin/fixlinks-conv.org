@@ -1328,9 +1328,9 @@ https://transformer-circuits.pub/2025/attribution-graphs/biology.html
 
 __DEBUG TYPES__
 
-1. debugging depreciated code.
-2. debugging natural language grammer
-3. debugging initialization  file
+1. __debugging depreciated code__.
+2. __debugging natural language grammer__
+3. __debugging initialization  file__
 
    __ special case__
        emacs --debug-init <filename>
@@ -1364,3 +1364,5 @@ If this issue is happening frequently, it may be a sign of a larger terminal mis
 In some development environments, a cache might hold the incorrect file path. If you are using a tool that builds or processes your project (e.g., a static site generator or build tool), clearing its cache might resolve the problem. For example, a Next.js project might require deleting the .next folder to force a rebuild with the correct paths. 
 AI responses may include mistakes. Learn more
       
+
+4. __debugging module scope__
