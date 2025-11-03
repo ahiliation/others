@@ -1366,3 +1366,14 @@ AI responses may include mistakes. Learn more
       
 
 4. __debugging module scope__
+
+
+
+__git - distributed version control system__
+
+
+1. To remove the last commit and permanently discard
+   all changes made in that commit:
+
+   git reset --hard HEAD~1
+
