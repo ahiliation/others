@@ -1377,3 +1377,5 @@ __git - distributed version control system__
 
    git reset --hard HEAD~1
 
+2. git --fetch tags
+   git tag | less
