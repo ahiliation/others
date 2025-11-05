@@ -1379,3 +1379,12 @@ __git - distributed version control system__
 
 2. git --fetch tags
    git tag | less
+
+  __ debian development__
+
+  1. skip cleanup process
+     dpkg-buildpackage -nc
+  2. skip test results
+     export DEB_BUILD_OPTIONS='nocheck
+  3. skip  key sign   process      related
+     dpkg-buildpackage  -b -us   -uc
