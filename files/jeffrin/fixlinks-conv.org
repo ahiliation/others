@@ -1380,6 +1380,9 @@ __git - distributed version control system__
 2. git --fetch tags
    git tag | less
 
+3. to force delete a branch
+   git branch -D linux-6.17.y
+
   __ debian development__
 
   1. skip cleanup process
