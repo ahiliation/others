@@ -1271,6 +1271,79 @@ https://docs.kernel.org/dev-tools/kunit/index.html
 https://docs.kernel.org/
 https://nostarch.com/linux-memory-manager
 
+how to create and send patch to linux kernel using git ?
+
+1. git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+
+Install git send-email: This tool is not part of the default Git installation and needs to be installed separately (e.g., sudo apt install git-email on Ubuntu).
+Configure git send-email: You need to configure your email settings (SMTP server, user, port, etc.) in your ~/.gitconfig file. For a test run, you can configure it to send to yourself first.
+bash
+
+git config --global sendemail.smtpuser myemailaddr@gmail.com
+git config --global sendemail.smtpserver smtp.googlemail.com
+git config --global sendemail.smtpencryption tls
+git config --global sendemail.smtpserverport 587
+# Use an application-specific password if using Gmail
+
+Use code with caution.
+Configure your email client: Ensure your email client does not wrap lines, mangle whitespace, or send patches as MIME attachments, as kernel maintainers require patches to be sent as inline plain text. 
+
+Step-by-Step Guide
+
+    Make your changes and commit them: Work on a separate branch and create clear, concise commit messages. Each logical change should be a single commit. Use the -s flag to add your Signed-off-by: line, which is required by the Developer's Certificate of Origin.
+    bash
+
+    git commit -s
+
+    Use code with caution.
+
+Generate the patch files: Use git format-patch to convert your commit(s) into patch files. The --cover-letter option is useful for a series of patches.
+bash
+
+git format-patch HEAD~N -o outgoing/ --cover-letter
+# Replace N with the number of commits you are submitting
+
+Use code with caution.
+Check your patches for style violations: The kernel has a strict coding style. Use the scripts/checkpatch.pl script to find potential issues.
+bash
+
+./scripts/checkpatch.pl outgoing/*.patch
+
+Use code with caution.
+Fix any errors or warnings and amend your commits if necessary (git commit --amend), then regenerate the patches.
+Identify the recipients: Use the scripts/get_maintainer.pl script to find the correct maintainers and mailing lists for the code you modified.
+bash
+
+./scripts/get_maintainer.pl -f path/to/your/modified/file.c
+# Or pass the patch file itself:
+./scripts/get_maintainer.pl outgoing/0001-mypatch.patch
+
+Use code with caution.
+Send the patches via email: Use git send-email to send the generated patch files. It will automatically use the correct plain text format.
+bash
+
+git send-email outgoing/*.patch --to="recipient@example.com" --cc="another@example.com"
+# Or automatically populate recipients from the script output:
+git send-email --cc-cmd='./scripts/get_maintainer.pl --norolestats' outgoing/*.patch
+
+Use code with caution.
+For your first patch, it's a good idea to send it to yourself first to ensure it looks correct and can be applied with git am.
+Monitor feedback: Be patient and responsive to review comments. You will likely need to revise your patches and resubmit a new version (e.g., v2, v3) in response to feedback, using the --in-reply-to option to maintain email threading. 
+
+    Submitting Your First Patch to the Linux Kernel and ...
+    15 May 2017 — Feedback welcome ( open an issue or email me). * Step 1: Setting up an email client. I mostly use git send-email for se...
+    GitHub
+
+Submitting patches: the essential guide to getting your code into the ...
+Contents * Development process. * Obtain a current source tree. Describe your changes. Separate your changes. Style-check your cha...
+The Linux Kernel Archives
+How to configure and use `git send-email` to work with gmail to ...
+2 Jul 2021 — See glibc 's contribution instructions here: https://sourceware.org/glibc/wiki/Contribution%20checklist: * Create one or...
+Stack Overflow
+
+
+
+
 
 
 __AI Machine Learning Deep Learning__
@@ -1391,3 +1464,8 @@ __git - distributed version control system__
      export DEB_BUILD_OPTIONS='nocheck
   3. skip  key sign   process      related
      dpkg-buildpackage  -b -us   -uc
+
+
+__YT_DLP__
+
+1. yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -o '%(title)s.%(ext)s' [URL]
