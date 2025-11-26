@@ -1469,3 +1469,10 @@ __git - distributed version control system__
 __YT_DLP__
 
 1. yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -o '%(title)s.%(ext)s' [URL]
+
+
+__Debian Installer__
+
+1. netinst image to usb stick
+   sudo dd bs=4M if=/path/to/debian.iso of=/dev/sdX status=progress oflag=sync
+   
