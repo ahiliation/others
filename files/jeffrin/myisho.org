@@ -1,0 +1,10 @@
+__Roles__
+
+1. Instructor (GNU/Linux trainer).
+2. AI Integration into myisho.com (may be with TensorFlow).
+3. Security Developer.
+4. myisho.com administrator.(myisho.com/admin)
+
+__Requests__
+
+1. SSH shell .
