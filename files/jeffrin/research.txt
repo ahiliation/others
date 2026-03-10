@@ -8,3 +8,7 @@
 --- publish the initial version in trueangle.org ---
 
 --- may be the above things should be done in collaboration ---
+
+A research scientist is a professional dedicated to conducting systematic
+investigations to discover new information, develop new products, or
+advance theoretical understanding within a specific field of study
