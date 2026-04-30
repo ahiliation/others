@@ -1476,3 +1476,11 @@ __Debian Installer__
 1. netinst image to usb stick
    sudo dd bs=4M if=/path/to/debian.iso of=/dev/sdX status=progress oflag=sync
    
+
+__let's encrypt -  SSL - yourdomain.com related__
+
+Install Certbot: sudo apt install certbot python3-certbot-apache.
+Run Certbot: sudo certbot --apache -d yourdomain.com -d www.yourdomain.com.
+
+
+
