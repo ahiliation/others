@@ -210,9 +210,8 @@ Friday 08 May 2026 05:51:32 PM IST
 1 --  trueangle  -   add post with learning model 5 (1 addition per week)
 2 --  trueangle  -   formatting (3 formats per week)
 3 --  trueangle  -   create background images (once in  a month)
-4 --  trueangle  -   stable kernel testing (1 test per month)
+4 --  trueangle  -   stable kernel testing (1 test per month) (use perf)
 5 --  trueangle  -   embed bible relection videos from usccb (7 in a month)
-
 
 
 
