@@ -214,11 +214,11 @@ Friday 08 May 2026 05:51:32 PM IST
 5 --  trueangle  -   embed bible relection videos or Gospel from usccb (7 in a month)
 
 Thursday 28 May 2026 09:06:00 PM IST
-(Learn and Use AI [google AI mode] )
+(Learn and Use AI [google AI mode] ) [april 31 (2026) - april 31 (2027)]
 ------------------------------------
-1. -- trueangle        -   add gospel readings to trueangle.org
-2. -- Linux Foundation -   Stable Kernel Testing
-3. -- Linux Foundation -   Linux Kernel Tools 
-4. -- Linux Foundation -   Codind for selftests (Learn and use AI) (stalled for now)
+1. -- Trueangle        -   add gospel readings to trueangle.org (Regular)
+2. -- Linux Foundation -   Stable Kernel Testing (Regular)
+3. -- Linux Foundation -   Linux Kernel Tools and /kernel hacking (use AI)
+4. -- Linux Foundation -   Codind for selftests (Learn and use AI)
 5. -- GNU Project      -   Learn GNU Bash
 6. -- Rahul John Aju   -   Learn and Use AI (for knowledge and wisdom deve;opment) 
