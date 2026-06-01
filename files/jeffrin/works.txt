@@ -218,7 +218,4 @@ Thursday 28 May 2026 09:06:00 PM IST
 ------------------------------------
 1. -- Trueangle        -   add gospel readings to trueangle.org (Regular)
 2. -- Linux Foundation -   Stable Kernel Testing (Regular)
-3. -- Linux Foundation -   Linux Kernel Tools and /kernel hacking (use AI)
-4. -- Linux Foundation -   Codind for selftests (Learn and use AI)
-5. -- GNU Project      -   Learn GNU Bash
-6. -- Rahul John Aju   -   Learn and Use AI (for knowledge and wisdom deve;opment) 
+3. -- Rahul John Aju   -   30 day AI Challenge (Regular)
