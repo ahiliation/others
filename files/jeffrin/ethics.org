@@ -58,3 +58,10 @@ use those projects to teach students methods to  develop something
 do not try to do one single softwsre and make it huge all by yourself
 do frontend development.
 do lot of micro projects instead of one large project.
+
+
+__education and passion and problem solvinng and decision making__
+
+Your main passion should be education.
+Every problem you solve in cumputing is like solving a problem in real life.
+First complete WSP book and practicals then take a decision of what next
