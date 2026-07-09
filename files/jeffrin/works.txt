@@ -217,7 +217,10 @@ Thursday 28 May 2026 09:06:00 PM IST
 (Learn and Use AI [google AI mode] ) [april 31 (2026) - april 31 (2027)]
 ------------------------------------
 1. -- Trueangle        -   add gospel readings to trueangle.org (Regular)
-2. -- Linux Foundation -   Stable Kernel Testing (Regular)
-3. -- Rahul John Aju   -   30 day AI Challenge
-4. -- Microsoft        -   Learn Windows System Programming  using VS
-
+2. -- Linux Foundation -   Stable Kernel Testing (Regular) KUnit added. Kselftests
+                           https://docs.kernel.org/dev-tools/kselftest.html
+			   
+3. -- Rahul John Aju   -   30 day AI Challenge [cross]
+                           [NEW]  Practice gemini-cli
+4. -- Microsoft        -   Learn Windows System Programming  using VS [cross]
+                            
