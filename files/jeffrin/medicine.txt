@@ -15,7 +15,7 @@ Might:
   volibo 0.3      : 1
   sulphitac 100   : 1
   sizdon plus     : 1
-  activen 1mg     : 1
+  ativan  1mg     : 1
   zapiz 0.25mg    : 1
   qutipin 25mg    : 1
   lonazep 0.25mg  : 1
