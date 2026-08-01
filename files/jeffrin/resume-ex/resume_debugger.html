@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume - Senior Software Debugging & Diagnostics Engineer</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm 15mm 12mm 15mm;
+            background-color: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #1e293b;
+            background-color: #f8fafc;
+            font-size: 9.5pt;
+            line-height: 1.4;
+        }
+
+        /* Header Section */
+        .header {
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+        }
+
+        .header h1 {
+            font-size: 20pt;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 11pt;
+            color: #0284c7;
+            font-weight: 600;
+            margin-top: 2px;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            font-size: 8.5pt;
+            color: #475569;
+        }
+
+        .contact-info span {
+            margin-right: 12px;
+        }
+
+        /* Summary */
+        .summary {
+            margin-bottom: 14px;
+            text-align: justify;
+            color: #334155;
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 11pt;
+            text-transform: uppercase;
+            color: #0f172a;
+            letter-spacing: 0.5px;
+            border-left: 3px solid #0284c7;
+            padding-left: 8px;
+            margin-top: 12px;
+            margin-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        /* Layout Tables */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .skills-table td {
+            padding: 3px 0;
+            vertical-align: top;
+            font-size: 9pt;
+        }
+
+        .skills-table .label {
+            font-weight: bold;
+            color: #0f172a;
+            width: 22%;
+        }
+
+        .skills-table .value {
+            color: #334155;
+            width: 78%;
+        }
+
+        /* Experience Items */
+        .job-block {
+            margin-bottom: 12px;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            width: 100%;
+            margin-bottom: 3px;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: #0f172a;
+            font-size: 10pt;
+        }
+
+        .job-company {
+            color: #0284c7;
+            font-weight: 600;
+        }
+
+        .job-date {
+            float: right;
+            color: #64748b;
+            font-size: 8.5pt;
+            font-weight: normal;
+        }
+
+        ul {
+            margin-left: 16px;
+            margin-top: 4px;
+        }
+
+        li {
+            margin-bottom: 3px;
+            color: #334155;
+            text-align: justify;
+        }
+
+        li strong {
+            color: #0f172a;
+        }
+
+        /* Key Highlights Box */
+        .highlight-box {
+            background-color: #e0f2fe;
+            border: 1px solid #bae6fd;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box h3 {
+            font-size: 9.5pt;
+            color: #0369a1;
+            margin-bottom: 4px;
+        }
+
+        /* Education & Certifications */
+        .two-col {
+            width: 100%;
+        }
+
+        .two-col td {
+            width: 50%;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Alex Mercer</h1>
+        <div class="subtitle">Senior Software Debugging & Systems Diagnostics Engineer</div>
+        <div class="contact-info">
+            <span><strong>Email:</strong> alex.mercer.debug@email.com</span>
+            <span><strong>Phone:</strong> +1 (555) 019-2834</span>
+            <span><strong>Location:</strong> San Jose, CA</span>
+            <span><strong>LinkedIn:</strong> linkedin.com/in/alex-mercer-debug</span>
+            <span><strong>GitHub:</strong> github.com/alex-mercer-dev</span>
+        </div>
+    </div>
+
+    <div class="summary">
+        High-impact Software Diagnostics & Systems Debugging Specialist with 8+ years of experience analyzing complex distributed architectures, kernel-level crashes, memory leaks, and performance bottlenecks. Proven track record in root-cause analysis (RCA), static/dynamic code analysis, reverse engineering, and production incident remediation. Adept at creating specialized debugging toolchains and automated crash analysis pipelines to reduce Mean Time to Resolution (MTTR) by over 40%.
+    </div>
+
+    <h2>Core Competencies & Toolset</h2>
+    <table class="skills-table">
+        <tr>
+            <td class="label">Debuggers & Tracing:</td>
+            <td class="value">GDB, LLDB, WinDbg, Valgrind, Strace, Lttng, Perf, eBPF, Wireshark, DTrace</td>
+        </tr>
+        <tr>
+            <td class="label">Languages & Runtimes:</td>
+            <td class="value">C, C++, Rust, Python, Go, x86-64 Assembly, Java (JVM Profiling)</td>
+        </tr>
+        <tr>
+            <td class="label">Diagnostic Techniques:</td>
+            <td class="value">Core Dump Analysis, Heap & Stack Inspection, Race Condition Isolation, Memory Profiling, Static Analysis</td>
+        </tr>
+        <tr>
+            <td class="label">Systems & Environments:</td>
+            <td class="value">Linux Kernel, POSIX Systems, Windows Internals, Microservices, Docker, Kubernetes</td>
+        </tr>
+        <tr>
+            <td class="label">Automation & Scripting:</td>
+            <td class="value">GDB Python API, Bash, CI/CD Bug Triage Integrations, ELK Stack, Prometheus</td>
+        </tr>
+    </table>
+
+    <h2>Professional Experience</h2>
+
+    <div class="job-block">
+        <div class="job-header">
+            <span class="job-title">Staff Systems Debugging Engineer</span> | <span class="job-company">Apex Cloud Technologies</span>
+            <span class="job-date">2023 – Present | San Jose, CA</span>
+        </div>
+        <ul>
+            <li><strong>Production Incident Triage:</strong> Serve as Tier-3 escalation lead for critical, non-reproducible bugs in a distributed Kubernetes microservices mesh serving 10M+ daily active users.</li>
+            <li><strong>Automated Crash Analysis:</strong> Engineered an eBPF-based automated telemetry pipeline that captures micro-burst CPU spikes and memory corruption events, reducing MTTR for high-severity incidents by 45%.</li>
+            <li><strong>Memory Leak Resolution:</strong> Identified and resolved a complex, non-deterministic memory leak in C++ RPC networking libraries via Valgrind and custom GDB scripts, saving $120K annually in cloud infrastructure costs.</li>
+            <li><strong>Post-Mortem Leadership:</strong> Authored detailed Root Cause Analysis (RCA) reports and mentored engineering teams on defensive programming practices and post-mortem debugging.</li>
+        </ul>
+    </div>
+
+    <div class="job-block">
+        <div class="job-header">
+            <span class="job-title">Senior Software Diagnostics & Performance Engineer</span> | <span class="job-company">Nexus Systems Solutions</span>
+            <span class="job-date">2020 – 2023 | Austin, TX</span>
+        </div>
+        <ul>
+            <li><strong>Kernel & Driver Debugging:</strong> Analyzed Linux kernel panic dumps and driver fault logs using Crash and GDB; fixed 30+ race conditions and deadlocks in low-level storage drivers.</li>
+            <li><strong>JVM & Application Profiling:</strong> Utilized Async-Profiler and JProfiler to isolate high tail-latency issues in backend microservices, optimizing lock contention and improving API response times by 35%.</li>
+            <li><strong>Reverse Engineering:</strong> Decompiled legacy proprietary binaries with Ghidra and IDA Pro to document undocumented API behaviors and patch critical security vulnerabilities without source access.</li>
+        </ul>
+    </div>
+
+    <div class="job-block">
+        <div class="job-header">
+            <span class="job-title">Software Engineer - Bug Remediation & Automation</span> | <span class="job-company">Vanguard Software Corp</span>
+            <span class="job-date">2018 – 2020 | Seattle, WA</span>
+        </div>
+        <ul>
+            <li><strong>Static & Dynamic Analysis:</strong> Integrated SonarQube and AddressSanitizer (ASan) into the automated CI/CD pipeline, catching 200+ memory safety issues before deployment to production.</li>
+            <li><strong>Root Cause Analysis:</strong> Investigated multi-threaded concurrency bugs in core C++ processing engines using thread sanitizer (TSan) and custom logging harness.</li>
+        </ul>
+    </div>
+
+    <h2>Key Accomplishments & Debugging Projects</h2>
+    <div class="highlight-box">
+        <h3>Custom GDB Extension Framework (Open Source)</h3>
+        <p>Created a custom Python extension for GDB to automatically parse complex standard template library (STL) data structures in memory dumps, shortening manual investigation time for core dumps from hours to minutes.</p>
+    </div>
+
+    <h2>Education & Certifications</h2>
+    <table class="two-col">
+        <tr>
+            <td>
+                <strong>B.S. in Computer Science</strong><br>
+                University of California, Berkeley (2014 – 2018)<br>
+                <span style="color: #64748b;">Focus: Operating Systems, Systems Architecture</span>
+            </td>
+            <td>
+                <strong>Certifications:</strong><br>
+                • Linux Foundation Certified Systems Administrator (LFCS)<br>
+                • Certified Information Systems Security Professional (CISSP) - Auditing<br>
+                • eLearnSecurity Certified Reverse Engineer (eCRE)
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
