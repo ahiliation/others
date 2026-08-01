@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  @page {
+    size: A4;
+    margin: 12mm 15mm 12mm 15mm;
+    background-color: #ffffff;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #2d3748;
+    background-color: #ffffff;
+    font-size: 9.5pt;
+    line-height: 1.4;
+  }
+  
+  /* Header Styles */
+  .header {
+    border-bottom: 2px solid #2b6cb0;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    margin: 0 0 4px 0;
+    font-size: 20pt;
+    color: #1a365d;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .header .title-sub {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #2b6cb0;
+    margin-bottom: 6px;
+  }
+  .contact-info {
+    font-size: 8.5pt;
+    color: #4a5568;
+  }
+  .contact-info span {
+    margin-right: 12px;
+  }
+
+  /* Two Column Layout using Table for WeasyPrint */
+  .layout-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .layout-table td {
+    vertical-align: top;
+    padding: 0;
+  }
+  .left-col {
+    width: 67%;
+    padding-right: 15px !important;
+  }
+  .right-col {
+    width: 33%;
+    padding-left: 12px !important;
+    border-left: 1px solid #e2e8f0;
+  }
+
+  /* Section Styling */
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1a365d;
+    text-transform: uppercase;
+    border-bottom: 1px solid #cbd5e0;
+    padding-bottom: 3px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  
+  .summary-text {
+    margin-bottom: 12px;
+    color: #384252;
+    text-align: justify;
+  }
+
+  /* Job Block Styling */
+  .job-block {
+    margin-bottom: 12px;
+  }
+  .job-header {
+    margin-bottom: 3px;
+  }
+  .job-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #2d3748;
+  }
+  .job-company {
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: #2b6cb0;
+  }
+  .job-meta {
+    float: right;
+    font-size: 8.5pt;
+    color: #718096;
+    font-weight: 400;
+  }
+  .clear {
+    clear: both;
+  }
+  .job-description {
+    margin: 0;
+    padding-left: 14px;
+  }
+  .job-description li {
+    margin-bottom: 3px;
+    color: #384252;
+  }
+
+  /* Sidebar Styles */
+  .sidebar-block {
+    margin-bottom: 14px;
+  }
+  .sidebar-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #1a365d;
+    text-transform: uppercase;
+    border-bottom: 1px solid #cbd5e0;
+    padding-bottom: 3px;
+    margin-top: 0;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .skill-group {
+    margin-bottom: 8px;
+  }
+  .skill-group-title {
+    font-weight: 700;
+    color: #2b6cb0;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .skill-list {
+    font-size: 8.5pt;
+    color: #4a5568;
+    line-height: 1.35;
+  }
+
+  /* Tag style */
+  .badge {
+    display: inline-block;
+    background-color: #edf2f7;
+    color: #2d3748;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 8pt;
+    margin-right: 3px;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+
+  .edu-item {
+    margin-bottom: 8px;
+  }
+  .edu-degree {
+    font-weight: 700;
+    color: #2d3748;
+    font-size: 9pt;
+  }
+  .edu-school {
+    color: #4a5568;
+    font-size: 8.5pt;
+  }
+  .edu-date {
+    color: #718096;
+    font-size: 8pt;
+  }
+
+  .cert-item {
+    margin-bottom: 5px;
+    font-size: 8.5pt;
+  }
+  .cert-name {
+    font-weight: 600;
+    color: #2d3748;
+  }
+  .cert-issuer {
+    color: #718096;
+    font-size: 8pt;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Alex R. Mercer</h1>
+    <div class="title-sub">Senior Systems Engineer & Full-Stack Web Developer</div>
+    <div class="contact-info">
+      <span>📧 alex.mercer@email.com</span>
+      <span>📱 (555) 019-2834</span>
+      <span>📍 San Francisco, CA</span>
+      <span>🔗 linkedin.com/in/alexmercer-dev</span>
+      <span>💻 github.com/alexmercer</span>
+    </div>
+  </div>
+
+  <table class="layout-table">
+    <tr>
+      <!-- Main Content (Left Column) -->
+      <td class="left-col">
+        
+        <!-- Summary -->
+        <div class="section-title">Professional Summary</div>
+        <div class="summary-text">
+          Versatile and results-driven Senior Engineer with over 8 years of cross-functional expertise bridging cloud infrastructure, systems engineering, and modern web development. Proven track record in designing resilient microservice architectures, automating CI/CD pipelines, and building responsive, user-centric web applications. Adept at optimizing system performance, scaling infrastructure, and bridging technical gaps between operations and software development teams.
+        </div>
+
+        <!-- Experience -->
+        <div class="section-title">Professional Experience</div>
+
+        <!-- Job 1 -->
+        <div class="job-block">
+          <div class="job-header">
+            <span class="job-title">Lead Systems & Infrastructure Engineer</span>
+            <span class="job-meta">2023 – Present</span>
+            <div class="job-company">Nexus Cloud Solutions | San Francisco, CA</div>
+          </div>
+          <ul class="job-description">
+            <li>Architected and deployed multi-region AWS Kubernetes (EKS) clusters supporting high-traffic microservices, achieving 99.99% system availability.</li>
+            <li>Designed infrastructure-as-code (IaC) templates using Terraform and Ansible, cutting provisioning time for enterprise client environments by 65%.</li>
+            <li>Implemented centralized monitoring and logging using Prometheus, Grafana, and ELK stack, reducing Mean Time to Detection (MTTD) by 40%.</li>
+            <li>Partnered with frontend and backend developers to design API gateways and service meshes (Istio) for scalable web platforms.</li>
+          </ul>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-block">
+          <div class="job-header">
+            <span class="job-title">Senior Full-Stack Web Developer</span>
+            <span class="job-meta">2020 – 2023</span>
+            <div class="job-company">Vanguard Tech Innovations | San Jose, CA</div>
+          </div>
+          <ul class="job-description">
+            <li>Spearheaded development of a real-time data visualization dashboard using React, TypeScript, and Node.js, utilized by over 100k active daily users.</li>
+            <li>Refactored legacy monolithic web application into modern React/REST API architecture, improving client page load times by 55%.</li>
+            <li>Integrated WebSockets and GraphQL APIs for seamless live data streaming and state management across enterprise web applications.</li>
+            <li>Managed end-to-end web deployment pipelines using Docker, GitLab CI, and AWS S3/CloudFront.</li>
+          </ul>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-block">
+          <div class="job-header">
+            <span class="job-title">Systems Administrator & Web Engineer</span>
+            <span class="job-meta">2017 – 2020</span>
+            <div class="job-company">Apex Digital Media | Austin, TX</div>
+          </div>
+          <ul class="job-description">
+            <li>Maintained Linux/Unix web server fleet (Nginx/Apache), managing security patching, SSL certificates, and server hardening.</li>
+            <li>Developed custom PHP/Laravel web portals and internal automation tools to streamline content deployment and database synchronization.</li>
+            <li>Automated daily database backup and failover recovery procedures for PostgreSQL and MySQL clusters.</li>
+          </ul>
+        </div>
+
+        <!-- Key Hybrid Projects -->
+        <div class="section-title">Highlighted Hybrid Projects</div>
+        <div class="job-block">
+          <div class="job-header">
+            <span class="job-title">Cloud Native Web Monitoring Suite</span> <span class="job-meta">Open Source</span>
+          </div>
+          <ul class="job-description">
+            <li>Built an open-source web application (Vue.js + Go) for monitoring distributed server health and automated alert dispatching via Webhooks.</li>
+          </ul>
+        </div>
+
+      </td>
+
+      <!-- Sidebar (Right Column) -->
+      <td class="right-col">
+        
+        <!-- Technical Skills -->
+        <div class="sidebar-block">
+          <div class="sidebar-title">Technical Core</div>
+          
+          <div class="skill-group">
+            <div class="skill-group-title">Systems & DevOps</div>
+            <div class="skill-list">
+              Linux/Unix (RHEL, Ubuntu)<br>
+              Docker & Kubernetes (EKS)<br>
+              Terraform & Ansible<br>
+              AWS, GCP, Hybrid Cloud<br>
+              CI/CD (GitHub Actions, GitLab)<br>
+              Nginx, HAProxy, Service Mesh
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Web Development</div>
+            <div class="skill-list">
+              TypeScript, JavaScript (ES6+)<br>
+              React.js, Next.js, Vue.js<br>
+              Node.js, Express, Python (FastAPI)<br>
+              HTML5, CSS3, Tailwind CSS<br>
+              RESTful APIs, GraphQL, WebSockets
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Databases & Tools</div>
+            <div class="skill-list">
+              PostgreSQL, MySQL, Redis<br>
+              MongoDB, Elasticsearch<br>
+              Git, Prometheus, Grafana
+            </div>
+          </div>
+        </div>
+
+        <!-- Domains & Specializations -->
+        <div class="sidebar-block">
+          <div class="sidebar-title">Key Competencies</div>
+          <span class="badge">Distributed Systems</span>
+          <span class="badge">Cloud Architecture</span>
+          <span class="badge">Full-Stack Dev</span>
+          <span class="badge">Microservices</span>
+          <span class="badge">Site Reliability (SRE)</span>
+          <span class="badge">Performance Optimization</span>
+          <span class="badge">API Design</span>
+        </div>
+
+        <!-- Certifications -->
+        <div class="sidebar-block">
+          <div class="sidebar-title">Certifications</div>
+          <div class="cert-item">
+            <div class="cert-name">AWS Solutions Architect</div>
+            <div class="cert-issuer">Amazon Web Services (2023)</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Certified Kubernetes Administrator (CKA)</div>
+            <div class="cert-issuer">Cloud Native Computing Foundation</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Meta Front-End Developer Specialization</div>
+            <div class="cert-issuer">Meta / Coursera</div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="sidebar-block">
+          <div class="sidebar-title">Education</div>
+          <div class="edu-item">
+            <div class="edu-degree">B.S. in Computer Science</div>
+            <div class="edu-school">University of California, Berkeley</div>
+            <div class="edu-date">Graduated 2017</div>
+          </div>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
