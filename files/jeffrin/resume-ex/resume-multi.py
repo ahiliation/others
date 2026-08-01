@@ -229,18 +229,18 @@ html_content = """<!DOCTYPE html>
 
     <!-- Header -->
     <div class="header">
-        <h1>Alex Mercer</h1>
+        <h1>Jeffrin Jose T</h1>
         <div class="subtitle">Open Source Systems Engineer & Technical Educator</div>
         <div class="contact-bar">
             <div class="contact-row">
-                <div class="contact-cell"><strong>Email:</strong> alex.mercer.dev@gmail.com</div>
-                <div class="contact-cell"><strong>GitHub:</strong> github.com/alexmercer-dev</div>
-                <div class="contact-cell"><strong>Location:</strong> San Francisco, CA / Remote</div>
+                <div class="contact-cell"><strong>Email:</strong>jeffrin@rajagiritech.edu.in</div>
+                <div class="contact-cell"><strong>GitHub:</strong> github.com/ahiliation</div>
+                <div class="contact-cell"><strong>Location:</strong> India / Remote</div>
             </div>
             <div class="contact-row" style="margin-top: 3px;">
                 <div class="contact-cell"><strong>Portfolio:</strong> alexmercer.dev</div>
-                <div class="contact-cell"><strong>LinkedIn:</strong> linkedin.com/in/alexmercer-dev</div>
-                <div class="contact-cell"><strong>OSSF Member:</strong> Open Source Security Foundation</div>
+                <div class="contact-cell"><strong>LinkedIn:</strong> linkedin.com/in/jeffrinl</div>
+                <div class="contact-cell"><strong> </strong> Open Source Security Foundation</div>
             </div>
         </div>
     </div>
