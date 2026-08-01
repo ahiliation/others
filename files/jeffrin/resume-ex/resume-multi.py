@@ -1,0 +1,374 @@
+import os
+from weasyprint import HTML
+
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume - Open Source Engineer & Technical Educator</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm 15mm;
+            background-color: #fcfcfd;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.45;
+            font-size: 9.5pt;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Section */
+        .header {
+            border-bottom: 2px solid #0f766e;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 4px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #0f766e;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-bar {
+            display: table;
+            width: 100%;
+            font-size: 8.8pt;
+            color: #475569;
+        }
+
+        .contact-row {
+            display: table-row;
+        }
+
+        .contact-cell {
+            display: table-cell;
+            padding-right: 12px;
+            vertical-align: middle;
+        }
+
+        .contact-cell strong {
+            color: #1e293b;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin: 12px 0 6px 0;
+            padding-bottom: 3px;
+            border-bottom: 1.5px solid #cbd5e1;
+            page-break-after: avoid;
+        }
+
+        /* Executive Summary */
+        .summary {
+            font-size: 9.2pt;
+            color: #334155;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        /* Layout Grid via Table */
+        .layout-table {
+            display: table;
+            width: 100%;
+        }
+
+        .layout-row {
+            display: table-row;
+        }
+
+        /* Skill Grid */
+        .skills-table {
+            display: table;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .skill-row {
+            display: table-row;
+        }
+
+        .skill-title {
+            display: table-cell;
+            width: 26%;
+            font-weight: 700;
+            color: #0f766e;
+            padding: 3px 6px 3px 0;
+            vertical-align: top;
+            font-size: 8.8pt;
+        }
+
+        .skill-desc {
+            display: table-cell;
+            width: 74%;
+            color: #334155;
+            padding: 3px 0;
+            vertical-align: top;
+            font-size: 8.8pt;
+        }
+
+        /* Experience & Projects */
+        .item {
+            margin-bottom: 10px;
+            page-break-inside: avoid;
+        }
+
+        .item-header {
+            display: table;
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+        .item-title {
+            display: table-cell;
+            font-weight: 700;
+            font-size: 10pt;
+            color: #0f172a;
+        }
+
+        .item-role {
+            font-weight: 600;
+            color: #0f766e;
+        }
+
+        .item-date {
+            display: table-cell;
+            text-align: right;
+            font-size: 8.5pt;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .item-sub {
+            font-size: 8.8pt;
+            color: #475569;
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        ul.bullet-list {
+            margin: 3px 0 0 0;
+            padding-left: 15px;
+        }
+
+        ul.bullet-list li {
+            margin-bottom: 3px;
+            color: #334155;
+            font-size: 9pt;
+        }
+
+        /* Highlights Box */
+        .highlight-box {
+            background-color: #f1f5f9;
+            border-left: 3px solid #0f766e;
+            padding: 6px 10px;
+            margin: 6px 0 10px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 8.8pt;
+            color: #334155;
+        }
+
+        /* Two Column Layout for Certs/Edu */
+        .col-left {
+            display: table-cell;
+            width: 50%;
+            padding-right: 10px;
+            vertical-align: top;
+        }
+
+        .col-right {
+            display: table-cell;
+            width: 50%;
+            padding-left: 10px;
+            vertical-align: top;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Alex Mercer</h1>
+        <div class="subtitle">Open Source Systems Engineer & Technical Educator</div>
+        <div class="contact-bar">
+            <div class="contact-row">
+                <div class="contact-cell"><strong>Email:</strong> alex.mercer.dev@gmail.com</div>
+                <div class="contact-cell"><strong>GitHub:</strong> github.com/alexmercer-dev</div>
+                <div class="contact-cell"><strong>Location:</strong> San Francisco, CA / Remote</div>
+            </div>
+            <div class="contact-row" style="margin-top: 3px;">
+                <div class="contact-cell"><strong>Portfolio:</strong> alexmercer.dev</div>
+                <div class="contact-cell"><strong>LinkedIn:</strong> linkedin.com/in/alexmercer-dev</div>
+                <div class="contact-cell"><strong>OSSF Member:</strong> Open Source Security Foundation</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professional Summary -->
+    <div class="summary">
+        Versatile <strong>Open Source Systems Engineer, Debugger, Web Developer, and Technical Educator</strong> with over 8 years of experience building and scaling open-source infrastructure, diagnosing complex low-level performance bottlenecks, and creating full-stack web platforms. Active open-source maintainer with over 12,000 combined GitHub stars across infrastructure, kernel diagnostic tools, and developer education frameworks. Dedicated mentor and author who has authored interactive curricula adopted by university CS programs and mentored 20+ Google Summer of Code (GSoC) & Outreachy contributors.
+    </div>
+
+    <!-- Technical Skills Matrix -->
+    <h2>Technical Expertise</h2>
+    <div class="skills-table">
+        <div class="skill-row">
+            <div class="skill-title">System Administration</div>
+            <div class="skill-desc">Linux Systems Architecture (RHEL/Debian/Arch), Kubernetes, Docker, Ansible, Terraform, Nginx, BGP/Networking, CI/CD Pipelines, Systemd, Prometheus, Grafana, Security Hardening.</div>
+        </div>
+        <div class="skill-row">
+            <div class="skill-title">Debugging & Diagnostics</div>
+            <div class="skill-desc">eBPF / BCC, GDB, Valgrind, <code>perf</code>, Strace, Wireshark, Core Dump Analysis, Flame Graphs, Memory Leak Tracing, Kernel Panics, Network Latency Profiling.</div>
+        </div>
+        <div class="skill-row">
+            <div class="skill-title">Web Development</div>
+            <div class="skill-desc">TypeScript, Node.js, Python (FastAPI / Django), Go, React, Next.js, PostgreSQL, Redis, REST & GraphQL APIs, WebSockets, WebAssembly (Wasm), Web Vitals Optimization.</div>
+        </div>
+        <div class="skill-row">
+            <div class="skill-title">Education & Community</div>
+            <div class="skill-desc">Technical Authoring, Interactive Workshops, GSoC/Outreachy Mentorship, Open Source Governance, API Documentation, Public Speaking, Hands-on Lab Design.</div>
+        </div>
+    </div>
+
+    <!-- Open Source Maintainership & Key Projects -->
+    <h2>Key Open Source Contributions & Projects</h2>
+
+    <div class="item">
+        <div class="item-header">
+            <div class="item-title"><span class="item-role">Creator & Primary Maintainer</span> — <em>KernelTrace-CLI</em></div>
+            <div class="item-date">github.com/alexmercer-dev/kerneltrace-cli (4.8k ★)</div>
+        </div>
+        <ul class="bullet-list">
+            <li>Engineered an eBPF-powered real-time system call tracing and performance diagnostic utility written in Go and Rust for Linux servers.</li>
+            <li>Enabled enterprise sysadmins to identify sub-millisecond I/O bottlenecks and memory leaks with minimal CPU overhead (&lt;0.5%).</li>
+            <li>Created comprehensive interactive CLI tutorials, enabling 150+ community contributors to submit kernel telemetry probes.</li>
+        </ul>
+    </div>
+
+    <div class="item">
+        <div class="item-header">
+            <div class="item-title"><span class="item-role">Core Contributor & Web Architect</span> — <em>OpenCloud Dashboard</em></div>
+            <div class="item-date">github.com/opencloud/dashboard (7.2k ★)</div>
+        </div>
+        <ul class="bullet-list">
+            <li>Architected high-performance web UI in React, TypeScript, and WebSockets for real-time monitoring of open-source container clusters.</li>
+            <li>Implemented custom interactive log-viewer with WebGL acceleration capable of streaming 50,000 log events/sec without browser lag.</li>
+            <li>Authored full documentation suite and developer onboarding guides, reducing pull request review cycles by 35%.</li>
+        </ul>
+    </div>
+
+    <!-- Professional Experience -->
+    <h2>Professional Experience</h2>
+
+    <div class="item">
+        <div class="item-header">
+            <div class="item-title">Senior Systems Administrator & Open Source Lead — <span class="item-role">FossSphere Infrastructure</span></div>
+            <div class="item-date">2022 – Present</div>
+        </div>
+        <ul class="bullet-list">
+            <li>Managed multi-region hybrid Linux cluster (600+ bare-metal and cloud nodes) powering open-source mirror networks with 99.99% uptime.</li>
+            <li>Diagnosed and patched critical concurrency and kernel-level socket memory leaks in high-throughput Nginx proxy nodes using eBPF and GDB.</li>
+            <li>Designed and deployed an open-source web-based metrics platform (FastAPI, React, TimescaleDB) to monitor cluster health and automate triage alerts.</li>
+            <li>Spearheaded internal technical education series, teaching 40+ cloud engineers advanced Linux system administration, shell scripting, and crash dump analysis.</li>
+        </ul>
+    </div>
+
+    <div class="item">
+        <div class="item-header">
+            <div class="item-title">Full-Stack Web Developer & Technical Educator — <span class="item-role">CodeLab Open Learning</span></div>
+            <div class="item-date">2019 – 2022</div>
+        </div>
+        <ul class="bullet-list">
+            <li>Developed open-source web platform for interactive browser-based coding labs, serving over 300,000 monthly active tech learners.</li>
+            <li>Built browser-sandboxed terminal emulator using WebAssembly (Wasm) and Node.js, allowing students to execute real Linux commands safely.</li>
+            <li>Authored 25+ comprehensive open-access learning modules on web performance, RESTful API security, and systems debugging.</li>
+            <li>Mentored 12 Google Summer of Code (GSoC) students in building full-stack web features and open-source DevOps tooling.</li>
+        </ul>
+    </div>
+
+    <div class="item">
+        <div class="item-header">
+            <div class="item-title">Linux Systems Administrator & Systems Debugger — <span class="item-role">Apex Data Systems</span></div>
+            <div class="item-date">2016 – 2019</div>
+        </div>
+        <ul class="bullet-list">
+            <li>Automated server provisioning, configuration management, and patching across 200+ Debian and RHEL instances using Ansible and Bash.</li>
+            <li>Performed root-cause analysis (RCA) on production system crashes, network packet loss, and database lockups using <code>perf</code>, <code>strace</code>, and GDB.</li>
+            <li>Created and hosted bi-weekly internal Linux shell bootcamps and debugging workshops for junior developers and sysadmin staff.</li>
+        </ul>
+    </div>
+
+    <!-- Education, Certifications & Community -->
+    <h2>Education, Certifications & Community</h2>
+    <div class="layout-table">
+        <div class="layout-row">
+            <div class="col-left">
+                <div style="font-weight: 700; color: #0f172a; margin-bottom: 4px;">Education & Certifications</div>
+                <ul class="bullet-list" style="padding-left: 12px; margin-top: 0;">
+                    <li><strong>B.S. in Computer Science</strong> — Univ. of California (2012–2016)</li>
+                    <li><strong>Linux Foundation Certified System Administrator (LFCS)</strong></li>
+                    <li><strong>Certified Kubernetes Administrator (CKA)</strong></li>
+                    <li><strong>Red Hat Certified Engineer (RHCE)</strong></li>
+                </ul>
+            </div>
+            <div class="col-right">
+                <div style="font-weight: 700; color: #0f172a; margin-bottom: 4px;">Talks & Mentorship</div>
+                <ul class="bullet-list" style="padding-left: 12px; margin-top: 0;">
+                    <li><strong>Speaker, Open Source Summit:</strong> <em>"Debugging Linux Systems in Production with eBPF"</em></li>
+                    <li><strong>GSoC / Outreachy Org Admin & Mentor:</strong> 2020 – Present</li>
+                    <li><strong>Host, FOSS Developer Podcast & Video Tutorials:</strong> 45k+ Subscribers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+"""
+
+with open("open_source_engineer_resume.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+HTML("open_source_engineer_resume.html").write_pdf("open_source_engineer_resume.pdf")
+print("PDF generated successfully.")
