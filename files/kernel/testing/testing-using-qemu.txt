@@ -1,0 +1,135 @@
+
+Conversation with Gemini
+generate a howto to do regression testing on linux kernel using qemu
+
+Testing Linux kernel regressions with QEMU gives you a fast, isolated environment to boot new kernel builds, run test suites, and isolate breaking changes without risking host instability.
+
+Prerequisites
+Before starting, install the build tools, QEMU, and git:
+
+Bash
+# On Debian/Ubuntu
+sudo apt update
+sudo apt install build-essential libncurses-dev bison flex libssl-dev libelf-dev \
+                 qemu-system-x86 qemu-utils busybox git
+1
+Clone the Linux Kernel Source Tree
+Obtain the mainline or stable Linux tree from kernel.org to begin testing.
+
+Bash
+git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+cd linux
+2
+Build a Minimal Root Filesystem (BusyBox Initramfs)
+QEMU needs an initial RAM filesystem (initramfs) containing a basic shell and test script to run upon booting.
+
+Create workspace and directory layout:
+
+Bash
+mkdir -p ../initramfs/{bin,sbin,etc,proc,sys,usr/bin,usr/sbin}
+cd ../initramfs
+Create an /init script:
+
+Bash
+cat << 'EOF' > init
+#!/bin/sh
+mount -t proc none /proc
+mount -t sysfs none /sys
+echo "--- KERNEL BOOT SUCCESSFUL: $(uname -r) ---"
+
+# Place test suite invocation or test assertions here
+/bin/sh
+EOF
+chmod +x init
+Copy Busybox into the initramfs:
+
+Bash
+cp $(which busybox) bin/
+busybox --install -s bin/
+Pack the initramfs:
+
+Bash
+find . -print0 | cpio --null -ov --format=newc | gzip -9 > ../initramfs.cpio.gz
+cd ../linux
+3
+Configure and Build the Baseline Kernel
+Disable unnecessary drivers to keep build times under 2 minutes
+Create a lightweight kernel config suited for QEMU virtualization.
+
+Bash
+# Generate default x86_64 config
+make defconfig
+
+# Ensure required virtio & QEMU drivers are built-in
+scripts/config --enable CONFIG_VIRTIO_PCI
+scripts/config --enable CONFIG_VIRTIO_NET
+scripts/config --enable CONFIG_VIRTIO_BLK
+scripts/config --enable CONFIG_NET_9P_VIRTIO
+
+# Compile the kernel image using all CPU cores
+make -j$(nproc) bzImage
+4
+Run the Kernel in QEMU
+Boot your freshly compiled kernel with QEMU, passing your initramfs and console output arguments.
+
+Bash
+qemu-system-x86_64 \
+  -kernel arch/x86/boot/bzImage \
+  -initrd ../initramfs.cpio.gz \
+  -nographic \
+  -append "console=ttyS0 quiet panic=-1" \
+  -m 1024M
+To exit QEMU at any point, press Ctrl + A then X.
+
+5
+Integrate Test Suites (kselftest or KUnit)
+Run kernel test suites within the QEMU environment to detect regressions automatically.
+
+KUnit (In-kernel unit tests): Run directly with the KUnit wrapper script, which configures, builds, and boots QEMU automatically:
+
+Bash
+./tools/testing/kunit/kunit.py run --arch=x86_64
+Linux Kernel Selftests (kselftest): Build target tests and bundle them into your initramfs or mount them over 9p/virtio-fs:
+
+Bash
+make -C tools/testing/selftests TARGETS=net install INSTALL_PATH=../initramfs/kselftest
+6
+Automate Regression Isolation with Git Bisect
+When a regression is discovered between two commits (e.g., v6.6 works, but v6.7 fails), automate finding the broken commit using git bisect and a QEMU boot test script.
+
+Create an automated test script (test_script.sh):
+
+Bash
+#!/bin/bash
+make -j$(nproc) bzImage || exit 125 # Skip uncompilable commits
+
+# Run QEMU and capture output
+timeout 30s qemu-system-x86_64 \
+  -kernel arch/x86/boot/bzImage \
+  -initrd ../initramfs.cpio.gz \
+  -nographic \
+  -append "console=ttyS0 panic=-1" > boot.log 2>&1
+
+# Check if test passed or failed
+grep -q "KERNEL BOOT SUCCESSFUL" boot.log
+Bash
+chmod +x test_script.sh
+Start the automated bisection:
+
+Bash
+git bisect start
+git bisect bad v6.7
+git bisect good v6.6
+git bisect run ./test_script.sh
+Git will automatically build, boot, test, and narrow down the exact commit causing the regression.
+
+
+Tip for Faster Iteration: For complex testing that requires access to your host filesystem inside QEMU without building custom initramfs images, consider using virtme-ng. It leverages virtiofs to boot the host system's rootfs with a newly compiled kernel in seconds:
+
+Bash
+vng --build && vng --run
+
+
+
+Gemini is AI and can make mistakes.
+
