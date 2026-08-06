@@ -9,6 +9,9 @@ Morning:
    nebicard 2.5    : 1
    lopomide        : 1
 
+Afternoon:
+  ferorace	  : 1
+
 Might:
   serlift 100     : 1
   glufomin XL 500 : 1
